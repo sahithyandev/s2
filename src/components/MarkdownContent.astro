@@ -1,0 +1,73 @@
+---
+import Default from "@astrojs/starlight/components/MarkdownContent.astro";
+import type { Props } from "@astrojs/starlight/props";
+import ContentEntries from "./ContentEntries.astro";
+
+const isHomepage = Astro.props.slug === "";
+---
+
+{
+	isHomepage ? (
+		<div class="sl-markdown-content">
+			<p>
+				I have included all
+				<a href="https://sahithyan.dev" class="text-[var(--sl-color-accent)]">
+					my
+				</a>{" "}
+				1st semester short notes of Engineering as a website.
+			</p>
+			<p>
+				You can contact me if something is missing or you find anything wrong.
+				This wouldn't be possible without the help of my friends. Huge thanks
+				for everyone involved.
+			</p>
+			<h2 id="why">Why?</h2>{" "}
+			<ul>
+				<li>Indexable. Exercise books are not.</li>{" "}
+				<li>Accessible from everywhere.</li> <li>Helpful to everyone.</li>{" "}
+			</ul>{" "}
+			<h2 id="support-me">Want to support?</h2>
+			<p>
+				If you want to support my work, you can get the notes as{" "}
+				<b>a 380 paged PDF</b>
+				from{" "}
+				<a href="/e-book" target="_blank">
+					my page on Buy Me a Coffee
+				</a>{" "}
+				for <b>$6</b>.
+			</p>
+			<p>
+				I have spent a lot of time on this and I would appreciate your support.
+			</p>
+			<h2 class="mb-1">Content Included</h2>
+			<div id="content-included">
+				<p>
+					<Fragment>
+						<strong class="text-inherit underline underline-offset-4">
+							All the content except the images in this website is shared under
+							<a
+								href="/license"
+								id="license"
+								class="text-[var(--sl-color-accent)]"
+							>
+								CC BY-NC-ND 4.0
+							</a>
+							.
+						</strong>
+						<br />
+					</Fragment>
+					Images are either mine, or from the internet or from the lecture
+					notes.
+				</p>
+				<ContentEntries entries={Astro.props.sidebar} />
+			</div>{" "}
+		</div>
+	) : (
+		<div>
+			{/* @ts-ignore */}
+			<Default {...Astro.props} data-pagefind-body>
+				<slot />
+			</Default>
+		</div>
+	)
+}

@@ -1,0 +1,40 @@
+---
+import DefaultPageSidebar from "@astrojs/starlight/components/Sidebar.astro";
+import type { Props } from "@astrojs/starlight/props";
+
+if (Array.isArray(Astro.props.sidebar)) {
+	Astro.props.sidebar.unshift({
+		label: "E-book",
+		badge: {
+			text: "New",
+			variant: "success",
+		},
+		type: "link",
+		isCurrent: false,
+		attrs: {},
+		href: "/#support-me",
+	});
+}
+---
+
+{
+	(
+		// @ts-ignore
+		<DefaultPageSidebar {...Astro.props}>
+			{" "}
+			<slot />{" "}
+		</DefaultPageSidebar>
+	)
+}
+
+<script>
+	const activeEl = document.querySelector(
+		"#starlight__sidebar a[aria-current]"
+	);
+	if (activeEl instanceof HTMLElement) {
+		activeEl.scrollIntoView({
+			behavior: "instant",
+			block: "center",
+		});
+	}
+</script>

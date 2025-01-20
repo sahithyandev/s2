@@ -1,0 +1,27 @@
+---
+import Default from "@astrojs/starlight/components/Head.astro";
+import type { Props } from "@astrojs/starlight/props";
+
+const id = Astro.props.id === ".md" ? "index.md" : Astro.props.id;
+
+// Get the URL of the generated image for the current page using its // ID and
+// replace the file extension with `.png`.
+const ogImageUrl = new URL(
+	`/og/${id.replace(/\.\w+$/, ".png").replace(/\d+-/, "")}`,
+	Astro.site,
+);
+---
+
+<!-- Render the default <Head/> component. -->
+<Default {...Astro.props}>
+    <slot />
+</Default>
+
+{ ogImageUrl.pathname.startsWith("/summary/") ? null :<>
+<meta property="og:image" content={ogImageUrl.toString()} />
+<meta name="twitter:image" content={ogImageUrl.toString()} />
+</>
+}
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
