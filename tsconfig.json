@@ -20,5 +20,7 @@
 		"strict": true,
 		"skipLibCheck": true,
 		"noFallthroughCasesInSwitch": true
-	}
+	},
+	"include": [".astro/types.d.ts"],
+	"exclude": ["dist"]
 }
