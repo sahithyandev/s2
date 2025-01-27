@@ -108,6 +108,12 @@ export const STARLIGHT_CONFIG = {
 			},
 		},
 		{
+			label: "Theory of Electricity",
+			autogenerate: {
+				directory: "theory-of-electricity",
+			},
+		},
+		{
 			label: "License",
 			link: "/license",
 		},

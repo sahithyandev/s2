@@ -1,5 +1,5 @@
 {
-	"name": "utils",
+	"name": "s2",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -44,13 +44,23 @@
 		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}": [
 			"biome check --write --no-errors-on-unmatched"
 		],
-		"*.css": ["biome lint --write", "biome format --write"],
+		"*.css": [
+			"biome lint --write",
+			"biome format --write"
+		],
 		"*.md": [
 			"bun scripts/auto-slug.js",
 			"prettier --write .",
 			"bun scripts/fix-vercel-config.ts"
 		],
-		"*.astro": ["prettier --write ."]
+		"*.astro": [
+			"prettier --write ."
+		]
 	},
-	"trustedDependencies": ["@biomejs/biome", "esbuild", "puppeteer", "sharp"]
+	"trustedDependencies": [
+		"@biomejs/biome",
+		"esbuild",
+		"puppeteer",
+		"sharp"
+	]
 }
