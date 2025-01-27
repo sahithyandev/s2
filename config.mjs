@@ -9,12 +9,15 @@ export const CREATE_E_BOOK = process.env.CREATE_E_BOOK || false;
  * @type {Record<string, string>}
  */
 export const MODULE_CODES = {
-	"Electrical Fundamentals": "EE1040",
-	"Fluid Mechanics": "CE1023",
-	Mathematics: "MA1014",
-	Mechanics: "ME1033",
-	"Programming Fundamentals": "CS1033",
-	"Properties of Materials": "MT1023",
+	"Program Construction": "CS1040",
+	"Theory of Electricity": "EE2012",
+
+	"Computer Architecture": "CS2052",
+	"Electronic Devices & Circuits": "EN1012",
+	"Data Structure & Algorithms": "CS2022",
+	"Introduction to Manufacturing Engineering": "ME1802",
+	"Numerical Methods": "MA1032",
+	"Programming Fundamentals": "CS2012",
 };
 
 export const BOOK_CONFIG = {
@@ -98,6 +101,12 @@ export const STARLIGHT_CONFIG = {
 		Footer: "./src/components/Footer.astro",
 	},
 	sidebar: [
+		{
+			label: "Program Construction",
+			autogenerate: {
+				directory: "program-construction",
+			},
+		},
 		{
 			label: "License",
 			link: "/license",
