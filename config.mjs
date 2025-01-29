@@ -56,20 +56,14 @@ const STARLIGHT_CONFIG_HEAD = [
 [2].push(1, 2);
 
 if (process.env.NODE_ENV === "production") {
-	STARLIGHT_CONFIG_HEAD.push(
-		{
-			tag: "script",
-			attrs: {
-				rel: "preload",
-				href: "https://www.googletagmanager.com/gtag/js?id=G-CM1QCK35XF",
-			},
+	STARLIGHT_CONFIG_HEAD.push({
+		tag: "script",
+		attrs: {
+			defer: true,
+			"data-domain": "s2.sahithyan.dev",
+			src: "https://analyitcs.sahithyan.dev/js/script.js",
 		},
-		{
-			tag: "script",
-			content:
-				"window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config', 'G-CM1QCK35XF');",
-		},
-	);
+	});
 }
 
 /**
