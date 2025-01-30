@@ -10,14 +10,11 @@ export const CREATE_E_BOOK = process.env.CREATE_E_BOOK || false;
  */
 export const MODULE_CODES = {
 	"Program Construction": "CS1040",
-	"Theory of Electricity": "EE2012",
-
-	"Computer Architecture": "CS2052",
-	"Electronic Devices & Circuits": "EN1012",
-	"Data Structure & Algorithms": "CS2022",
-	"Introduction to Manufacturing Engineering": "ME1802",
-	"Numerical Methods": "MA1032",
-	"Programming Fundamentals": "CS2012",
+	"Theory of Electricity": "EE2094",
+	"Methods of Mathematics": "MA1024",
+	"Computer Organization and Digital Design": "CS1050",
+	"Data Structure & Algorithms": "CS2023",
+	"Communication Skills": "CS2953",
 };
 
 export const BOOK_CONFIG = {
@@ -95,6 +92,12 @@ export const STARLIGHT_CONFIG = {
 		Footer: "./src/components/Footer.astro",
 	},
 	sidebar: [
+		{
+			label: "Computer Organization and Digital Design",
+			autogenerate: {
+				directory: "computer-organization-and-digital-design",
+			},
+		},
 		{
 			label: "Program Construction",
 			autogenerate: {
