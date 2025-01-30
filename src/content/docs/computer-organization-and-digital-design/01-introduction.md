@@ -20,13 +20,9 @@ Programmability is the differentiator between computers and circuits.
 
 :::
 
-TO watch
-https://www.youtube.com/watch?v=GVsUOuSjvcg
-https://www.youtube.com/watch?v=HyznrdDSSGM&list=PLowKtXNTBypGqImE405J2565dvjafglHU
-
 ## Analog and Digital
 
-Analog devices and systems have time-varying signals that take continuous ranges of values. Digital devices and systems are an abstracted version of analog systems with finitely many discrete states. 2 states are commonly used: HIGH (0) and LOW (1). 
+Analog devices and systems have time-varying signals that take continuous ranges of values. Digital devices and systems are an abstracted version of analog systems with finitely many discrete states. 2 states are commonly used: HIGH (1) and LOW (0). 
 
 ### Comparison
 

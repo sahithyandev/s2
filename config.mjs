@@ -13,7 +13,7 @@ export const MODULE_CODES = {
 	"Theory of Electricity": "EE2094",
 	"Methods of Mathematics": "MA1024",
 	"Computer Organization and Digital Design": "CS1050",
-	"Data Structure & Algorithms": "CS2023",
+	"Data Structures & Algorithms": "CS2023",
 	"Communication Skills": "CS2953",
 };
 
@@ -26,31 +26,29 @@ export const BOOK_CONFIG = {
  * @type {Parameters<typeof starlight>[0]["head"]}
  */
 const STARLIGHT_CONFIG_HEAD = [
-	{
-		tag: "link",
-		attrs: {
-			rel: "preconnect",
-			href: "https://fonts.googleapis.com",
-		},
-	},
-	{
-		tag: "link",
-		attrs: {
-			rel: "preconnect",
-			href: "https://fonts.gstatic.com",
-			crossOrigin: true,
-		},
-	},
-	{
-		tag: "link",
-		attrs: {
-			rel: "stylesheet",
-			href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
-		},
-	},
+	// {
+	//   tag: "link",
+	//   attrs: {
+	//     rel: "preconnect",
+	//     href: "https://fonts.googleapis.com",
+	//   },
+	// },
+	// {
+	//   tag: "link",
+	//   attrs: {
+	//     rel: "preconnect",
+	//     href: "https://fonts.gstatic.com",
+	//     crossOrigin: true,
+	//   },
+	// },
+	// {
+	//   tag: "link",
+	//   attrs: {
+	//     rel: "stylesheet",
+	//     href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+	//   },
+	// },
 ];
-
-[2].push(1, 2);
 
 if (process.env.NODE_ENV === "production") {
 	STARLIGHT_CONFIG_HEAD.push({
@@ -96,6 +94,12 @@ export const STARLIGHT_CONFIG = {
 			label: "Computer Organization and Digital Design",
 			autogenerate: {
 				directory: "computer-organization-and-digital-design",
+			},
+		},
+		{
+			label: "Data Structures & Algorithms",
+			autogenerate: {
+				directory: "data-structure-algorithms",
 			},
 		},
 		{

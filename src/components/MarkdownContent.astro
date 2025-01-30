@@ -3,7 +3,7 @@ import Default from "@astrojs/starlight/components/MarkdownContent.astro";
 import type { Props } from "@astrojs/starlight/props";
 import ContentEntries from "./ContentEntries.astro";
 
-const isHomepage = Astro.props.slug === "";
+const isHomepage = Astro.url.pathname === "/";
 ---
 
 {
@@ -11,10 +11,8 @@ const isHomepage = Astro.props.slug === "";
     <div class="sl-markdown-content">
       <p>
         I have included all
-        <a href="https://sahithyan.dev" class="text-[var(--sl-color-accent)]">
-          my
-        </a>{" "}
-        2nd semester notes of Computer Science & Engineering as a website.
+        <a href="https://sahithyan.dev">my</a> 2nd semester notes of Computer
+        Science & Engineering as a website.
       </p>
       <p>
         You can contact me if something is missing or you find anything wrong.
