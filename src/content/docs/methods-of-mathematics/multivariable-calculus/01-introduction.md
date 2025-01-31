@@ -12,7 +12,7 @@ next: false
 
 A function with more than 1 inputs or outputs.
 
-$\mathbb{R}^n$ denotes a n-dimensional space with each axis denoted by real numbers. 
+$\mathbb{R}^n$ denotes a n-dimensional space with each axis denoted by real numbers. $ $
 
 A function $f: \mathbb{R}^{n} \rightarrow \mathbb{R}$ is a map between a ordered n-tuple to real numbers. The domain can also be $D \subset \mathbb{R}^{n}$. The same can be applied to the output of the function.
 
@@ -66,7 +66,7 @@ Horizontal traces are ellipses. Vertical traces in $x=k$ or $y=k$ are:
 \frac{z}{c} = \frac{x^2}{a^2} + \frac{y^2}{b^2}
 ```
 
-Horizontal traces are ellipses. Vertical traces are parabolas. The variable raised to first power ($z$ in the example), indicates the axis of the paraboloid.
+Horizontal traces are ellipses. Vertical traces are parabolas. The variable raised to first power ($z$ in the example), indicates the axis of the paraboloid. $ $
 
 #### Hyperboloic Paraboloid
 
@@ -143,7 +143,7 @@ Let $D$ be the domain of 2 variable function $f$.
 The below set is called a $\delta$-neighbourhood of the point $(a,b) \in D$ and $\delta > 0$.
 
 ```math
-\set{(x,y)\,|\,\sqrt{(x-a)^2 + (y-b)^2} \lt \delta}
+\Big\{(x,y)\,|\,\sqrt{(x-a)^2 + (y-b)^2} \lt \delta\Big\}
 ```
 
 ### Square neighbourhoods
@@ -151,5 +151,5 @@ The below set is called a $\delta$-neighbourhood of the point $(a,b) \in D$ and 
 The below set is called a square-neighbourhood of the point $(a,b) \in D$ and $\delta > 0$.
 
 ```math
-\set{(x,y)\,|\,|x-a| \lt \delta \land |y-b| \lt \delta
+\Big\{(x,y)\,\text{s.t.}\,\lvert x-a \rvert \lt \delta \land |y-b| \lt \delta\Big\}
 ```
