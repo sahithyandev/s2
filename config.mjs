@@ -97,6 +97,17 @@ export const STARLIGHT_CONFIG = {
 			},
 		},
 		{
+			label: "Methods of Mathematics",
+			items: [
+				{
+					label: "Multivariable Calculus",
+					autogenerate: {
+						directory: "methods-of-mathematics/multivariable-calculus",
+					},
+				},
+			],
+		},
+		{
 			label: "Data Structures & Algorithms",
 			items: [
 				{
