@@ -98,9 +98,20 @@ export const STARLIGHT_CONFIG = {
 		},
 		{
 			label: "Data Structures & Algorithms",
-			autogenerate: {
-				directory: "data-structure-algorithms",
-			},
+			items: [
+				{
+					label: "Algorithms",
+					autogenerate: {
+						directory: "data-structure-algorithms/algorithms",
+					},
+				},
+				{
+					label: "Data structures",
+					autogenerate: {
+						directory: "data-structure-algorithms/data-structures",
+					},
+				},
+			],
 		},
 		{
 			label: "Program Construction",
