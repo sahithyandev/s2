@@ -72,7 +72,8 @@ export const STARLIGHT_CONFIG = {
 	],
 	title: SITE_TITLE,
 	favicon: "/favicon.ico",
-	description: "My 1st semester notes of Engineering",
+	description:
+		"Sahithyan's 2nd semester notes of Computer Science & Engineering",
 	head: STARLIGHT_CONFIG_HEAD,
 	customCss: ["./src/global.css"],
 	tableOfContents: {
