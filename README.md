@@ -28,7 +28,7 @@ My 2nd semester notes of Computer Science & Engineering.
 Each markdown (`.md`) file under `src/content/docs` directory, is exposed as a
 route based on its file name.
 
-Static assets (e.g. favicons), are placed under `public/` directory.
+Static assets (like favicons), are placed under `public/` directory.
 
 ## Commands
 
