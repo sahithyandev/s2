@@ -2,7 +2,7 @@
 title: Resonance
 slug: theory-of-electricity/resonance
 sidebar:
-  order: 3
+  order: 4
 prev: true
 next: false
 ---
