@@ -2,6 +2,9 @@
 title: Network Theorems
 sidebar:
   order: 2
+slug: theory-of-electricity/network-theorems
+prev: true
+next: true
 ---
 
 ## Thevenin's theorem
@@ -50,4 +53,3 @@ A circuit whose characteristics are the same when the direction of current throu
 ## Compensation theorem
 
 In a linear, bilateral network, any element can be replaced by a voltage source of magnitude equal to the current passing through the element multiplied by the value of the element.
-

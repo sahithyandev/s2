@@ -57,6 +57,7 @@ When $a=b=c$ the surface becomes a sphere. $ $
 ```
 
 Horizontal traces are ellipses. Vertical traces in $x=k$ or $y=k$ are:
+
 - Hyperbolas if $k\neq 0$
 - Pair of lines if $k=0$
 

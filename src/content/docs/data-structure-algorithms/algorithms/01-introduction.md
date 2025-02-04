@@ -19,7 +19,8 @@ A group of tasks with varying inputs.
 ## Algorithm specification
 
 Algorithms are explained in either:
-- Flowcharts   
+
+- Flowcharts  
   A diagram that shows a flow of control.
   - Terminals - rounded rectangles, represents start or end of the algorithm
   - Input/Output - parallelogram
@@ -32,10 +33,10 @@ Algorithms are explained in either:
 
 ### Properties of sorting
 
-- Comparison / Non Comparison - In non-comparison based sorting, elements of array are not compared with each other to find the sorted array. 
+- Comparison / Non Comparison - In non-comparison based sorting, elements of array are not compared with each other to find the sorted array.
 - In-place/Outplace technique – A sorting technique is inplace if it does not use any extra memory to sort the array.
-- Online/Offline technique – A sorting technique is considered Online if it can accept new data while the procedure is ongoing i.e. complete data is not required to start the sorting operation. 
-- Stable/Unstable technique – A sorting technique is stable if it does not change the order of elements with the same value. 
+- Online/Offline technique – A sorting technique is considered Online if it can accept new data while the procedure is ongoing i.e. complete data is not required to start the sorting operation.
+- Stable/Unstable technique – A sorting technique is stable if it does not change the order of elements with the same value.
 
 ### Bubble sort
 
@@ -68,7 +69,7 @@ Faster than merge sort.
 - $O(log n)$ additional memory needed
 - Avg. time complexity - $O(n\,log n)$
 
-Worst case ($O(n^2)$) occurs when the partition scheme is bad and the list is almost sorted. 
+Worst case ($O(n^2)$) occurs when the partition scheme is bad and the list is almost sorted.
 
 ### Heap sort
 

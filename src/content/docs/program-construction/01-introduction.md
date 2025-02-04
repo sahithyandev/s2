@@ -8,12 +8,11 @@ prev: false
 next: false
 ---
 
-
 Program construction is a methodological process that starts from a user's requirements and end with a working program.
 
 :::note
 
-Programming is only one step among the many in Program Construction process. 
+Programming is only one step among the many in Program Construction process.
 
 :::
 
@@ -25,7 +24,7 @@ Programming is only one step among the many in Program Construction process.
 - System requirements specification
 - System architecture design
 - System validation (checking if the specification captures the
-customer’s requirements)
+  customer’s requirements)
 
 ### Software level
 
@@ -36,7 +35,7 @@ customer’s requirements)
 - Program coding and testing
 - Software deployment and maintenance
 - Software verification (checking if the software meets the
-specifications)
+  specifications)
 
 ## Requirements
 
@@ -51,6 +50,7 @@ The above definition is from Grady Booch, James Rumbaugh, and Ivar Jacobson and 
 A requirement that specifies criteria that can be used to judge the operation of a system. Conveniently identified as _illities_. These are subjetive, ambigous and conflicting.
 
 Examples:
+
 - Usability
 - Reliability
 - Safety
@@ -58,10 +58,10 @@ Examples:
 
 ### Summary
 
-||Functional req.| Non-functional req.|
-|---|---|---|
-|Objective|Describe what product does| Describe how product works|
-|End result|Define product features|Define product properties|
-|Focus|On user requirements|On user expectations|
-|Documentation|Captured in use cases|Captured as a quality attribute|
-|Origin type|Defined by user|Defined by developers|
+|               | Functional req.            | Non-functional req.             |
+| ------------- | -------------------------- | ------------------------------- |
+| Objective     | Describe what product does | Describe how product works      |
+| End result    | Define product features    | Define product properties       |
+| Focus         | On user requirements       | On user expectations            |
+| Documentation | Captured in use cases      | Captured as a quality attribute |
+| Origin type   | Defined by user            | Defined by developers           |

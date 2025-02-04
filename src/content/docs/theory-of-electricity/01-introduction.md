@@ -9,6 +9,7 @@ next: true
 ---
 
 Review these from [S1](https://s1.sahithyan.dev).
+
 - [Charge](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#charge)
 - [Potential difference](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#voltage)
 - [Current](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#current)
@@ -23,21 +24,21 @@ Review these from [S1](https://s1.sahithyan.dev).
 
 ### Types of active elements
 
-- Independent source   
+- Independent source  
   The terminal voltage or current depends only on the loading & internal source quantity.
-- Dependent source   
+- Dependent source  
   The terminal voltage or current depends on another circuit quantity such as a voltage or current. Categorized into 4.
-  
+
 ### Recommended textbooks
 
 - Charles K., Alexander, M. N. O. S., **Fundamentals of Electric Circuits 5th Edition**,
-McGraw Hill, NewYork, NY, USA, 2013, ISBN 978-0-07-338057-5
+  McGraw Hill, NewYork, NY, USA, 2013, ISBN 978-0-07-338057-5
 - Hambley, A. R., **Electrical Engineering Principles and Applications 5th Edition**, Pearson
-Education, Inc., Upper Saddle River, New Jersey,USA, 2011, ISBN-13: 978-0-13-213006-6.
+  Education, Inc., Upper Saddle River, New Jersey,USA, 2011, ISBN-13: 978-0-13-213006-6.
 - Nahvi M., Edminister J.A., **Electric Circuits 4th Edition**, Schaum's Outline Series, McGraw
-Hill, New York, NY, USA 2003, DOI: 10.1036/0071425829.
+  Hill, New York, NY, USA 2003, DOI: 10.1036/0071425829.
 - **Theory and Problems of Basic Electrical Engineering**, D P Kothari, I J Kothari, Prentice
-Hall of India, New Delhi
+  Hall of India, New Delhi
 - **Electrical Engineering Fundamentals**, Vincent Del Toro, Prentice Hall of India, New Delhi
 
 ## Special functions
@@ -52,7 +53,7 @@ H(t) =
 \end{cases}
 ```
 
-### Unit impulse function 
+### Unit impulse function
 
 ```math
 \delta(t) =

@@ -3,8 +3,8 @@ import type { Props as StarlightProps } from "@astrojs/starlight/props";
 import { MODULE_CODES } from "../../config.mjs";
 
 interface Props {
-  entries: StarlightProps["sidebar"];
-  depth?: number;
+	entries: StarlightProps["sidebar"];
+	depth?: number;
 }
 const { entries, depth = 0 } = Astro.props;
 ---
