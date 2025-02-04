@@ -104,31 +104,31 @@ An $\epsilon$-disk around $Q$ is the set of all points $(x,y)\in\mathbb{R}^2$ wh
 
 ### Interior point
 
-$Q$ is an interior point of $P$ iff there exists some $\epsilon$-disk around $Q$ that is contained in $P$.
+$Q$ is an interior point of $P$ **iff** there exists some $\epsilon$-disk around $Q$ that is contained in $P$.
 
 ### Isolated point
 
-$Q$ is an isolated point of $P$ iff there exists some $\epsilon$-disk around $Q$ that doesn't contains no other points of $P$.
+$Q$ is an isolated point of $P$ **iff** there exists some $\epsilon$-disk around $Q$ that doesn't contains no other points of $P$.
 
 ### Boundary point
 
-$Q$ is an boundary point of $P$ iff all $\epsilon$-disks around $Q$ contains points from $P$ and not from $P$.
+$Q$ is an boundary point of $P$ **iff** all $\epsilon$-disks around $Q$ contains points from $P$ and not from $P$.
 
 ### Open subset
 
-$P$ is an open subset of $\mathbb{R}^2$ iff all the points of $P$ are interior points of $P$.
+$P$ is an open subset of $\mathbb{R}^2$ **iff** all the points of $P$ are interior points of $P$.
 
 ### Closed subset
 
-$P$ is an closed subset of $\mathbb{R}^2$ iff $P$ contains all of its boundary points.
+$P$ is an closed subset of $\mathbb{R}^2$ **iff** $P$ contains all of its boundary points.
 
-### Clouse
+### Closure
 
 The set of boundary points of $P$ and the region $P$. Denoted by $\overline{P}$.
 
 ### Bounded subset
 
-$P$ is a bounded subset of $\mathbb{R}^2$ iff $P$ is contained in some $\epsilon$-disk around some point.
+$P$ is a bounded subset of $\mathbb{R}^2$ **iff** $P$ is contained in some $\epsilon$-disk around some point.
 
 ## Half-space
 
