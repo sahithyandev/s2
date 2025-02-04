@@ -1,56 +1,66 @@
 {
-	"name": "s2",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"prepare": "husky || true",
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"lint": "prettier --check .; biome check; biome format",
-		"lint-fix": "prettier --write . && biome check --write && biome format --write"
-	},
-	"dependencies": {
-		"@astrojs/check": "0.9.4",
-		"@astrojs/starlight": "0.31.1",
-		"@astrojs/starlight-tailwind": "3.0.0",
-		"@astrojs/tailwind": "5.1.4",
-		"@pdf-lib/fontkit": "^1.1.1",
-		"@sparticuz/chromium": "^130.0.0",
-		"@types/bun": "^1.1.14",
-		"astro": "5.1.7",
-		"astro-og-canvas": "^0.5.5",
-		"bun-types": "^1.1.39",
-		"html-entities": "^2.5.2",
-		"pdf-lib": "^1.17.1",
-		"puppeteer-core": "23.6.1",
-		"rehype-mathjax": "^6.0.0",
-		"remark-math": "^6.0.0",
-		"sharp": "^0.32.6",
-		"starlight-links-validator": "^0.12.4",
-		"tailwindcss": "^3.4.16",
-		"typescript": "^5.7.2"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@types/rollup": "^0.54.0",
-		"husky": "^9.1.7",
-		"lint-staged": "^15.2.11",
-		"prettier": "^3.4.2"
-	},
-	"lint-staged": {
-		"*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}": [
-			"biome check --write --no-errors-on-unmatched"
-		],
-		"*.css": ["biome lint --write", "biome format --write"],
-		"*.md": [
-			"bun scripts/auto-slug.js",
-			"prettier --write .",
-			"bun scripts/fix-vercel-config.ts"
-		],
-		"*.astro": ["prettier --write ."]
-	},
-	"trustedDependencies": ["@biomejs/biome", "esbuild", "puppeteer", "sharp"]
+  "name": "s2",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "prepare": "husky || true",
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "prettier --check .; biome check; biome format",
+    "lint-fix": "prettier --write . && biome check --write && biome format --write"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.4",
+    "@astrojs/starlight": "0.31.1",
+    "@astrojs/starlight-tailwind": "3.0.0",
+    "@astrojs/tailwind": "5.1.4",
+    "@pdf-lib/fontkit": "^1.1.1",
+    "@sparticuz/chromium": "^130.0.0",
+    "@types/bun": "^1.1.14",
+    "astro": "5.1.7",
+    "astro-og-canvas": "^0.5.5",
+    "bun-types": "^1.1.39",
+    "html-entities": "^2.5.2",
+    "pdf-lib": "^1.17.1",
+    "puppeteer-core": "23.6.1",
+    "rehype-mathjax": "^6.0.0",
+    "remark-math": "^6.0.0",
+    "sharp": "^0.32.6",
+    "starlight-links-validator": "^0.12.4",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/rollup": "^0.54.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2"
+  },
+  "lint-staged": {
+    "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}": [
+      "biome check --write --no-errors-on-unmatched"
+    ],
+    "*.css": [
+      "biome lint --write",
+      "biome format --write"
+    ],
+    "*.md": [
+      "bun scripts/auto-slug.js",
+      "prettier --write .",
+      "bun scripts/fix-vercel-config.ts"
+    ],
+    "*.astro": [
+      "prettier --write ."
+    ]
+  },
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "esbuild",
+    "puppeteer",
+    "sharp"
+  ]
 }
