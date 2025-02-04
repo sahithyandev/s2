@@ -1,0 +1,39 @@
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ $BRANCH != "main" ]; then
+    echo "commit-msg hook check is for main branch only. skipped for $BRANCH branch."
+    exit 0
+fi
+
+# Check if a filename is provided as an argument
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 filename"
+    exit 1
+fi
+
+# Assign the filename to a variable
+filename="$1"
+
+# Space-separated list of first stage prefixes
+first_stage_prefixes="docs: fix: feat: feat(dev): chore: refactor: deps: style:"
+
+# Read the first line from the file
+read -r first_line < "$filename"
+
+# Iterate through each first stage prefix
+for first_prefix in $first_stage_prefixes; do
+    # Check if the first line starts with the current first stage prefix
+    if [ "${first_line#${first_prefix}}" != "$first_line" ]; then
+        echo "The line starts with '$first_prefix'"
+        exit 0
+    fi
+done
+
+echo "The commit message does not start with any of the specified prefixes."
+# Print permitted prefixes
+echo "Permitted commit message prefixes are:"
+for prefix in $first_stage_prefixes; do
+    echo "  - $prefix"
+done
+
+exit 1
