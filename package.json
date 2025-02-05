@@ -23,6 +23,7 @@
     "astro": "5.1.7",
     "astro-og-canvas": "^0.5.5",
     "bun-types": "^1.1.39",
+    "gray-matter": "^4.0.3",
     "html-entities": "^2.5.2",
     "pdf-lib": "^1.17.1",
     "puppeteer-core": "23.6.1",
