@@ -5,7 +5,7 @@ sidebar:
   order: 1
 slug: program-construction/introduction
 prev: false
-next: false
+next: true
 ---
 
 Program construction is a methodological process that starts from a user's requirements and end with a working program.

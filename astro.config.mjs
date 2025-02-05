@@ -8,24 +8,24 @@ import generatePdfsIntegration from "./plugins/generate-pdfs";
 
 // https://astro.build/config
 export default defineConfig({
-	markdown: {
-		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeMathjax],
-	},
-	site: SITE_HREF,
-	integrations: [
-		CREATE_E_BOOK
-			? generatePdfsIntegration({
-					credits: {
-						text: "From Sahithyan's S2",
-						href: SITE_HREF,
-						size: 10,
-					},
-				})
-			: false,
-		starlight(STARLIGHT_CONFIG),
-		tailwind({
-			applyBaseStyles: false,
-		}),
-	],
+  markdown: {
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeMathjax],
+  },
+  site: SITE_HREF,
+  integrations: [
+    CREATE_E_BOOK
+      ? generatePdfsIntegration({
+          credits: {
+            text: "From Sahithyan's S2",
+            href: SITE_HREF,
+            size: 10,
+          },
+        })
+      : false,
+    starlight(STARLIGHT_CONFIG),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
 });
