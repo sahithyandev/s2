@@ -5,7 +5,7 @@ sidebar:
   order: 1
 slug: data-structure-algorithms/algorithms/introduction
 prev: false
-next: false
+next: true
 ---
 
 Revise [S1](https://s1.sahithyan.dev) for [algorithms](https://s1.sahithyan.dev/programming-fundamentals/b-book/algorithms/).
