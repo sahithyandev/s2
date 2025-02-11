@@ -4,7 +4,7 @@ sidebar:
   order: 4
 slug: computer-organization-and-digital-design/logic-gates
 prev: true
-next: false
+next: true
 ---
 
 There are AND, OR, XOR, and their inverted versions.
@@ -44,13 +44,35 @@ It is recommended to design CMOS with NAND gates only. NAND gates have more fano
 
 :::
 
+### Power consumption
+
+```math
+\text{Dynamic power consumption} = CV^2 f
+```
+
+Here:
+
+- $C$ - Capacitance of the circuit
+- $V$ - Supply voltage
+- $f$ - Charging frequency of the capacitor
+
+```math
+\text{Static power consumption} = V I_{\text{leakage}}
+```
+
+Here:
+
+- $V$ - Supply voltage
+- $I_{\text{leakage}}$ - Leakage current
+
+```math
+\text{Energy consumption} = \text{Power} \times \text{Time}
+```
+
 ## Logic circuits
 
-- Combinational
-  - no memory
-  - no feedback loops
-  - output depends only on the current input
-- Sequential
-  - memory
-  - feedback loops
-  - output depends on the current input and current state
+|               | Combinational    | Sequential                |
+| ------------- | ---------------- | ------------------------- |
+| Memory        | No               | Yes                       |
+| Feedback loop | No               | Yes                       |
+| Output        | Depends on input | Depends on input & memory |

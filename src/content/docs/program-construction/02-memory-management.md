@@ -93,4 +93,4 @@ Memory layout in C is similar to the image below.
 
 ### In Java
 
-Memory is allocated implicitly (variable declaration or `new` operator) and deallocated implicitly (by the compiler).
+Memory is allocated implicitly (variable declaration or `new` operator) and deallocated implicitly (by the runtime).
