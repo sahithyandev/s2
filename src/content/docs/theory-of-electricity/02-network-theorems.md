@@ -53,3 +53,56 @@ A circuit whose characteristics are the same when the direction of current throu
 ## Compensation theorem
 
 In a linear, bilateral network, any element can be replaced by a voltage source of magnitude equal to the current passing through the element multiplied by the value of the element.
+
+## Maximum Power Transfer theorem
+
+For maximum active power to be delivered to the load, load impedance must correspond to the conjucate of the source impedance.
+
+```math
+\text{Maximum power}\;\; P_\text{max} = \frac{E^2}{4r}
+```
+
+```math
+\text{Load voltage at maximum power}\;\; = \frac{E}{2}
+```
+
+## Millmann's theorem
+
+![Millmann's theorem](/images/theory-of-electricity/millmanns-theorem.jpg)
+
+Suppose there are $n$ number of admittances which share a point $S$ and the other ends are open.
+
+```math
+V_{\text{SN}} =
+\frac
+{\sum_{p=1}^n {Y_\text{P} V_{\text{PN}}}}
+{\sum_{p=1}^n {Y_\text{P}}}
+```
+
+## Equivalent Generator theorem
+
+An extension of Millmann's theorem. A system of voltage sources operating in parallel may be replaced by a single voltage source in series with an equivalent impedance. This is also Thevenin's theorem applied to generators in parallel.
+
+```math
+E_\text{eq}=
+\frac
+{\sum_{k=1}^n E_k Y_k}
+{\sum_{k=1}^n Y_k}
+```
+
+```math
+Y_\text{eq}=
+{\sum_{k=1}^n Y_k}
+```
+
+## Rosen's theorem
+
+![Rosen's theorem](/images/theory-of-electricity/rosens-theorem.jpg)
+
+Used to convert star connected network to mesh equivalent. External conditions will not be affected.
+
+```math
+Y_{\text{pq}} = \frac{Y_p Y_q}{\sum_{k=1}^n Y_k}
+```
+
+When $n=3$, the conversion becomes quite simple as mentioned in [S1](https://s1.sahithyan.dev/electrical-fundamentals/basics/terms/#delta-star-conversion). $ $
