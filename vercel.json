@@ -28,6 +28,10 @@
     {
       "source": "/program-construction",
       "destination": "/program-construction/introduction"
+    },
+    {
+      "source": "/methods-of-mathematics/probability-and-statistics",
+      "destination": "/methods-of-mathematics/probability-and-statistics/introduction"
     }
   ]
 }

@@ -5,7 +5,7 @@ sidebar:
   order: 1
 slug: methods-of-mathematics/multivariable-calculus/introduction
 prev: false
-next: false
+next: true
 ---
 
 ### Real valued multivariable function

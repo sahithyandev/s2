@@ -106,6 +106,12 @@ export const STARLIGHT_CONFIG = {
             directory: "methods-of-mathematics/multivariable-calculus",
           },
         },
+        {
+          label: "Probability & Statistics",
+          autogenerate: {
+            directory: "methods-of-mathematics/probability-and-statistics",
+          },
+        },
       ],
     },
     {
