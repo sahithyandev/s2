@@ -4,7 +4,7 @@ sidebar:
   order: 2
 slug: program-construction/memory-management
 prev: true
-next: false
+next: true
 ---
 
 Memory management is where the physical memory is allocated and deallocated during program execution. Controlled by the OS where the program is running and the programming language used to code the program.
@@ -66,31 +66,3 @@ A table of objects and their reference count is kept by the GC. An object is mar
 #### Tracing
 
 A set of memory roots is used. Recursively follows all the pointers to other objects in memory. An object is marked as garbage when it is not reached in the tracing process.
-
-## Examples
-
-### In C
-
-Memory is allocated either implicitly (variable declaration) or explicitly (`malloc()`) and deallocated either implicitly (by the compiler) or explicitly (`free()`)
-
-Memory layout in C is similar to the image below.
-
-<figure>
-
-![Memory layout in C](/images/program-construction/c-memory-layout.jpg)
-
-<figcaption>Image from
-
-[MarinLwx's blog post](https://martinlwx.github.io/en/what-is-the-heap-and-stack/)
-
-</figcaption>
-</figure>
-
-- data - initialized variables
-- bss - uninitialized variables
-- heap and stack grows in the opposite directions
-- heap can have gaps but stack cannot
-
-### In Java
-
-Memory is allocated implicitly (variable declaration or `new` operator) and deallocated implicitly (by the runtime).
