@@ -16,6 +16,10 @@ A way of comparing different algorithms. Algorithms' time to run is hard to meas
 - The input density and input size might not be uniform  
   Usually assumed to be uniform and is considered good enough. Experimentation is required for more precise approximation.
 
+## Asymptotic notation
+
+A method used to categorize functions or to calculate upper/lower bounds with respect to the growth rate of functions. In this context, total number of steps followed by a specific algorithm is expressed in terms of its input size $n$, then asymptotic analysis can be done. $ $
+
 ### Time complexity
 
 Analysis of how the running time of the algorithm grows with various input sizes.
@@ -26,9 +30,7 @@ Instead of measuring the running time of the algorithm for specific inputs, how 
 
 Analysis of additional space required for an algorithm to run.
 
-## Asymptotic notation
-
-A method used to categorize functions or to calculate upper/lower bounds with respect to the growth rate of functions. In this context, total number of steps followed by a specific algorithm is expressed in terms of its input size $n$, then asymptotic analysis can be done. $ $
+## Asymptotic functions
 
 There are more than one asymptotic notations. All these are sets of functions.
 
@@ -130,7 +132,7 @@ f(n) \in \omega(g(n)) \implies f(n) \not{\in} \Theta(g(n))
 f(n) \in O(g(n)) \iff g(n) \in \Omega(f(n))
 ```
 
-### Big-Theta implies Big-O & Big-Omega
+### Big-Theta => Big-O & Big-Omega
 
 ```math
 f(n) \in \Theta(g(n)) \implies
@@ -143,3 +145,17 @@ f(n) \in \Omega(g(n))
 ```math
 f(n) \in \Theta(g(n)) \iff g(n) \in \Theta(f(n))
 ```
+
+## Real life timing
+
+### Wall-clock time
+
+Time elapsed from start of the process to "now" when measured by a stopwatch.
+
+### User-cpu time
+
+Time spent in user code.
+
+### System-cpu time
+
+Time spent in kernel code.
