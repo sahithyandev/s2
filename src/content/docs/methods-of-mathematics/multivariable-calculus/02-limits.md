@@ -4,7 +4,7 @@ sidebar:
   order: 2
 slug: methods-of-mathematics/multivariable-calculus/limits
 prev: true
-next: false
+next: true
 ---
 
 $\lim_\limits{(x,y)\to{(a,b)}} {f(x)}=L$ **iff**: $ $
@@ -13,7 +13,7 @@ $\lim_\limits{(x,y)\to{(a,b)}} {f(x)}=L$ **iff**: $ $
 \forall{\epsilon>0}\;
 \exists{\delta>0}\;
 \forall{(x,y)\in D}\;
-(0<\sqrt{(x-a)^2 + (y-b)^2}<\delta\implies{|f(x,y)-L|<\epsilon})
+\bigg(0<\sqrt{(x-a)^2 + (y-b)^2}<\delta\implies{|f(x,y)-L|<\epsilon}\bigg)
 ```
 
 The target point can be approached in any directions. Thus, if 2 different paths yield 2 different limtting values, then the limit doesn't exist.
