@@ -4,7 +4,7 @@ sidebar:
   order: 2
 slug: data-structure-algorithms/algorithms/complexity-analysis
 prev: true
-next: false
+next: true
 ---
 
 A way of comparing different algorithms. Algorithms' time to run is hard to measure exactly and hard to compare with fairness. And also there are too many uncontrollable variables in measuring the actual time. Because of that, the algorithms are analyzed asymptotically: a way of measuring the performance of an algorithm without depending on hardware.

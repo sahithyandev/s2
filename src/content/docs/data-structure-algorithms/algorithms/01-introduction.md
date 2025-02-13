@@ -35,7 +35,7 @@ Algorithms are explained in either:
 
 - Comparison / Non Comparison - In non-comparison based sorting, elements of array are not compared with each other to find the sorted array.
 - In-place/Outplace technique – A sorting technique is inplace if it does not use any extra memory to sort the array.
-- Online/Offline technique – A sorting technique is considered Online if it can accept new data while the procedure is ongoing i.e. complete data is not required to start the sorting operation.
+- Online/Offline technique – A sorting technique is considered online if it can accept new data while the procedure is ongoing i.e. complete data is not required to start the sorting operation.
 - Stable/Unstable technique – A sorting technique is stable if it does not change the order of elements with the same value.
 
 ### Bubble sort
@@ -59,6 +59,8 @@ Algorithms are explained in either:
 - Stable
 - $O(n)$ additional memory needed
 - Time complexity - $O(n\,log n)$
+
+The array to be sorted is sorted into two sub arrays, with the length $n/2$. The two sub-arrays are sorted recursively and then combined.
 
 ### Quicksort
 
