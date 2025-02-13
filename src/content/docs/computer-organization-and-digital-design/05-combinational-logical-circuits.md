@@ -7,35 +7,143 @@ prev: true
 next: false
 ---
 
+### Literal
+
+A variable or the complement of a variable.
+
+### Sum term
+
+A single literal or a logical sum of two or more literals
+
+### Product term
+
+A single literal or a logical product of two or more literals
+
+### Normal term
+
+A product or sum term where no variable appears more than once.
+
+### Minterm
+
+An n-variable minterm is a normal product term with n literals.
+
+### Maxterm
+
+An n-variable maxterm is a normal sum term with n literals.
+
 ## Representation
 
 ### Karnaugh Map
 
-A diagram which can be used to reduce a truth table of inputs and output to a boolean expression.
+A diagram which can be used to reduce a truth table of inputs and output to a boolean expression. Aka. K-map.
 
 - Sketch an empty with (1 vs 1 or 1 vs 2, or 2 vs 2 ...)
   - If the variables in a row or column is more than 2, they must be arranged in [gray code](/computer-organization-and-digital-design/number-systems/#gray-codes).
 - Populate the map with given values
 - Group the 1s according to K-map rules
+  - Each group must be rectangular
+  - Each group must be as large as possible
+  - Each group's area must have an area of a power of 2 (1, 2, 4, 8...)
+  - Two groups can overlap
 
 Then the boolean expression can be derived.
 
+The issue with boolean expressions are they are not unique to a circuit. Different boolean expressions lead to different gate realizations. Because of that, a canonical form is used. They are called two-level canonical forms. There are 2:
+
+- Sum of Products
+- Product of Sums
+
 ### Sum of Products
+
+Aka. disjunctive normal form or minterm expansion.
 
 - Pick all the 1s
 - Construct literals using the inputs, AND operator, so that they result in a 1.
 - Sum all those operators
 
-#### Minterm
+#### Shorthand
 
-A product of literals.
+If the order of the variables in the truth table is agreed upon, the SOP notation can be shorten.
+
+- Order of the variables is fixed
+- Each row is enumerated (by converting to decimal) and denoted by "minterm #4" or "m4"
+- The sum can be written as:
+  - sum of products: $m3 + m4 + m6 + m7$
+  - using summation notation: $\sum{m(3,4,6,7)}$
 
 ### Product of Sums
+
+Aka. conjucative normal form or maxterm expansion.
 
 - Pick all the 0s
 - Construct literals using the inputs, OR operator, so that they result in a 0.
 - Join all those literals using AND operator
 
-#### Maxterm
+#### Shorthand
 
-A sum of literals.
+If the order of the variables in the truth table is agreed upon, the SOP notation can be shorten.
+
+- Order of the variables is fixed
+- Each row is enumerated (by converting to decimal) and denoted by "maxterm #4" or "M4"
+- The sum can be written as:
+  - sum of products: $M3 \cdot M4 \cdot M6 \cdot M7$
+  - using summation notation: $\prod{M(3,4,6,7)}$
+
+:::note
+
+SOP or POS is used depending on the output behaviour. If most of the output is 1, POS might be more suitable and if it's 0, SOP might be more suitable.
+
+:::
+
+## Don't care conditions
+
+When only one of the bits are changed between 2 rows of a truth table, the rows can be merged into one with the altering bit changed to "x". Can be applied to inputs and outputs. A compact truth table is resulted by doing so.
+
+When drawing a K-map for a compact truth table, the "x" have to be considered.
+
+## Boolean algebra
+
+### Axioms
+
+- $a + 0 = a$
+- $a \cdot 0 = 0$
+- $a \cdot 1 = a$
+- $a + 1 = 1$
+- $a + a = a$
+- $a \cdot a = a$
+- $a + \overline{a} = 1$
+- $a \cdot \overline{a} = 0$
+- $\overline{\overline{a}} = a$
+- Absorption: $a + ab = a$
+- Absorption #2: $a + \overline{a}b = a + b$
+- $(a + b)(a + c) = a + bc$
+
+### Duality
+
+#### Dual
+
+For a boolean expression, its "dual" is defined as the boolean expression where:
+
+- all the $\cdot$ are replaced with $+$
+- all the $+$ are replaced with $\cdot$
+- all the $0$ are replaced with $1$
+- all the $1$ are replaced with $0$
+- all variables left intact
+
+When a theorem is proven, also its dual is proven
+
+### de Moragan's theorem
+
+A procedure for complementing boolean functions.
+
+- all the $\cdot$ are replaced with $+$
+- all the $+$ are replaced with $\cdot$
+- all the $0$ are replaced with $1$
+- all the $1$ are replaced with $0$
+- all variables are replaced with their complements
+
+### Uniting theorem
+
+```math
+X \cdot Y + X \cdot \overline{Y} = X
+```
