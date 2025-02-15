@@ -55,6 +55,14 @@ Intersection of two or more events, is the event containing all sample points th
 
 ## Observational data
 
+### Population of interest
+
+A group, a researcher wants to study and draw conclusions or inferences about.
+
+### Variable of interest
+
+A changing quantity that is being measured in an experimental study.
+
 ### Census
 
 The process of gathering information about the members of a given population of interest.

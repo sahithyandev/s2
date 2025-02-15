@@ -52,4 +52,11 @@ Similarily, another limit exists.
  {f(x,y)}
 ```
 
-Both of the above limits are not necessarily equal. If $\lim_\limits{(x,y)\to{(a,b)}} {f(x)}$ exists, they will be equal. $ $
+Note:
+
+- The two repeated limits may or may not exist
+- The two repeated limits, when they exist, may or may not be equal.
+- The existence of the 2-variable limit does not imply the existence of either of the two repeated limits
+- If a repeated limit exists, along with the 2-variable limit, these two would be equal
+- If the repeated limit exists and they are not equal, then the 2-variable limit cannot exist.
+- The existence of 2-variable limit is not simply governed by the existence of repeated limits
