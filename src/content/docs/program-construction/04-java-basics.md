@@ -9,7 +9,7 @@ next: true
 
 ### Java
 
-A famous programming language.
+A programming language that is built around OOP.
 
 ### JVM
 
@@ -29,18 +29,32 @@ Objects can be instantiated using `new` operator, a unary operator that expects 
 
 ## Object overhead
 
+In Java, everything is an object. `Object` class is the root class of all objects.
+
 In a 32-bit system, `int` type is stored using 4 bytes. But `Integer` object will require 16 bytes of memory. The reason for this is, to accomodate for the object metadata (such as class pointer, flags, lock, size, etc.)
 
-## Common Classes
+## Collections framework
 
-### Vector
+A Java framework that includes production-grade implementations for commonly used data structures. The implementation is done using interfaces, abstract classes and (regular) classes.
 
-Can grow but not shrink.
+![Java Collections hierarchy](/images/program-construction/java-collections-hierarchy.jpg)
 
-### Hashtable
+- `Iterable` interface represents an object that can be used in a `forEach` statement.
+- `Collection` interface adds common functionliaty such as add, remove to `Iterable` interface. Provides a common interface for all the implementations of different data structures.
+- `List`, `Queue`, `Set` interfaces extends `Collection` to specific data structures
+- `ArrayList` is a dynamic array implementation (automatically grows and shrinks in size as required)
+- `PriorityQueue` is an implementation of `Queue`
+- `HashSet` is an implementation of `Set`
+- `Map` is a similar interface to `Collection`. Allows access to items by reference to contents that are used as a key
 
-An array with 2 parts: a hashcode and the actual data. Hashcode is generated from the content of the data. Data is accessed using the hashcode.
+All these interfaces and classes are implemented around generics. Generics allow them to be created with compile-time types.
 
-### Collection
+### Pre-Collection
 
-A group of objects, manipulated as a single entity.
+Originally, JDK provided the ability to group objects through:
+
+- `Array` which is a native language feature
+- `Vector` which can grow in size but not shrink
+- `Hashtable` which is an array with 2 parts: a hashcode and the actual data. Hashcode is generated from the content of the data. Data is accessed using the hashcode.
+
+But they didn't have a common interface.
