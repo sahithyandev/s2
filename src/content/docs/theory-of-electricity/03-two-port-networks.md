@@ -13,7 +13,9 @@ An electrical network with two separate ports for input and output.
 
 A pair of terminals through which current may enter or leave a network.
 
-## Z parameters
+## Parameters
+
+### Z parameters
 
 Denoted by $[z]$. Aka. open-circuit impedance parameters. $ $
 
@@ -43,7 +45,7 @@ I_2
 
 ```
 
-## Y parameters
+### Y parameters
 
 Denoted by $[y]$. Aka. short-circuit admittance parameters. $ $
 
@@ -72,9 +74,11 @@ V_2
 \end{bmatrix}
 ```
 
-## Transmission parameters
+### Transmission parameters
 
 ![Transmission parameters](/images/theory-of-electricity/transmission-parameters.jpg)
+
+Denoted by $T$. Aka. ABCD parameters. $ $
 
 ```math
 \begin{bmatrix}
@@ -96,20 +100,36 @@ V_2 \\
 
 Here:
 
-- $A$ and $D$ are dimensionless
-- $B$ is in Ohms $\Omega$
-- $C$ is in Siemens $S$
+- $A$ - Open circuit transfer function. Dimensionless.
+- $B$ - Short circuit transfer impedance.
+- $C$ - Open circuit transfer admittance.
+- $D$ - Short circuit current ratio. Dimensionless.
 
-The values can be evaluated by setting:
+```math
+A = {\frac{V_1}{V_2}\Bigg{\rvert}}_{I_2 = 0}
+\;\;\;\;
+\;\;\;\;
+\;\;\;\;
+C = {\frac{I_1}{V_2}\Bigg{\rvert}}_{I_2 = 0}
+```
 
-- $I_2 = 0$
-- $V_2 = 0$
+```math
+B = {\frac{V_1}{I_2}\Bigg{\rvert}}_{V_2 = 0}
+\;\;\;\;
+\;\;\;\;
+\;\;\;\;
+D = {\frac{I_1}{I_2}\Bigg{\rvert}}_{V_2 = 0}
+```
 
-### Reciprocal network
+#### Reciprocal network
 
-A network is said to be reciprocal if $AD-BC=1$.
+A network is said to be reciprocal if $AD-BC=1$. $ $
 
-## Hybrid parameters
+### Inverse transmission parameters
+
+Denoted by $\text{T}'$. $ $
+
+### Hybrid parameters
 
 ```math
 \begin{bmatrix}
@@ -134,3 +154,5 @@ I_1 \\
 V_2
 \end{bmatrix}
 ```
+
+### Inverse hybrid parameters

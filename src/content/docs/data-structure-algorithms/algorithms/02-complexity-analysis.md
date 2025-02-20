@@ -15,6 +15,7 @@ A way of comparing different algorithms. Algorithms' time to run is hard to meas
   Different algorithms can be used for different input ranges
 - The input density and input size might not be uniform  
   Usually assumed to be uniform and is considered good enough. Experimentation is required for more precise approximation.
+- Not all functions (such as periodic, oscillating functions) can be compared
 
 ## Asymptotic notation
 
@@ -123,6 +124,33 @@ f(n) \in \omega(g(n)) \implies f(n) \not{\in} \Theta(g(n))
 | Big-Theta    | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}\in\mathbb{R}^{+}$ |
 | Little-omega | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}\gt 0$             |
 | Big-Omega    | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}=\infty$           |
+
+## Properties of asymptotic functions
+
+### Transitivity
+
+**If** $f(n) = O(g(n))$ and $g(n) = O(h(n))$ **then** $f(n) = O(h(n))$. Applies to all 5 functions.
+
+### Reflexivity
+
+- $f(n) = O(f(n))$
+- $f(n) = \Omega(f(n))$
+- $f(n) = \Theta(f(n))$
+
+### Transpose
+
+```math
+f(n) = O(g(n))
+\iff
+g(n) = \Omega(f(n))
+```
+
+```math
+f(n) = o(g(n))
+\iff
+g(n) = \omega(f(n))
+
+```
 
 ## Relations between asymptotic notations
 

@@ -41,6 +41,24 @@ Review these from [S1](https://s1.sahithyan.dev).
   Hall of India, New Delhi
 - **Electrical Engineering Fundamentals**, Vincent Del Toro, Prentice Hall of India, New Delhi
 
+## Waveform errors
+
+### DC Offset
+
+A DC voltage superimposed on a AC waveform shifts it up or down. Causes unwanted clipping of the AC voltage when amplification. Causes the waveform to have reduced dynamic range, reduced headroom, increases noise when amplified and causes problems with DC-coupled circuits.
+
+### Moving iron instrument
+
+Can be identified by AC symbol. Measures the rms value of the signal.
+
+### Moving coil instrument
+
+Can be identified by DC symbol. Measures the average value of the signal.
+
+### Moving coil rectifier instrument
+
+Can be identified by diode symbol. Measures the rms value of the rectified signal.
+
 ## Special functions
 
 ### Unit step function
