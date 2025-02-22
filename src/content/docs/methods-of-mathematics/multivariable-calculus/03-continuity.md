@@ -4,7 +4,7 @@ sidebar:
   order: 3
 slug: methods-of-mathematics/multivariable-calculus/continuity
 prev: true
-next: false
+next: true
 ---
 
 Suppose $f$ is a real-valued function defined on $D \subset \mathbb{R}^2$.
