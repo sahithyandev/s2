@@ -4,7 +4,7 @@ sidebar:
   order: 5
 slug: computer-organization-and-digital-design/combinational-logical-circuits
 prev: true
-next: false
+next: true
 ---
 
 ### Literal
