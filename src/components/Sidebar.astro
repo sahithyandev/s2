@@ -15,7 +15,7 @@ import type { Props } from "@astrojs/starlight/props";
 
 <script>
   const activeEl = document.querySelector(
-    "#starlight__sidebar a[aria-current]"
+    "#starlight__sidebar a[aria-current=page]"
   );
   if (activeEl instanceof HTMLElement) {
     activeEl.scrollIntoView({
