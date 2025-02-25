@@ -125,10 +125,6 @@ D = {\frac{I_1}{I_2}\Bigg{\rvert}}_{V_2 = 0}
 
 A network is said to be reciprocal if $AD-BC=1$. $ $
 
-### Inverse transmission parameters
-
-Denoted by $\text{T}'$. $ $
-
 ### Hybrid parameters
 
 ```math
@@ -154,5 +150,3 @@ I_1 \\
 V_2
 \end{bmatrix}
 ```
-
-### Inverse hybrid parameters

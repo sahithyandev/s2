@@ -44,15 +44,15 @@ In a linear network with several independent sources, any voltage or current in 
 
 ## Reciprocity theorem
 
-:::note[Bilateral network]
-
-A circuit whose characteristics are the same when the direction of current through various elements. In a linear passive bilateral network, an excitation and its response can be interchanged.
-
-:::
+In a reciprocal network, if an emf $E$ in one branch produces a current $I$ in another, then if the emf $E$ is moved to the second branch, it will cause the same current in the first branch, where the emf has been replaced by a short circuit.
 
 ## Compensation theorem
 
 In a linear, bilateral network, any element can be replaced by a voltage source of magnitude equal to the current passing through the element multiplied by the value of the element.
+
+### Bilateral network
+
+A circuit whose characteristics are the same when the direction of current through various elements. In a linear passive bilateral network, an excitation and its response can be interchanged.
 
 ## Maximum Power Transfer theorem
 
@@ -80,6 +80,8 @@ V_{\text{SN}} =
 ```
 
 ## Equivalent Generator theorem
+
+![Equivalent Generator theorem](/images/theory-of-electricity/equivalent-generator-theorem.jpg)
 
 An extension of Millmann's theorem. A system of voltage sources operating in parallel may be replaced by a single voltage source in series with an equivalent impedance. This is also Thevenin's theorem applied to generators in parallel.
 
