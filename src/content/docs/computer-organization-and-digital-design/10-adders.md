@@ -1,7 +1,7 @@
 ---
 title: Adders
 sidebar:
-  order: 7
+  order: 10
 slug: computer-organization-and-digital-design/adders
 prev: true
 next: false

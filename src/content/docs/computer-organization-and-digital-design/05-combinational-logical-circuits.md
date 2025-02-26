@@ -33,6 +33,10 @@ An n-variable maxterm is a normal sum term with n literals.
 
 ## Representation
 
+### Truth table
+
+A table of all inputs and the associated output. Unique but expensive and verbose.
+
 ### Karnaugh Map
 
 A diagram which can be used to reduce a truth table of inputs and output to a boolean expression. Aka. K-map.
@@ -101,49 +105,18 @@ When only one of the bits are changed between 2 rows of a truth table, the rows 
 
 When drawing a K-map for a compact truth table, the "x" have to be considered.
 
-## Boolean algebra
+## Forms
 
-### Axioms
+### Canonical form
 
-- $a + 0 = a$
-- $a \cdot 0 = 0$
-- $a \cdot 1 = a$
-- $a + 1 = 1$
-- $a + a = a$
-- $a \cdot a = a$
-- $a + \overline{a} = 1$
-- $a \cdot \overline{a} = 0$
-- $\overline{\overline{a}} = a$
-- Absorption: $a + ab = a$
-- Absorption #2: $a + \overline{a}b = a + b$
-- $(a + b)(a + c) = a + bc$
+Basic SoP and PoS expressions are in canonical form. Each term will contain all variables, in normal or complement form.
 
-### Duality
+Boolean functions expressed in canonical forms are cost-effective to be implemented.
 
-#### Dual
+### Standard form
 
-For a boolean expression, its "dual" is defined as the boolean expression where:
+Simplified SoP and PoS expressions are in standard form. Each term may contain a subset of variables, in normal or complement form.
 
-- all the $\cdot$ are replaced with $+$
-- all the $+$ are replaced with $\cdot$
-- all the $0$ are replaced with $1$
-- all the $1$ are replaced with $0$
-- all variables left intact
+### Non-standard form
 
-When a theorem is proven, also its dual is proven
-
-### de Moragan's theorem
-
-A procedure for complementing boolean functions.
-
-- all the $\cdot$ are replaced with $+$
-- all the $+$ are replaced with $\cdot$
-- all the $0$ are replaced with $1$
-- all the $1$ are replaced with $0$
-- all variables are replaced with their complements
-
-### Uniting theorem
-
-```math
-X \cdot Y + X \cdot \overline{Y} = X
-```
+Expressions in the form such as $(A+B)\cdot C + \overline{B}$. $ $
