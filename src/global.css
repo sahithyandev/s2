@@ -290,3 +290,12 @@ figure {
     }
   }
 }
+
+.scrollable-table {
+  @apply overflow-x-scroll;
+
+  table {
+    @apply columns-2xl w-[220%] md:w-[140%] lg:w-[120%] xl:w-[110%];
+    table-layout: fixed;
+  }
+}
