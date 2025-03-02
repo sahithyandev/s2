@@ -1,7 +1,7 @@
 ---
 title: Universal Gate
 sidebar:
-  order: 8
+  order: 7
 slug: computer-organization-and-digital-design/universal-gate
 prev: true
 next: true

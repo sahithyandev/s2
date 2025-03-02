@@ -1,7 +1,7 @@
 ---
 title: Timing Hazards
 sidebar:
-  order: 9
+  order: 8
 slug: computer-organization-and-digital-design/timing-hazards
 prev: true
 next: true

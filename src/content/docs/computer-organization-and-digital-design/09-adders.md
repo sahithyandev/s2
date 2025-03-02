@@ -1,10 +1,10 @@
 ---
 title: Adders
 sidebar:
-  order: 10
+  order: 9
 slug: computer-organization-and-digital-design/adders
 prev: true
-next: false
+next: true
 ---
 
 ## Half Adder

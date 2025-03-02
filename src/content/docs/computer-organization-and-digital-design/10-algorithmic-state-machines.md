@@ -1,10 +1,10 @@
 ---
 title: Algorithmic State Machines
 sidebar:
-  order: 7
+  order: 10
 slug: computer-organization-and-digital-design/algorithmic-state-machines
 prev: true
-next: true
+next: false
 ---
 
 Useful for specifying detailed logic for sequential logic. Similar to flowcharts. Describes sequence of events and timing relationship between the states of finite state machine. In a finite state machine, state is denoted by circle. State transition is denoted by an arrow. Along the transition, the inputs and outputs are denoted.
