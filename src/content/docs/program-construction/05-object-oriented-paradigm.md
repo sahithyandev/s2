@@ -4,7 +4,7 @@ sidebar:
   order: 5
 slug: program-construction/object-oriented-paradigm
 prev: true
-next: false
+next: true
 ---
 
 A way of developing software where the components of the system are designed and developed as "objects".
