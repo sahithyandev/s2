@@ -1,7 +1,7 @@
 ---
 title: Adders
 sidebar:
-  order: 10
+  order: 11
 slug: computer-organization-and-digital-design/adders
 prev: true
 next: true
@@ -285,3 +285,24 @@ Image from [Wikipedia](<https://en.wikipedia.org/wiki/Adder_(electronics)#Ripple
 
 </figcaption>
 </figure>
+
+## Carry Lookahead Adder
+
+A technique to speedup binary addition by calculating carry bits in parallel. In a CLA:
+
+- Carry generate - means `C_out` will be created
+- Carry propogate - means `C_in` will be sent out as `C_out`
+
+![Carry Lookahead Adder](/images/codd/carry-lookahead-adder.jpg)
+
+```math
+P_i = A_i \oplus B_i
+G_i = A_i B_i
+```
+
+```math
+S_i = P_i \oplus C_i
+C_{i+1} = G_i + P_i C_i
+```
+
+The CLA can be used to create n-bit adders which only have 3 level delay.

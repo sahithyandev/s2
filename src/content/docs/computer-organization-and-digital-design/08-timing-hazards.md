@@ -17,7 +17,7 @@ When a circuit is implemented as 2-level SOP or POS, the hazard can be detected 
 
 ### Static-0 hazard
 
-Occurs when output must stay at 0 but temporarily switches to a 1 due to a change in input.
+Occurs when output must stay at 0 but temporarily switches to a 1 due to a change in input. Would exist only if a variable and its component are connected to the same AND gate, either directly or via other gates.
 
 ### Static-1 hazard
 
@@ -25,4 +25,12 @@ Occurs when output must stay at 1 but temporarily switches to a 0 due to a chang
 
 ## Dynamic hazards
 
-Occurs when input changes, and output must change but temporarily flips between values. An unwanted change in output.
+Occurs when input changes, and output must change but temporarily flips between values. An unwanted change in output. Won't occur in 2 level circuits. Identification and elimation is hard.
+
+If there are 3 or more paths from an input or its complement to the output, the circuit has the potential for a dynamic hazard.
+
+## Elimination
+
+For synchronous circuits: the clock signal can be tuned to eliminate hazards.
+
+For asyncronous circuits: must use the methods mentioned above.

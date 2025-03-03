@@ -71,8 +71,8 @@ Here:
 
 ## Logic circuits
 
-|               | Combinational    | Sequential                |
-| ------------- | ---------------- | ------------------------- |
-| Memory        | No               | Yes                       |
-| Feedback loop | No               | Yes                       |
-| Output        | Depends on input | Depends on input & memory |
+|               | Combinational Logic   | Sequential Logic          |
+| ------------- | --------------------- | ------------------------- |
+| Memory        | No                    | Yes                       |
+| Feedback loop | No                    | Yes                       |
+| Output        | Depends only on input | Depends on input & memory |

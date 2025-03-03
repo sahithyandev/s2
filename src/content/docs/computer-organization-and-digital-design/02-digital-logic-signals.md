@@ -43,6 +43,16 @@ Pulse width is the time a pulse takes. In non-ideal case, the pulse width is sai
 
 Ideally a pulse is instantaneous. In non-ideal case, it takes time to transition between states. Raise and fall times are measured between the 10% and 90% time.
 
+### Gate delay
+
+Aka. propogation delay. Time for change at input to cause change at output. Denoted by $t_p$. Can vary betwen 0 to 1 and 1 to 0 change. Denoted as $t_{pLH}$ and $t_{pHL}$.
+
+3 delays:
+
+- Min delay
+- Typical/nominal delay
+- Max delay
+
 ### Waveforms
 
 A series of pulses. They can either be periodic (pulse train) or non-periodic. A clock is required along with the waveform to convert it into binary.
