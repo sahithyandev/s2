@@ -11,7 +11,9 @@ Deals with how classes are created.
 
 ## Builder Pattern
 
-A way of creating complex objects on a step-by-step basis. The constructor will not take all the available attributes. Instead, the object creation logic is moved to a `Builder` class.
+A way of creating complex objects on a step-by-step basis. The constructor will
+not take all the available attributes. Instead, the object creation logic is
+moved to a `Builder` class.
 
 ```java
 CarBuilder carBuilder = new CarBuilder();

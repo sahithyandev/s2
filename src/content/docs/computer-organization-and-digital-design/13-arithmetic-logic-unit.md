@@ -7,4 +7,5 @@ prev: true
 next: true
 ---
 
-A component inside a CPU. Does arithmetic and logical operations. Takes in 3 inputs: 2 operators and a flag.
+A component inside a CPU. Does arithmetic and logical operations. Takes in 3
+inputs: 2 operators and a flag.

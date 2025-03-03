@@ -35,14 +35,17 @@ An n-variable maxterm is a normal sum term with n literals.
 
 ### Truth table
 
-A table of all inputs and the associated output. Unique but expensive and verbose.
+A table of all inputs and the associated output. Unique but expensive and
+verbose.
 
 ### Karnaugh Map
 
-A diagram which can be used to reduce a truth table of inputs and output to a boolean expression. Aka. K-map.
+A diagram which can be used to reduce a truth table of inputs and output to a
+boolean expression. Aka. K-map.
 
 - Sketch an empty with (1 vs 1 or 1 vs 2, or 2 vs 2 ...)
-  - If the variables in a row or column is more than 2, they must be arranged in [gray code](/computer-organization-and-digital-design/number-systems/#gray-codes).
+  - If the variables in a row or column is more than 2, they must be arranged in
+    [gray code](/computer-organization-and-digital-design/number-systems/#gray-codes).
 - Populate the map with given values
 - Group the 1s according to K-map rules
   - Each group must be rectangular
@@ -52,7 +55,10 @@ A diagram which can be used to reduce a truth table of inputs and output to a bo
 
 Then the boolean expression can be derived.
 
-The issue with boolean expressions are they are not unique to a circuit. Different boolean expressions lead to different gate realizations. Because of that, a canonical form is used. They are called two-level canonical forms. There are 2:
+The issue with boolean expressions are they are not unique to a circuit.
+Different boolean expressions lead to different gate realizations. Because of
+that, a canonical form is used. They are called two-level canonical forms. There
+are 2:
 
 - Sum of Products
 - Product of Sums
@@ -67,10 +73,12 @@ Aka. disjunctive normal form or minterm expansion.
 
 #### Shorthand
 
-If the order of the variables in the truth table is agreed upon, the SOP notation can be shorten.
+If the order of the variables in the truth table is agreed upon, the SOP
+notation can be shorten.
 
 - Order of the variables is fixed
-- Each row is enumerated (by converting to decimal) and denoted by "minterm #4" or "m4"
+- Each row is enumerated (by converting to decimal) and denoted by "minterm #4"
+  or "m4"
 - The sum can be written as:
   - sum of products: $m3 + m4 + m6 + m7$
   - using summation notation: $\sum{m(3,4,6,7)}$
@@ -85,23 +93,28 @@ Aka. conjucative normal form or maxterm expansion.
 
 #### Shorthand
 
-If the order of the variables in the truth table is agreed upon, the SOP notation can be shorten.
+If the order of the variables in the truth table is agreed upon, the SOP
+notation can be shorten.
 
 - Order of the variables is fixed
-- Each row is enumerated (by converting to decimal) and denoted by "maxterm #4" or "M4"
+- Each row is enumerated (by converting to decimal) and denoted by "maxterm #4"
+  or "M4"
 - The sum can be written as:
   - sum of products: $M3 \cdot M4 \cdot M6 \cdot M7$
   - using summation notation: $\prod{M(3,4,6,7)}$
 
 :::note
 
-SOP or POS is used depending on the output behaviour. If most of the output is 1, POS might be more suitable and if it's 0, SOP might be more suitable.
+SOP or POS is used depending on the output behaviour. If most of the output is
+1, POS might be more suitable and if it's 0, SOP might be more suitable.
 
 :::
 
 ## Don't care conditions
 
-When only one of the bits are changed between 2 rows of a truth table, the rows can be merged into one with the altering bit changed to "x". Can be applied to inputs and outputs. A compact truth table is resulted by doing so.
+When only one of the bits are changed between 2 rows of a truth table, the rows
+can be merged into one with the altering bit changed to "x". Can be applied to
+inputs and outputs. A compact truth table is resulted by doing so.
 
 When drawing a K-map for a compact truth table, the "x" have to be considered.
 
@@ -109,13 +122,16 @@ When drawing a K-map for a compact truth table, the "x" have to be considered.
 
 ### Canonical form
 
-Basic SoP and PoS expressions are in canonical form. Each term will contain all variables, in normal or complement form.
+Basic SoP and PoS expressions are in canonical form. Each term will contain all
+variables, in normal or complement form.
 
-Boolean functions expressed in canonical forms are cost-effective to be implemented.
+Boolean functions expressed in canonical forms are cost-effective to be
+implemented.
 
 ### Standard form
 
-Simplified SoP and PoS expressions are in standard form. Each term may contain a subset of variables, in normal or complement form.
+Simplified SoP and PoS expressions are in standard form. Each term may contain a
+subset of variables, in normal or complement form.
 
 ### Non-standard form
 

@@ -17,22 +17,26 @@ Review these from [S1](https://s1.sahithyan.dev).
 - [Kirchoff's laws](https://s1.sahithyan.dev/electrical-fundamentals/kirchoff-laws/)
 - [Circuit elements](https://s1.sahithyan.dev/electrical-fundamentals/circuit-elements/)
 - [Resistors](https://s1.sahithyan.dev/electrical-fundamentals/resistors/)
-- [Capacitors](https://s1.sahithyan.dev/electrical-fundamentals/capacitors/) - Voltage through a capacitor cannot change instantaneously
-- [Inductors](https://s1.sahithyan.dev/electrical-fundamentals/inductors/)- Current through an inductor cannot change instantaneously
+- [Capacitors](https://s1.sahithyan.dev/electrical-fundamentals/capacitors/) -
+  Voltage through a capacitor cannot change instantaneously
+- [Inductors](https://s1.sahithyan.dev/electrical-fundamentals/inductors/)-
+  Current through an inductor cannot change instantaneously
 - [Impedance & Admittance](https://s1.sahithyan.dev/electrical-fundamentals/impedance-and-admittance/)
 - [Active elements](https://s1.sahithyan.dev/electrical-fundamentals/circuit-elements/#active)
 
 ### Recommended textbooks
 
-- Charles K., Alexander, M. N. O. S., **Fundamentals of Electric Circuits 5th Edition**,
-  McGraw Hill, NewYork, NY, USA, 2013, ISBN 978-0-07-338057-5
-- Hambley, A. R., **Electrical Engineering Principles and Applications 5th Edition**, Pearson
-  Education, Inc., Upper Saddle River, New Jersey,USA, 2011, ISBN-13: 978-0-13-213006-6.
-- Nahvi M., Edminister J.A., **Electric Circuits 4th Edition**, Schaum's Outline Series, McGraw
-  Hill, New York, NY, USA 2003, DOI: 10.1036/0071425829.
-- **Theory and Problems of Basic Electrical Engineering**, D P Kothari, I J Kothari, Prentice
-  Hall of India, New Delhi
-- **Electrical Engineering Fundamentals**, Vincent Del Toro, Prentice Hall of India, New Delhi
+- Charles K., Alexander, M. N. O. S., **Fundamentals of Electric Circuits 5th
+  Edition**, McGraw Hill, NewYork, NY, USA, 2013, ISBN 978-0-07-338057-5
+- Hambley, A. R., **Electrical Engineering Principles and Applications 5th
+  Edition**, Pearson Education, Inc., Upper Saddle River, New Jersey,USA, 2011,
+  ISBN-13: 978-0-13-213006-6.
+- Nahvi M., Edminister J.A., **Electric Circuits 4th Edition**, Schaum's Outline
+  Series, McGraw Hill, New York, NY, USA 2003, DOI: 10.1036/0071425829.
+- **Theory and Problems of Basic Electrical Engineering**, D P Kothari, I J
+  Kothari, Prentice Hall of India, New Delhi
+- **Electrical Engineering Fundamentals**, Vincent Del Toro, Prentice Hall of
+  India, New Delhi
 
 ## Types of active elements
 
@@ -148,24 +152,30 @@ Review these from [S1](https://s1.sahithyan.dev).
 
 ### Independent source
 
-The terminal voltage or current depends only on the loading & internal source quantity.
+The terminal voltage or current depends only on the loading & internal source
+quantity.
 
 ### Dependent source
 
-The terminal voltage or current depends on another circuit quantity such as a voltage or current. Categorized into 4.
+The terminal voltage or current depends on another circuit quantity such as a
+voltage or current. Categorized into 4.
 
 - Voltage-controlled voltage source
 - Voltage-controlled current source
 - Current-controlled voltage source
 - Current-controlled current source
 
-Dependent sources are denoted with the relationship with another independent source.
+Dependent sources are denoted with the relationship with another independent
+source.
 
 ## Waveform errors
 
 ### DC Offset
 
-A DC voltage superimposed on a AC waveform shifts it up or down. Causes unwanted clipping of the AC voltage when amplification. Causes the waveform to have reduced dynamic range, reduced headroom, increases noise when amplified and causes problems with DC-coupled circuits.
+A DC voltage superimposed on a AC waveform shifts it up or down. Causes unwanted
+clipping of the AC voltage when amplification. Causes the waveform to have
+reduced dynamic range, reduced headroom, increases noise when amplified and
+causes problems with DC-coupled circuits.
 
 ### Moving iron instrument
 
@@ -177,7 +187,8 @@ Can be identified by DC symbol. Measures the average value of the signal.
 
 ### Moving coil rectifier instrument
 
-Can be identified by diode symbol. Measures the rms value of the rectified signal.
+Can be identified by diode symbol. Measures the rms value of the rectified
+signal.
 
 ## Special functions
 

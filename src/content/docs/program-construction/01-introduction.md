@@ -8,7 +8,8 @@ prev: false
 next: true
 ---
 
-Program construction is a methodological process that starts from a user's requirements and end with a working program.
+Program construction is a methodological process that starts from a user's
+requirements and end with a working program.
 
 :::note
 
@@ -23,8 +24,8 @@ Programming is only one step among the many in Program Construction process.
 - System requirements analysis
 - System requirements specification
 - System architecture design
-- System validation (checking if the specification captures the
-  customer’s requirements)
+- System validation (checking if the specification captures the customer’s
+  requirements)
 
 ### Software level
 
@@ -34,20 +35,23 @@ Programming is only one step among the many in Program Construction process.
 - Software component/module design
 - Program coding and testing
 - Software deployment and maintenance
-- Software verification (checking if the software meets the
-  specifications)
+- Software verification (checking if the software meets the specifications)
 
 ## Requirements
 
 ### Functional requirements
 
-A statement of a piece of required functionality or a behavior that a system will exhibit under specific conditions.
+A statement of a piece of required functionality or a behavior that a system
+will exhibit under specific conditions.
 
-The above definition is from Grady Booch, James Rumbaugh, and Ivar Jacobson and is a generally accepted one.
+The above definition is from Grady Booch, James Rumbaugh, and Ivar Jacobson and
+is a generally accepted one.
 
 ### Non-functional requirements
 
-A requirement that specifies criteria that can be used to judge the operation of a system. Conveniently identified as _illities_. These are subjetive, ambigous and conflicting.
+A requirement that specifies criteria that can be used to judge the operation of
+a system. Conveniently identified as _illities_. These are subjetive, ambigous
+and conflicting.
 
 Examples:
 

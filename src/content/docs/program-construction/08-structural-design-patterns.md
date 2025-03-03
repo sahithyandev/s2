@@ -13,4 +13,6 @@ Deals with how classes are designed.
 
 ## Decorator Pattern
 
-Used to wrap existing objects to add new functionality without altering its structure and at runtime. Applies Single Responsibility and Open-Closed principles.
+Used to wrap existing objects to add new functionality without altering its
+structure and at runtime. Applies Single Responsibility and Open-Closed
+principles.

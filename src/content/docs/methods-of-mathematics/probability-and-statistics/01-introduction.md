@@ -8,7 +8,9 @@ prev: false
 next: true
 ---
 
-A statistical experiment is a process designed and conducted to obtain data under a controlled and uncontrolled background. The outcome depends purely on chance.
+A statistical experiment is a process designed and conducted to obtain data
+under a controlled and uncontrolled background. The outcome depends purely on
+chance.
 
 ## Experimental data
 
@@ -16,7 +18,8 @@ The data gathered from a statistical experiment.
 
 ### Sample Space
 
-Set of elements that represent all possible outcomes of a statistical experiment. Denoted by $S$. $ $
+Set of elements that represent all possible outcomes of a statistical
+experiment. Denoted by $S$. $ $
 
 ### Sample Point
 
@@ -28,23 +31,28 @@ A subset of the sample space.
 
 #### Mutually Exclusive
 
-Two events are said to be mutually exclusive if they have no sample points in common.
+Two events are said to be mutually exclusive if they have no sample points in
+common.
 
 #### Independent
 
-Two events are said to be independent when the occurence of one does not affect the probability of the occurence of the other.
+Two events are said to be independent when the occurence of one does not affect
+the probability of the occurence of the other.
 
 #### Complement
 
-Complement of the event $A$ (of $S$) is denoted by $\overline{A}$. An event consisting of all the sample points that are in $S$ and not $A$.
+Complement of the event $A$ (of $S$) is denoted by $\overline{A}$. An event
+consisting of all the sample points that are in $S$ and not $A$.
 
 #### Union
 
-Union of two or more events, is the event containing all sample points that belong to any one of the events.
+Union of two or more events, is the event containing all sample points that
+belong to any one of the events.
 
 #### Intersection
 
-Intersection of two or more events, is the event containing all sample points that belong to all of the events.
+Intersection of two or more events, is the event containing all sample points
+that belong to all of the events.
 
 ### Outcome
 
@@ -65,8 +73,10 @@ A changing quantity that is being measured in an experimental study.
 
 ### Census
 
-The process of gathering information about the members of a given population of interest.
+The process of gathering information about the members of a given population of
+interest.
 
 ### Cohort
 
-A group of subjects who share a particular event during a particular time duration.
+A group of subjects who share a particular event during a particular time
+duration.

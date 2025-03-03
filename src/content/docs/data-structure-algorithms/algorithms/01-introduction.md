@@ -8,9 +8,13 @@ prev: false
 next: true
 ---
 
-Revise [S1](https://s1.sahithyan.dev) for [algorithms](https://s1.sahithyan.dev/programming-fundamentals/b-book/algorithms/).
+Revise [S1](https://s1.sahithyan.dev) for
+[algorithms](https://s1.sahithyan.dev/programming-fundamentals/b-book/algorithms/).
 
-Defines how input is mapped to output, where input and output are both representation of data. Has a well-defined procedure. A step-by-step method of solving a computational task. Algorithms are studied to easily understand and solve problems in the best way.
+Defines how input is mapped to output, where input and output are both
+representation of data. Has a well-defined procedure. A step-by-step method of
+solving a computational task. Algorithms are studied to easily understand and
+solve problems in the best way.
 
 ### Computational task
 

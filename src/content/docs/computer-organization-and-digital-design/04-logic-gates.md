@@ -28,7 +28,9 @@ Returns true **iff** when the number of true inputs are odd.
 
 ## Logical circuit representation
 
-Logical circuits are a abstraction of transistor circuits. The circuits can be built using <abbr title="Transistor-to-Transistor Logic">TTL</abbr> or <abbr title="Complementary Metal Oxide Semiconductor">CMOS</abbr>.
+Logical circuits are a abstraction of transistor circuits. The circuits can be
+built using <abbr title="Transistor-to-Transistor Logic">TTL</abbr> or
+<abbr title="Complementary Metal Oxide Semiconductor">CMOS</abbr>.
 
 ### TTL
 
@@ -40,7 +42,9 @@ Uses 2 metal oxide semiconductors.
 
 :::note
 
-It is recommended to design CMOS with NAND gates only. NAND gates have more fanout and less power comsumption. The other gates can be implemented using NAND.
+It is recommended to design CMOS with NAND gates only. NAND gates have more
+fanout and less power comsumption. The other gates can be implemented using
+NAND.
 
 :::
 

@@ -9,7 +9,8 @@ next: true
 
 ## Rule 1
 
-Suppose there is an experiment consisting of $k$ number of steps. And $i$-th step having $n_i$ number of outcomes.
+Suppose there is an experiment consisting of $k$ number of steps. And $i$-th
+step having $n_i$ number of outcomes.
 
 ```math
 \text{Total number of outcomes} = \sum_{i=1}^k {n_i}
@@ -41,7 +42,8 @@ An arrangement of a set of objects, with regard to the order of the arrangement.
 
 ## Rule 4
 
-The numebr of circular permutations of $k$ objects taken from a group of $n$ objects:
+The numebr of circular permutations of $k$ objects taken from a group of $n$
+objects:
 
 ```math
 \frac{^nP_k}{k} = ^nC_k \times (k-1)!
@@ -49,7 +51,8 @@ The numebr of circular permutations of $k$ objects taken from a group of $n$ obj
 
 ## Rule 5
 
-Suppose a multi-set $M$ contains $n$ items of $k$ different types. There are $r_i$ number of type $i$ objects. Total number of distinct permutations:
+Suppose a multi-set $M$ contains $n$ items of $k$ different types. There are
+$r_i$ number of type $i$ objects. Total number of distinct permutations:
 
 ```math
 \frac{n!}{\sum_{i=1}^k {r_i!}}

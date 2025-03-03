@@ -21,7 +21,8 @@ Outputs whether the two numbers are equal or less than or greater than.
 
 ### 1-bit Magnitude Comparator
 
-Suppose the comparator takes in $A$ and $B$. And the output $G$ denotes whether $A$ is greater than $B$.
+Suppose the comparator takes in $A$ and $B$. And the output $G$ denotes whether
+$A$ is greater than $B$.
 
 $ G = A\overline{B} $
 
@@ -31,7 +32,8 @@ $ L = \overline{A} B $
 
 ### n-bit Magnitude Comparator
 
-Let $x_i = A_i B_i + \overline{A_i} \overline{B_i} = \overline{A_i \oplus B_i}$. $x_i$ denotes if $A_i = B_i$.
+Let $x_i = A_i B_i + \overline{A_i} \overline{B_i} = \overline{A_i \oplus B_i}$.
+$x_i$ denotes if $A_i = B_i$.
 
 ```math
 G = \sum_{i=0}^{n-1} \Bigg(\bigg(\prod_{j=i+1}^{n-1}{x_j}\bigg)  A_i\overline{B_i}\Bigg)

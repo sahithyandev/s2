@@ -1,25 +1,26 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
-  "formatter": {
-    "enabled": true,
-    "ignore": [".astro", "dist"]
-  },
-  "linter": {
-    "enabled": true,
-    "ignore": [".astro", ".vercel", "dist"],
-    "rules": {
-      "recommended": true
-    }
-  },
-  "css": {
-    "linter": {
-      "enabled": true
-    },
-    "formatter": {
-      "enabled": true
-    }
-  }
+	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+	"organizeImports": {
+		"enabled": true,
+		"ignore": [".astro", "dist"]
+	},
+	"formatter": {
+		"enabled": true,
+		"ignore": [".astro", "dist"]
+	},
+	"linter": {
+		"enabled": true,
+		"ignore": [".astro", ".vercel", "dist"],
+		"rules": {
+			"recommended": true
+		}
+	},
+	"css": {
+		"linter": {
+			"enabled": true
+		},
+		"formatter": {
+			"enabled": true
+		}
+	}
 }

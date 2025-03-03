@@ -27,4 +27,5 @@ Takes in 1 input ($A$) and produces 2 outputs ($A$ and $\overline{A}$).
 
 ## Programmable Array Logic
 
-Most commonly used type of PLD. Has programmable AND gate array and fixed OR gate array.
+Most commonly used type of PLD. Has programmable AND gate array and fixed OR
+gate array.

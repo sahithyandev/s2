@@ -7,25 +7,36 @@ prev: true
 next: true
 ---
 
-A way of comparing different algorithms. Algorithms' time to run is hard to measure exactly and hard to compare with fairness. And also there are too many uncontrollable variables in measuring the actual time. Because of that, the algorithms are analyzed asymptotically: a way of measuring the performance of an algorithm without depending on hardware.
+A way of comparing different algorithms. Algorithms' time to run is hard to
+measure exactly and hard to compare with fairness. And also there are too many
+uncontrollable variables in measuring the actual time. Because of that, the
+algorithms are analyzed asymptotically: a way of measuring the performance of an
+algorithm without depending on hardware.
 
 ### Cons of complexity analysis
 
-- The algorithm might not reach the limit after which the asymptotic behaviour is seen  
+- The algorithm might not reach the limit after which the asymptotic behaviour
+  is seen  
   Different algorithms can be used for different input ranges
 - The input density and input size might not be uniform  
-  Usually assumed to be uniform and is considered good enough. Experimentation is required for more precise approximation.
+  Usually assumed to be uniform and is considered good enough. Experimentation
+  is required for more precise approximation.
 - Not all functions (such as periodic, oscillating functions) can be compared
 
 ## Asymptotic notation
 
-A method used to categorize functions or to calculate upper/lower bounds with respect to the growth rate of functions. In this context, total number of steps followed by a specific algorithm is expressed in terms of its input size $n$, then asymptotic analysis can be done. $ $
+A method used to categorize functions or to calculate upper/lower bounds with
+respect to the growth rate of functions. In this context, total number of steps
+followed by a specific algorithm is expressed in terms of its input size $n$,
+then asymptotic analysis can be done. $ $
 
 ### Time complexity
 
-Analysis of how the running time of the algorithm grows with various input sizes.
+Analysis of how the running time of the algorithm grows with various input
+sizes.
 
-Instead of measuring the running time of the algorithm for specific inputs, how the running time increases with the increasing input size.
+Instead of measuring the running time of the algorithm for specific inputs, how
+the running time increases with the increasing input size.
 
 ### Space complexity
 
@@ -39,7 +50,8 @@ Suppose $f,g$ are 2 functions of $n$. $ $
 
 ### Big-O
 
-$f(n) \in O(g(n))$ **iff** $\exists\, c \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
+$f(n) \in O(g(n))$ **iff**
+$\exists\, c \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
 
 ```math
 \forall n \ge n_0,\; f(n) \le c* g(n)
@@ -49,7 +61,8 @@ An asymptotic upper bound.
 
 ### Big-Omega
 
-$f(n) \in \Omega(g(n))$ **iff** $\exists\, c \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
+$f(n) \in \Omega(g(n))$ **iff**
+$\exists\, c \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
 
 ```math
 \forall n \ge n_0,\; f(n) \ge c* g(n)
@@ -59,7 +72,8 @@ An asymptotic lower bound.
 
 ### Big-Theta
 
-$f(n) \in \Theta(g(n))$ **iff** $\exists\, c_1, c_2 \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
+$f(n) \in \Theta(g(n))$ **iff**
+$\exists\, c_1, c_2 \gt 0 \land  n_0 \in \mathbb{N}\;\; \text{s.t}$:
 
 ```math
 \forall n \ge n_0,\; c_1 * g(n) \le f(n) \le c_2* g(n)
@@ -69,7 +83,8 @@ An asymptotic equivalence. A tight characterization unlike Big-O or Big-Omega.
 
 ### Soft-O
 
-Denoted by $\overline{O}$. Similar to Big-O but the logarithmic terms are removed in the analysis. Not used as much as the other three. $ $
+Denoted by $\overline{O}$. Similar to Big-O but the logarithmic terms are
+removed in the analysis. Not used as much as the other three. $ $
 
 ### Little-o
 
@@ -95,7 +110,8 @@ f(n) \in o(g(n)) \implies f(n) \not{\in} \Theta(g(n))
 
 ### Little-omega
 
-$f(n) \in \omega(g(n))$ **iff** $\forall \epsilon \gt 0,\;\exists N\;\text{s.t}$:
+$f(n) \in \omega(g(n))$ **iff**
+$\forall \epsilon \gt 0,\;\exists N\;\text{s.t}$:
 
 ```math
 \forall n \ge N,\;|f(n)|\ge\epsilon|g(n)|
@@ -129,7 +145,8 @@ f(n) \in \omega(g(n)) \implies f(n) \not{\in} \Theta(g(n))
 
 ### Transitivity
 
-**If** $f(n) = O(g(n))$ and $g(n) = O(h(n))$ **then** $f(n) = O(h(n))$. Applies to all 5 functions.
+**If** $f(n) = O(g(n))$ and $g(n) = O(h(n))$ **then** $f(n) = O(h(n))$. Applies
+to all 5 functions.
 
 ### Reflexivity
 
