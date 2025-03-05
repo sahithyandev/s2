@@ -53,6 +53,7 @@ classes and (regular) classes.
 - `HashSet` is an implementation of `Set`
 - `Map` is a similar interface to `Collection`. Allows access to items by
   reference to contents that are used as a key
+- `HashMap` is an implementation of Map
 
 All these interfaces and classes are implemented around generics. Generics allow
 them to be created with compile-time types.
