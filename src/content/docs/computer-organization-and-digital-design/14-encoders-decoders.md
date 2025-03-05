@@ -1,7 +1,7 @@
 ---
 title: Encoders & Decoders
 sidebar:
-  order: 16
+  order: 14
 slug: computer-organization-and-digital-design/encoders-decoders
 prev: true
 next: true

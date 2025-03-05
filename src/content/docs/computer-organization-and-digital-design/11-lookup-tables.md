@@ -1,7 +1,7 @@
 ---
 title: Lookup Tables
 sidebar:
-  order: 14
+  order: 11
 slug: computer-organization-and-digital-design/lookup-tables
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Adders
 sidebar:
-  order: 11
+  order: 12
 slug: computer-organization-and-digital-design/adders
 prev: true
 next: true
@@ -262,11 +262,13 @@ a CLA:
 
 ```math
 P_i = A_i \oplus B_i
+\;\;\;\;
 G_i = A_i B_i
 ```
 
 ```math
 S_i = P_i \oplus C_i
+\;\;\;\;
 C_{i+1} = G_i + P_i C_i
 ```
 

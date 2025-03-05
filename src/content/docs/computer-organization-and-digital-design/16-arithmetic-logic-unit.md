@@ -1,7 +1,7 @@
 ---
 title: Arithmetic Logic Unit
 sidebar:
-  order: 13
+  order: 16
 slug: computer-organization-and-digital-design/arithmetic-logic-unit
 prev: true
 next: true
