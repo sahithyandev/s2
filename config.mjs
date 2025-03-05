@@ -107,7 +107,7 @@ export const STARLIGHT_CONFIG = {
 					},
 				},
 				{
-					label: "Data structures",
+					label: "Data Structures",
 					autogenerate: {
 						directory: "data-structure-algorithms/data-structures",
 					},

@@ -32,6 +32,10 @@
     {
       "source": "/methods-of-mathematics/probability-and-statistics",
       "destination": "/methods-of-mathematics/probability-and-statistics/introduction"
+    },
+    {
+      "source": "/methods-of-mathematics/numerical-methods",
+      "destination": "/methods-of-mathematics/numerical-methods/introduction"
     }
   ]
 }
