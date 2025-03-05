@@ -124,6 +124,12 @@ export const STARLIGHT_CONFIG = {
 					},
 				},
 				{
+					label: "Numerical Methods",
+					autogenerate: {
+						directory: "methods-of-mathematics/numerical-methods",
+					},
+				},
+				{
 					label: "Probability & Statistics",
 					autogenerate: {
 						directory: "methods-of-mathematics/probability-and-statistics",
