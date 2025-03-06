@@ -13,15 +13,18 @@ medium-scale integrated (MSI) circuits group.
 
 ## Encoder
 
-Converts multiple input signals into a single output signal with fewer lines,
+Converts multiple input lines into a single output line with fewer lines,
 typically in binary or base systems. Have $n$ inputs and $m$ outputs where
 $n = 2^m$.
+
+In simple encoders, in the input lines, maximum one will be active at a time.
 
 ### Priority Encoder
 
 When 2 or more input lines are activated in a priority encoder, the input having
 the highest priority will take precedence. An improvement over simple encoder at
-the cost of extra logic. Used in interrupt controllers.
+the cost of extra logic. Used in interrupt controllers and as positional
+encoders.
 
 ### Decimal to BCD Encoder
 
@@ -41,3 +44,11 @@ becomes '1010'.
 ## Decoder
 
 Opposite of encoder. Have $m$ inputs and $n$ outputs where $m = \log_2{n}$.
+Decoders are by-default active high. If the decoder is made using NAND gates,
+then it will active low. By default, the decoder require a $n$-input AND gates,
+which is bad as $n$ increases. The solution is to build higher order decoders
+using smaller decoders.
+
+Decoder and a set of OR gates can be used to build a
+[Full Adder](/computer-organization-and-digital-design/adders/#full-adder) and
+other devices.

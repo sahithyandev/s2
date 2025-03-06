@@ -7,11 +7,9 @@ prev: true
 next: true
 ---
 
-A combinational circuit that selects binary information from one of many inputs
-and outputs it. Aka. MUX. Available as ICs in market.
-
-The selected input line is configured using a set of select lines (or selector
-variables). $n$ selector variables are used to select between $2^n$ states.
+A combinational circuit that selects binary information from one of $2^n$ inputs
+and outputs it. Aka. MUX. Available as ICs in market. The selected input line is
+configured using $n$ number select lines (or selector variables).
 
 ## Advantages
 
