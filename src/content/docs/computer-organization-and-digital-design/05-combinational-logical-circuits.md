@@ -99,9 +99,9 @@ notation can be shorten.
 - Order of the variables is fixed
 - Each row is enumerated (by converting to decimal) and denoted by "maxterm #4"
   or "M4"
-- The sum can be written as:
-  - sum of products: $M3 \cdot M4 \cdot M6 \cdot M7$
-  - using summation notation: $\prod{M(3,4,6,7)}$
+- The product can be written as:
+  - product of sums: $M3 \cdot M4 \cdot M6 \cdot M7$
+  - using production notation: $\prod{M(3,4,6,7)}$
 
 :::note
 

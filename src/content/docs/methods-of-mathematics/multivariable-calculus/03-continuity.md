@@ -22,8 +22,8 @@ $f$ is continuous at $(a,b) \in D$ **iff**:
   $(a,b)$.
 - Otherwise, for $f$ to be continuous at $(a,b) \in D$:
   - $f(a,b)$ must be well defined
-  - $\lim_\limits{(x,y)\to{(a,b)}} {f(x)}$ must exists
-  - $\lim_\limits{(x,y)\to{(a,b)}} {f(x)} = f(a,b)$
+  - $\lim_\limits{(x,y)\to{(a,b)}} {f(x,y)}$ must exists
+  - $\lim_\limits{(x,y)\to{(a,b)}} {f(x,y)} = f(a,b)$
 
 :::note
 

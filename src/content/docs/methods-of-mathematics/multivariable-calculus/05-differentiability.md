@@ -29,8 +29,8 @@ be expressed in the below form, **then** $f$ is differentiable at $(a,b)$.
 where $\epsilon_1$ and $\epsilon_2$ approach $0$ as $(\Delta x, \Delta y)$
 approach $(0,0)$.
 
-$f$ is said to be differentiable if it is differentiable at every point in its
-domain. $ $
+$f$ is said to be differentiable **iff** it is differentiable at every point in
+its domain. $ $
 
 **If** partial derivatives of $f$ is not existent at a point, **then** $f$ will
 not be differentiable at that point.

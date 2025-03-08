@@ -16,8 +16,10 @@ $\lim_\limits{(x,y)\to{(a,b)}} {f(x)}=L$ **iff**: $ $
 \bigg(0<\sqrt{(x-a)^2 + (y-b)^2}<\delta\implies{|f(x,y)-L|<\epsilon}\bigg)
 ```
 
-The target point can be approached in any directions. Thus, if 2 different paths
-yield 2 different limtting values, then the limit doesn't exist.
+In the above definition statement, circular $\delta-$disk was used; square
+neighbourhood can also be used. The target point can be approached in any
+directions. Thus, if 2 different paths yield 2 different limtting values, then
+the limit doesn't exist.
 
 Multivariable limit properties are analogous to the
 [single variable limits](https://s1.sahithyan.dev/mathematics/real-analysis/limits/#properties).
