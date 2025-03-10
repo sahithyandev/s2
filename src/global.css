@@ -46,6 +46,18 @@
 		--sl-content-pad-x: 1.2rem;
 	}
 }
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(155, 155, 155, 0.5);
+	border-radius: 20px;
+	border: transparent;
+}
+
 * {
 	font-variant-ligatures: none;
 	font-family: "DM Sans", sans-serif;
