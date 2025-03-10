@@ -1,41 +1,41 @@
 {
-  "redirects": [
-    {
-      "source": "/wp-admin",
-      "destination": "https://sahithyan.dev",
-      "permanent": true
-    },
-    {
-      "source": "/computer-organization-and-digital-design",
-      "destination": "/computer-organization-and-digital-design/introduction"
-    },
-    {
-      "source": "/theory-of-electricity",
-      "destination": "/theory-of-electricity/introduction"
-    },
-    {
-      "source": "/methods-of-mathematics/multivariable-calculus",
-      "destination": "/methods-of-mathematics/multivariable-calculus/introduction"
-    },
-    {
-      "source": "/data-structure-algorithms/algorithms",
-      "destination": "/data-structure-algorithms/algorithms/introduction"
-    },
-    {
-      "source": "/data-structure-algorithms/data-structures",
-      "destination": "/data-structure-algorithms/data-structures/introduction"
-    },
-    {
-      "source": "/program-construction",
-      "destination": "/program-construction/introduction"
-    },
-    {
-      "source": "/methods-of-mathematics/probability-and-statistics",
-      "destination": "/methods-of-mathematics/probability-and-statistics/introduction"
-    },
-    {
-      "source": "/methods-of-mathematics/numerical-methods",
-      "destination": "/methods-of-mathematics/numerical-methods/introduction"
-    }
-  ]
+	"redirects": [
+		{
+			"source": "/wp-admin",
+			"destination": "https://sahithyan.dev",
+			"permanent": true
+		},
+		{
+			"source": "/computer-organization-and-digital-design",
+			"destination": "/computer-organization-and-digital-design/introduction"
+		},
+		{
+			"source": "/theory-of-electricity",
+			"destination": "/theory-of-electricity/introduction"
+		},
+		{
+			"source": "/methods-of-mathematics/multivariable-calculus",
+			"destination": "/methods-of-mathematics/multivariable-calculus/introduction"
+		},
+		{
+			"source": "/data-structure-algorithms/algorithms",
+			"destination": "/data-structure-algorithms/algorithms/introduction"
+		},
+		{
+			"source": "/data-structure-algorithms/data-structures",
+			"destination": "/data-structure-algorithms/data-structures/introduction"
+		},
+		{
+			"source": "/program-construction",
+			"destination": "/program-construction/introduction"
+		},
+		{
+			"source": "/methods-of-mathematics/probability-and-statistics",
+			"destination": "/methods-of-mathematics/probability-and-statistics/introduction"
+		},
+		{
+			"source": "/methods-of-mathematics/numerical-methods",
+			"destination": "/methods-of-mathematics/numerical-methods/introduction"
+		}
+	]
 }
