@@ -167,7 +167,7 @@ strong {
 			@apply text-md;
 			counter-increment: link 1;
 			&::before {
-				@apply text-sm;
+				@apply text-sm font-mono;
 				content: "--" counter(link, decimal-leading-zero) "--";
 			}
 		}
