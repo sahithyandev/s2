@@ -1,7 +1,7 @@
 ---
 title: Tangent Planes
 sidebar:
-  order: 9
+  order: 10
 slug: methods-of-mathematics/multivariable-calculus/tangent-planes
 prev: true
 next: false
@@ -21,10 +21,13 @@ deduced by differentiating the equation.
 \bigtriangledown F \cdot \boldsymbol{\underline{r}'} = 0
 ```
 
-The gradient vector of $F$ at $P$ is perpendicular to the tangent vector
-$\boldsymbol{\underline{r}'}$ of $C$. **If** $F(x_0,y_0,z_0) \neq 0$, **then**
-the tangent plane to $S$ at $P$ is the one that passes through $P$ and has a
-normal vector $\bigtriangledown F(x_0,y_0,z_0)$.
+The gradient vector of $F$ is perpendicular to the tangent vector
+$\boldsymbol{\underline{r}'}$ (of $C$).
+
+Tangent plane to $S$ can be defined by applying the above equation at point $P$.
+**If** $F(x_0,y_0,z_0) \neq 0$, **then** the tangent plane to $S$ at $P$ is the
+one that passes through $P$ and has a normal vector
+$\bigtriangledown F(x_0,y_0,z_0)$.
 
 The equation of the tangent plane:
 
@@ -34,11 +37,11 @@ F_x(x_0, y_0, z_0)(x − x_0) + F_y(x_0, y_0, z_0)(y − y_0) + F_z(x_0, y_0, z_
 
 ## Normal line
 
-Normal line is at a point $P$ to a surface $S$ is the line passing through $P$
-and perpendicular to the tangent plane. The equation of the normal line is:
+Normal line to the surface $S$ at point $P$, is the line passing through $P$ and
+perpendicular to the tangent plane. The equation of the normal line is:
 
 ```math
-\frac{x − x_0}{F_x(x_0,y_0,z_0)}+
-\frac{y − y_0}{F_y(x_0,y_0,z_0)}+
-\frac{z − z_0}{F_z(x_0,y_0,z_0)}+
+\frac{x − x_0}{F_x(x_0,y_0,z_0)}=
+\frac{y − y_0}{F_y(x_0,y_0,z_0)}=
+\frac{z − z_0}{F_z(x_0,y_0,z_0)}
 ```

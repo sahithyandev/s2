@@ -1,7 +1,7 @@
 ---
 title: Continuity
 sidebar:
-  order: 3
+  order: 4
 slug: methods-of-mathematics/multivariable-calculus/continuity
 prev: true
 next: true
@@ -28,8 +28,8 @@ $f$ is continuous at $(a,b) \in D$ **iff**:
 :::note
 
 - Constant multiples, sum, difference, product, quotient, and rational powers of
-  continuous functions are continuous whenever they are well defined.
+  continuous functions are continuous whenever they are well-defined.
 - Polynomials in two variables are continuous functions.
-- Rational functions are continuous functions provided they are well defined.
+- Rational functions are continuous functions provided they are well-defined.
 
 :::

@@ -1,7 +1,7 @@
 ---
 title: Theorems
 sidebar:
-  order: 6
+  order: 7
 slug: methods-of-mathematics/multivariable-calculus/theorems
 prev: true
 next: true
@@ -10,15 +10,18 @@ next: true
 ## Mean Value Theorem
 
 Let
-$(a,b) \in \mathbb{R}^2, \delta > 0, D = \set{(x,y) \in \mathbb{R}^2 : (x-a)^2 + (y-b)^2 \lt \delta} \text{ and } f : D \rightarrow \mathbb{R}$.
-Suppose $f_x$ and $f_y$ exists.
 
-**If** $P \in D$ **then** $\exists \theta, \alpha \in (0,1)$ such that:
+- $\delta > 0$
+- $D = \big\{ (x,y) \in \mathbb{R}^2 : (x-a)^2 + (y-b)^2 \lt \delta \big\}$
+- $f : D \rightarrow \mathbb{R}$
+- $(a,b) \in D$
+- $f_x$ and $f_y$ exists
+
+**Then** $\exists \theta, \alpha \in (0,1)$ such that: $ $
 
 ```math
-f(P_x, P_y) - f(a,b) = \Delta{x} f_x (a+\theta \Delta{x}, b)
-+
- \Delta{y} f_y (a+\theta \Delta{x}, b+\alpha \Delta{y})
+\Delta f = f(P_x, P_y) - f(a,b) = \Delta{x} f_x (a+\theta \Delta{x}, b)
++ \Delta{y} f_y (a+\Delta{x}, b+\alpha \Delta{y})
 ```
 
 :::note[Proof Hint]
@@ -40,7 +43,7 @@ $f_{xy}$ and $f_{yx}$ are continous on $D$ **then** $f_{xy}=f_{yx}$.
 
 - Take a square neighbourhood around $(a,b)$ with side length
   $2\lvert h \rvert$.
-- Define $\phi_f = [f(a+h,b+h) - f(a+h,b)] - [f(a,b+h) - f(a,b)]$
+- Define $\phi_f = \big[f(a+h,b+h) - f(a+h,b)] - [f(a,b+h) - f(a,b)\big]$
 - Use
   [single variable MVT](https://s1.sahithyan.dev/mathematics/real-analysis/other-theorems/#mean-value-theorem)
   for $x$, then $y$

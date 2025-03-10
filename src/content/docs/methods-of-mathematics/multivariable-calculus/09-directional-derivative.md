@@ -1,7 +1,7 @@
 ---
 title: Directional Derivative
 sidebar:
-  order: 8
+  order: 9
 slug: methods-of-mathematics/multivariable-calculus/directional-derivative
 prev: true
 next: true
@@ -20,8 +20,8 @@ D_{\boldsymbol{u}} f(x_0,y_0) =
 \frac{f(x_0+ha, y_0+hb) - f(x_0,y_0)}{h}
 ```
 
-**If** $f(x,y)$'s first partials $f_x$ and $f_y$ are continuous, **then** $f$
-has a directional derivative in any direction $\boldsymbol{u}=(a,b)$.
+**If** $f_x$ and $f_y$ are continuous at $(x,y)$, **then** $f$ has a directional
+derivative in any direction $\boldsymbol{u}=(a,b)$.
 
 ```math
 D_{\boldsymbol{u}} f(x,y) = af_x(x,y) + bf_y(x,y)
@@ -30,7 +30,7 @@ D_{\boldsymbol{u}} f(x,y) = af_x(x,y) + bf_y(x,y)
 Also the directional derivative can be written as:
 
 ```math
-D_{\boldsymbol{u}} f(x_0,y_0) = <f_x(x_0,y_0),f_y(x_0,y_0)> \cdot \boldsymbol{u}
+D_{\boldsymbol{u}} f(x_0,y_0) = \Big\langle f_x(x_0,y_0),f_y(x_0,y_0)\Big\rangle \cdot \boldsymbol{u}
 ```
 
 ## Gradient
@@ -40,7 +40,7 @@ $ $
 
 ```math
 \bigtriangledown f(x_0,y_0) =
- <f_x(x_0,y_0),f_y(x_0,y_0)>
+ \Big\langle f_x(x_0,y_0),f_y(x_0,y_0) \Big\rangle
  =
 \frac{\partial f}{\partial x}\boldsymbol{i}
 +\frac{\partial f}{\partial y}\boldsymbol{j}
@@ -49,7 +49,7 @@ $ $
 The $\bigtriangledown$ is the "del operator". $ $
 
 ```math
-\bigtriangledown f(x_0,y_0)
+\bigtriangledown
 \equiv
 \frac{\partial }{\partial x}\boldsymbol{i}
 +\frac{\partial }{\partial y}\boldsymbol{j}

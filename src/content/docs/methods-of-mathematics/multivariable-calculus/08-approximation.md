@@ -1,7 +1,7 @@
 ---
 title: Approximation
 sidebar:
-  order: 7
+  order: 8
 slug: methods-of-mathematics/multivariable-calculus/approximation
 prev: true
 next: true
