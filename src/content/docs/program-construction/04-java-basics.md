@@ -47,7 +47,7 @@ classes and (regular) classes.
   of different data structures.
 - `List`, `Queue`, `Set` interfaces extends `Collection` to specific data
   structures
-- `ArrayList` is a dynamic array implementation (automatically grows and shrinks
+- [ArrayList](/program-construction/array-list/) is a dynamic array implementation (automatically grows and shrinks
   in size as required)
 - `PriorityQueue` is an implementation of `Queue`
 - `HashSet` is an implementation of `Set`
