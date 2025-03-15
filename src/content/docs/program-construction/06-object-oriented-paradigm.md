@@ -37,6 +37,35 @@ Common UML diagrams used in OOD include:
   time.
 - **Use Case Diagrams**: Show the interactions between actors and the system.
 
+### Principles
+
+_SOLID_ design principles are used in OOD.
+
+#### Single responsibility
+
+Every class should have only one responsibility. Makes it easier to write unit
+test cases. Good for maintainability and flexibility.
+
+#### Open-closed
+
+Software entities should be open for extension but closed for modification.
+Makes it safe to refactoring.
+
+#### Liskov substitution
+
+Functions that use references to base classes must be able to use objects of its
+subclasses.
+
+#### Interface segregation
+
+Clients should not be forced to depend upon interfaces that they don't use.
+
+#### Dependency inversion
+
+High level modules should depend on abstractions instead of low level modules.
+Abstractions should not depend on implementation. Concrete implements must
+depend on abstractions.
+
 ## Object Oriented Programming
 
 A programming style, in which main components are thought in terms of objects.
