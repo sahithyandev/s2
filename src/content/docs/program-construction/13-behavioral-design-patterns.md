@@ -1,10 +1,10 @@
 ---
 title: Behavioral Design Patterns
 sidebar:
-  order: 10
+  order: 13
 slug: program-construction/behavioral-design-patterns
 prev: true
-next: true
+next: false
 ---
 
 Deals with how different kinds of objects interact with each other.
