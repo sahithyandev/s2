@@ -1,7 +1,7 @@
 ---
 title: Design Patterns
 sidebar:
-  order: 6
+  order: 7
 slug: program-construction/design-patterns
 prev: true
 next: true

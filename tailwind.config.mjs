@@ -14,9 +14,6 @@ export default {
 			lineHeight: {
 				md: "1.5rem",
 			},
-			fontFamily: {
-				sans: ["Inter"],
-			},
 		},
 	},
 	plugins: [starlightPlugin()],

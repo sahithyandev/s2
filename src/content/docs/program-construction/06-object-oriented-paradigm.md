@@ -1,7 +1,7 @@
 ---
 title: Object Oriented Paradigm
 sidebar:
-  order: 5
+  order: 6
 slug: program-construction/object-oriented-paradigm
 prev: true
 next: true
