@@ -4,7 +4,7 @@ sidebar:
   order: 2
 slug: data-structure-algorithms/data-structures/tree
 prev: true
-next: false
+next: true
 ---
 
 A widely used abstract data type that simulates a hierarchical tree structure
