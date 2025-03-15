@@ -25,6 +25,35 @@ Car mine = carBuilder.build();
 
 Defines the order in which the constructor calls should be called. Optional.
 
+## Singleton Pattern
+
+Ensures only one instances of its kind exists. Provides single point of access
+to it.
+
+```java
+public class DatabaseConnection {
+  private static DatabaseConnection instance;
+
+  private DatabaseConnection() {
+    // private constructor to prevent instantiation
+  }
+
+  public static DatabaseConnection getInstance() {
+    if (instance == null) {
+      instance = new DatabaseConnection();
+    }
+    return instance;
+  }
+
+  public void connect() {
+    // connection logic here
+  }
+}
+```
+
+The above example uses singleton pattern for DatabaseConnection. Only one
+connection instance is required at runtime.
+
 ## Factory Pattern
 
 ## Abstract Factory Pattern
