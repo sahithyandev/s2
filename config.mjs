@@ -45,7 +45,7 @@ const STARLIGHT_CONFIG_HEAD = [
 		tag: "link",
 		attrs: {
 			rel: "stylesheet",
-			href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap",
+			href: "https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Geist+Mono:wght@100..900&display=swap",
 		},
 	},
 ];
