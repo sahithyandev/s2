@@ -4,7 +4,7 @@ sidebar:
   order: 3
 slug: data-structure-algorithms/data-structures/heap
 prev: true
-next: false
+next: true
 ---
 
 A special type of binary tree with an additional property called _the heap
