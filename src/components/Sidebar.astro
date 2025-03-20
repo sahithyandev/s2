@@ -3,23 +3,23 @@ import DefaultPageSidebar from "@astrojs/starlight/components/Sidebar.astro";
 ---
 
 {
-  (
-    // @ts-ignore
-    <DefaultPageSidebar {...Astro.props}>
-      {" "}
-      <slot />{" "}
-    </DefaultPageSidebar>
-  )
+	(
+		// @ts-ignore
+		<DefaultPageSidebar {...Astro.props}>
+			{" "}
+			<slot />{" "}
+		</DefaultPageSidebar>
+	)
 }
 
 <script>
-  const activeEl = document.querySelector(
-    "#starlight__sidebar a[aria-current=page]"
-  );
-  if (activeEl instanceof HTMLElement) {
-    activeEl.scrollIntoView({
-      behavior: "instant",
-      block: "center",
-    });
-  }
+	const activeEl = document.querySelector(
+		"#starlight__sidebar a[aria-current=page]",
+	);
+	if (activeEl instanceof HTMLElement) {
+		activeEl.scrollIntoView({
+			behavior: "instant",
+			block: "center",
+		});
+	}
 </script>

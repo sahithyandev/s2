@@ -10,49 +10,49 @@ const { entries, depth = 0 } = Astro.props;
 ---
 
 {
-  entries.length === 0 ? null : (
-    <>
-      {entries.map((item) => {
-        if (item.type === "link") {
-          if (depth !== 0) {
-            return (
-              <a href={item.href}>
-                <strong>{item.label}</strong>
-              </a>
-            );
-          }
-        } else if (item.type === "group") {
-          if (item.entries.length == 0) return null;
-          return (
-            <section>
-              {() => {
-                if (depth === 0) {
-                  let moduleCode: string | undefined = undefined;
-                  if (item.label in MODULE_CODES) {
-                    moduleCode = MODULE_CODES[item.label];
-                  }
-                  if (!moduleCode) return <h3>{item.label}</h3>;
+	entries.length === 0 ? null : (
+		<>
+			{entries.map((item) => {
+				if (item.type === "link") {
+					if (depth !== 0) {
+						return (
+							<a href={item.href}>
+								<strong>{item.label}</strong>
+							</a>
+						);
+					}
+				} else if (item.type === "group") {
+					if (item.entries.length == 0) return null;
+					return (
+						<section>
+							{() => {
+								if (depth === 0) {
+									let moduleCode: string | undefined = undefined;
+									if (item.label in MODULE_CODES) {
+										moduleCode = MODULE_CODES[item.label];
+									}
+									if (!moduleCode) return <h3>{item.label}</h3>;
 
-                  return (
-                    <h3>
-                      {item.label} ({moduleCode})
-                    </h3>
-                  );
-                } else if (depth === 1) {
-                  return <h4>{item.label}</h4>;
-                } else if (depth === 2) {
-                  return <h5>{item.label}</h5>;
-                } else if (depth === 3) {
-                  return <h6>{item.label}</h6>;
-                }
-              }}
-              <div class="links-group">
-                <Astro.self entries={item.entries} depth={depth + 1} />
-              </div>
-            </section>
-          );
-        }
-      })}
-    </>
-  )
+									return (
+										<h3>
+											{item.label} ({moduleCode})
+										</h3>
+									);
+								} else if (depth === 1) {
+									return <h4>{item.label}</h4>;
+								} else if (depth === 2) {
+									return <h5>{item.label}</h5>;
+								} else if (depth === 3) {
+									return <h6>{item.label}</h6>;
+								}
+							}}
+							<div class="links-group">
+								<Astro.self entries={item.entries} depth={depth + 1} />
+							</div>
+						</section>
+					);
+				}
+			})}
+		</>
+	)
 }

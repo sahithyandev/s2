@@ -4,7 +4,7 @@ import Default from "@astrojs/starlight/components/Head.astro";
 let id = Astro.locals.starlightRoute.id;
 
 if (id === "/") {
-  id = "index.md";
+	id = "index.md";
 }
 
 // Get the URL of the generated image for the current page using its // ID and
@@ -17,14 +17,17 @@ const ogImageUrl = new URL(
 
 <!-- Render the default <Head/> component. -->
 <Default {...Astro.props}>
-    <slot />
+	<slot />
 </Default>
 
-{ ogImageUrl.pathname.startsWith("/summary/") ? null :<>
-<meta property="og:image" content={ogImageUrl.toString()} />
-<meta name="twitter:image" content={ogImageUrl.toString()} />
-</>
+{
+	ogImageUrl.pathname.startsWith("/summary/") ? null : (
+		<>
+			<meta property="og:image" content={ogImageUrl.toString()} />
+			<meta name="twitter:image" content={ogImageUrl.toString()} />
+		</>
+	)
 }
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
