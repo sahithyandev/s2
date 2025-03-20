@@ -59,10 +59,10 @@ equation reduces to $Hl = \sum i$.
 
 ### Magnetomotive force
 
-A force acted on a coil carrying current. Denoted by $mmf$.
+A force acted on a coil carrying current. Denoted by $\text{mmf}$. $ $
 
 ```math
-f = Ni
+\mathfrak{f} = Ni
 ```
 
 Here:
@@ -75,7 +75,7 @@ Here:
 Reluctance of a path for magnetic flux:
 
 ```math
-R = \frac{l}{\mu A} = \frac{f}{\phi}
+\mathcal{R} = \frac{l}{\mu A} = \frac{\mathfrak{f}}{\phi}
 ```
 
 Here:
@@ -150,3 +150,16 @@ Mi_pi_s
 The last component is the effective energy stored in the mutual inductance. It
 is added to the energy when the produced fluxes on each coil aid each other;
 subtracted when they oppose each other.
+
+## Dot notation
+
+One terminal of the coils is marked with a dot. If both currents enter or exit
+from the dotted terminals, the fields aid; mutual inductance is positive.
+Otherwise the fields oppose; mutual inductance is negative.
+
+:::note
+
+When a single coil is considered, the induced voltage would oppose the applied
+voltage or the current flow.
+
+:::

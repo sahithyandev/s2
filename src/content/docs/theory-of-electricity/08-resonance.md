@@ -2,9 +2,9 @@
 title: Resonance
 slug: theory-of-electricity/resonance
 sidebar:
-  order: 7
+  order: 8
 prev: true
-next: false
+next: true
 ---
 
 A circuit is said to be "at resonance" when its power factor becomes 1.
