@@ -1,7 +1,7 @@
 ---
 title: Priority Queue
 sidebar:
-  order: 6
+  order: 9
 slug: program-construction/priority-queue
 prev: true
 next: true
