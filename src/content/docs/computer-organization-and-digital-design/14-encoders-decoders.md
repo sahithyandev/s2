@@ -29,12 +29,12 @@ encoders.
 ### Decimal to BCD Encoder
 
 Converts each digit of a decimal number into its 4-bit binary equivalent. For
-example, '12' becomes '0001' and '0100'.
+example, '12' becomes '0001' and '0010'.
 
 ### Octal to Binary Encoder
 
 Converts octal digits (each represented by 3 bits) into binary. Example: Octal
-'23' becomes binary '0010 0111'.
+'23' becomes binary '010 011'.
 
 ### Hexadecimal to Binary Encoder
 

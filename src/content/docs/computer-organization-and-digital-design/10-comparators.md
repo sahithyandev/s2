@@ -26,7 +26,7 @@ $A$ is greater than $B$.
 
 $ G = A\overline{B} $
 
-$ E = AB + \overline{A} \overline{A} $
+$ E = AB + \overline{A} \overline{B} $
 
 $ L = \overline{A} B $
 

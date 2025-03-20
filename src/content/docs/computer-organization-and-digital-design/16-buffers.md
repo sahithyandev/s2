@@ -41,7 +41,7 @@ There are 4 variations.
 - Active Low tri-state buffer
 - Active Low inverted tri-state buffer
 
-Active high means, the buffer is active when ENABLE signal is 1. Activ elow
+Active high means, the buffer is active when ENABLE signal is 1. Active low
 means, the buffer is active when ENABLE signal is 0.
 
 Normal variant means the input and output are the same. Inverted variant means
