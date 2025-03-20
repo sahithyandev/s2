@@ -93,6 +93,7 @@ export const STARLIGHT_CONFIG = {
 	sidebar: [
 		{
 			label: "Computer Organization & Digital Design",
+			collapsed: true,
 			autogenerate: {
 				directory: "computer-organization-and-digital-design",
 			},
@@ -102,12 +103,14 @@ export const STARLIGHT_CONFIG = {
 			items: [
 				{
 					label: "Algorithms",
+					collapsed: true,
 					autogenerate: {
 						directory: "data-structure-algorithms/algorithms",
 					},
 				},
 				{
 					label: "Data Structures",
+					collapsed: true,
 					autogenerate: {
 						directory: "data-structure-algorithms/data-structures",
 					},
@@ -119,18 +122,21 @@ export const STARLIGHT_CONFIG = {
 			items: [
 				{
 					label: "Multivariable Calculus",
+					collapsed: true,
 					autogenerate: {
 						directory: "methods-of-mathematics/multivariable-calculus",
 					},
 				},
 				{
 					label: "Numerical Methods",
+					collapsed: true,
 					autogenerate: {
 						directory: "methods-of-mathematics/numerical-methods",
 					},
 				},
 				{
 					label: "Probability & Statistics",
+					collapsed: true,
 					autogenerate: {
 						directory: "methods-of-mathematics/probability-and-statistics",
 					},
@@ -139,12 +145,14 @@ export const STARLIGHT_CONFIG = {
 		},
 		{
 			label: "Program Construction",
+			collapsed: true,
 			autogenerate: {
 				directory: "program-construction",
 			},
 		},
 		{
 			label: "Theory of Electricity",
+			collapsed: true,
 			autogenerate: {
 				directory: "theory-of-electricity",
 			},
