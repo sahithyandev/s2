@@ -1,7 +1,7 @@
 ---
 title: Behavioral Design Patterns
 sidebar:
-  order: 13
+  order: 17
 slug: program-construction/behavioral-design-patterns
 prev: true
 next: false
