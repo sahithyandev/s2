@@ -1,7 +1,7 @@
 ---
 title: Streams
 sidebar:
-  order: 12
+  order: 11
 slug: program-construction/streams
 prev: true
 next: true

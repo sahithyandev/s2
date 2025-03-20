@@ -1,7 +1,7 @@
 ---
 title: Serialization
 sidebar:
-  order: 14
+  order: 13
 slug: program-construction/serialization
 prev: true
 next: true

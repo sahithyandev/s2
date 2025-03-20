@@ -1,7 +1,7 @@
 ---
 title: File Processing
 sidebar:
-  order: 13
+  order: 12
 slug: program-construction/file-processing
 prev: true
 next: true
