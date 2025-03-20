@@ -13,6 +13,8 @@ overcome development and architectural problems.
 
 3 types:
 
-- Creational
-- Structural
-- Behavioral
+- [Creational](/program-construction/creational-design-patterns)
+- [Structural](/program-construction/structural-design-patterns)
+- [Behavioral](/program-construction/behavioral-design-patterns)
+
+All design patterns are included here for the sake of completeness.
