@@ -1,11 +1,9 @@
 ---
-import type { Props } from "@astrojs/starlight/props";
-
 import config from "virtual:starlight/user-config";
 import { Icon } from "@astrojs/starlight/components";
 import Pagination from "@astrojs/starlight/components/Pagination.astro";
 
-const { lang, lastUpdated, editUrl } = Astro.props;
+const { lang, lastUpdated, editUrl } = Astro.locals.starlightRoute;
 ---
 
 <footer class="sl-flex">

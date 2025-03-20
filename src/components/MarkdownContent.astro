@@ -1,11 +1,11 @@
 ---
 import Default from "@astrojs/starlight/components/MarkdownContent.astro";
-import type { Props } from "@astrojs/starlight/props";
 import ContentEntries from "./ContentEntries.astro";
+import type {StarlightRouteData} from "@astrojs/starlight/route-data";
 
 const isHomepage = Astro.url.pathname === "/";
 
-function countTotalEntries(entries: Props["sidebar"]) {
+function countTotalEntries(entries: StarlightRouteData["sidebar"]) {
 	let count = 0;
 
 	for (const entry of entries) {
@@ -18,7 +18,7 @@ function countTotalEntries(entries: Props["sidebar"]) {
 
 	return count;
 }
-const totalPages = countTotalEntries(Astro.props.sidebar);
+const totalPages = countTotalEntries(Astro.locals.starlightRoute.sidebar);
 ---
 
 {
@@ -67,7 +67,7 @@ const totalPages = countTotalEntries(Astro.props.sidebar);
 					Images are either mine, or from the internet or from the lecture
 					notes.
 				</p>
-				<ContentEntries entries={Astro.props.sidebar} />
+				<ContentEntries entries={Astro.locals.starlightRoute.sidebar} />
 			</div>{" "}
 		</div>
 	) : (
