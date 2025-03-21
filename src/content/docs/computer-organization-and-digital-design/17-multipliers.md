@@ -18,9 +18,9 @@ generating partial products and then summing them up.
 
 To build a 2x2 multiplier, 4 AND gates and 2 full adders are required.
 
-### Example
+Here is an example:
 
-```
+```txt
              a1    a0
 x            b1    b0
 ----------------------
@@ -37,9 +37,9 @@ Multiplies two 4-bit binary numbers.
 
 To build a 4x4 multiplier, 12 full adders and 16 AND gates are required.
 
-### Example
+Here is an example:
 
-```
+```txt
                               a3     a2     a1     a0
 x                             b3     b2     b1     b0
 --------------------------------------------------------

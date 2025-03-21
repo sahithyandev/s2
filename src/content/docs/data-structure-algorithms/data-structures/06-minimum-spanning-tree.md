@@ -42,7 +42,7 @@ Algorithm.
 
 ### Graph Representation
 
-```
+```txt
     1       2
 A-------B-------C
 | \     |      /|

@@ -15,7 +15,7 @@ next: true
 
 :::note HashMaps are not ordered and not thread safe. :::
 
-# 1.Creating a HashMap
+## Creating a HashMap
 
 ```java
 HashMap <K,V> hm = new HashMap<>();
@@ -23,7 +23,7 @@ HashMap <K,V> hm = new HashMap<>();
 
 Here K is type of key and V is type of value.
 
-# 2. Adding elements to the HashMap
+## Adding elements to the HashMap
 
 We can use `put()` method to add elements to the HashMap.
 
@@ -48,11 +48,11 @@ class Main {
 
 Output
 
-```
+```txt
 HashMap after put(): {key1=1, key2=2, key3=3}
 ```
 
-# 3.Changing the elements in HashMap
+## Changing the elements in HashMap
 
 ```java
 import java.io.*;
@@ -75,12 +75,12 @@ class ChangeElementsOfHashMap {
 
 Output
 
-```
+```txt
 Initial Map {key1=1, key2=2, key3=3}
 Updated Map {key1=1, key2=5, key3=3}
 ```
 
-# 4.Access the elements
+## Access the elements
 
 ```java
 import java.util.HashMap;
@@ -105,11 +105,11 @@ class Main {
 
 Output
 
-```
+```txt
 2
 ```
 
-# 5.Remove the elements from HashMap
+## Remove the elements from HashMap
 
 ```java
 import java.util.HashMap;
@@ -136,12 +136,12 @@ class Main {
 
 Output
 
-```
+```txt
 Before: {key1=1, key2=2, key3=3}
 After: {key1=1, key3=3}
 ```
 
-# 6.Traversal of Java HashMap
+## Traversal of Java HashMap
 
 ```java
 import java.util.HashMap;
@@ -166,7 +166,7 @@ public class Test {
 
 Output
 
-```
+```txt
 Key: key1 Value: 1
 Key: key2 Value: 2
 Key: key3 Value: 3

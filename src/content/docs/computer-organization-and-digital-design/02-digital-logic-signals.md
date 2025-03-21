@@ -90,10 +90,9 @@ to take special steps to interconnect circuits from different logic families.
 ### Electrical behavior
 
 - Logic voltage level
-- DC noise margins  
-  Highest LOW voltage of output must be lower than highest LOW voltage of input
-- Fanout  
-  Number and type of inputs that are connected to a given output
+- DC noise margins Highest LOW voltage of output must be lower than highest LOW
+  voltage of input
+- Fanout Number and type of inputs that are connected to a given output
 - Power consumption
 - Speed
 - Noise/interference
@@ -104,7 +103,8 @@ to take special steps to interconnect circuits from different logic families.
 
 ![Examples for Logic Families](/images/codd/logic_voltage_stds.jpg)
 
-The above image is from https://www.jsykora.info/2014/05/logic-voltage-levels/.
+The above image is from
+[Wired && Coded;](https://www.jsykora.info/2014/05/logic-voltage-levels/).
 
 - Light colored strips are for input
 - Dark colored strips are for output

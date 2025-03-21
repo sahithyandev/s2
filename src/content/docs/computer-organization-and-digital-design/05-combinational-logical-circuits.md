@@ -71,7 +71,7 @@ Aka. disjunctive normal form or minterm expansion.
 - Construct literals using the inputs, AND operator, so that they result in a 1.
 - Sum all those operators
 
-#### Shorthand
+#### Shorthand of SOP
 
 If the order of the variables in the truth table is agreed upon, the SOP
 notation can be shorten.
@@ -91,7 +91,7 @@ Aka. conjucative normal form or maxterm expansion.
 - Construct literals using the inputs, OR operator, so that they result in a 0.
 - Join all those literals using AND operator
 
-#### Shorthand
+#### Shorthand of POS
 
 If the order of the variables in the truth table is agreed upon, the SOP
 notation can be shorten.
