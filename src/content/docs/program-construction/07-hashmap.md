@@ -7,13 +7,15 @@ prev: true
 next: true
 ---
 
-- It provides the basic implementation of the [Map](/program-construction/map)
-  interface in Java.
-- HashMap uses keys in the same way as an Array uses an index.
-- Duplicate keys are not allowed in HashMap, if you try to insert the duplicate
-  key, it will replace the existing value of the corresponding key.
+A basic implementation of the [Map](/program-construction/map) interface in
+Java. Uses keys in the same way as an Array uses an index. Duplicate keys are
+not allowed. Existing value will be overridden when a key is reused.
 
-:::note HashMaps are not ordered and not thread safe. :::
+:::note
+
+HashMaps are not ordered and not thread safe.
+
+:::
 
 ## Creating a HashMap
 
@@ -21,7 +23,7 @@ next: true
 HashMap <K,V> hm = new HashMap<>();
 ```
 
-Here K is type of key and V is type of value.
+Here `K` is type of key and `V` is type of value.
 
 ## Adding elements to the HashMap
 

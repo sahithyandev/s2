@@ -28,7 +28,7 @@ the codebase and the workflow.
    NOT BE USED**.
 
 Now you may start the development server using `bun run dev`. The development
-server will be started on http://localhost:4321.
+server will be started on [http://localhost:4321](http://localhost:4321).
 
 ### Commands
 
@@ -45,7 +45,7 @@ All commands are run from the root of the project, from a terminal:
 
 ### Project Structure
 
-```
+```txt
 .
 ├── public/
 ├── src/
@@ -110,11 +110,18 @@ argument will avoid file operations.
 
 ### Markdown content
 
-The markdown content must follow the semantics of HTML.
+The markdown content must follow the semantics of HTML and some other rules:
+
+- Prefer short paragraphs over lists.
+- Use lists only when necessary.
+- Ignore subject pronouns like `I`, `we`, `you`, etc.
 
 - Don't use `#` in the markdown content. The title is already present in the
   frontmatter.
 - Use `##` for the main headings. `###` for subheadings and so on.
+- Use `:::note`, `:::tip`, `:::warning`, `:::danger` for notes, tips, warnings,
+  and danger messages respectively.
+-
 
 ### Assets
 
