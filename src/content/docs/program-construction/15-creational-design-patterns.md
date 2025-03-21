@@ -122,4 +122,54 @@ connection instance is required at runtime.
 
 ## Factory Pattern
 
+Provides an interface for creating objects of different types. The type of the
+object is passed to the factory method.
+
+Used in
+
+```java
+// Step 1: Define an interface for notifications
+interface Notification {
+    void send(String message);
+}
+
+// Step 2: Concrete implementations of the Notification interface
+class EmailNotification implements Notification {
+    @Override
+    public void send(String message) {
+        System.out.println("Sending Email: " + message);
+    }
+}
+
+class SMSNotification implements Notification {
+    @Override
+    public void send(String message) {
+        System.out.println("Sending SMS: " + message);
+    }
+}
+
+// Step 3: Factory class to create Notification objects
+class NotificationFactory {
+    public static Notification createNotification(String type) {
+        if (type.equalsIgnoreCase("EMAIL")) {
+            return new EmailNotification();
+        } else if (type.equalsIgnoreCase("SMS")) {
+            return new SMSNotification();
+        }
+        throw new IllegalArgumentException("Unknown notification type: " + type);
+    }
+}
+
+// Step 4: Client code using the Factory
+public class FactoryMethodPatternExample {
+    public static void main(String[] args) {
+        Notification notification1 = NotificationFactory.createNotification("EMAIL");
+        notification1.send("Welcome to our service!");
+
+        Notification notification2 = NotificationFactory.createNotification("SMS");
+        notification2.send("Your OTP code is 123456.");
+    }
+}
+```
+
 ## Abstract Factory Pattern
