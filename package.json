@@ -9,7 +9,7 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"lint": "prettier --check .; biome check .",
+		"lint": "prettier --check .; biome check .; markdownlint-cli2 'src/content/docs/**/*.md'",
 		"lint-fix": "prettier --write . && biome check --write ."
 	},
 	"dependencies": {

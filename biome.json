@@ -2,15 +2,15 @@
 	"$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
 	"organizeImports": {
 		"enabled": true,
-		"ignore": [".astro", "dist"]
+		"ignore": [".astro", ".husky", ".vercel", "dist"]
 	},
 	"formatter": {
 		"enabled": true,
-		"ignore": [".astro", "dist"]
+		"ignore": [".astro", ".husky", ".vercel", "dist"]
 	},
 	"linter": {
 		"enabled": true,
-		"ignore": [".astro", ".vercel", "dist"],
+		"ignore": [".astro", ".husky", ".vercel", "dist"],
 		"rules": {
 			"recommended": true
 		}
