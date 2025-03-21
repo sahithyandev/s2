@@ -107,3 +107,17 @@ bun scripts/insert-page.js src/content/docs/methods-of-mathematics/multivariable
 
 You can pass the `--dry-run` argument to the script for testing purposes. This
 argument will avoid file operations.
+
+### Markdown content
+
+The markdown content must follow the semantics of HTML.
+
+- Don't use `#` in the markdown content. The title is already present in the
+  frontmatter.
+- Use `##` for the main headings. `###` for subheadings and so on.
+
+### Assets
+
+Notes require images and maybe other graphics. Images are preferred in `jpg`
+format over `png` format, because of smaller size. Use
+[Squoosh](https://squoosh.app) to convert and compress the images.
