@@ -12,21 +12,21 @@ next: true
 
 ## Methods in Java HashSet
 
-- `add(E e)`
+- `add(E e)`   
 Used to add the specified element if it is not present, if it is present then return false.
-- `clear()`
+- `clear()`       
 Used to remove all the elements from the set.
-- `contains(Object o)`
+- `contains(Object o)`     
 Used to return true if an element is present in a set.
-- `remove(Object o)`
+- `remove(Object o)`     
 Used to remove the element if it is present in set.
-- `iterator()`
+- `iterator()`     
 Used to return an iterator over the element in the set.
-- `isEmpty()`
+- `isEmpty()`    
 Used to check whether the set is empty or not. Returns true for empty and false for a non-empty condition for set.
-- `size()`
+- `size()`   
 Used to return the size of the set.
-- `clone()`
+- `clone()`  
 Used to create a shallow copy of the set.
 
 
