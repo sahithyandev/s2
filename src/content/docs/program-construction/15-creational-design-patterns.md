@@ -11,24 +11,90 @@ Deals with how classes are created.
 
 ## Builder Pattern
 
-A way of creating complex objects on a step-by-step basis. The constructor will
-not take all the available attributes. Instead, the object creation logic is
-moved to a `Builder` class.
+Separates the construction of a complex object from its representation. Provides
+a step-by-step process. Useful when the attributes are too many and optional.
+
+Used in SQL query builders, HTTP response builders, etc.
 
 ```java
-CarBuilder carBuilder = new CarBuilder();
-carBuilder.brand("Ford").color("red");
-Car mine = carBuilder.build();
+// Product class - Represents the HTTP request being built
+class HttpRequest {
+    private final String method;
+    private final String url;
+    private final String body;
+    private final Map<String, String> headers;
+
+    // Private constructor ensures objects can only be created through Builder
+    private HttpRequest(HttpRequestBuilder builder) {
+        this.method = builder.method;
+        this.url = builder.url;
+        this.body = builder.body;
+        this.headers = builder.headers;
+    }
+
+    @Override
+    public String toString() {
+        return "HttpRequest{" +
+                "method='" + method + '\'' +
+                ", url='" + url + '\'' +
+                ", body='" + body + '\'' +
+                ", headers=" + headers +
+                '}';
+    }
+
+    // Static Builder class
+    public static class HttpRequestBuilder {
+        private String method = "GET";  // Default to GET request
+        private String url;
+        private String body = "";
+        private Map<String, String> headers = new HashMap<>();
+
+        public HttpRequestBuilder(String url) {
+            this.url = url;
+        }
+
+        public HttpRequestBuilder method(String method) {
+            this.method = method;
+            return this;
+        }
+
+        public HttpRequestBuilder body(String body) {
+            this.body = body;
+            return this;
+        }
+
+        public HttpRequestBuilder addHeader(String key, String value) {
+            this.headers.put(key, value);
+            return this;
+        }
+
+        public HttpRequest build() {
+            return new HttpRequest(this);
+        }
+    }
+}
+
+// Client - Demonstrates how to use the Builder pattern
+public class BuilderPatternExample {
+    public static void main(String[] args) {
+        // Construct an HTTP POST request using the Builder
+        HttpRequest request = new HttpRequest.HttpRequestBuilder("https://api.example.com/users")
+                .method("POST")
+                .body("{\"name\":\"John Doe\", \"email\":\"john@example.com\"}")
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer xyz123")
+                .build();
+
+        System.out.println(request);
+    }
+}
 ```
-
-### Director
-
-Defines the order in which the constructor calls should be called. Optional.
 
 ## Singleton Pattern
 
-Ensures only one instances of its kind exists. Provides single point of access
-to it.
+Ensures only one instances of a class exists. Provides global access to it.
+
+Used in logging, thread pools, database connections, etc.
 
 ```java
 public class DatabaseConnection {
