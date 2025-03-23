@@ -7,6 +7,12 @@ prev: true
 next: true
 ---
 
+### Self inductance
+
+When the magnetic field produced by a coil causes an emf on itself.
+
+### Mutual coupling
+
 Mutual coupling between coils exist when one (secondary coil) is in the magnetic
 field created by the other coil (primary coil).
 
@@ -86,17 +92,22 @@ Here:
 
 ## Mutual Inductance
 
-When 2 coils are coupled, Part of the magnetic flux produced in the primary coil
-($\phi_m$) links with the secondary coil. Since the produced flux is
-time-varying, an emf $e_s$ is induced in the second coil.
+When 2 coils are coupled, part of the magnetic flux produced in the primary coil
+links with secondary coil.
+
+### Coefficient of coupling
+
+Ratio between the produced magnetic flux and linked magnetic flux. Denoted by
+$k$. Less than or equal to 1. $ $
 
 ```math
 \phi_m = k\phi_p
 ```
 
-Here:
+### Induced emf
 
-- $k$ - Coefficient of coupling ($\le 1$)
+Since the produced flux is time-varying, an emf $e_s$ is induced in the second
+coil. $ $
 
 ```math
 e_p = N_p \frac{\text{d}\phi_p}{\text{d}t}
@@ -131,7 +142,7 @@ k_{SP} = k_{PS}
 M_{SP} = M_{PS}= M= k\sqrt{L_pL_s}
 ```
 
-## Energy stored in mutually coupled coils
+### Energy stored
 
 ```math
 \text{Total stored energy}=
