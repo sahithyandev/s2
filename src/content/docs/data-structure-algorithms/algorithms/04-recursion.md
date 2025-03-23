@@ -45,21 +45,22 @@ but can be unreliable.
 
 ### Master theorem
 
-Applies to recurrences of the form: $T(n) = a T(\frac{n}{b}) + f(n)$ whern
-$a \ge 1 \land b \gt 1$ and $f$ is asymptotically positive.
+Applies to recurrences of the below form:
+
+```math
+T(n) = a\,T\Bigg(\bigg\lceil \frac{n}{b} \bigg\rceil \Bigg) + O(n^d)
+```
+
+Where $a \ge 1$, $b \gt 1$ and $d \ge 0$.
 
 #### Case 1
 
-**If** $f(n) = O(n^{log_b{a} - \epsilon})$ for some $\epsilon > 0$ **then**
-$T(n) \in \Theta(n^{\log_b{a}})$
+**If** $d > \log_b{a}$ **then** $T(n) = O(n^d)$.
 
 #### Case 2
 
-**If** $f(n) = \Theta(n^{log_b{a}})$ **then**
-$T(n) \in \Theta(n^{\log_b{a}} \lg n)$
+**If** $d = \log_b{a}$ **then** $T(n) = O(n^d \log n)$.
 
 #### Case 3
 
-**If** $f(n) = \Omega(n^{log_b{a} + \epsilon})$ for some $\epsilon > 0$ and
-$\forall n, a f(n) \le c f(n)$ where $c\lt 1$ **then**
-$T(n) \in \Theta(n^{\log_b{a}} \lg n)$
+**If** $d < \log_b{a}$ **then** $T(n) = O(n^{\log_b a})$.
