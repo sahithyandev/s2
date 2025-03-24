@@ -6,29 +6,32 @@ slug: program-construction/hashset
 prev: true
 next: true
 ---
-- HashSet in Java implements the Set interface of Collections Framework. 
-- It is used to store the unique elements and it doesn’t maintain any specific order of elements. 
+
+- HashSet in Java implements the Set interface of Collections Framework.
+- It is used to store the unique elements and it doesn’t maintain any specific
+  order of elements.
 - HashSet can store the Null values.
 
 ## Methods in Java HashSet
 
-- `add(E e)`   
-Used to add the specified element if it is not present, if it is present then return false.
-- `clear()`       
-Used to remove all the elements from the set.
-- `contains(Object o)`     
-Used to return true if an element is present in a set.
-- `remove(Object o)`     
-Used to remove the element if it is present in set.
-- `iterator()`     
-Used to return an iterator over the element in the set.
-- `isEmpty()`    
-Used to check whether the set is empty or not. Returns true for empty and false for a non-empty condition for set.
-- `size()`   
-Used to return the size of the set.
+- `add(E e)`  
+  Used to add the specified element if it is not present, if it is present then
+  return false.
+- `clear()`  
+  Used to remove all the elements from the set.
+- `contains(Object o)`  
+  Used to return true if an element is present in a set.
+- `remove(Object o)`  
+  Used to remove the element if it is present in set.
+- `iterator()`  
+  Used to return an iterator over the element in the set.
+- `isEmpty()`  
+  Used to check whether the set is empty or not. Returns true for empty and
+  false for a non-empty condition for set.
+- `size()`  
+  Used to return the size of the set.
 - `clone()`  
-Used to create a shallow copy of the set.
-
+  Used to create a shallow copy of the set.
 
 ```java
 import java.util.HashSet;

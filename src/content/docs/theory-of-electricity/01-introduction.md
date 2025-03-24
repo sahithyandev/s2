@@ -188,7 +188,13 @@ Can be identified by DC symbol. Measures the average value of the signal.
 ### Moving coil rectifier instrument
 
 Can be identified by diode symbol. Measures the rms value of the rectified
-signal.
+signal. Full wave rectifier bridge of 4 diodes is used. Assuming the current is
+sinusoidal, the scale of this instrument must be marked in terms of 1.11 timies
+the current.
+
+```math
+\frac{\text{rms value of sine wave}}{\text{average value of sine wave}} = 1.11
+```
 
 ## Special functions
 
