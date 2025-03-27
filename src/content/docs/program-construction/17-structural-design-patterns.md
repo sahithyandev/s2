@@ -76,12 +76,6 @@ public class FlyweightPatternExample {
 }
 ```
 
-## Decorator Pattern
-
-Used to wrap existing objects to add new functionality without altering its
-structure and at runtime. Applies Single Responsibility and Open-Closed
-principles.
-
 ## Bridge Pattern
 
 Used to split large classes into separate hierarchies which can be developed
@@ -203,3 +197,105 @@ public class BridgePatternDemo {
 
 In the above example, the type of device and the type of remote are 2
 independent dimensions and can be paired together without too much complexity.
+
+## Decorator Pattern
+
+Lets you attach new behaviors to objects by placing them inside wrapper objects
+that contain these behaviors. Provides a flexible alternative to subclassing for
+extending functionality.
+
+- **Component**: Defines the interface for objects that can have
+  responsibilities added to them.
+- **Concrete Component**: The base object that responsibilities can be added to.
+- **Decorator**: Maintains a reference to a Component object and implements the
+  Component interface.
+- **Concrete Decorator**: Adds responsibilities to the component.
+
+```java
+// Component interface
+interface Coffee {
+    double getCost();
+    String getDescription();
+}
+
+// Concrete Component
+class SimpleCoffee implements Coffee {
+    @Override
+    public double getCost() {
+        return 1.0;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Simple Coffee";
+    }
+}
+
+// Decorator base class
+abstract class CoffeeDecorator implements Coffee {
+    protected Coffee decoratedCoffee;
+
+    public CoffeeDecorator(Coffee coffee) {
+        this.decoratedCoffee = coffee;
+    }
+
+    public double getCost() {
+        return decoratedCoffee.getCost();
+    }
+
+    public String getDescription() {
+        return decoratedCoffee.getDescription();
+    }
+}
+
+// Concrete Decorators
+class MilkDecorator extends CoffeeDecorator {
+    public MilkDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost() + 0.5;
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + ", with Milk";
+    }
+}
+
+class SugarDecorator extends CoffeeDecorator {
+    public SugarDecorator(Coffee coffee) {
+        super(coffee);
+    }
+
+    @Override
+    public double getCost() {
+        return super.getCost() + 0.2;
+    }
+
+    @Override
+    public String getDescription() {
+        return super.getDescription() + ", with Sugar";
+    }
+}
+
+// Client code
+public class DecoratorPatternExample {
+    public static void main(String[] args) {
+        Coffee coffee = new SimpleCoffee();
+        System.out.println(coffee.getDescription() + " costs $" + coffee.getCost());
+
+        Coffee coffeeWithMilk = new MilkDecorator(coffee);
+        System.out.println(coffeeWithMilk.getDescription() + " costs $" + coffeeWithMilk.getCost());
+
+        Coffee coffeeWithMilkAndSugar = new SugarDecorator(coffeeWithMilk);
+        System.out.println(coffeeWithMilkAndSugar.getDescription() + " costs $" + coffeeWithMilkAndSugar.getCost());
+    }
+}
+```
+
+In this example, we can add milk and sugar to a simple coffee by wrapping it
+with decorator objects. Each decorator adds its own behavior while maintaining
+the same interface as the base coffee object.
