@@ -5,7 +5,7 @@ sidebar:
   order: 1
 slug: methods-of-mathematics/numerical-methods/introduction
 prev: false
-next: false
+next: true
 ---
 
 ## Round-Off Errors
@@ -54,7 +54,7 @@ Suppose $*p$ is an approximation of $p$.
 
 Machine arithmetic are done on finite-digits and are not exact. Suppose
 $\oplus, \ominus, \otimes, \oslash$ are machine addition, subtraction,
-multiplication and division.
+multiplication and division. $ $
 
 ```math
 x \oplus y = f_l(f_l(x) + f_l(y))
@@ -79,3 +79,83 @@ by rearranging calculations.
 
 Occurs because of using approximation in place of an exact mathematical
 procedure.
+
+:::note
+
+[Taylor series](https://s1.sahithyan.dev/mathematics/real-analysis/taylor-theorem/)
+is commonly used to approximate functions. The remainder term is also known as
+truncation error.
+
+:::
+
+## Algorithm
+
+An algorithm is a set of well-defined instructions to solve a problem.
+
+### Stable
+
+If a small change in the input causes a small change in the output, the
+algorithm is stable.
+
+### Unstable
+
+When a algorithm is not stable.
+
+### Conditionally Stable
+
+When an algorithm is stable only when the input is within a certain range.
+
+## Growth of Error
+
+Suppose $E_0 \gt 0$ denotes an error introduced at some stage in the
+calculations. $E_n$ represents the error after $n$ subsequent operations.
+
+### Linear growth
+
+When $E_n \approx CnE_0 $ and $C$ is a constant independent of $n$.
+
+### Exponential growth
+
+When $E_n \approx C^nE_0 $ for some $C \gt 1$.
+
+## Rate of convergence
+
+Suppose $\set{\beta_n}$ converges to $0$ and $\set{\alpha_n}$ converges to a
+number $\alpha$. **If** $\exists K \gt 0$ such that,
+
+```math
+\lvert \alpha_n - \alpha \rvert \le K\lvert \beta_n \rvert,\;\;\text{for large}\;n
+```
+
+**Then** we say that ${\alpha_n}$ converges to $\alpha$ with rate of (or order
+of) convergence $O(\beta_n)$. It is written by $\alpha_n = \alpha + O(\beta_n)$
+
+### For limits
+
+Suppose $\lim_\limits{h \to 0} G(h) = 0$ and $\lim_\limits{h \to 0} F(h) = L$.
+If $\exists K \gt 0$ such that,
+
+```math
+\lvert F(h) - L \rvert \le K \lvert G(h) \rvert
+```
+
+For sufficiently small $h$, then $F(h) = L + O(G(h))$.
+
+## Numerical solution of non-linear equations
+
+Non-linear function is a function whose graph is not a straight line. A solution
+to the equation $f(x) = 0$ (aka. root of the equation or zero of the function
+$f$) is a numerical value of $x$ that satisfies the equation.
+
+In many situations, non-linear equations cannot be solved analytically. In this
+case, therefore, the solutions of the equations must be approached using
+iterative methods. The principle of these methods of solving consists in
+starting from an arbitrary point, the closest possible npoint to the solution
+sought, and involves arriving at the solution gradually through successive
+tests.
+
+The 2 criteria to take into account when choosing a method for solving
+non-linear equations are:
+
+- Method convergence (conditions of convergence, speed of convergence etc.). –
+  The cost of calculating of the method.

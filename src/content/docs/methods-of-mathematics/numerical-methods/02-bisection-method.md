@@ -1,0 +1,62 @@
+---
+title: Bisection Method
+sidebar:
+  order: 2
+slug: methods-of-mathematics/numerical-methods/bisection-method
+prev: true
+next: true
+---
+
+Suppose $f$ is a continuous function on the interval $[a, b]$ such that
+$f(a) \cdot f(b) < 0$. By Intermediate Value Theorem, there exists
+$c \in [a, b]$ such that $f(c) = 0$. The bisection method is an iterative
+algorithm that approximates the root $c$ of $f$.
+
+The interval is divided into two equal parts at each step. The midpoint
+$m = \frac{a + b}{2}$ is calculated. $ $
+
+- **If** $f(m) = 0$, **then** $m$ is the root
+- **If** $f(a) \cdot f(m) < 0$, **then** the root lies in $[a, m]$, so the
+  interval is updated to $[a, m]$
+- **If** $f(m) \cdot f(b) < 0$, **then** the root lies in $[m, b]$, so the
+  interval is updated to $[m, b]$.
+
+## Implementation
+
+```py
+def bisection(f, a, b, tolerance=1e-6):
+    if f(a) * f(b) >= 0:
+        raise ValueError("f(a) and f(b) must have opposite signs")
+    while (b - a) / 2 > tolerance:
+        m = (a + b) / 2
+        if f(m) == 0:
+            return m
+        elif f(a) * f(m) < 0:
+            b = m
+        else:
+            a = m
+    return (a + b) / 2
+```
+
+## Bisection theorem
+
+Suppose $f$ is continuous in $[a, b]$ and $f(a) \cdot f(b) < 0$. The bisection
+generates a sequence $p_n$ such that $|p_n - c| \leq \frac{b - a}{2^n}$ where
+$c$ is a root of $f$.
+
+## Properties
+
+- Always convergent
+- Linear convergence rate
+- Error can be controlled
+- Error is bounded
+- Error decreases with each iteration
+- Simpler calculations
+
+## Limitations
+
+- Slow convergence
+- Cannot approximate solutions for even functions and more
+- Cannot determine complex roots
+- Cannot be applied if there are discontinuities
+- Cannot be applied if its sign doesn't change in the interval
