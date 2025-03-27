@@ -1,7 +1,7 @@
 ---
 title: Hash Table
 sidebar:
-  order: 4
+  order: 5
 slug: data-structure-algorithms/data-structures/hash-table
 prev: true
 next: true
@@ -14,13 +14,11 @@ buckets or slots, from which the desired value can be found.
 Widely used in various applications such as databases, caches, and sets due to
 their efficiency in handling large datasets.
 
-Very good performance.Average-case time complexity for insertion, deletion, and
+Very good performance. Average-case time complexity for insertion, deletion, and
 search operations being $O(1)$. However, in the worst case, such as when many
 collisions occur, the time complexity can degrade to $O(n)$.
 
-## Key Concepts
-
-### Hash function
+## Hash function
 
 A function that converst a given key into an index in the array. The efficiency
 of a hash table depends on the quality of the hash function and the method used
@@ -29,11 +27,36 @@ to handle collisions.
 A good hash function distributes keys uniformly across the array, minimizing
 collisions. And it should be one-to-one.
 
-### Buckets
+## Methods for designing hash functions
+
+### Division Method
+
+One of the simplest methods, where the hash value is the remainder of the key
+divided by the size of the array.
+
+### Multiplication Method
+
+Another simple method, where the hash value is the fractional part of the
+product of the key and a constant.
+
+### Folding Method
+
+Another simple method, where the hash value is the sum of the digits of the key.
+
+### Universal Hashing
+
+A method that uses a family of hash functions to reduce the likelihood of
+collisions.
+
+## Buckets
 
 Array slots where the values are stored.
 
-### Collisions
+### Load Factor
+
+The ratio of the number of elements in the hash table to the number of buckets.
+
+## Collisions
 
 Situations where two keys hash to the same index. These are typically handled
 using techniques like chaining or open addressing.

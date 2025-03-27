@@ -1,7 +1,7 @@
 ---
 title: Graph
 sidebar:
-  order: 5
+  order: 6
 slug: data-structure-algorithms/data-structures/graph
 prev: true
 next: true
