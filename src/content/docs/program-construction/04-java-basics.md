@@ -95,15 +95,27 @@ child class must either override the abstract method or declare itself abstract
 
 ## Access level
 
-Modifiers are used to force an access control in Java, which is important with
-inheritance.
+In Java, access modifiers control visibility and accessibility of classes,
+methods, and variables:
 
-| Modifier      | Class | Package | Subclass | Other |
-| ------------- | ----- | ------- | -------- | ----- |
-| `public`      | Y     | Y       | Y        | Y     |
-| `protected`   | Y     | Y       | Y        | N     |
-| (no modifier) | Y     | N       | N        | Y     |
-| `private`     | Y     | N       | N        | N     |
+### For classes
+
+- `public`: Class is visible everywhere
+- `default` (no modifier): Class is only visible within same package
+
+### For methods
+
+- `public`: Accessible from any other class
+- `protected`: Accessible within same package and by subclasses
+- `default`: Only accessible within same package
+- `private`: Only accessible within declaring class
+
+### For attributes
+
+- `public`: Accessible from any class
+- `protected`: Accessible in same package and subclasses
+- `default`: Only accessible in same package
+- `private`: Only accessible within declaring class
 
 ## Static members
 
