@@ -585,3 +585,131 @@ Drawbacks:
 - Increased number of objects if many strategies
 - Client must be aware of different strategies
 - Strategy and Context interfaces may become complex
+
+## State pattern
+
+Allows an object to alter its behavior when its internal state changes,
+appearing to change its class.
+
+Used in workflow management, game state handling, user interface states, etc.
+
+```java
+// State interface - Defines behavior associated with each state
+interface VendingMachineState {
+    void insertCoin(VendingMachine machine);
+    void pressButton(VendingMachine machine);
+    void dispense(VendingMachine machine);
+}
+
+// Concrete State 1 - No Coin State
+class NoCoinState implements VendingMachineState {
+    @Override
+    public void insertCoin(VendingMachine machine) {
+        System.out.println("Coin inserted");
+        machine.setState(new HasCoinState());
+    }
+
+    @Override
+    public void pressButton(VendingMachine machine) {
+        System.out.println("Please insert a coin first");
+    }
+
+    @Override
+    public void dispense(VendingMachine machine) {
+        System.out.println("Please insert a coin first");
+    }
+}
+
+// Concrete State 2 - Has Coin State
+class HasCoinState implements VendingMachineState {
+    @Override
+    public void insertCoin(VendingMachine machine) {
+        System.out.println("Coin already inserted");
+    }
+
+    @Override
+    public void pressButton(VendingMachine machine) {
+        System.out.println("Button pressed, dispensing item");
+        machine.setState(new DispensingState());
+    }
+
+    @Override
+    public void dispense(VendingMachine machine) {
+        System.out.println("Please press the button first");
+    }
+}
+
+// Concrete State 3 - Dispensing State
+class DispensingState implements VendingMachineState {
+    @Override
+    public void insertCoin(VendingMachine machine) {
+        System.out.println("Please wait, dispensing in progress");
+    }
+
+    @Override
+    public void pressButton(VendingMachine machine) {
+        System.out.println("Please wait, dispensing in progress");
+    }
+
+    @Override
+    public void dispense(VendingMachine machine) {
+        System.out.println("Item dispensed");
+        machine.setState(new NoCoinState());
+    }
+}
+
+// Context - Vending Machine that maintains current state
+class VendingMachine {
+    private VendingMachineState state;
+
+    public VendingMachine() {
+        state = new NoCoinState();
+    }
+
+    public void setState(VendingMachineState state) {
+        this.state = state;
+    }
+
+    public void insertCoin() {
+        state.insertCoin(this);
+    }
+
+    public void pressButton() {
+        state.pressButton(this);
+    }
+
+    public void dispense() {
+        state.dispense(this);
+    }
+}
+
+// Client - Demonstrates the State pattern
+public class StatePatternExample {
+    public static void main(String[] args) {
+        VendingMachine machine = new VendingMachine();
+
+        // Try to get item without coin
+        machine.pressButton();  // Output: Please insert a coin first
+
+        // Insert coin and get item
+        machine.insertCoin();   // Output: Coin inserted
+        machine.pressButton();  // Output: Button pressed, dispensing item
+        machine.dispense();     // Output: Item dispensed
+
+        // Try to insert coin while dispensing
+        machine.insertCoin();   // Output: Coin inserted
+    }
+}
+```
+
+Benefits:
+
+- Organizes state-specific behavior
+- Makes state transitions explicit
+- Eliminates complex conditionals
+
+Drawbacks:
+
+- Can be overkill for simple state management
+- Increased number of classes
+- State transitions can become complex
