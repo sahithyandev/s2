@@ -501,3 +501,87 @@ Drawbacks:
 - Memory leaks if observers aren't properly unregistered
 - Unexpected updates if order of notification matters
 - Performance impact with many observers
+
+## Strategy pattern
+
+Defines a family of algorithms, encapsulates each one, and makes them
+interchangeable. Strategy lets the algorithm vary independently from clients
+that use it.
+
+Used for different sorting algorithms, payment methods, compression algorithms,
+etc.
+
+```java
+// Strategy interface - Defines the common interface for all algorithms
+interface PaymentStrategy {
+    void pay(int amount);
+}
+
+// Concrete Strategy 1 - Credit Card payment
+class CreditCardPayment implements PaymentStrategy {
+    private String cardNumber;
+
+    public CreditCardPayment(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println("Paid $" + amount + " using Credit Card: " + cardNumber);
+    }
+}
+
+// Concrete Strategy 2 - PayPal payment
+class PayPalPayment implements PaymentStrategy {
+    private String email;
+
+    public PayPalPayment(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println("Paid $" + amount + " using PayPal account: " + email);
+    }
+}
+
+// Context - Shopping Cart that uses payment strategy
+class ShoppingCart {
+    private PaymentStrategy paymentStrategy;
+
+    public void setPaymentStrategy(PaymentStrategy strategy) {
+        this.paymentStrategy = strategy;
+    }
+
+    public void checkout(int amount) {
+        paymentStrategy.pay(amount);
+    }
+}
+
+// Client - Demonstrates the Strategy pattern
+public class StrategyPatternExample {
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+
+        // Pay with Credit Card
+        cart.setPaymentStrategy(new CreditCardPayment("1234-5678-9012-3456"));
+        cart.checkout(100);
+
+        // Pay with PayPal
+        cart.setPaymentStrategy(new PayPalPayment("example@email.com"));
+        cart.checkout(200);
+    }
+}
+```
+
+Benefits:
+
+- Algorithms can be switched at runtime
+- Isolates algorithm implementation details
+- Promotes composition over inheritance
+
+Drawbacks:
+
+- Increased number of objects if many strategies
+- Client must be aware of different strategies
+- Strategy and Context interfaces may become complex
