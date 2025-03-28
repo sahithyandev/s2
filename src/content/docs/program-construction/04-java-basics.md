@@ -93,29 +93,52 @@ Defined by `abstract` keyword. Can only be extended from.
 Can only be defined inside abstract classes. Defined by `abstract` keyword. Any
 child class must either override the abstract method or declare itself abstract
 
-## Access level
+## Access modifiers
 
 In Java, access modifiers control visibility and accessibility of classes,
 methods, and variables:
 
-### For classes
+For classes:
 
 - `public`: Class is visible everywhere
 - `default` (no modifier): Class is only visible within same package
 
-### For methods
+For methods:
 
 - `public`: Accessible from any other class
 - `protected`: Accessible within same package and by subclasses
 - `default`: Only accessible within same package
 - `private`: Only accessible within declaring class
 
-### For attributes
+For attributes:
 
 - `public`: Accessible from any class
 - `protected`: Accessible in same package and subclasses
 - `default`: Only accessible in same package
 - `private`: Only accessible within declaring class
+
+## Non-access modifiers
+
+For classes:
+
+- `final`: Class cannot be inherited
+- `abstract`: Class cannot be instantiated and may have abstract methods
+- `strictfp`: Class uses strict floating-point calculations
+
+For methods:
+
+- `final`: Method cannot be overridden
+- `abstract`: Method has no implementation and must be implemented by subclasses
+- `synchronized`: Method can only be accessed by one thread at a time
+- `native`: Method is implemented in platform-dependent code
+- `strictfp`: Method uses strict floating-point calculations
+
+For attributes:
+
+- `final`: Attribute cannot be changed after initialization
+- `static`: Attribute belongs to class rather than instance
+- `transient`: Attribute will not be serialized
+- `volatile`: Attribute value may be changed by multiple threads
 
 ## Static members
 
