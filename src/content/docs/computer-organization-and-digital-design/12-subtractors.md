@@ -1,7 +1,7 @@
 ---
 title: Subtractors
 sidebar:
-  order: 13
+  order: 12
 slug: computer-organization-and-digital-design/subtractors
 prev: true
 next: true

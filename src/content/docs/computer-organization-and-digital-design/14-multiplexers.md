@@ -1,7 +1,7 @@
 ---
 title: Multiplexers
 sidebar:
-  order: 15
+  order: 14
 slug: computer-organization-and-digital-design/multiplexers
 prev: true
 next: true

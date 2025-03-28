@@ -1,7 +1,7 @@
 ---
 title: Buffers
 sidebar:
-  order: 16
+  order: 15
 slug: computer-organization-and-digital-design/buffers
 prev: true
 next: true
@@ -20,7 +20,7 @@ Used to:
 - Drive or switch higher than normal loads from a logic gate output.
 - High fan-out capacity
 
-## Tri state
+## Tri state buffer
 
 A type of digital buffer that has 3 stable states.
 
@@ -29,12 +29,20 @@ A type of digital buffer that has 3 stable states.
 - High-Impedance (Hi-Z) - output is disconnected from the circuit
 
 Has an enable pin. Provides the option to electronically isolate the output of
-the buffer from the output bus. Used in bus-based systems where multiple devices
-are connected to the same bus. Hi-Z state allows other devices to drive the bus
-to be used without interference. Decoders are used to keep only one tri state
-buffer active while the other devices are in their Hi-Z state.
+the buffer.
 
-There are 4 variations.
+### Uses
+
+- Used in bus-based systems where multiple devices are connected to the same
+  bus. Only one device drives the bus at a given time, while others are in Hi-Z
+  state. Decoders are used to keep only one tri state buffer active while the
+  other devices are in their Hi-Z state.
+
+- Can be used in multiplexers
+
+### Variations
+
+4 variations:
 
 - Active High tri-state buffer
 - Active High inverted tri-state buffer

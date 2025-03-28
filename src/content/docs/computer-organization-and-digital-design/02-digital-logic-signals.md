@@ -9,51 +9,69 @@ next: true
 
 ### Logic levels
 
-Ranges of voltages are abstracted away into 0 (Low) and 1 (High). These ranges
-are called as logic levels.
+Ranges of voltages are abstracted away into 0 (LOW) and 1 (HIGH).
 
-The ranges would have a gap in-between. This is done to avoid errors by
-fluctuations.
+The ranges have a gap in-between, to avoid errors by fluctuations.
 
-Example:
+Example: CMOS (LV)
 
 - HIGH - 2V to 3.3V
 - LOW - 0V to 0.8V
 
-### Digital waveforms
+## Digital waveforms
 
 Voltage levels that are changing back and forth between the digital states.
 
 ### Pulse
 
-A change between the digital states.
+A sudden change between the digital states that lasts for a specific duration
+before returning to the original state.
 
 2 types:
 
-- Positive-going pulse
-- Negative-going pulse
+- Positive-going pulse: Sudden change from LOW to HIGH.
+- Negative-going pulse: Sudden change from HIGH to LOW.
 
 ### Non-ideal pulse
 
-Even though we abstract the analog states into digital, the analog
-characteristic can be observed when switching states. An non-ideal pulse will
-take some time (a very short time) to switch the states.
+Even though analog signal is abstracted into digital, the analog characteristic
+can be observed when switching states. A non-ideal pulse will take a very short
+time to switch the states.
 
-### Pulse width
-
-Pulse width is the time a pulse takes. In non-ideal case, the pulse width is
-said to be the time between 50% mark of the transition.
+![Non-ideal pulse](/images/codd/non-ideal-pulse.jpg)
 
 ### Raise and fall time
 
 Ideally a pulse is instantaneous. In non-ideal case, it takes time to transition
-between states. Raise and fall times are measured between the 10% and 90% time.
+between states. Raise and fall times are measured between the 10% and 90%
+transitions.
 
-### Gate delay
+### Pulse width
 
-Aka. propogation delay. Time for change at input to cause change at output.
-Denoted by $t_p$. Can vary betwen 0 to 1 and 1 to 0 change. Denoted as $t_{pLH}$
-and $t_{pHL}$.
+Pulse width is the time a pulse takes. In non-ideal case, the pulse width is
+said to be the time between 50% marks of the transition.
+
+## Waveforms
+
+A series of pulses. They can either be periodic (pulse train) or non-periodic. A
+clock is required along with the waveform to convert it into binary.
+
+### Duty cycle
+
+Defined for a periodic waveform. Ratio between pulse width ($t_w$) and the
+period ($T$).
+
+```math
+\text{Duty cycle} = \frac{t_w}{T} \times 100%
+```
+
+## Gate delay
+
+Aka. propogation delay. The time it takes for a logic gate to produce an output
+after receiving an input. Caused due to the physical limitations of the gate's
+internal circuitry. Denoted by $t_p$. $ $
+
+Can vary betwen LOW to HIGH ($t_{pLH}$) and HIGH to LOW ($t_{pHL}$).
 
 3 delays:
 
@@ -61,38 +79,41 @@ and $t_{pHL}$.
 - Typical/nominal delay
 - Max delay
 
-### Waveforms
+### Types of gate delay
 
-A series of pulses. They can either be periodic (pulse train) or non-periodic. A
-clock is required along with the waveform to convert it into binary.
+- Min delay - Best operating conditions, shortest route to output. The absolute
+  floor of how quickly a gate can respond. Usually happens under optimal
+  temperature and voltage.
 
-### Duty cycle
+- Typical/nominal delay - Average operating conditions, occurs most of the time
+  under normal operation. The expected delay under standard operating
+  conditions.
 
-In a period waveform, a duty cycle is the ratio of pulse width ($t_w$) to the
-period ($T$).
-
-```math
-\text{Duty cycle} = \frac{t_w}{T} \times 100%
-```
+- Max delay - Worst operating conditions, longest route to output. The worst
+  case scenario that must be planned for to ensure reliable operation. Usually
+  happens under high temperature or low voltage.
 
 ## Logic family
 
-A collection of different integrated circuit (IC) chips/ chip building blocks
+A collection of different integrated circuit (IC) chips/chip building blocks
 that have:
 
 - Similar input, output and internal circuit characteristics
 - Methods to implement all necessary logic functions
 
 Chips from the same family can be interconnected to perform any desired logic
-function. Chips from different logic families may not be compatible, so we need
-to take special steps to interconnect circuits from different logic families.
+function.
+
+Chips from different logic families may or may not be compatible. When they
+aren't, special steps must be taken to interconnect those chips/building blocks.
 
 ### Electrical behavior
 
 - Logic voltage level
-- DC noise margins Highest LOW voltage of output must be lower than highest LOW
-  voltage of input
-- Fanout Number and type of inputs that are connected to a given output
+- DC noise margins
+- Highest LOW voltage of output must be lower than highest LOW voltage of input
+- Fanout  
+  Number and type of inputs that are connected to a given output
 - Power consumption
 - Speed
 - Noise/interference
@@ -108,6 +129,13 @@ The above image is from
 
 - Light colored strips are for input
 - Dark colored strips are for output
+- $V_\text{oh}$ is the minimal voltage of output HIGH
+- $V_\text{ol}$ is the maximal voltage of output LOW
+- $V_\text{ih}$ is the minimal voltage of input HIGH
+- $V_\text{il}$ is the maximal voltage of input LOW.
+- Two gates of voltage standards (1) and (2) are compatible in the 1->2
+  direction if $V_\text{oh}$(1) > $V_\text{ih}$(2) and $V_\text{ol}$(1) <
+  $V_\text{il}$(2).
 
 ## Digital Design
 
@@ -115,25 +143,18 @@ Digital circuits are designed using software. Simulations are ran at logic
 level. Then the circuit is built using FGPAs. After many verifications, the
 circuit is fabricated as a chip.
 
-## Data transfer
+:::note[Tips for Digital Design]
 
-Data can be transferred in either serial or parallel. Serial transfer takes more
-time while parallel transfer requires more transmission lines.
-
-:::note[Useful tips for Digital Design]
-
+- Digital circuits have analog characteristics.
 - Good tools do not guarantee good design, but they help a lot by taking the
   pain out of doing things right.
-- Digital circuits have analog characteristics.
-- Know when to worry and when not to worry about the analog aspects of digital
-  design.
-- Always document your designs to make them understandable by yourself and
-  others.
+- Always document the designs to keep them understandable.
+- Know when and when not to worry about the analog aspects of digital design.
 - Associate active levels with signal names and practice bubble-to-bubble logic
   design.
 - Understand and use standard functional building blocks.
-- Design for minimum cost at the system level, including your own engineering
-  effort as part of the cost.
+- Design for minimum cost at the system level, including the engineering effort
+  as part of the cost.
 - State-machine design is like programming; approach it that way.
 - Use programmable logic to simplify designs, reduce cost, and accommodate
   last-minute modifications.
@@ -141,6 +162,11 @@ time while parallel transfer requires more transmission lines.
   methodology comes along.
 - Pinpoint the unavoidable asynchronous interfaces between different subsystems
   and the outside world, and provide reliable synchronizers.
-- Catching a glitch in time saves nine.
+- Catching a glitch in time prevents much bigger problems.
 
 :::
+
+## Data transfer
+
+Data can be transferred in either serial or parallel. Serial transfer takes more
+time while parallel transfer requires more transmission lines.

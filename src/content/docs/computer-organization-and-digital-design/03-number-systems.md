@@ -39,20 +39,30 @@ problems. Two's complement is the widely used one.
 
 ## Special formats
 
-### BCD
+### Binary Coded Decimal
 
-Short for binary coded decimal. Each digit is represented by a fixed set of
-bits. Usually in length 4 or 8. Only 10 of the available representations are
-used. The remaining ones are not valid.
+Aka. BCD. Each digit is represented by a fixed set of bits. Usually in length 4
+or 8. Only 10 of the available representations are used.
 
 ### Gray codes
 
 Aka. reflected binary. An ordering of the binary numeral system such that two
 successive values differ only by 1 bit. Named after
-[Frank Gray](<https://en.wikipedia.org/wiki/Frank_Gray_(researcher)>).
+[Frank Gray](<https://en.wikipedia.org/wiki/Frank_Gray_(researcher)>). Useful in
+minimizing errors in digital systems, especially in state transitions.
 
 If two adjacent states have more than 1 bit changed (eg: 3 and 4), then the
 value transition might take some noticable time and could lead to issues.
 
-A gray code is said to be cyclic, if the first and last numbers also differ by a
-bit.
+A gray code is said to be cyclic, if the first and last numbers also differ by
+only a bit.
+
+### Generating gray code for n bits
+
+To generate the Gray code for `n` bits:
+
+- Start with the Gray code for 1 bit: `0` and `1`.
+- For each additional bit:
+  - Reflect the current sequence (write it in reverse order).
+  - Prefix the original sequence with `0`.
+  - Prefix the reflected sequence with `1`.

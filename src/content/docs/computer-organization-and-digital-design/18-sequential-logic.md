@@ -1,7 +1,7 @@
 ---
 title: Sequential Logic
 sidebar:
-  order: 19
+  order: 18
 slug: computer-organization-and-digital-design/sequential-logic
 prev: true
 next: true

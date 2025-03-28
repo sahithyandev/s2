@@ -7,44 +7,42 @@ prev: true
 next: true
 ---
 
-There are AND, OR, XOR, and their inverted versions.
-
-### BUF
-
-A logical gate that reflects the input as is. But there is a time delay.
-
-#### Tri-state buffer
-
-Works as a switch. A control signal. if the control signal is
-
-- 0 - disconnected
-- 1 - connected
-
-## Extending for n-inputs
+There are AND, OR, XOR, and their inverted versions. Usually takes 2 inputs. Can
+be extended for n-inputs.
 
 ### XOR
 
 Returns true **iff** when the number of true inputs are odd.
 
+## Universal gate
+
+A gate is a universal gate **iff** a collection of that gates can be arranged to
+implement AND, OR & NOT gates. Can be used to implement any circuit. Is
+_functionally complete_.
+
+NAND and NOR gates are universal.
+
 ## Logical circuit representation
 
-Logical circuits are a abstraction of transistor circuits. The circuits can be
-built using <abbr title="Transistor-to-Transistor Logic">TTL</abbr> or
+Logical circuits are a abstraction of transistor circuits. The logical circuits
+can be built using <abbr title="Transistor-Transistor Logic">TTL</abbr> or
 <abbr title="Complementary Metal Oxide Semiconductor">CMOS</abbr>.
 
 ### TTL
 
-Two or more transistors are used.
+Two or more (bipolar junction) transistors are used. 0V for LOW. 5V for HIGH.
+Power consumption is high (even when idle). Switching is fast. Slow compared to
+modern CMOS. Low noise margin compared to CMOS.
 
 ### CMOS
 
-Uses 2 metal oxide semiconductors.
+Uses 2 metal oxide semiconductors. Power consumption is very low. High speed.
+High noise margin.
 
 :::note
 
 It is recommended to design CMOS with NAND gates only. NAND gates have more
-fanout and less power comsumption. The other gates can be implemented using
-NAND.
+fanout and less power comsumption.
 
 :::
 

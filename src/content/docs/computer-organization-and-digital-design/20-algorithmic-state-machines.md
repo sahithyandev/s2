@@ -1,7 +1,7 @@
 ---
 title: Algorithmic State Machines
 sidebar:
-  order: 21
+  order: 20
 slug: computer-organization-and-digital-design/algorithmic-state-machines
 prev: true
 next: false

@@ -1,7 +1,7 @@
 ---
 title: Timing Hazards
 sidebar:
-  order: 8
+  order: 7
 slug: computer-organization-and-digital-design/timing-hazards
 prev: true
 next: true
@@ -45,4 +45,4 @@ circuit has the potential for a dynamic hazard.
 
 For synchronous circuits: the clock signal can be tuned to eliminate hazards.
 
-For asyncronous circuits: must use the methods mentioned above.
+For asynchronous circuits: must use the methods mentioned above.

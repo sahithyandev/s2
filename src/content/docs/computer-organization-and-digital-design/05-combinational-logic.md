@@ -1,8 +1,8 @@
 ---
-title: Combinational Logical Circuits
+title: Combinational Logic
 sidebar:
   order: 5
-slug: computer-organization-and-digital-design/combinational-logical-circuits
+slug: computer-organization-and-digital-design/combinational-logic
 prev: true
 next: true
 ---
@@ -25,18 +25,17 @@ A product or sum term where no variable appears more than once.
 
 ### Minterm
 
-An n-variable minterm is a normal product term with n literals.
+An $n$-variable minterm is a normal product term with $n$ literals.
 
 ### Maxterm
 
-An n-variable maxterm is a normal sum term with n literals.
+An $n$-variable maxterm is a normal sum term with $n$ literals.
 
 ## Representation
 
 ### Truth table
 
-A table of all inputs and the associated output. Unique but expensive and
-verbose.
+A table of all inputs and the associated output. Unique. Expensive. Verbose.
 
 ### Karnaugh Map
 
@@ -69,7 +68,7 @@ Aka. disjunctive normal form or minterm expansion.
 
 - Pick all the 1s
 - Construct literals using the inputs, AND operator, so that they result in a 1.
-- Sum all those operators
+- Sum all those literals
 
 #### Shorthand of SOP
 
@@ -122,17 +121,17 @@ When drawing a K-map for a compact truth table, the "x" have to be considered.
 
 ### Canonical form
 
-Basic SoP and PoS expressions are in canonical form. Each term will contain all
-variables, in normal or complement form.
+Each term contains all variables in either normal or complement form. SoP and
+PoS expressions are in canonical form.
 
 Boolean functions expressed in canonical forms are cost-effective to be
 implemented.
 
 ### Standard form
 
-Simplified SoP and PoS expressions are in standard form. Each term may contain a
-subset of variables, in normal or complement form.
+Simplified SoP and PoS expressions. Each term may contain a subset of variables,
+in normal or complement form.
 
 ### Non-standard form
 
-Expressions in the form such as $(A+B)\cdot C + \overline{B}$. $ $
+Any other boolean expressions. For example: $(A+B)\cdot C + \overline{B}$. $ $

@@ -38,7 +38,7 @@ For a boolean expression, its "dual" is defined as the boolean expression where:
 - all the $1$ are replaced with $0$
 - all variables left intact
 
-When a theorem is proven, also its dual is proven
+When a theorem is proven, its dual is also proven.
 
 ### de Moragan's theorem
 

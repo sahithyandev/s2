@@ -1,7 +1,7 @@
 ---
-title: Sr Latch
+title: SR Latch
 sidebar:
-  order: 20
+  order: 19
 slug: computer-organization-and-digital-design/sr-latch
 prev: true
 next: true
