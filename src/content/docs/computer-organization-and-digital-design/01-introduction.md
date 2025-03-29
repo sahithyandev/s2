@@ -8,6 +8,9 @@ prev: false
 next: true
 ---
 
+Recording of my CODD module kuppy session, covering from basics to combinational
+logic, is available on [YouTube](https://www.youtube.com/watch?v=KfCgnu0eYzs).
+
 ### Recommended books
 
 - Digital Design: Principles & Practices by John F. Wakerly (Prentice-Hall Inc.)
