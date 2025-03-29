@@ -73,26 +73,6 @@ internal circuitry. Denoted by $t_p$. $ $
 
 Can vary betwen LOW to HIGH ($t_{pLH}$) and HIGH to LOW ($t_{pHL}$).
 
-3 delays:
-
-- Min delay
-- Typical/nominal delay
-- Max delay
-
-### Types of gate delay
-
-- Min delay - Best operating conditions, shortest route to output. The absolute
-  floor of how quickly a gate can respond. Usually happens under optimal
-  temperature and voltage.
-
-- Typical/nominal delay - Average operating conditions, occurs most of the time
-  under normal operation. The expected delay under standard operating
-  conditions.
-
-- Max delay - Worst operating conditions, longest route to output. The worst
-  case scenario that must be planned for to ensure reliable operation. Usually
-  happens under high temperature or low voltage.
-
 ## Logic family
 
 A collection of different integrated circuit (IC) chips/chip building blocks

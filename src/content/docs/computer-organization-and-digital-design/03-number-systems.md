@@ -66,3 +66,23 @@ To generate the Gray code for `n` bits:
   - Reflect the current sequence (write it in reverse order).
   - Prefix the original sequence with `0`.
   - Prefix the reflected sequence with `1`.
+
+### Example
+
+For 2-bit Gray codes:
+
+- `00`
+- `01`
+- `11`
+- `10`
+
+For 3-bit Gray codes:
+
+- `000`
+- `001`
+- `011`
+- `010`
+- `110`
+- `111`
+- `101`
+- `100`

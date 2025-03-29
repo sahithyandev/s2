@@ -22,6 +22,10 @@ _functionally complete_.
 
 NAND and NOR gates are universal.
 
+![Universal NAND](/images/codd/universal-nand.jpg)
+
+![Universal NOR](/images/codd/universal-nor.jpg)
+
 ## Logical circuit representation
 
 Logical circuits are a abstraction of transistor circuits. The logical circuits
