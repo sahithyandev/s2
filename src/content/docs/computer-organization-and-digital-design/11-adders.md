@@ -14,7 +14,9 @@ bit.
 
 ```math
 S = A \oplus B
+\;\;
 \text{ and }
+\;\;
 C = A \cdot B
 ```
 
@@ -26,14 +28,14 @@ to another half adder. Built using 2 half adders.
 
 ```math
 S =
-\overline{A} \overline{B} C_\text{in} +
-\overline{A} {B} \overline{C} +
-{A} \overline{B} \overline{C} +
-{A} B C
+\overline{A}\cdot \overline{B} C_\text{in} +
+\overline{A} {B} \overline{C_\text{in}} +
+{A} \overline{B}\cdot \overline{C_\text{in}} +
+{A} B C_\text{in}
 ```
 
 ```math
-C_\text{out} = \overline{A} B C + A B + A\overline{B}C
+C_\text{out} = \overline{A} B C_\text{in} + A B + A\overline{B}C_\text{in}
 ```
 
 <svg direction="ltr" width="1285.1000061035156" height="544" viewBox="266.1000061035156 159 1285.1000061035156 544"
@@ -249,6 +251,9 @@ Image from
 
 </figcaption>
 </figure>
+
+Carry output of each FA _ripples_ forward to calculate the output. Delay
+increases with number of bits.
 
 ## Carry Lookahead Adder
 

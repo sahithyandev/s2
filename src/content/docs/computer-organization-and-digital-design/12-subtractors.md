@@ -16,3 +16,10 @@ The circuit consists of an inverter and a full adder with `C_0` set to 1.
 
 A digital circuit that can do both addition and subtraction. A control signal is
 used to switch between the operations.
+
+<!-- No figcaption: source not available anymore -->
+
+![4-bit Adder-Subtractor](/images/codd/adder-subtractor.jpg)
+
+In the above example, $M$ is the control. When $M=0$, it works as an adder.
+Otherwise it works as a subtractor.

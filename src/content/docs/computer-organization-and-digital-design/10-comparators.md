@@ -26,13 +26,14 @@ $A$ is greater than $B$.
 
 $ G = A\overline{B} $
 
-$ E = AB + \overline{A} \overline{B} $
+$ E = AB + \overline{A}\cdot\overline{B} $
 
 $ L = \overline{A} B $
 
 ### n-bit Magnitude Comparator
 
-Let $x_i = A_i B_i + \overline{A_i} \overline{B_i} = \overline{A_i \oplus B_i}$.
+Let
+$x_i = A_i B_i + \overline{A_i}\cdot \overline{B_i} = \overline{A_i \oplus B_i}$.
 $x_i$ denotes if $A_i = B_i$.
 
 ```math
