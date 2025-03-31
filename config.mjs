@@ -104,14 +104,14 @@ export const STARLIGHT_CONFIG = {
 					label: "Algorithms",
 					collapsed: true,
 					autogenerate: {
-						directory: "data-structure-algorithms/algorithms",
+						directory: "data-structures-and-algorithms/algorithms",
 					},
 				},
 				{
 					label: "Data Structures",
 					collapsed: true,
 					autogenerate: {
-						directory: "data-structure-algorithms/data-structures",
+						directory: "data-structures-and-algorithms/data-structures",
 					},
 				},
 			],
