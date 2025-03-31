@@ -2,7 +2,7 @@
 title: Heap
 sidebar:
   order: 3
-slug: data-structure-algorithms/data-structures/heap
+slug: data-structures-and-algorithms/data-structures/heap
 prev: true
 next: true
 ---

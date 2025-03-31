@@ -2,7 +2,7 @@
 title: Hash Table
 sidebar:
   order: 5
-slug: data-structure-algorithms/data-structures/hash-table
+slug: data-structures-and-algorithms/data-structures/hash-table
 prev: true
 next: true
 ---

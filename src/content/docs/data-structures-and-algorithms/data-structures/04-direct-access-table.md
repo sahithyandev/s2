@@ -2,14 +2,14 @@
 title: Direct Access Table
 sidebar:
   order: 4
-slug: data-structure-algorithms/data-structures/direct-access-table
+slug: data-structures-and-algorithms/data-structures/direct-access-table
 prev: true
 next: true
 ---
 
 A data structure where items are stored in an array and can be accessed directly
 using their indices. This allows for $O(1)$ time complexity when accessing
-elements, which is extremely fast.
+elements, which is extremely fast. $ $
 
 The key feature of a DAT is that the index used to access an item is derived
 from some property of the data itself. For example, if storing information about

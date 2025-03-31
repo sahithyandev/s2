@@ -2,7 +2,7 @@
 title: Minimum Spanning Tree
 sidebar:
   order: 7
-slug: data-structure-algorithms/data-structures/minimum-spanning-tree
+slug: data-structures-and-algorithms/data-structures/minimum-spanning-tree
 prev: true
 next: false
 ---

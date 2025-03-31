@@ -2,7 +2,7 @@
 title: Tree
 sidebar:
   order: 2
-slug: data-structure-algorithms/data-structures/tree
+slug: data-structures-and-algorithms/data-structures/tree
 prev: true
 next: true
 ---
