@@ -12,7 +12,7 @@ import {
 	PageSizes,
 } from "pdf-lib";
 import { BOOK_CONFIG, MODULE_CODES } from "../../config.mjs";
-import { hyphenCaseToTitleCase } from "../../utils";
+import { countCharacters, hyphenCaseToTitleCase } from "../../utils";
 
 export function createPageLinkAnnotation(
 	pdfDocument: PDFDocument,
@@ -96,11 +96,13 @@ export const DMSansFont = Uint8Array.from(
 	await readFile("./public/fonts/DMSans_36pt-Regular.ttf"),
 );
 
+const LINE_HEIGHT_FOR_INTRO_HEADING = 52;
+
 export async function createIntroDoc(
 	logger: AstroIntegrationLogger,
 	module: string,
 	index: number,
-	section: string,
+	section: string | undefined,
 	outputDir: string,
 ) {
 	const introDoc = await PDFDocument.create();
@@ -113,27 +115,40 @@ export async function createIntroDoc(
 	page.setFont(DMSansEmbeddedFont);
 	page.moveTo(pageSize.width / 2 - 240, pageSize.height / 2 + 250);
 	const moduleDisplayText = hyphenCaseToTitleCase(module);
-	page.drawText(moduleDisplayText.replace(" ", "\n"), {
+	page.drawText(moduleDisplayText.replaceAll(" ", "\n"), {
 		size: 58,
-		lineHeight: 52,
+		lineHeight: LINE_HEIGHT_FOR_INTRO_HEADING,
 		font: DMSansEmbeddedFont,
 	});
-	page.moveDown(100);
+
+	const offset =
+		(countCharacters(moduleDisplayText, " ") + 1) *
+		LINE_HEIGHT_FOR_INTRO_HEADING;
+
+	page.moveDown(offset);
 	page.drawText(MODULE_CODES[moduleDisplayText] || "", {
 		size: 24,
 		font: DMSansEmbeddedFont,
 	});
-	page.moveDown(100);
-	const sectionDisplayText = hyphenCaseToTitleCase(section);
-	page.drawText(sectionDisplayText, {
-		size: 36,
-		font: DMSansEmbeddedFont,
-	});
 
-	const introDocSavePath = join(
+	let introDocSavePath = join(
 		outputDir,
-		`${module}--${index.toString().padStart(2, "0")}--${section}--0intro.pdf`,
+		`${module}--${index.toString().padStart(2, "0")}--0intro.pdf`,
 	);
+
+	if (section) {
+		page.moveDown(100);
+		const sectionDisplayText = hyphenCaseToTitleCase(section);
+		page.drawText(sectionDisplayText, {
+			size: 36,
+			font: DMSansEmbeddedFont,
+		});
+		introDocSavePath = join(
+			outputDir,
+			`${module}--${index.toString().padStart(2, "0")}--${section}--0intro.pdf`,
+		);
+	}
+
 	return writeFile(introDocSavePath, await introDoc.save(), {}).then(() =>
 		logger.info(`saved intro: ${introDocSavePath}`),
 	);
@@ -180,11 +195,11 @@ export async function createPrefaceDoc(
 		firstPage.drawText(key, {
 			size: 16,
 		});
-		firstPage.moveRight(240);
+		firstPage.moveRight(350);
 		firstPage.drawText(MODULE_CODES[key], {
 			size: 16,
 		});
-		firstPage.moveLeft(240);
+		firstPage.moveLeft(350);
 		firstPage.moveDown(30);
 	}
 

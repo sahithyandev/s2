@@ -12,14 +12,13 @@ export const MODULE_CODES = {
 	"Program Construction": "CS1040",
 	"Theory of Electricity": "EE2094",
 	"Methods of Mathematics": "MA1024",
-	"Computer Organization & Digital Design": "CS1050",
-	"Data Structures & Algorithms": "CS2023",
-	"Communication Skills": "CS2953",
+	"Computer Organization and Digital Design": "CS1050",
+	"Data Structures and Algorithms": "CS2023",
 };
 
 export const BOOK_CONFIG = {
 	description:
-		"This e-book is a complete compilation of all the modules I studied during my 1st semester of Engineering. It is designed to serve as a well-organized and accessible resource for students, offering a streamlined way to review key concepts and materials.\n\nWhile all of this content is freely available on the website, this e-book provides a convenient, offline format for easy reference. By purchasing this e-book, you are not only supporting my work but also helping me continue to share educational resources for students like you.",
+		"This e-book is a complete compilation of all the core modules I studied during my 2nd semester of Computer Science & Engineering. It is designed to serve as a well-organized and accessible resource for students, offering a streamlined way to review key concepts and materials.\n\nWhile all of this content is freely available on the website, this e-book provides a convenient, offline format for easy reference. By purchasing this e-book, you are not only supporting my work but also helping me continue to share educational resources for students like you.",
 };
 
 /**
