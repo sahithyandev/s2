@@ -50,6 +50,13 @@ Suppose $*p$ is an approximation of $p$.
 \bigg\lvert{\frac{p - *p}{p}}\bigg\rvert
 ```
 
+:::note
+
+When $p$ is unknown and $p*$ is found through iterations, the above errors are
+calculated with 2 adjacent approximations of $p$.
+
+:::
+
 ## Finite-Digit Arithmetic
 
 Machine arithmetic are done on finite-digits and are not exact. Suppose
@@ -78,13 +85,18 @@ by rearranging calculations.
 ## Truncating Error
 
 Occurs because of using approximation in place of an exact mathematical
-procedure.
+procedure. For example, the error due to the approximation of $e^x$ for the n-th
+term in its Taylor expansion. $ $
 
 :::note
 
 [Taylor series](https://s1.sahithyan.dev/mathematics/real-analysis/taylor-theorem/)
 is commonly used to approximate functions. The remainder term is also known as
 truncation error.
+
+Suppose a function $f$ must be approximated at $x=x_1$ and it has an associated
+Taylor series. It's preferred to have the Taylor series centered around a close
+point to $x_1$, to decrease the error.
 
 :::
 
@@ -120,26 +132,31 @@ When $E_n \approx C^nE_0 $ for some $C \gt 1$.
 
 ## Rate of convergence
 
+A measure of how fast a sequence is converging.
+
 Suppose $\set{\beta_n}$ converges to $0$ and $\set{\alpha_n}$ converges to a
-number $\alpha$. **If** $\exists K \gt 0$ such that,
+number $\alpha$.
+
+**If** $\exists K \gt 0$ such that, $ $
 
 ```math
 \lvert \alpha_n - \alpha \rvert \le K\lvert \beta_n \rvert,\;\;\text{for large}\;n
 ```
 
 **Then** we say that ${\alpha_n}$ converges to $\alpha$ with rate of (or order
-of) convergence $O(\beta_n)$. It is written by $\alpha_n = \alpha + O(\beta_n)$
+of) convergence $O(\beta_n)$. It is written as $\alpha_n = \alpha + O(\beta_n)$.
 
 ### For limits
 
 Suppose $\lim_\limits{h \to 0} G(h) = 0$ and $\lim_\limits{h \to 0} F(h) = L$.
-If $\exists K \gt 0$ such that,
+
+**If** $\exists K \gt 0$ such that, $ $
 
 ```math
-\lvert F(h) - L \rvert \le K \lvert G(h) \rvert
+\lvert F(h) - L \rvert \le K \lvert G(h) \rvert,\;\;\text{For small}\;h
 ```
 
-For sufficiently small $h$, then $F(h) = L + O(G(h))$.
+**Then** $F(h) = L + O(G(h))$. $ $
 
 ## Numerical solution of non-linear equations
 
@@ -150,12 +167,12 @@ $f$) is a numerical value of $x$ that satisfies the equation.
 In many situations, non-linear equations cannot be solved analytically. In this
 case, therefore, the solutions of the equations must be approached using
 iterative methods. The principle of these methods of solving consists in
-starting from an arbitrary point, the closest possible npoint to the solution
+starting from an arbitrary point, the closest possible point to the solution
 sought, and involves arriving at the solution gradually through successive
 tests.
 
 The 2 criteria to take into account when choosing a method for solving
 non-linear equations are:
 
-- Method convergence (conditions of convergence, speed of convergence etc.). –
-  The cost of calculating of the method.
+- Method convergence (conditions of convergence, speed of convergence etc.).
+- The cost of calculating of the method.

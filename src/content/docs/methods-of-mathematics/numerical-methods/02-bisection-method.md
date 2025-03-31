@@ -8,12 +8,14 @@ next: true
 ---
 
 Suppose $f$ is a continuous function on the interval $[a, b]$ such that
-$f(a) \cdot f(b) < 0$. By Intermediate Value Theorem, there exists
-$c \in [a, b]$ such that $f(c) = 0$. The bisection method is an iterative
-algorithm that approximates the root $c$ of $f$.
+$f(a) \cdot f(b) < 0$.
 
-The interval is divided into two equal parts at each step. The midpoint
-$m = \frac{a + b}{2}$ is calculated. $ $
+A root exists on the interval chosen above by
+[Intermediate Value Theorem](https://s1.sahithyan.dev/mathematics/real-analysis/continuity-theorems/#intermediate-value-theorem).
+The bisection method is an iterative algorithm that approximates the root $c$ of
+$f$.
+
+Let the midpoint $m = \frac{1}{2}(a + b)$. $ $
 
 - **If** $f(m) = 0$, **then** $m$ is the root
 - **If** $f(a) \cdot f(m) < 0$, **then** the root lies in $[a, m]$, so the

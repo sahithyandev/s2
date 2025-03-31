@@ -4,7 +4,7 @@ sidebar:
   order: 3
 slug: methods-of-mathematics/numerical-methods/fixed-point-method
 prev: true
-next: false
+next: true
 ---
 
 The number $p$ is a fixed point of the function $f$ if $f(p) = p$.
@@ -12,16 +12,16 @@ The number $p$ is a fixed point of the function $f$ if $f(p) = p$.
 ## Existence and uniqueness of a fixed point
 
 **If** $g \in C[a,b]$ and $g(x) \in [a,b] \forall x \in [a,b]$, **then** $g$ has
-at least one fixed point in $[a,b]$
+at least one fixed point in $[a,b]$.
 
 **If** in addition, $g'(x)$ exists on $(a,b)$ and
-$\exists k \text{s.t.} 0\lt k \lt 1$ and:
+$\exists k\; \text{s.t.}\; 0\lt k \lt 1$ and:
 
 ```math
-|g'(x)| \leq k, \forall x \in (a,b)
+\Big\rvert g'(x)\Big\rvert \leq k, \forall x \in (a,b)
 ```
 
-**then** $g$ has a unique fixed point in $(a,b)$.
+**Then** $g$ has a unique fixed point in $(a,b)$.
 
 :::note
 
@@ -32,7 +32,9 @@ equivalent classes if both functions have a linear relationship.
 
 ## Iteration algorithm
 
-Start with $p_0$. Iterate using $p_{n+1} = g(p_n)$ until convergence.
+Start with $p_0$ (arbitrary point). Iterate using $p_{n+1} = g(p_n)$ until
+convergence. Convergence is guaranteed **if** the fixed point exists and is
+unique.
 
 ### Implementation
 
@@ -51,15 +53,16 @@ def fixed_point(g, p0, tolerance=1e-6, max_iteration_count=100):
 
 Suppose:
 
-- $g \in C[a,b]$ and $g(x) \in [a,b] \forall x \in [a,b]$
-- $g'$ exists on $(a,b)$ and
-- $\exists k \text{s.t.} 0 \lt k \lt 1$ and
-  $\lvert g'(x) \rvert \le k \forall x \in (a,b)$
+- $g \in C[a,b]$
+- $\forall x \in [a,b],\; g(x) \in [a,b]$
+- $g'$ exists on $(a,b)$
+- $\exists k\; \text{s.t.}\; 0 \lt k \lt 1$ and
+  $\big\lvert g'(x) \big\rvert \le k\; \forall x \in (a,b)$
 
 Then
 
 ```math
-\lvert p_n - p \rvert \le k^n \max\{p_0 - a, b - p_0\}
+\Big\lvert p_n - p \Big\rvert \le k^n \max\Big\{p_0 - a, b - p_0\Big\}
 ```
 
 and
