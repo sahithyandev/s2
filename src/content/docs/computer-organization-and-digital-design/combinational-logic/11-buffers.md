@@ -1,8 +1,8 @@
 ---
 title: Buffers
 sidebar:
-  order: 15
-slug: computer-organization-and-digital-design/buffers
+  order: 11
+slug: computer-organization-and-digital-design/combinational-logic/buffers
 prev: true
 next: true
 ---

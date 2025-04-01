@@ -1,8 +1,8 @@
 ---
 title: PLA and PAL
 sidebar:
-  order: 8
-slug: computer-organization-and-digital-design/pla-and-pal
+  order: 4
+slug: computer-organization-and-digital-design/combinational-logic/pla-and-pal
 prev: true
 next: true
 ---

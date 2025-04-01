@@ -1,6 +1,6 @@
 ---
 title: Number systems
-slug: computer-organization-and-digital-design/number-systems
+slug: computer-organization-and-digital-design/basics/number-systems
 sidebar:
   order: 3
 prev: true

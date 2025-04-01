@@ -1,10 +1,11 @@
 ---
 title: Arithmetic Logic Unit
 sidebar:
-  order: 17
-slug: computer-organization-and-digital-design/arithmetic-logic-unit
+  order: 13
+slug: >-
+  computer-organization-and-digital-design/combinational-logic/arithmetic-logic-unit
 prev: true
-next: true
+next: false
 ---
 
 A component inside a CPU. Does arithmetic and logical operations. Combines

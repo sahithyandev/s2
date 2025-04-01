@@ -1,8 +1,9 @@
 ---
 title: Logic Circuit Simplification
 sidebar:
-  order: 6
-slug: computer-organization-and-digital-design/logic-circuit-simplification
+  order: 2
+slug: >-
+  computer-organization-and-digital-design/combinational-logic/logic-circuit-simplification
 prev: true
 next: true
 ---

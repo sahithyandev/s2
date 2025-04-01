@@ -3,7 +3,7 @@ title: Introduction to Computer Organization and Digital Design
 sidebar:
   label: Introduction
   order: 1
-slug: computer-organization-and-digital-design/introduction
+slug: computer-organization-and-digital-design/basics/introduction
 prev: false
 next: true
 ---

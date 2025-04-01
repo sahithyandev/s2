@@ -1,9 +1,10 @@
 ---
-title: Combinational Logic
+title: Introduction to Combinational Logic
 sidebar:
-  order: 5
-slug: computer-organization-and-digital-design/combinational-logic
-prev: true
+  label: Introduction
+  order: 1
+slug: computer-organization-and-digital-design/combinational-logic/introduction
+prev: false
 next: true
 ---
 

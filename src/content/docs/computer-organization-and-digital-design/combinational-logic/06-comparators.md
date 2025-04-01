@@ -1,8 +1,8 @@
 ---
 title: Comparators
 sidebar:
-  order: 10
-slug: computer-organization-and-digital-design/comparators
+  order: 6
+slug: computer-organization-and-digital-design/combinational-logic/comparators
 prev: true
 next: true
 ---

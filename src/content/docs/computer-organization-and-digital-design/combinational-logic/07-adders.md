@@ -1,8 +1,8 @@
 ---
 title: Adders
 sidebar:
-  order: 11
-slug: computer-organization-and-digital-design/adders
+  order: 7
+slug: computer-organization-and-digital-design/combinational-logic/adders
 prev: true
 next: true
 ---

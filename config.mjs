@@ -92,10 +92,31 @@ export const STARLIGHT_CONFIG = {
 	sidebar: [
 		{
 			label: "Computer Organization & Digital Design",
-			collapsed: true,
-			autogenerate: {
-				directory: "computer-organization-and-digital-design",
-			},
+			items: [
+				{
+					label: "Basics",
+					collapsed: true,
+					autogenerate: {
+						directory: "computer-organization-and-digital-design/basics",
+					},
+				},
+				{
+					label: "Combinational Logic",
+					collapsed: true,
+					autogenerate: {
+						directory:
+							"computer-organization-and-digital-design/combinational-logic",
+					},
+				},
+				{
+					label: "Sequential Logic",
+					collapsed: true,
+					autogenerate: {
+						directory:
+							"computer-organization-and-digital-design/sequential-logic",
+					},
+				},
+			],
 		},
 		{
 			label: "Data Structures & Algorithms",

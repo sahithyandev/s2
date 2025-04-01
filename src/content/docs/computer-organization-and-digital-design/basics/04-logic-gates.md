@@ -2,9 +2,9 @@
 title: Logic Gates
 sidebar:
   order: 4
-slug: computer-organization-and-digital-design/logic-gates
+slug: computer-organization-and-digital-design/basics/logic-gates
 prev: true
-next: true
+next: false
 ---
 
 There are AND, OR, XOR, and their inverted versions. Usually takes 2 inputs. Can

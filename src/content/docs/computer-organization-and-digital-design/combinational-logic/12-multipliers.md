@@ -1,8 +1,8 @@
 ---
 title: Multipliers
 sidebar:
-  order: 16
-slug: computer-organization-and-digital-design/multipliers
+  order: 12
+slug: computer-organization-and-digital-design/combinational-logic/multipliers
 prev: true
 next: true
 ---

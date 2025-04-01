@@ -1,8 +1,8 @@
 ---
 title: Subtractors
 sidebar:
-  order: 12
-slug: computer-organization-and-digital-design/subtractors
+  order: 8
+slug: computer-organization-and-digital-design/combinational-logic/subtractors
 prev: true
 next: true
 ---

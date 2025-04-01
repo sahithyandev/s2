@@ -1,9 +1,10 @@
 ---
-title: Sequential Logic
+title: Introduction to Sequential Logic
 sidebar:
-  order: 18
-slug: computer-organization-and-digital-design/sequential-logic
-prev: true
+  label: Introduction
+  order: 1
+slug: computer-organization-and-digital-design/sequential-logic/introduction
+prev: false
 next: true
 ---
 

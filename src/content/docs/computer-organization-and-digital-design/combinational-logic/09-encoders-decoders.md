@@ -1,8 +1,8 @@
 ---
 title: Encoders & Decoders
 sidebar:
-  order: 13
-slug: computer-organization-and-digital-design/encoders-decoders
+  order: 9
+slug: computer-organization-and-digital-design/combinational-logic/encoders-decoders
 prev: true
 next: true
 ---
