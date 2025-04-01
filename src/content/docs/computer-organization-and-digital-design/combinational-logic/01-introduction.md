@@ -45,7 +45,7 @@ boolean expression. Aka. K-map.
 
 - Sketch an empty with (1 vs 1 or 1 vs 2, or 2 vs 2 ...)
   - If the variables in a row or column is more than 2, they must be arranged in
-    [gray code](/computer-organization-and-digital-design/number-systems/#gray-codes).
+    [gray code](/computer-organization-and-digital-design/basics/number-systems/#gray-codes).
 - Populate the map with given values
 - Group the 1s according to K-map rules
   - Each group must be rectangular

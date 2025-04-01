@@ -50,5 +50,5 @@ increases. The solution is to build higher order decoders using smaller
 decoders.
 
 Decoder and a set of OR gates can be used to build a
-[Full Adder](/computer-organization-and-digital-design/adders/#full-adder) and
-other devices.
+[Full Adder](/computer-organization-and-digital-design/combinational-logic/adders/#full-adder)
+and other devices.

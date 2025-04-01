@@ -19,7 +19,7 @@ operation of digital circuits.
 ### Clock signal
 
 A square wave with a 50%
-[duty cycle](/computer-organization-and-digital-design/digital-logic-signals/#duty-cycle).
+[duty cycle](/computer-organization-and-digital-design/basics/digital-logic-signals/#duty-cycle).
 The signal is high for half the period and low for the other half.
 
 ## Triggering methods
