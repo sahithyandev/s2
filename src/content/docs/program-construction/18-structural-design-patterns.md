@@ -1,7 +1,7 @@
 ---
 title: Structural Design Patterns
 sidebar:
-  order: 17
+  order: 18
 slug: program-construction/structural-design-patterns
 prev: true
 next: true
