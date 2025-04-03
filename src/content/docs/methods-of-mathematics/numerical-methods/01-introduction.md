@@ -50,12 +50,16 @@ Suppose $*p$ is an approximation of $p$.
 \bigg\lvert{\frac{p - *p}{p}}\bigg\rvert
 ```
 
-:::note
+### Successive relative error
 
-When $p$ is unknown and $p*$ is found through iterations, the above errors are
-calculated with 2 adjacent approximations of $p$.
+When $p$ is unknown and $p*$ is found through iterations, the relative error can
+be used as:
 
-:::
+```math
+\lvert \frac{p_n(x) - p_{n-1}(x)}{p_n(x)} \rvert
+```
+
+Here $p_n(x)$ means the $n$-th approximation of $p$.
 
 ## Finite-Digit Arithmetic
 
