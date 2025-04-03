@@ -37,3 +37,26 @@ Output changes on the falling edge of the clock signal.
 ### Level Triggering
 
 Output changes when the clock signal is high (or low).
+
+## Excitation table
+
+A table used in sequential logic to determine the required inputs for a
+flip-flop to transition from its current state to a desired next state. It
+provides a mapping between the current state, next state, and the necessary
+inputs.
+
+These tables are essential for designing and analyzing sequential circuits. They
+help in determining the required inputs for achieving the desired state
+transitions.
+
+## Latch & Flip-flop
+
+A memory element that can store a bit.
+
+### Latch
+
+Level triggered. Independent of a clock.
+
+### Flip-flop
+
+Edge triggered. Dependent on a clock.
