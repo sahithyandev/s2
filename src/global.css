@@ -18,7 +18,8 @@
 	--sl-text-h4: var(--sl-text-xl);
 	--sl-sidebar-width: 19rem;
 	--sl-color-blue-low: hsl(var(--sl-hue-blue), 54%, 30%);
-	--sl-font: "DM Sans", ui-sans-serif, system-ui, -apple-system,
+	--sl-font:
+		"DM Sans", ui-sans-serif, system-ui, -apple-system,
 		BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
 		"Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
 		"Segoe UI Symbol", "Noto Color Emoji", sans-serif;

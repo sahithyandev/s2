@@ -36,6 +36,26 @@
 		{
 			"source": "/methods-of-mathematics/numerical-methods",
 			"destination": "/methods-of-mathematics/numerical-methods/introduction"
+		},
+		{
+			"source": "/data-structures-and-algorithms/algorithms",
+			"destination": "/data-structures-and-algorithms/algorithms/introduction"
+		},
+		{
+			"source": "/data-structures-and-algorithms/data-structures",
+			"destination": "/data-structures-and-algorithms/data-structures/introduction"
+		},
+		{
+			"source": "/computer-organization-and-digital-design/sequential-logic",
+			"destination": "/computer-organization-and-digital-design/sequential-logic/introduction"
+		},
+		{
+			"source": "/computer-organization-and-digital-design/combinational-logic",
+			"destination": "/computer-organization-and-digital-design/combinational-logic/introduction"
+		},
+		{
+			"source": "/computer-organization-and-digital-design/basics",
+			"destination": "/computer-organization-and-digital-design/basics/introduction"
 		}
 	]
 }
