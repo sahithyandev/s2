@@ -13,7 +13,7 @@ requirements and end with a working program.
 
 :::note
 
-Programming is only one step among the many in Program Construction process.
+Programming is only one step among the many in program construction process.
 
 :::
 

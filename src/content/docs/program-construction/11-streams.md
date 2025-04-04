@@ -70,7 +70,7 @@ Common subclasses of `InputStream` include:
 - `ByteArrayInputStream` for reading from byte arrays.
 - `BufferedInputStream` for buffering input to improve performance.
 
-Common subclasses of `Reader` and `Writer` include:
+Common subclasses of `Reader` include:
 
 - `FileReader` for reading from files.
 - `CharArrayReader` for reading from character arrays.

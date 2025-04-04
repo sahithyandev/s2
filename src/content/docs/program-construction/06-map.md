@@ -7,13 +7,17 @@ prev: true
 next: true
 ---
 
-- In Java, elements of Map are stored in key/value pairs. Keys are unique values
-  associated with individual Values.
-- A map cannot contain duplicate keys. And, each key is associated with a single
-  value.
-- The Map data structure in Java is implemented by two interfaces, the
-  `Map Interface` and the `SortedMap Interface`.
-- Three primary classes implement these interfaces
-  [HashMap](/program-construction/hashmap/), `TreeMap`, and `LinkedHashMap`.
+A data structure that stores key-value pairs. Keys are unique, and map to a
+value.
+
+## Map in Java
 
 ![Map Hierarchy](/images/program-construction/map-hierarchy.png)
+
+`Map` interface defines the basic operations for a map data structure.
+`SortedMap` interface extends `Map` interface and provides additional methods
+for sorted maps such as `firstKey()`, `lastKey()`, `headMap()`, `tailMap()`, and
+`subMap()`.
+
+Three primary classes implement these interfaces
+[HashMap](/program-construction/hashmap/), `TreeMap`, and `LinkedHashMap`.

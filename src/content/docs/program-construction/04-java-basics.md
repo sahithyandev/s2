@@ -145,5 +145,4 @@ For attributes:
 Static members (aka. class members) are used to store data, specific to a class
 instead of an instance. There can be static variables and static methods. Static
 methods cannot access non-static variables and cannot call non-static methods.
-`this` keyword is not available inside static methods. There can also be static
-classes, which means only one instance of a class is created.
+`this` keyword is not available inside static methods.

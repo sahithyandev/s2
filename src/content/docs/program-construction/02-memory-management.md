@@ -27,8 +27,10 @@ language.
 
 Examples:
 
-- In C, memory is allocated explicitly using `malloc()` system call
-- In Java, memory is allocated explicitly using `new` operator
+- In C, memory is allocated implicitly (automatically) or explicitly (using
+  `malloc()` system call)
+- In Java, memory is allocated implicitly (when defining primitive typed
+  variables) explicitly (using `new` operator)
 - In Python, memory is allocated implicitly
 
 ## Memmory deallocation
@@ -40,7 +42,8 @@ depending on the programming language.
 
 Examples:
 
-- In C, memory is deallocated explicitly using `free()` system call
+- In C, memory is deallocated implicitly (when the current scope ends)
+  explicitly (using `free()` system call)
 - In Java, memory is deallocated implicitly
 
 :::note
@@ -59,10 +62,10 @@ reachable from other unreachable memory.
 
 ### Garbage Collection
 
-Garbage collection is a process where free unused memory is detected using
-various algorithms and freed. This process is handled by a garbage collector.
-Garbage collectors are preferred because otherwise, the deallocation must be
-done manually by programmers which is very error-prone and time-consuming.
+A process where free unused memory is detected using various algorithms and
+freed. Handled by a garbage collector. Garbage collectors are preferred because
+otherwise, the deallocation must be done manually by programmers which is very
+error-prone and time-consuming.
 
 :::note[Terminal programs]
 
@@ -71,10 +74,11 @@ is written to persistent storage.
 
 :::
 
-Garbage collectors runs in a separate thread of the program's process so that
-the GC can share the memory buffer of the process. If GC is run as a separate
-process, it would not have access to other process' memory buffer, by default.
-It would require root permissions to do so, and it is not recommended.
+A process, run by a normal user, cannot access the memory buffer of another
+process. It would require root permissions to do so, and it is not recommended.
+
+Because of that, garbage collector is run on the same process, in a separate
+thread.
 
 Many techniques are used to determine which memory must be garbage collected.
 

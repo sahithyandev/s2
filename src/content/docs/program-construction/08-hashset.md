@@ -7,12 +7,11 @@ prev: true
 next: true
 ---
 
-- HashSet in Java implements the Set interface of Collections Framework.
-- It is used to store the unique elements and it doesn’t maintain any specific
-  order of elements.
-- HashSet can store the Null values.
+An implementation of the `Set` interface of Collections Framework. Stores the
+unique elements and it doesn’t maintain any specific order of elements. Can
+store the Null values.
 
-## Methods in Java HashSet
+## Methods
 
 - `add(E e)`  
   Used to add the specified element if it is not present, if it is present then

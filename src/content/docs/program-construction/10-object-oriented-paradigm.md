@@ -31,11 +31,10 @@ key concepts:
 Unified Modeling Language (UML) is used to visualize the design of a system.
 Common UML diagrams used in OOD include:
 
-- **Class Diagrams**: Show the static structure of the system, including
-  classes, attributes, methods, and relationships.
-- **Sequence Diagrams**: Show how objects interact in a particular sequence of
-  time.
-- **Use Case Diagrams**: Show the interactions between actors and the system.
+- Class Diagrams: Show the static structure of the system, including classes,
+  attributes, methods, and relationships.
+- Sequence Diagrams: Show how objects interact in a particular sequence of time.
+- Use Case Diagrams: Show the interactions between actors and the system.
 
 ### Principles
 
