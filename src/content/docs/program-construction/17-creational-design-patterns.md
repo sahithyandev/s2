@@ -173,3 +173,101 @@ public class FactoryMethodPatternExample {
 ```
 
 ## Abstract Factory Pattern
+
+Provides an interface for creating families of related objects without
+specifying their concrete classes. It's like having a factory of factories. Used
+when multiple objects need to be created that work together.
+
+Used in UI toolkits where different themes require different button/window
+styles, or in cross-platform applications where components need different
+implementations based on the operating system.
+
+```java
+// Step 1: Define abstract products
+interface Button {
+    void render();
+}
+
+interface Checkbox {
+    void render();
+}
+
+// Step 2: Create concrete products for each theme
+class LightButton implements Button {
+    @Override
+    public void render() {
+        System.out.println("Rendering light theme button");
+    }
+}
+
+class DarkButton implements Button {
+    @Override
+    public void render() {
+        System.out.println("Rendering dark theme button");
+    }
+}
+
+class LightCheckbox implements Checkbox {
+    @Override
+    public void render() {
+        System.out.println("Rendering light theme checkbox");
+    }
+}
+
+class DarkCheckbox implements Checkbox {
+    @Override
+    public void render() {
+        System.out.println("Rendering dark theme checkbox");
+    }
+}
+
+// Step 3: Define abstract factory interface
+interface ThemeFactory {
+    Button createButton();
+    Checkbox createCheckbox();
+}
+
+// Step 4: Create concrete factories
+class LightThemeFactory implements ThemeFactory {
+    @Override
+    public Button createButton() {
+        return new LightButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new LightCheckbox();
+    }
+}
+
+class DarkThemeFactory implements ThemeFactory {
+    @Override
+    public Button createButton() {
+        return new DarkButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new DarkCheckbox();
+    }
+}
+
+// Step 5: Client code using the Abstract Factory
+public class AbstractFactoryPatternExample {
+    public static void main(String[] args) {
+        ThemeFactory factory = new LightThemeFactory();
+        Button button = factory.createButton();
+        Checkbox checkbox = factory.createCheckbox();
+
+        button.render();   // Outputs: Rendering light theme button
+        checkbox.render(); // Outputs: Rendering light theme checkbox
+
+        factory = new DarkThemeFactory();
+        button = factory.createButton();
+        checkbox = factory.createCheckbox();
+
+        button.render();   // Outputs: Rendering dark theme button
+        checkbox.render(); // Outputs: Rendering dark theme checkbox
+    }
+}
+```
