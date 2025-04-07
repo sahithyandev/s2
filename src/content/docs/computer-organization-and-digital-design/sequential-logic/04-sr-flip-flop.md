@@ -1,16 +1,13 @@
 ---
 title: SR Flip-flop
 sidebar:
-  order: 3
+  order: 4
 slug: computer-organization-and-digital-design/sequential-logic/sr-flip-flop
 prev: true
 next: true
 ---
 
-A basic type of sequential logic circuit used for storing a single bit of data.
-It has two inputs: $S$ and $R$, and two outputs: $Q$ and $\overline{Q}$. The
-behavior of the SR flip-flop is determined by the combination of the S and R
-inputs:
+Has 2 inputs: $S$ and $R$, and 2 outputs: $Q$ and $\overline{Q}$.
 
 | S   | R   | Q         | Q'        | Description              |
 | --- | --- | --------- | --------- | ------------------------ |
@@ -29,9 +26,3 @@ inputs:
 | 0                 | 1               | 1   | 0   |
 | 1                 | 0               | 0   | 1   |
 | 1                 | 1               | X   | 0   |
-
-## Applications
-
-- Basic memory storage elements.
-- Control circuits.
-- Debouncing switches.

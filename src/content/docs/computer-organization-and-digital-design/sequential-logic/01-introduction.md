@@ -38,16 +38,18 @@ Output changes on the falling edge of the clock signal.
 
 Output changes when the clock signal is high (or low).
 
-## Excitation table
+## Characteristics
 
-A table used in sequential logic to determine the required inputs for a
-flip-flop to transition from its current state to a desired next state. It
-provides a mapping between the current state, next state, and the necessary
-inputs.
+### Characteristic table
 
-These tables are essential for designing and analyzing sequential circuits. They
-help in determining the required inputs for achieving the desired state
-transitions.
+A table of memory, current input and output. Similar to a truth table.
+
+### Excitation table
+
+A table used to determine the required inputs for a sequential circuit element
+to transition from its current state to a desired next state. Provides a mapping
+between the current state, next state, and the necessary inputs. Essential for
+designing and analyzing sequential circuits.
 
 ## Latch & Flip-flop
 
