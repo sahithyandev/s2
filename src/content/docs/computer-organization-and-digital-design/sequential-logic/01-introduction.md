@@ -62,3 +62,13 @@ Level triggered. Independent of a clock.
 ### Flip-flop
 
 Edge triggered. Dependent on a clock.
+
+## Types of sequential circuits
+
+### Asynchronous
+
+Works without a clock. Built using latches.
+
+### Synchronous
+
+Works based on a clock. Built using flip flops.
