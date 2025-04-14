@@ -1,0 +1,59 @@
+---
+title: Counting Outcomes
+sidebar:
+  order: 2
+slug: methods-of-mathematics/probability-and-statistics/counting-outcomes
+prev: true
+next: true
+---
+
+## Rule 1
+
+Suppose there is an experiment consisting of $k$ number of steps. And $i$-th
+step having $n_i$ number of outcomes.
+
+```math
+\text{Total number of outcomes} = \sum_{i=1}^k {n_i}
+```
+
+## Rule 2
+
+The number of combinations of $n$ objects taken $r$ at a time is:
+
+```math
+^nC_r = \frac{n!}{(n-r)!\; r!}
+```
+
+### Combination
+
+A selection of a set of objects, regardless of the selection order.
+
+## Rule 3
+
+The number of permutations of $n$ objects taken $r$ at a time is:
+
+```math
+^nP_r = \frac{n!}{(n-r)!}
+```
+
+### Permutation
+
+An arrangement of a set of objects, with regard to the order of the arrangement.
+
+## Rule 4
+
+The numebr of circular permutations of $k$ objects taken from a group of $n$
+objects:
+
+```math
+\frac{^nP_k}{k} = ^nC_k \times (k-1)!
+```
+
+## Rule 5
+
+Suppose a multi-set $M$ contains $n$ items of $k$ different types. There are
+$r_i$ number of type $i$ objects. Total number of distinct permutations:
+
+```math
+\frac{n!}{\sum_{i=1}^k {r_i!}}
+```
