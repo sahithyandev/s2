@@ -1,6 +1,6 @@
-# S1
+# S2
 
-My 1st semester notes of Engineering. This repository contains all the notes of the semester. This notes are then published on [Sahithyan's S1 website](https://s1.sahithyan.dev).
+My 2nd semester notes of Computer Science & Engineering. This repository contains all the notes of the semester. This notes are then published on [Sahithyan's S2 website](https://s2.sahithyan.dev).
 
 ## Contact
 
