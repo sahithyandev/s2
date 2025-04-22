@@ -1,10 +1,10 @@
 ---
 title: Joint Distributions
 sidebar:
-  order: 7
+  order: 8
 slug: methods-of-mathematics/probability-and-statistics/joint-distributions
 prev: true
-next: false
+next: true
 ---
 
 Specifies the probability of observing a combination of values for two or more random variables. Characterizes the relationship between multiple random variables, including their dependencies and correlations.
@@ -55,11 +55,36 @@ Joint distributions can be represented in various ways:
 - For continuous variables: joint density functions or contour plots
 - Copulas: functions that describe the dependence structure between variables
 
-## Examples
+## Types
 
-Common joint distributions include:
-- Bivariate normal distribution
-- Multinomial distribution
-- Dirichlet distribution
+### For Discrete Variables
 
-Understanding joint distributions is fundamental for analyzing relationships between variables, performing multivariate statistical analysis, and modeling complex systems with interdependent components.
+For joint probability mass function, if $x,y$ are independent, $P(x,y)=P(x)P(y)$.
+
+For joint probability:
+
+```math
+P(X \le x, Y \le y) = \sum_{x}\sum_{y} P(x,y)
+```
+
+For marginal probability of $X = a$, $\sum_y P(a,y)$.
+
+### For Continuous Variables
+
+Suppose $f$ is the joint probability density function. The joint probability for any region $A$ lying in x-y plane is:
+
+```math
+f\big[(X,Y) \in A \big] = \int \int_A f(x,y)\; \text{d}x\text{d}y
+```
+
+The cumulative distribution function,
+
+```math
+F(a,b) = P(X \le a, Y \le b) = \int_{-\infty}^{b} \int_{-\infty}^{a} f(x,y)\; \text{d}x\text{d}y
+```
+
+For marginal probability density function of $X$, $ $
+
+```math
+g(x) = \int_{-\infty}^{\infty} f(x,y) \text{d}y
+```

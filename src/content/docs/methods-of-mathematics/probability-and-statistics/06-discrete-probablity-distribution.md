@@ -1,8 +1,9 @@
 ---
 title: Discrete Probability Distribution
 sidebar:
-  order: 5
-slug: methods-of-mathematics/probability-and-statistics/discrete-probability-distribution
+  order: 6
+slug: >-
+  methods-of-mathematics/probability-and-statistics/discrete-probablity-distribution
 prev: true
 next: true
 ---

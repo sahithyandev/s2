@@ -1,10 +1,11 @@
 ---
 title: Continuous Probability Distribution
 sidebar:
-  order: 6
-slug: methods-of-mathematics/probability-and-statistics/continuous-probability-distribution
+  order: 7
+slug: >-
+  methods-of-mathematics/probability-and-statistics/continuous-probablity-distribution
 prev: true
-next: false
+next: true
 ---
 
 ## Mean
