@@ -207,3 +207,158 @@ new Thread(() -> {
 3. Prefer higher-level concurrency utilities over raw threads
 4. Always handle InterruptedException properly
 5. Be careful with thread pools to avoid resource exhaustion
+
+## Issues
+
+Here are the most common concurrency issues.
+
+### Memory Visibility
+
+Changes made by one thread may not be visible to another thread. The solution is to use `volatile` keyword or synchronization.
+
+```java
+class SharedData {
+    private volatile boolean flag = false;
+
+    public void toggleFlag() {
+        flag = !flag;
+    }
+
+    public boolean getFlag() {
+        return flag;
+    }
+}
+```
+
+### Race Condition
+
+Occurs when multiple threads access and modify the same data concurrently, leading to unpredictable results.
+
+```java
+// Unsafe counter
+class Counter {
+    private int count = 0;
+
+    public void increment() {
+        count++; // This is not atomic!
+    }
+}
+```
+
+The solution is to use synchronization or atomic classes.
+
+```java
+// Using synchronized
+class SafeCounter {
+    private int count = 0;
+
+    public synchronized void increment() {
+        count++;
+    }
+}
+
+// Using AtomicInteger
+class AtomicCounter {
+    private AtomicInteger count = new AtomicInteger(0);
+
+    public void increment() {
+        count.incrementAndGet();
+    }
+}
+```
+
+### Deadlock
+
+Occurs when two or more threads are blocked forever, waiting for each other.
+
+```java
+// Potential deadlock
+synchronized(lockA) {
+    // Do something
+    synchronized(lockB) {
+        // Do something else
+    }
+}
+
+// Another thread might do:
+synchronized(lockB) {
+    synchronized(lockA) {
+        // This creates a circular wait condition
+    }
+}
+```
+
+The solution is to
+- Acquire locks in the same order always
+- Use `tryLock` with timeout
+- Use higher-level concurrency utilities
+
+### Thread Starvation
+
+Occurs when a thread is unable to gain regular access to shared resources. The solution is to use fair locks and avoid indefinite locks.
+
+```java
+// Fair lock example
+ReentrantLock fairLock = new ReentrantLock(true);
+```
+
+### Livelock
+
+Similar to deadlock, but threads are not blocked—they're just too busy responding to each other to make progress.
+
+This issue can be solved by adding randomized delays between retries or implement priority-based access.
+
+### Producer-Consumer problem
+
+A situation where one or more threads produce data that other threads consume. If not properly synchronized, this can lead to issues like:
+- Buffer overflow if producers are faster than consumers
+- Inefficient waiting if consumers are faster than producers
+- Race conditions when accessing the shared buffer
+
+The solution typically involves using a bounded buffer with proper synchronization:
+
+```java
+BlockingQueue<Task> queue = new LinkedBlockingQueue<>(100); // Bounded buffer
+
+// Producer thread
+new Thread(() -> {
+    try {
+        while (true) {
+            Task task = createNewTask();
+            queue.put(task); // Will block if queue is full
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+}).start();
+
+// Consumer thread
+new Thread(() -> {
+    try {
+        while (true) {
+            Task task = queue.take(); // Will block if queue is empty
+            processTask(task);
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    }
+}).start();
+```
+
+### Thread Pool Issues
+
+- Resource Exhaustion: Too many threads consuming system resources
+- Thread Leakage: Threads not properly returned to the pool
+
+These issues can be solved by using appropriate thread pool configurations and properly handle exceptions.
+
+```java
+ExecutorService executor = Executors.newFixedThreadPool(10);
+try {
+    executor.submit(() -> {
+        // Task logic
+    });
+} finally {
+    executor.shutdown();
+}
+```
