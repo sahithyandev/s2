@@ -1,7 +1,7 @@
 ---
 title: Estimators
 sidebar:
-  order: 11
+  order: 10
 slug: methods-of-mathematics/probability-and-statistics/estimators
 prev: true
 next: false
@@ -29,4 +29,12 @@ Sample mean is an unbiased estimator for a continuous random variable. Aka. best
 
 Sample variance is an unbiased estimator.
 
-Efficiency, Sufficiency, Robustness are some other properties held by statistical estimators.
+:::note
+
+Sample variance can be estimated using:
+
+```math
+s^2 = \frac{1}{n - 1}\sum_{i=1}^{n} (x_i - \bar{x})^2 = \frac{1}{n-1}\bigg[ \sum_{i=1}^{n} x_i^2 - n\bar{x}^2 \bigg]
+```
+
+:::

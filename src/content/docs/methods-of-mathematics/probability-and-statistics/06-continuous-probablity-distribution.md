@@ -1,7 +1,7 @@
 ---
 title: Continuous Probability Distribution
 sidebar:
-  order: 7
+  order: 6
 slug: >-
   methods-of-mathematics/probability-and-statistics/continuous-probablity-distribution
 prev: true
@@ -32,7 +32,7 @@ An equivalent computational formula is:
 
 ## Example
 
-Consider a continuous random variable X that follows a uniform distribution over the interval [0, 4], with probability density function:
+Consider a continuous random variable $X$ that follows a uniform distribution over the interval [0, 4], with probability density function: $ $
 
 ```math
 f(x) = \begin{cases}

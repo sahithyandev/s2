@@ -1,7 +1,7 @@
 ---
 title: Joint Distributions
 sidebar:
-  order: 8
+  order: 7
 slug: methods-of-mathematics/probability-and-statistics/joint-distributions
 prev: true
 next: true
@@ -15,7 +15,6 @@ For two random variables $X$ and $Y$, the joint probability distribution gives t
 
 - For discrete random variables: $P(X = x, Y = y)$ or $P_{X,Y}(x, y)$
 - For continuous random variables: $f_{X,Y}(x, y)$
-
 
 For a joint probability distribution $P(A \cap B)$, $P(A)$ and $P(B)$ are the marginal probabilities.
 
@@ -61,8 +60,7 @@ Joint distributions can be represented in various ways:
 
 For joint probability mass function, if $x,y$ are independent, $P(x,y)=P(x)P(y)$.
 
-For joint probability:
-
+Cumulative probability: 
 ```math
 P(X \le x, Y \le y) = \sum_{x}\sum_{y} P(x,y)
 ```

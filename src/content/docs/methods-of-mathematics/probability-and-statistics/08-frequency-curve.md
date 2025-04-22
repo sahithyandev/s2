@@ -1,7 +1,7 @@
 ---
 title: Frequency Curve
 sidebar:
-  order: 9
+  order: 8
 slug: methods-of-mathematics/probability-and-statistics/frequency-curve
 prev: true
 next: true

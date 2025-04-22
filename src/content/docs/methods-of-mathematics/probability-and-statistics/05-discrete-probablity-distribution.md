@@ -1,7 +1,7 @@
 ---
 title: Discrete Probability Distribution
 sidebar:
-  order: 6
+  order: 5
 slug: >-
   methods-of-mathematics/probability-and-statistics/discrete-probablity-distribution
 prev: true
@@ -32,7 +32,7 @@ An equivalent computational formula is:
 
 ## Example
 
-Consider a discrete random variable X with the following probability distribution:
+Consider a discrete random variable $X$ with the following probability distribution: $ $
 
 | X | P(X) |
 |---|------|

@@ -42,7 +42,7 @@ The number of permutations of $n$ objects taken $r$ at a time is:
 
 ## Rule 4
 
-The numebr of circular permutations of $k$ objects taken from a group of $n$
+The number of circular permutations of $k$ objects taken from a group of $n$
 objects:
 
 ```math
