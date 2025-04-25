@@ -32,3 +32,9 @@ Algorithms are explained in either:
   - Decision - diamond
 - Pseudocode
 - Program listing
+
+## Definitions
+
+### Greedy algorithm
+
+An algorithm that makes the locally optimal choice at each stage with the hope of finding a global optimum.

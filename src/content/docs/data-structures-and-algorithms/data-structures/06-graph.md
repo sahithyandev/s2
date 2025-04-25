@@ -61,6 +61,11 @@ $V$.
 A path that starts and ends at the same vertex without repeating any edges or
 vertices.
 
+### Complete
+
+A graph is complete **iff** every pair of distinct vertices is connected by a
+unique edge.
+
 ### Strongly connected
 
 A directed graph is strongly connected **if** there is a path from every vertex

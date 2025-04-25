@@ -20,178 +20,54 @@ connected tree.
 Out of all these spanning trees, MST is the one with the smallest total edge
 weight.
 
+### Steiner spanning tree
+
+A tree that connects a subset of vertices while potentially adding additional vertices (called Steiner points or Steiner vertices) to minimize the total edge weight.
+
+### Minimum Steiner tree
+
+A Steiner spanning tree that has the minimum weight. Finding a minimum Steiner tree is NP-hard, making it computationally more difficult than finding a minimum spanning tree. Useful in network design problems where new junction points can be added to reduce the overall cost of connecting required locations.
+
+:::note[Cayley's formula]
+
+The number of distinct spanning trees in a complete graph with $n$ vertices is $n^{n-2}$.
+
+:::
+
+## Definitions
+
+### Safe Edge
+An edge that can be safely included in the growing MST subset without violating the MST property.
+
+### Cut
+A partition of the vertices of a graph into 2 disjoint subsets.
+
+### Crossing Cut
+An edge that has one endpoint in each subset of a cut is said to cross the cut. 
+
+### Respecting Cut
+Given a subset $A$ of edges, a cut respects $A$ **iff** no edge in $A$ crosses the cut.
+
+### Light Edge
+For a given cut, the edge with the minimum weight among all edges crossing the cut. Prime candidates in MST algorithms.
+
 ## Algorithms to Find MST
 
-There are several algorithms to find the MST of a graph, the most common ones
-being:
+The general idea is to:
 
-### Kruskal's algorithm
+- Start with a subset of edges $A$
+- Add 1 safe edge to $A$ at each iteration
+- Keep adding until an MST is found
 
-Sorts all the edges of the graph by their weights and adds them one by one to
-the MST, ensuring that no cycles are formed.
+Commonly used algorithms to find MST are:
+- [Kruskal's algorithm](/data-structures-and-algorithms/algorithms/kruskals-algorithm)
+- [Prim's algorithm](/data-structures-and-algorithms/algorithms/prims-algorithm)
 
-### Prim's Algorithm
+### Finding a Safe Edge
 
-Starts with a single vertex and grows the MST one edge at a time by adding the
-smallest edge that connects a vertex in the MST to a vertex outside the MST.
-
-## Example
-
-Let's consider a simple example to illustrate the concept of MST using Kruskal's
-Algorithm.
-
-### Graph Representation
-
-```txt
-    1       2
-A-------B-------C
-| \     |      /|
-|  \    |     / |
-4   3   5    6  |
-|    \  |  /    |
-|     \ | /     |
-D-------E-------F
-    7       8
-```
-
-### Kruskal's Algorithm
-
-1. Sort the edges by weight:
-
-   - (A-B, 1), (B-C, 2), (A-E, 3), (A-D, 4), (B-E, 5), (C-F, 6), (D-E, 7),
-     (E-F, 8)
-
-2. Add edges to the MST, ensuring no cycles are formed:
-   - Add (A-B, 1)
-   - Add (B-C, 2)
-   - Add (A-E, 3)
-   - Add (A-D, 4)
-   - Add (C-F, 6)
-
-The resulting MST will have the edges: (A-B, 1), (B-C, 2), (A-E, 3), (A-D, 4),
-(C-F, 6).
-
-## Implementation in Java
-
-Here is a simple implementation of Kruskal's Algorithm in Java:
-
-```java
-import java.util.*;
-
-class Edge implements Comparable<Edge> {
-    int src, dest, weight;
-
-    public Edge(int src, int dest, int weight) {
-        this.src = src;
-        this.dest = dest;
-        this.weight = weight;
-    }
-
-    public int compareTo(Edge compareEdge) {
-        return this.weight - compareEdge.weight;
-    }
-}
-
-class Subset {
-    int parent, rank;
-}
-
-public class KruskalMST {
-    int V, E;
-    Edge[] edges;
-
-    KruskalMST(int v, int e) {
-        V = v;
-        E = e;
-        edges = new Edge[E];
-        for (int i = 0; i < e; ++i) {
-            edges[i] = new Edge(0, 0, 0);
-        }
-    }
-
-    int find(Subset[] subsets, int i) {
-        if (subsets[i].parent != i) {
-            subsets[i].parent = find(subsets, subsets[i].parent);
-        }
-        return subsets[i].parent;
-    }
-
-    void union(Subset[] subsets, int x, int y) {
-        int xroot = find(subsets, x);
-        int yroot = find(subsets, y);
-
-        if (subsets[xroot].rank < subsets[yroot].rank) {
-            subsets[xroot].parent = yroot;
-        } else if (subsets[xroot].rank > subsets[yroot].rank) {
-            subsets[yroot].parent = xroot;
-        } else {
-            subsets[yroot].parent = xroot;
-            subsets[xroot].rank++;
-        }
-    }
-
-    void kruskalMST() {
-        Edge[] result = new Edge[V];
-        int e = 0;
-        int i = 0;
-        for (i = 0; i < V; ++i) {
-            result[i] = new Edge(0, 0, 0);
-        }
-
-        Arrays.sort(edges);
-
-        Subset[] subsets = new Subset[V];
-        for (i = 0; i < V; ++i) {
-            subsets[i] = new Subset();
-        }
-
-        for (int v = 0; v < V; ++v) {
-            subsets[v].parent = v;
-            subsets[v].rank = 0;
-        }
-
-        i = 0;
-
-        while (e < V - 1) {
-            Edge nextEdge = edges[i++];
-
-            int x = find(subsets, nextEdge.src);
-            int y = find(subsets, nextEdge.dest);
-
-            if (x != y) {
-                result[e++] = nextEdge;
-                union(subsets, x, y);
-            }
-        }
-
-        System.out.println("Following are the edges in the constructed MST");
-        for (i = 0; i < e; ++i) {
-            System.out.println(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
-        }
-    }
-
-    public static void main(String[] args) {
-        int V = 6;
-        int E = 8;
-        KruskalMST graph = new KruskalMST(V, E);
-
-        graph.edges[0] = new Edge(0, 1, 1);
-        graph.edges[1] = new Edge(1, 2, 2);
-        graph.edges[2] = new Edge(0, 4, 3);
-        graph.edges[3] = new Edge(0, 3, 4);
-        graph.edges[4] = new Edge(1, 4, 5);
-        graph.edges[5] = new Edge(2, 5, 6);
-        graph.edges[6] = new Edge(3, 4, 7);
-        graph.edges[7] = new Edge(4, 5, 8);
-
-        graph.kruskalMST();
-    }
-}
-```
-
-This code demonstrates how to find the MST of a graph using Kruskal's Algorithm.
-The `Edge` class represents an edge in the graph, and the `KruskalMST` class
-contains the logic for finding the MST.
+- Choose a cut that respects the current set of edges A
+- Select the light edge crossing this cut
+- This light edge is guaranteed to be safe for inclusion in the MST
 
 ## Applications
 
