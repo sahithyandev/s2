@@ -68,6 +68,13 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
           directory: "computer-organization-and-digital-design/sequential-logic",
         },
       },
+      {
+        label: "Computer Organization",
+        collapsed: true,
+        autogenerate: {
+          directory: "computer-organization-and-digital-design/computer-organization",
+        },
+      },
     ],
   },
   {

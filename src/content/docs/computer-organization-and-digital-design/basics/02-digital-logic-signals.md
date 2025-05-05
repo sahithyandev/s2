@@ -102,10 +102,18 @@ aren't, special steps must be taken to interconnect those chips/building blocks.
 
 ### Examples
 
+
+<figure style="max-width: 700px; margin: 10px auto;">
+
 ![Examples for Logic Families](/images/codd/logic_voltage_stds.jpg)
 
-The above image is from
-[Wired && Coded;](https://www.jsykora.info/2014/05/logic-voltage-levels/).
+<figcaption>
+
+Image by
+[Wired && Coded;](https://www.jsykora.info/2014/05/logic-voltage-levels/)
+
+</figcaption>
+</figure>
 
 - Light colored strips are for input
 - Dark colored strips are for output
