@@ -1,10 +1,10 @@
 ---
 title: DC Circuit Analysis
 sidebar:
-  order: 9
+  order: 10
 slug: theory-of-electricity/dc-circuit-analysis
 prev: true
-next: false
+next: true
 ---
 
 ### DC Time Constant

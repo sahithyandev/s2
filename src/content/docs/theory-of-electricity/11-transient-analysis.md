@@ -1,7 +1,10 @@
 ---
 title: Transient Analysis
 sidebar:
-  order: 10
+  order: 11
+slug: theory-of-electricity/transient-analysis
+prev: true
+next: false
 ---
 
 In AC circuit theory, time and frequency domains are 2 fundamental ways by which signals can be represented and analyzed.
