@@ -72,7 +72,7 @@ from the output to the input of the op-amp.
 ### Negative feedback
 
 The output signal is fed back to the inverting input terminal through a
-resistor.
+resistor. Gain decreases.
 
 ### Positive feedback
 
@@ -131,13 +131,19 @@ Used to amplify the difference between two input signals.
 v_0 = \frac{R_B}{R_A}(v_1 - v_2)
 ```
 
+Only valid when:
+
+```math
+\frac{R_4}{R_3} = \frac{R_2}{R_1}
+```
+
 ### Integrator
 
 ![Integrator](/images/theory-of-electricity/integrator.jpg)
 
 Input is fed to non-inverting input terminal through a resistor $R$. Inverting
 input terminal is grounded. Negative feedback through a capacitor. Includes a
-reset switch. Output is the integral of the input signal.
+reset switch. Output is the integral of the input signal. $ $
 
 ```math
 v_0 = -\frac{1}{RC}\int_0^t v_\text{in}\text{d}t

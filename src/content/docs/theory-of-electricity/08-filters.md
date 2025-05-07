@@ -94,6 +94,11 @@ The width of the rejected band can be narrow (as in notch filters targeting a sp
 
 Contains resistors and one type of reactive component. Output is taken across the reactive component.
 
+|Output taken across|Type|
+|---|---|
+|Capacitor|Low pass|
+|Inductor|High pass|
+
 ```math
 f_B = \frac{1}{2\pi R C}
 ```
@@ -109,8 +114,10 @@ When $f=f_B$, the magnitude response is $-3\,\text{dB}$ or 0.707 of the maximum 
 Contains resistors and both types of reactive components. Provides a roll-off rate of $40\,\text{dB}$ per decade (or $12\,\text{dB}$ per octave) beyond the cutoff frequency, making them more effective at signal rejection than first-order filters.
 
 ```math
-Q = \frac{2\pi f_0 L}{R} = \frac{1}{2\pi f_0 C R}
+Q = \frac{2\pi f_B L}{R} = \frac{1}{2\pi f_B C R}
 ```
+
+Here: $f_0$ is the resonance frequency. $ $
 
 | Filter Type | Output Taken Across | Q Factor |
 |-------------|---------------------|----------|
