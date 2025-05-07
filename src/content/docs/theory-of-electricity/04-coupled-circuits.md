@@ -7,9 +7,11 @@ prev: true
 next: true
 ---
 
+For all the definitions below, $N$ means the number of turns. $ $
+
 ### Self inductance
 
-When the magnetic field produced by a coil causes an emf on itself.
+When the magnetic field produced by a coil causes an emf on itself. Denoted by $L$. When the length and area are constants, $L \propto N^2$.
 
 ### Mutual coupling
 
@@ -21,22 +23,101 @@ $\phi_p$ is produced, which produces a back emf $e_p$.
 
 ## Magnetic field
 
+### Magnetic flux density
+
+Measure of strength and direction of the magnetic field. Denoted by $B$.
+Measured in tesla ($T$) or $kgs^{-2}A^{-1}$ or $Nm^{-1}A^{-1}$.
+
+### Magnetic flux
+
+Denoted by $\phi$. Measured in weber ($Wb$).
+
+```math
+\phi = \int B\,\text{d}A = BA
+```
+
+For a coil having $L_p$ self inductance, $N$ turns, carrying current $i_p$, the generated $\phi_p$ is given by:
+
+```math
+L_p = \frac{N_p \phi_p}{i_p} = \frac{N_p^2 \mu A}{l}
+```
+
 ### Magnetic field strength
 
-Denoted by $H$. Measured in ampere per meter ($Am^{-1}$).
+Aka. magnetic field intensity. Denoted by $H$ (henry). Measured in ampere per meter ($Am^{-1}$).
 
 ### Magnetic permeability
 
 Measure of magnetization on a material when a magnetic field is applied. Depends
 on the material. Denoted by $\mu$. Meausred in $Hm^{-1}$ or $NA^{-2}$.
 
-### Magnetic flux density
+:::note
 
-Measure of strength and direction of the magnetic field. Denoted by $B$.
-Measured in tesla ($T$) or $kgs^{-2}A^{-1}$ or $Nm^{-1}A^{-1}$.
+Relationship between magnetic flux, permeability, and intensity.
 
 ```math
 B = \mu H
+```
+
+:::
+
+### Flux linkage
+
+Denoted by $\lambda$. $ $
+
+```math
+\lambda = N\phi
+```
+
+### Magnetomotive force
+
+A force acted on a coil carrying current. Denoted by $\text{mmf}$. $ $
+
+```math
+\mathfrak{f} = Ni
+```
+
+Here:
+
+- $N$ - number of turns
+- $i$ - current in the coil
+
+It's similar to electromotive force in electrical circuits.
+
+### Reluctance
+
+Reluctance of a path for magnetic flux:
+
+```math
+\mathcal{R} = \frac{l}{\mu A} = \frac{\mathfrak{f}}{\phi}
+```
+
+Here:
+
+- $l$ - Length of the path
+- $\mu$ - Permeability
+- $A$ - Cross-sectional area
+
+The above equation can be thought of the equation of resistance in electrical context. $1/\mu$ is used instead of $\rho$.
+
+$f=\mathcal{R}\phi$ is similar to $V=IR$ in electrical context.
+
+:::note
+
+For a toroidal core having $R$ radius and $r$ thickess:
+
+```math
+\mathcal{R} = \frac{2R}{\mu r^2}
+```
+
+:::
+
+### Fringing
+
+Flux lines in the air gap tend to bow out. Thus the effective area of air gap is larger than the cross sectional area of the core.
+
+```math
+A_\text{gap} = (\text{width} + \text{gap length}) \times (\text{thickness} + \text{gap length})
 ```
 
 ## Laws
@@ -61,36 +142,9 @@ sum of the currents owing through the surface bounded by the path.
 When $H$ is constant (magnitude and direction) along the path, the above
 equation reduces to $Hl = \sum i$.
 
-## Definitions
+When $H$ is constant and the path has $N$ turns, $Hl = Ni$.
 
-### Magnetomotive force
-
-A force acted on a coil carrying current. Denoted by $\text{mmf}$. $ $
-
-```math
-\mathfrak{f} = Ni
-```
-
-Here:
-
-- $N$ - number of turns
-- $i$ - current in the coil
-
-### Reluctance
-
-Reluctance of a path for magnetic flux:
-
-```math
-\mathcal{R} = \frac{l}{\mu A} = \frac{\mathfrak{f}}{\phi}
-```
-
-Here:
-
-- $l$ - Length of the path
-- $\mu$ - Permeability
-- $A$ - Cross-sectional area
-
-## Mutual Inductance
+## Mutual inductance
 
 When 2 coils are coupled, part of the magnetic flux produced in the primary coil
 links with secondary coil.
@@ -98,10 +152,10 @@ links with secondary coil.
 ### Coefficient of coupling
 
 Ratio between the produced magnetic flux and linked magnetic flux. Denoted by
-$k$. Less than or equal to 1. $ $
+$k\;(\le 1)$. $ $
 
 ```math
-\phi_m = k\phi_p
+\phi_s = k\phi_p
 ```
 
 ### Induced emf
@@ -114,7 +168,7 @@ e_p = N_p \frac{\text{d}\phi_p}{\text{d}t}
 ```
 
 ```math
-e_s = N_s \frac{\text{d}\phi_m}{\text{d}t}
+e_s = N_s \frac{\text{d}\phi_s}{\text{d}t}
 ```
 
 In the linear region of magnetization characteristic:
@@ -128,7 +182,7 @@ In the linear region of magnetization characteristic:
 Here $M_{SP}$ is the mutual inductance. $ $
 
 ```math
-M_{SP} = \frac{N_s \phi_m}{i_p} = \frac{k_{SP}N_sN_p\mu A}{l}
+M_{SP} = \frac{N_s \phi_s}{i_p} = \frac{k_{SP}N_sN_p\mu A}{l}
 ```
 
 Practically, coupling between the primary and secondary coils is identical to
@@ -158,9 +212,43 @@ M_{SP} = M_{PS}= M= k\sqrt{L_pL_s}
 Mi_pi_s
 ```
 
-The last component is the effective energy stored in the mutual inductance. It
-is added to the energy when the produced fluxes on each coil aid each other;
-subtracted when they oppose each other.
+The last component is the effective energy stored in the mutual inductance.
+
+The mutual inductance energy is:
+- Added; if produced fluxes aid each other
+- Subtracted; if produced fluxes oppose each other
+
+## Equivalent inductance
+
+### In series
+
+```math
+L_\text{eq} = L_1 + L_2 \pm 2M
+```
+
+The mutual inductance is:
+- Added; if produced fluxes aid each other
+- Subtracted; if produced fluxes oppose each other
+
+### In parallel
+
+```math
+L_\text{eq} = \frac{L_1 L_2 - M^2}{L_1 + L_2 \mp 2M}
+```
+
+The mutual inductance in the denominator is:
+- Subtracted; if produced fluxes aid each other
+- Added; if produced fluxes oppose each other
+
+### T-junction
+
+If 2 coils are given in a T-junction, the circuit has to be changed to include a 3rd inductor. If the coils were aiding, the 3rd inductor will be $-M$, otherwise $M$. The 3rd inductor value will be subtracted from the other 2 inductors.
+
+<figure style="max-width: 700px; margin: 10px auto;">
+
+![T-junction mutual inductance](/images/theory-of-electricity/t-junction-mutual-inductance.jpg)
+
+</figure>
 
 ## Dot notation
 
