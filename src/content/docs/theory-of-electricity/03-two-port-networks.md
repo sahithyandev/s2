@@ -67,7 +67,7 @@ V_2
 \end{bmatrix}
 =
 
-[z]
+[y]
 \begin{bmatrix}
 V_1 \\
 V_2
