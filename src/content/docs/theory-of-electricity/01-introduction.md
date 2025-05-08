@@ -14,15 +14,15 @@ Review these from [S1](https://s1.sahithyan.dev).
 - [Potential difference](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#voltage)
 - [Current](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#current)
 - [Power](https://s1.sahithyan.dev/electrical-fundamentals/basics/introduction#power)
-- [Kirchoff's laws](https://s1.sahithyan.dev/electrical-fundamentals/kirchoff-laws/)
-- [Circuit elements](https://s1.sahithyan.dev/electrical-fundamentals/circuit-elements/)
-- [Resistors](https://s1.sahithyan.dev/electrical-fundamentals/resistors/)
-- [Capacitors](https://s1.sahithyan.dev/electrical-fundamentals/capacitors/) -
+- [Kirchoff's laws](https://s1.sahithyan.dev/electrical-fundamentals/basics/kirchoff-laws/)
+- [Circuit elements](https://s1.sahithyan.dev/electrical-fundamentals/basics/circuit-elements/)
+- [Resistors](https://s1.sahithyan.dev/electrical-fundamentals/basics/resistors/)
+- [Capacitors](https://s1.sahithyan.dev/electrical-fundamentals/basics/capacitors/) -
   Voltage through a capacitor cannot change instantaneously
-- [Inductors](https://s1.sahithyan.dev/electrical-fundamentals/inductors/)-
+- [Inductors](https://s1.sahithyan.dev/electrical-fundamentals/basics/inductors/)-
   Current through an inductor cannot change instantaneously
-- [Impedance & Admittance](https://s1.sahithyan.dev/electrical-fundamentals/impedance-and-admittance/)
-- [Active elements](https://s1.sahithyan.dev/electrical-fundamentals/circuit-elements/#active)
+- [Impedance & Admittance](https://s1.sahithyan.dev/electrical-fundamentals/basics/impedance-and-admittance/)
+- [Active elements](https://s1.sahithyan.dev/electrical-fundamentals/basics/circuit-elements/#active)
 
 ### Recommended textbooks
 
