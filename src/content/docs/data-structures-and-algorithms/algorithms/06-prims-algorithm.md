@@ -4,7 +4,7 @@ sidebar:
   order: 6
 slug: data-structures-and-algorithms/algorithms/prims-algorithm
 prev: true
-next: false
+next: true
 ---
 
 A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find MST of a graph. Starts with a single vertex and grows the MST one edge at a time by adding the
@@ -26,91 +26,83 @@ Prim's algorithm works particularly well for dense graphs where the number of ed
 
 Let's look at an implementation of Prim's Algorithm in Java, which takes a different approach than Kruskal's:
 
-```java
-import java.util.*;
+```cpp
+#include <iostream>
+#include <vector>
+#include <climits>
 
-public class PrimMST {
-    private static final int V = 6; // Number of vertices
+using namespace std;
 
-    // Find the vertex with minimum key value from the set of vertices not yet included in MST
-    int minKey(int key[], Boolean mstSet[]) {
-        int min = Integer.MAX_VALUE, min_index = -1;
+const int V = 6; // Number of vertices
 
-        for (int v = 0; v < V; v++)
-            if (mstSet[v] == false && key[v] < min) {
-                min = key[v];
-                min_index = v;
+// Function to find the vertex with the minimum key value from the set of vertices not yet included in MST
+int minKey(vector<int>& key, vector<bool>& mstSet) {
+    int min = INT_MAX, min_index = -1;
+
+    for (int v = 0; v < V; v++) {
+        if (!mstSet[v] && key[v] < min) {
+            min = key[v];
+            min_index = v;
+        }
+    }
+
+    return min_index;
+}
+
+// Function to print the constructed MST
+void printMST(vector<int>& parent, vector<vector<int>>& graph) {
+    cout << "Edge \tWeight\n";
+    for (int i = 1; i < V; i++) {
+        cout << parent[i] << " - " << i << "\t" << graph[i][parent[i]] << "\n";
+    }
+}
+
+// Function to construct and print MST for a graph represented using adjacency matrix
+void primMST(vector<vector<int>>& graph) {
+    vector<int> parent(V); // Array to store constructed MST
+    vector<int> key(V, INT_MAX); // Key values used to pick minimum weight edge
+    vector<bool> mstSet(V, false); // To represent set of vertices included in MST
+
+    // Always include the first vertex in MST
+    key[0] = 0; // Make key 0 so that this vertex is picked as the first vertex
+    parent[0] = -1; // First node is always the root of MST
+
+    // The MST will have V vertices
+    for (int count = 0; count < V - 1; count++) {
+        // Pick the minimum key vertex from the set of vertices not yet included in MST
+        int u = minKey(key, mstSet);
+
+        // Add the picked vertex to the MST set
+        mstSet[u] = true;
+
+        // Update key value and parent index of the adjacent vertices of the picked vertex
+        for (int v = 0; v < V; v++) {
+            if (graph[u][v] != 0 && !mstSet[v] && graph[u][v] < key[v]) {
+                parent[v] = u;
+                key[v] = graph[u][v];
             }
-
-        return min_index;
+        }
     }
 
     // Print the constructed MST
-    void printMST(int parent[], int graph[][]) {
-        System.out.println("Edge \tWeight");
-        for (int i = 1; i < V; i++)
-            System.out.println(parent[i] + " - " + i + "\t" + graph[i][parent[i]]);
-    }
+    printMST(parent, graph);
+}
 
-    // Function to construct and print MST for a graph represented using adjacency matrix
-    void primMST(int graph[][]) {
-        // Array to store constructed MST
-        int parent[] = new int[V];
+int main() {
+    // Example graph representation using adjacency matrix
+    vector<vector<int>> graph = {
+        { 0, 1, 0, 4, 3, 0 },
+        { 1, 0, 2, 0, 5, 0 },
+        { 0, 2, 0, 0, 0, 6 },
+        { 4, 0, 0, 0, 7, 0 },
+        { 3, 5, 0, 7, 0, 8 },
+        { 0, 0, 6, 0, 8, 0 }
+    };
 
-        // Key values used to pick minimum weight edge
-        int key[] = new int[V];
+    // Print the MST
+    primMST(graph);
 
-        // To represent set of vertices included in MST
-        Boolean mstSet[] = new Boolean[V];
-
-        // Initialize all keys as INFINITE
-        for (int i = 0; i < V; i++) {
-            key[i] = Integer.MAX_VALUE;
-            mstSet[i] = false;
-        }
-
-        // Always include first vertex in MST.
-        // Make key 0 so that this vertex is picked as first vertex
-        key[0] = 0;
-        parent[0] = -1; // First node is always root of MST
-
-        // The MST will have V vertices
-        for (int count = 0; count < V - 1; count++) {
-            // Pick the minimum key vertex from the set of vertices not yet included in MST
-            int u = minKey(key, mstSet);
-
-            // Add the picked vertex to the MST Set
-            mstSet[u] = true;
-
-            // Update key value and parent index of the adjacent vertices of the picked vertex.
-            // Consider only those vertices which are not yet included in MST
-            for (int v = 0; v < V; v++)
-                if (graph[u][v] != 0 && mstSet[v] == false && graph[u][v] < key[v]) {
-                    parent[v] = u;
-                    key[v] = graph[u][v];
-                }
-        }
-
-        // Print the constructed MST
-        printMST(parent, graph);
-    }
-
-    public static void main(String[] args) {
-        PrimMST t = new PrimMST();
-
-        // Example graph representation using adjacency matrix
-        int graph[][] = new int[][] { 
-            { 0, 1, 0, 4, 3, 0 },
-            { 1, 0, 2, 0, 5, 0 },
-            { 0, 2, 0, 0, 0, 6 },
-            { 4, 0, 0, 0, 7, 0 },
-            { 3, 5, 0, 7, 0, 8 },
-            { 0, 0, 6, 0, 8, 0 } 
-        };
-
-        // Print the MST
-        t.primMST(graph);
-    }
+    return 0;
 }
 ```
 

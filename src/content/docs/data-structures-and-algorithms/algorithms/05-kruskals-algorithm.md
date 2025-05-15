@@ -12,117 +12,82 @@ the MST, ensuring that no cycles are formed.
 
 ## Implementation
 
-```java
-import java.util.*;
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-class Edge implements Comparable<Edge> {
+using namespace std;
+
+struct Edge {
     int src, dest, weight;
+};
 
-    public Edge(int src, int dest, int weight) {
-        this.src = src;
-        this.dest = dest;
-        this.weight = weight;
+bool compareEdges(const Edge &a, const Edge &b) {
+    return a.weight < b.weight;
+}
+
+int find(vector<int> &parent, int i) {
+    if (parent[i] != i) {
+        parent[i] = find(parent, parent[i]);
     }
+    return parent[i];
+}
 
-    public int compareTo(Edge compareEdge) {
-        return this.weight - compareEdge.weight;
+void unionSets(vector<int> &parent, vector<int> &rank, int x, int y) {
+    int xroot = find(parent, x);
+    int yroot = find(parent, y);
+
+    if (rank[xroot] < rank[yroot]) {
+        parent[xroot] = yroot;
+    } else if (rank[xroot] > rank[yroot]) {
+        parent[yroot] = xroot;
+    } else {
+        parent[yroot] = xroot;
+        rank[xroot]++;
     }
 }
 
-class Subset {
-    int parent, rank;
+void kruskalMST(int V, vector<Edge> &edges) {
+    sort(edges.begin(), edges.end(), compareEdges);
+
+    vector<int> parent(V);
+    vector<int> rank(V, 0);
+    for (int i = 0; i < V; ++i) {
+        parent[i] = i;
+    }
+
+    vector<Edge> result;
+    for (const auto &edge : edges) {
+        int x = find(parent, edge.src);
+        int y = find(parent, edge.dest);
+
+        if (x != y) {
+            result.push_back(edge);
+            unionSets(parent, rank, x, y);
+        }
+
+        if (result.size() == V - 1) {
+            break;
+        }
+    }
+
+    cout << "Following are the edges in the constructed MST\n";
+    for (const auto &edge : result) {
+        cout << edge.src << " -- " << edge.dest << " == " << edge.weight << "\n";
+    }
 }
 
-public class KruskalMST {
-    int V, E;
-    Edge[] edges;
+int main() {
+    int V = 6;
+    vector<Edge> edges = {
+        {0, 1, 1}, {1, 2, 2}, {0, 4, 3}, {0, 3, 4},
+        {1, 4, 5}, {2, 5, 6}, {3, 4, 7}, {4, 5, 8}
+    };
 
-    KruskalMST(int v, int e) {
-        V = v;
-        E = e;
-        edges = new Edge[E];
-        for (int i = 0; i < e; ++i) {
-            edges[i] = new Edge(0, 0, 0);
-        }
-    }
+    kruskalMST(V, edges);
 
-    int find(Subset[] subsets, int i) {
-        if (subsets[i].parent != i) {
-            subsets[i].parent = find(subsets, subsets[i].parent);
-        }
-        return subsets[i].parent;
-    }
-
-    void union(Subset[] subsets, int x, int y) {
-        int xroot = find(subsets, x);
-        int yroot = find(subsets, y);
-
-        if (subsets[xroot].rank < subsets[yroot].rank) {
-            subsets[xroot].parent = yroot;
-        } else if (subsets[xroot].rank > subsets[yroot].rank) {
-            subsets[yroot].parent = xroot;
-        } else {
-            subsets[yroot].parent = xroot;
-            subsets[xroot].rank++;
-        }
-    }
-
-    void kruskalMST() {
-        Edge[] result = new Edge[V];
-        int e = 0;
-        int i = 0;
-        for (i = 0; i < V; ++i) {
-            result[i] = new Edge(0, 0, 0);
-        }
-
-        Arrays.sort(edges);
-
-        Subset[] subsets = new Subset[V];
-        for (i = 0; i < V; ++i) {
-            subsets[i] = new Subset();
-        }
-
-        for (int v = 0; v < V; ++v) {
-            subsets[v].parent = v;
-            subsets[v].rank = 0;
-        }
-
-        i = 0;
-
-        while (e < V - 1) {
-            Edge nextEdge = edges[i++];
-
-            int x = find(subsets, nextEdge.src);
-            int y = find(subsets, nextEdge.dest);
-
-            if (x != y) {
-                result[e++] = nextEdge;
-                union(subsets, x, y);
-            }
-        }
-
-        System.out.println("Following are the edges in the constructed MST");
-        for (i = 0; i < e; ++i) {
-            System.out.println(result[i].src + " -- " + result[i].dest + " == " + result[i].weight);
-        }
-    }
-
-    public static void main(String[] args) {
-        int V = 6;
-        int E = 8;
-        KruskalMST graph = new KruskalMST(V, E);
-
-        graph.edges[0] = new Edge(0, 1, 1);
-        graph.edges[1] = new Edge(1, 2, 2);
-        graph.edges[2] = new Edge(0, 4, 3);
-        graph.edges[3] = new Edge(0, 3, 4);
-        graph.edges[4] = new Edge(1, 4, 5);
-        graph.edges[5] = new Edge(2, 5, 6);
-        graph.edges[6] = new Edge(3, 4, 7);
-        graph.edges[7] = new Edge(4, 5, 8);
-
-        graph.kruskalMST();
-    }
+    return 0;
 }
 ```
 

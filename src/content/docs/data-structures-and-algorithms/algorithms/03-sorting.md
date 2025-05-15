@@ -88,13 +88,13 @@ can be scrolled horizontally.
 | Property       | Online | Stable       | Best Time    | Average Time   | Worst Time     | Memory      |
 | -------------- | ------ | ------------ | ------------ | -------------- | -------------- | ----------- |
 | Bubble sort    | No     | Yes          | $O(n^2)$     | $O(n^2)$       | $O(n^2)$       | $O(1)$      |
-| Selection sort |        |              | $O(n^2)$     | $O(n^2)$       | $O(n^2)$       |             |
+| Selection sort | No     | No           | $O(n^2)$     | $O(n^2)$       | $O(n^2)$       | $O(1)$      |
 | Insertion sort | Yes    | Yes          | $O(n)$       | $O(n^2)$       | $O(n^2)$       | $O(1)$      |
-| Shell sort     | No     |              | $O(n\log n)$ | $O(n\log^2 n)$ | $O(n\log^2 n)$ |             |
-| Merge sort     |        | Yes          | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(n)$      |
-| Quick sort     | Yes    | No (depends) | $O(n\log n)$ | $O(n\log n)$   | $O(n^2)$       |             |
-| Heap sort      |        | No           | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(1)$      |
-| Intro sort     |        | No           |              | $O(n\log n)$   | $O(n\log n)$   | $O(\log n)$ |
+| Shell sort     | No     | No           | $O(n\log n)$ | $O(n\log^2 n)$ | $O(n\log^2 n)$ | $O(1)$      |
+| Merge sort     | No     | Yes          | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(n)$      |
+| Quick sort     | Yes    | No (depends) | $O(n\log n)$ | $O(n\log n)$   | $O(n^2)$       | $O(\log n)$ |
+| Heap sort      | No     | No           | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(1)$      |
+| Intro sort     | No     | No           | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(\log n)$ |
 | Tim sort       | Yes    | Yes          | $O(n\log n)$ | $O(n\log n)$   | $O(n\log n)$   | $O(n)$      |
 
 </section>

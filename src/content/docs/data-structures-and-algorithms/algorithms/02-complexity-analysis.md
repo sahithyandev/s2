@@ -105,7 +105,7 @@ f(n) \in o(g(n)) \implies f(n) \in O(g(n))
 Implies "not Big-Theta".
 
 ```math
-f(n) \in o(g(n)) \implies f(n) \not{\in} \Theta(g(n))
+f(n) \in o(g(n)) \implies f(n) \not\in \Theta(g(n))
 ```
 
 ### Little-omega
@@ -128,7 +128,7 @@ f(n) \in \omega(g(n)) \implies f(n) \in \Omega(g(n))
 Implies "not Big-Theta".
 
 ```math
-f(n) \in \omega(g(n)) \implies f(n) \not{\in} \Theta(g(n))
+f(n) \in \omega(g(n)) \implies f(n) \not\in \Theta(g(n))
 ```
 
 ## Limit definitions
