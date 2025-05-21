@@ -713,3 +713,113 @@ Drawbacks:
 - Can be overkill for simple state management
 - Increased number of classes
 - State transitions can become complex
+
+
+## Chain of Responsibility pattern
+
+Allows a request to be passed along a chain of handlers until it is handled. Each handler decides whether to process the request or pass it to the next handler in the chain.
+
+Used in logging frameworks, event handling systems, and middleware pipelines.
+
+```java
+// Handler interface - Defines a method for handling requests
+interface Handler {
+    void setNext(Handler nextHandler);  // Sets the next handler in the chain
+    void handleRequest(String request); // Handles the request or passes it along
+}
+
+// Concrete Handler 1 - Handles low-level requests
+class LowLevelHandler implements Handler {
+    private Handler nextHandler;
+
+    @Override
+    public void setNext(Handler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+
+    @Override
+    public void handleRequest(String request) {
+        if (request.equals("low")) {
+            System.out.println("LowLevelHandler handled the request.");
+        } else if (nextHandler != null) {
+            nextHandler.handleRequest(request);
+        } else {
+            System.out.println("No handler could process the request.");
+        }
+    }
+}
+
+// Concrete Handler 2 - Handles medium-level requests
+class MediumLevelHandler implements Handler {
+    private Handler nextHandler;
+
+    @Override
+    public void setNext(Handler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+
+    @Override
+    public void handleRequest(String request) {
+        if (request.equals("medium")) {
+            System.out.println("MediumLevelHandler handled the request.");
+        } else if (nextHandler != null) {
+            nextHandler.handleRequest(request);
+        } else {
+            System.out.println("No handler could process the request.");
+        }
+    }
+}
+
+// Concrete Handler 3 - Handles high-level requests
+class HighLevelHandler implements Handler {
+    private Handler nextHandler;
+
+    @Override
+    public void setNext(Handler nextHandler) {
+        this.nextHandler = nextHandler;
+    }
+
+    @Override
+    public void handleRequest(String request) {
+        if (request.equals("high")) {
+            System.out.println("HighLevelHandler handled the request.");
+        } else if (nextHandler != null) {
+            nextHandler.handleRequest(request);
+        } else {
+            System.out.println("No handler could process the request.");
+        }
+    }
+}
+
+// Client - Demonstrates the Chain of Responsibility pattern
+public class ChainOfResponsibilityExample {
+    public static void main(String[] args) {
+        // Create handlers
+        Handler lowHandler = new LowLevelHandler();
+        Handler mediumHandler = new MediumLevelHandler();
+        Handler highHandler = new HighLevelHandler();
+
+        // Set up the chain
+        lowHandler.setNext(mediumHandler);
+        mediumHandler.setNext(highHandler);
+
+        // Send requests to the chain
+        lowHandler.handleRequest("low");    // Output: LowLevelHandler handled the request.
+        lowHandler.handleRequest("medium"); // Output: MediumLevelHandler handled the request.
+        lowHandler.handleRequest("high");   // Output: HighLevelHandler handled the request.
+        lowHandler.handleRequest("unknown"); // Output: No handler could process the request.
+    }
+}
+```
+
+Benefits:
+
+- Reduces coupling between sender and receiver
+- Adds flexibility in assigning responsibilities
+- Simplifies object interactions
+
+Drawbacks:
+
+- May lead to unhandled requests if no handler processes them
+- Debugging can be difficult due to dynamic request flow
+- Can become complex with long chains
