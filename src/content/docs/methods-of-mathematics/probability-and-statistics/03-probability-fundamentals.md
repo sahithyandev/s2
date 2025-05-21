@@ -52,7 +52,7 @@ Where:
 Probability assessments can be updated when new information becomes available through conditional probability. It is particularly useful in scenarios where events are dependent on one another.
 
 :::note
-If events $A$ and $B$ are independent, then $P(A|B) = P(A)$, meaning the occurrence of $B$ doesn't affect the probability of $A$.
+**If** events $A$ and $B$ are independent, **then** $P(A|B) = P(A)$.
 :::
 
 ## Bayes' Theorem
@@ -60,7 +60,7 @@ If events $A$ and $B$ are independent, then $P(A|B) = P(A)$, meaning the occurre
 Suppose $A$ and $B$ are two events.
 
 ```math
-P(B|A) = \frac{P(A \cap B)}{P(A)}
+P(B|A) = \frac{P(A|B) \times P(B)}{P(A)}
 ```
 
 Can only be applied when:

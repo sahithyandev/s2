@@ -18,6 +18,37 @@ For two random variables $X$ and $Y$, the joint probability distribution gives t
 
 For a joint probability distribution $P(A \cap B)$, $P(A)$ and $P(B)$ are the marginal probabilities.
 
+### Covariance
+
+Denoted by $\text{Cov}(X,Y)$ or $\sigma_{XY}$. Measures the linear relationship between two random variables. Not standardized.
+
+Properties:
+- $\text{Cov}(X,Y) = E\Big[\big(X-E(X)\big)\big(Y-E(Y)\big)\Big]$
+- $\text{Cov}(X,Y) = E(XY) - E(X)E(Y)$
+- $\text{Cov}(X,a) = 0$
+- $\text{Cov}(X,X) = \text{Var}(X)$
+- $\text{Cov}(aX,bY) = ab\text{Cov}(X,Y)$
+- $\text{Cov}(X+Y,Z) = \text{Cov}(X,Z) + \text{Cov}(Y,Z)$
+
+### Correlation
+
+```math
+\text{Corr}(X,Y) =
+\rho_{XY} =
+\frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}
+```
+
+$\rho_{XY}$ is the Pearson correlation coefficient. $ $
+
+### Sample correlation coefficient
+
+Denoted by $r \in [-1,1]$. $ $
+
+```math
+r = \frac{\sum (x_i y_i) - n \bar{x} \bar{y}}{\sqrt{\left( \sum x_i^2 - n \bar{x}^2 \right) \left( \sum y_i^2 - n \bar{y}^2 \right)}}
+```
+
+
 ## Properties
 
 ### Non-negativity

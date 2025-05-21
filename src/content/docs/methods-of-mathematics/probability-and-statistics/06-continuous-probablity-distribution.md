@@ -8,6 +8,31 @@ prev: true
 next: true
 ---
 
+## Probability Density Function
+
+Denoted by $f$. Used for continuous random variables. Doesn't give the probability at an exact point (which is always 0 for continuous variables). Instead, gives the relative likelihood of the random variable taking on a value in a small interval around a point. $ $
+
+The probability of an event is the integral of the PDF over the region corresponding to the event:
+
+```math
+P(a \leq X \leq b) = \int_{a}^{b} f(x) dx
+```
+
+Probability of all the values combined, is 1:
+
+```math
+\int_{-\infty}^{\infty} f(x)\; \text{d}x = 1
+```
+
+:::note
+**If** $X$ follows a standard normal distribution, **then** its PDF is: $ $
+
+```math
+f(x) = \frac{1}{\sqrt{2\pi}}\exp\bigg(-\frac{x^2}{2}\bigg)
+```
+
+:::
+
 ## Mean
 
 The integral is taken over the entire domain of the random variable
@@ -28,6 +53,18 @@ An equivalent computational formula is:
 
 ```math
 \text{Var}(X) = \int_{-\infty}^{\infty} x^2 \cdot f(x) \, dx - \mu^2
+```
+
+## Covariance
+
+```math
+\text{Cov}(X,Y) = E(XY) - E(X)E(Y)
+```
+
+## Cumulative Distribution Function
+
+```math
+F(x) = \int_{-\infty}^{x} f(t) dt
 ```
 
 ## Example

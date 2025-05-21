@@ -8,6 +8,14 @@ prev: true
 next: true
 ---
 
+## Probability Mass Function
+
+Denoted by $P$. Used for discrete random variables. Gives the probability that a discrete random variable $X$ is exactly equal to some value $x$.
+
+```math
+\sum_{x} P(x) = 1
+```
+
 ## Mean
 
 ```math
@@ -28,6 +36,12 @@ An equivalent computational formula is:
 
 ```math
 \text{Var}(X) = \sum_{i} x_i^2 \cdot P(X = x_i) - \mu^2
+```
+
+## Cumulative Distribution Function
+
+```math
+F(x) = \sum_{t \leq x} P(X = t)
 ```
 
 ## Example
