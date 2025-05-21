@@ -984,3 +984,194 @@ Drawbacks:
 
 - May not be suitable for very large collections due to memory overhead
 - Can increase complexity for custom collections
+
+## Mediator pattern
+
+The Mediator pattern defines an object that encapsulates how a set of objects interact. This pattern promotes loose coupling by keeping objects from referring to each other explicitly and allows their interaction to be varied independently.
+
+Used in chat applications, traffic control systems, and GUI frameworks.
+
+```java
+// Mediator interface - Defines the communication between colleagues
+interface Mediator {
+    void sendMessage(String message, Colleague sender);
+}
+
+// Concrete Mediator - Manages communication between colleagues
+class ChatMediator implements Mediator {
+    private List<Colleague> colleagues = new ArrayList<>();
+
+    public void addColleague(Colleague colleague) {
+        colleagues.add(colleague);
+    }
+
+    @Override
+    public void sendMessage(String message, Colleague sender) {
+        for (Colleague colleague : colleagues) {
+            if (colleague != sender) {
+                colleague.receive(message);
+            }
+        }
+    }
+}
+
+// Colleague interface - Represents a participant in the communication
+abstract class Colleague {
+    protected Mediator mediator;
+
+    public Colleague(Mediator mediator) {
+        this.mediator = mediator;
+    }
+
+    public abstract void send(String message);
+    public abstract void receive(String message);
+}
+
+// Concrete Colleague 1 - Represents a specific participant
+class User extends Colleague {
+    private String name;
+
+    public User(Mediator mediator, String name) {
+        super(mediator);
+        this.name = name;
+    }
+
+    @Override
+    public void send(String message) {
+        System.out.println(name + " sends: " + message);
+        mediator.sendMessage(message, this);
+    }
+
+    @Override
+    public void receive(String message) {
+        System.out.println(name + " receives: " + message);
+    }
+}
+
+// Client - Demonstrates the Mediator pattern
+public class MediatorPatternExample {
+    public static void main(String[] args) {
+        ChatMediator mediator = new ChatMediator();
+
+        Colleague user1 = new User(mediator, "Alice");
+        Colleague user2 = new User(mediator, "Bob");
+        Colleague user3 = new User(mediator, "Charlie");
+
+        mediator.addColleague(user1);
+        mediator.addColleague(user2);
+        mediator.addColleague(user3);
+
+        user1.send("Hello, everyone!");
+        user2.send("Hi Alice!");
+    }
+}
+```
+
+Benefits:
+
+- Reduces coupling between components
+- Centralizes control of interactions
+- Simplifies maintenance and testing
+
+Drawbacks:
+
+- Can become a bottleneck if the mediator grows too complex
+- May introduce a single point of failure
+
+## Observer pattern
+
+Defines a one-to-many relationship between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+Used in event handling systems, MVC pattern (Model-View relationship), publish-subscribe systems.
+
+```java
+// Observer interface - Defines method that gets called when subject changes
+interface Observer {
+    void update(String message);
+}
+
+// Subject interface - Defines methods for managing observers
+interface Subject {
+    void registerObserver(Observer observer);
+    void removeObserver(Observer observer);
+    void notifyObservers();
+}
+
+// Concrete Subject - NewsAgency that broadcasts news to subscribers
+class NewsAgency implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private String news;
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(news);
+        }
+    }
+
+    // Method that changes the subject's state
+    public void setNews(String news) {
+        this.news = news;
+        notifyObservers();
+    }
+}
+
+// Concrete Observer - NewsChannel that receives news updates
+class NewsChannel implements Observer {
+    private String name;
+
+    public NewsChannel(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String news) {
+        System.out.println(name + " received news: " + news);
+    }
+}
+
+// Client - Demonstrates the Observer pattern
+public class ObserverPatternExample {
+    public static void main(String[] args) {
+        NewsAgency newsAgency = new NewsAgency();
+
+        NewsChannel channel1 = new NewsChannel("Channel 1");
+        NewsChannel channel2 = new NewsChannel("Channel 2");
+
+        // Register observers
+        newsAgency.registerObserver(channel1);
+        newsAgency.registerObserver(channel2);
+
+        // Set news, which will notify all observers
+        newsAgency.setNews("Breaking News: Observer Pattern Demonstration!");
+
+        // Remove an observer
+        newsAgency.removeObserver(channel2);
+
+        // Set news again, only channel1 will be notified
+        newsAgency.setNews("Channel 2 won't receive this news!");
+    }
+}
+```
+
+Benefits:
+
+- Loose coupling between subject and observers
+- Support for broadcast communication
+- Easy to add new observers without modifying subject
+
+Drawbacks:
+
+- Memory leaks if observers aren't properly unregistered
+- Unexpected updates if order of notification matters
+- Performance impact with many observers
