@@ -22,6 +22,7 @@ overcome development and architectural problems.
   - [Flyweight Pattern](/program-construction/structural-design-patterns#flyweight-pattern)
   - [Bridge Pattern](/program-construction/structural-design-patterns#bridge-pattern)
   - [Decorator Pattern](/program-construction/structural-design-patterns#decorator-pattern)
+  - [Facade Pattern](/program-construction/structural-design-patterns#facade-pattern)
 - [Behavioral](/program-construction/behavioral-design-patterns)
   - [Template Method Pattern](/program-construction/behavioral-design-patterns#template-method-pattern)
   - [Command Pattern](/program-construction/behavioral-design-patterns#command-pattern)

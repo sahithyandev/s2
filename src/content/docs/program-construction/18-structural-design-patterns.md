@@ -299,3 +299,89 @@ public class DecoratorPatternExample {
 In this example, we can add milk and sugar to a simple coffee by wrapping it
 with decorator objects. Each decorator adds its own behavior while maintaining
 the same interface as the base coffee object.
+
+## Facade Pattern
+
+Provides a simplified interface to a larger body of code, making a subsystem easier to use. It hides the complexities of the system and provides a unified interface to the client.
+
+- **Facade**: The class that provides a simplified interface to the subsystem.
+- **Subsystem Classes**: The classes that perform the actual work and contain the complex logic.
+
+```java
+// Subsystem classes
+class CPU {
+    public void start() {
+        System.out.println("CPU started");
+    }
+
+    public void execute() {
+        System.out.println("CPU executing instructions");
+    }
+
+    public void shutdown() {
+        System.out.println("CPU shutting down");
+    }
+}
+
+class Memory {
+    public void load() {
+        System.out.println("Memory loaded");
+    }
+
+    public void clear() {
+        System.out.println("Memory cleared");
+    }
+}
+
+class HardDrive {
+    public void readData() {
+        System.out.println("Hard Drive reading data");
+    }
+
+    public void writeData() {
+        System.out.println("Hard Drive writing data");
+    }
+}
+
+// Facade class
+class ComputerFacade {
+    private final CPU cpu;
+    private final Memory memory;
+    private final HardDrive hardDrive;
+
+    public ComputerFacade() {
+        this.cpu = new CPU();
+        this.memory = new Memory();
+        this.hardDrive = new HardDrive();
+    }
+
+    public void startComputer() {
+        System.out.println("Starting computer...");
+        cpu.start();
+        memory.load();
+        hardDrive.readData();
+        cpu.execute();
+        System.out.println("Computer started successfully");
+    }
+
+    public void shutdownComputer() {
+        System.out.println("Shutting down computer...");
+        cpu.shutdown();
+        memory.clear();
+        hardDrive.writeData();
+        System.out.println("Computer shut down successfully");
+    }
+}
+
+// Client code
+public class FacadePatternExample {
+    public static void main(String[] args) {
+        ComputerFacade computer = new ComputerFacade();
+
+        computer.startComputer();   // Simplified interface to start the computer
+        computer.shutdownComputer(); // Simplified interface to shut down the computer
+    }
+}
+```
+
+In this example, the `ComputerFacade` class provides a simplified interface to start and shut down the computer, hiding the complexities of the subsystem classes (`CPU`, `Memory`, and `HardDrive`).
