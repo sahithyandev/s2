@@ -908,3 +908,79 @@ Drawbacks:
 
 - Can become complex with large grammars
 - Performance issues with deeply nested expressions
+
+## Iterator pattern
+
+Provides a way to access elements of a collection sequentially without exposing the underlying representation.
+
+Used in collections like lists, sets, and maps, or any data structure that needs sequential traversal.
+
+```java
+// Iterator interface - Defines methods for traversing a collection
+interface Iterator<T> {
+    boolean hasNext(); // Checks if there are more elements
+    T next();          // Retrieves the next element
+}
+
+// Iterable interface - Defines a method to create an iterator
+interface IterableCollection<T> {
+    Iterator<T> createIterator();
+}
+
+// Concrete Collection - A collection of names
+class NameCollection implements IterableCollection<String> {
+    private final String[] names;
+
+    public NameCollection(String[] names) {
+        this.names = names;
+    }
+
+    @Override
+    public Iterator<String> createIterator() {
+        return new NameIterator();
+    }
+
+    // Inner class implementing the Iterator interface
+    private class NameIterator implements Iterator<String> {
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            return index < names.length;
+        }
+
+        @Override
+        public String next() {
+            if (hasNext()) {
+                return names[index++];
+            }
+            throw new IllegalStateException("No more elements");
+        }
+    }
+}
+
+// Client - Demonstrates the Iterator pattern
+public class IteratorPatternExample {
+    public static void main(String[] args) {
+        String[] names = {"Alice", "Bob", "Charlie", "Diana"};
+        NameCollection nameCollection = new NameCollection(names);
+
+        Iterator<String> iterator = nameCollection.createIterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+}
+```
+
+Benefits:
+
+- Provides a uniform way to traverse different collections
+- Encapsulates traversal logic, keeping it separate from the collection
+- Supports multiple iterators on the same collection
+
+Drawbacks:
+
+- May not be suitable for very large collections due to memory overhead
+- Can increase complexity for custom collections
