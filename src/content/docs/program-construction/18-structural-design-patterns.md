@@ -458,3 +458,81 @@ public class ProxyPatternExample {
 ```
 
 In this example, the `ProxyImage` class acts as a proxy for the `RealImage` class. The real image is only loaded from disk when it is needed, demonstrating lazy initialization. The client interacts with the proxy as if it were the real object.
+
+## Composite Pattern
+
+The Composite Pattern is a structural design pattern that allows you to compose objects into tree-like structures to represent part-whole hierarchies. It lets clients treat individual objects and compositions of objects uniformly.
+
+- **Component**: Declares the interface for objects in the composition.
+- **Leaf**: Represents the leaf objects in the composition. A leaf has no children.
+- **Composite**: Represents a node that can have children. Implements the component interface and stores child components.
+
+This pattern is particularly useful when you need to work with tree structures, such as representing a file system, organization hierarchies, or graphical user interfaces.
+
+```java
+// Component interface
+interface Graphic {
+    void draw();
+}
+
+// Leaf class
+class Circle implements Graphic {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Rectangle implements Graphic {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+// Composite class
+class CompositeGraphic implements Graphic {
+    private final List<Graphic> children = new ArrayList<>();
+
+    public void add(Graphic graphic) {
+        children.add(graphic);
+    }
+
+    public void remove(Graphic graphic) {
+        children.remove(graphic);
+    }
+
+    @Override
+    public void draw() {
+        for (Graphic graphic : children) {
+            graphic.draw();
+        }
+    }
+}
+
+// Client code
+public class CompositePatternExample {
+    public static void main(String[] args) {
+        // Create leaf objects
+        Graphic circle = new Circle();
+        Graphic rectangle = new Rectangle();
+
+        // Create composite objects
+        CompositeGraphic composite1 = new CompositeGraphic();
+        CompositeGraphic composite2 = new CompositeGraphic();
+
+        // Build the tree structure
+        composite1.add(circle);
+        composite1.add(rectangle);
+
+        composite2.add(composite1);
+        composite2.add(new Circle());
+
+        // Draw the entire structure
+        System.out.println("Drawing composite2:");
+        composite2.draw();
+    }
+}
+```
+
+In this example, the `CompositeGraphic` class allows you to group multiple `Graphic` objects (both `Circle` and `Rectangle`) and treat them as a single object. The client can interact with both individual objects and composites in the same way, simplifying the code.
