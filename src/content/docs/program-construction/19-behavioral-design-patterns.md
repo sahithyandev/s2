@@ -75,6 +75,7 @@ Reduces duplication and forces a structure. Allows for customization.
 ## Command pattern
 
 Turns a request into a standalone Command object. Can be passed, queued, logged.
+
 Used in controllers, job scheduling systems, user actions in GUI.
 
 ```java
@@ -823,3 +824,87 @@ Drawbacks:
 - May lead to unhandled requests if no handler processes them
 - Debugging can be difficult due to dynamic request flow
 - Can become complex with long chains
+
+## Interpreter pattern
+
+Defines a way to evaluate sentences in a language by representing its grammar as a class hierarchy. Each rule in the grammar is represented by a class, and the interpretation is done by traversing the structure.
+
+Used in SQL query parsing, mathematical expression evaluation, and configuration file parsing.
+
+```java
+// Abstract Expression - Defines the interface for interpreting expressions
+interface Expression {
+    int interpret();
+}
+
+// Terminal Expression - Represents numbers in the grammar
+class NumberExpression implements Expression {
+    private final int number;
+
+    public NumberExpression(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public int interpret() {
+        return number;
+    }
+}
+
+// Non-Terminal Expression - Represents addition in the grammar
+class AddExpression implements Expression {
+    private final Expression leftExpression;
+    private final Expression rightExpression;
+
+    public AddExpression(Expression leftExpression, Expression rightExpression) {
+        this.leftExpression = leftExpression;
+        this.rightExpression = rightExpression;
+    }
+
+    @Override
+    public int interpret() {
+        return leftExpression.interpret() + rightExpression.interpret();
+    }
+}
+
+// Non-Terminal Expression - Represents subtraction in the grammar
+class SubtractExpression implements Expression {
+    private final Expression leftExpression;
+    private final Expression rightExpression;
+
+    public SubtractExpression(Expression leftExpression, Expression rightExpression) {
+        this.leftExpression = leftExpression;
+        this.rightExpression = rightExpression;
+    }
+
+    @Override
+    public int interpret() {
+        return leftExpression.interpret() - rightExpression.interpret();
+    }
+}
+
+// Client - Demonstrates the Interpreter pattern
+public class InterpreterPatternExample {
+    public static void main(String[] args) {
+        // Represents the expression: (5 + 3) - 2
+        Expression five = new NumberExpression(5);
+        Expression three = new NumberExpression(3);
+        Expression two = new NumberExpression(2);
+
+        Expression addition = new AddExpression(five, three); // (5 + 3)
+        Expression subtraction = new SubtractExpression(addition, two); // (5 + 3) - 2
+
+        System.out.println("Result: " + subtraction.interpret()); // Output: 6
+    }
+}
+```
+
+Benefits:
+
+- Simplifies the implementation of complex grammars
+- Easy to extend by adding new rules
+
+Drawbacks:
+
+- Can become complex with large grammars
+- Performance issues with deeply nested expressions
