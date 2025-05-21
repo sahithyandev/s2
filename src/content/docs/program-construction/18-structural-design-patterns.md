@@ -536,3 +536,95 @@ public class CompositePatternExample {
 ```
 
 In this example, the `CompositeGraphic` class allows you to group multiple `Graphic` objects (both `Circle` and `Rectangle`) and treat them as a single object. The client can interact with both individual objects and composites in the same way, simplifying the code.
+
+## Adapter Pattern
+
+The Adapter Pattern is a structural design pattern that allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of one class into another that the client expects.
+
+- **Target Interface**: Defines the domain-specific interface that the client uses.
+- **Adapter**: Implements the target interface and translates requests from the client to the adaptee.
+- **Adaptee**: The existing class that needs to be adapted.
+- **Client**: The object that interacts with the target interface.
+
+This pattern is particularly useful when integrating legacy code with new systems or when working with third-party libraries that have different interfaces.
+
+```java
+// Target Interface
+interface MediaPlayer {
+    void play(String audioType, String fileName);
+}
+
+// Adaptee
+class AdvancedMediaPlayer {
+    public void playMp4(String fileName) {
+        System.out.println("Playing mp4 file: " + fileName);
+    }
+
+    public void playVlc(String fileName) {
+        System.out.println("Playing vlc file: " + fileName);
+    }
+}
+
+// Adapter
+class MediaAdapter implements MediaPlayer {
+    private final AdvancedMediaPlayer advancedMediaPlayer;
+
+    public MediaAdapter(String audioType) {
+        if (audioType.equalsIgnoreCase("vlc")) {
+            advancedMediaPlayer = new AdvancedMediaPlayer() {
+                @Override
+                public void playVlc(String fileName) {
+                    super.playVlc(fileName);
+                }
+            };
+        } else if (audioType.equalsIgnoreCase("mp4")) {
+            advancedMediaPlayer = new AdvancedMediaPlayer() {
+                @Override
+                public void playMp4(String fileName) {
+                    super.playMp4(fileName);
+                }
+            };
+        } else {
+            throw new IllegalArgumentException("Unsupported audio type: " + audioType);
+        }
+    }
+
+    @Override
+    public void play(String audioType, String fileName) {
+        if (audioType.equalsIgnoreCase("vlc")) {
+            advancedMediaPlayer.playVlc(fileName);
+        } else if (audioType.equalsIgnoreCase("mp4")) {
+            advancedMediaPlayer.playMp4(fileName);
+        }
+    }
+}
+
+// Client
+class AudioPlayer implements MediaPlayer {
+    @Override
+    public void play(String audioType, String fileName) {
+        if (audioType.equalsIgnoreCase("mp3")) {
+            System.out.println("Playing mp3 file: " + fileName);
+        } else if (audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("mp4")) {
+            MediaPlayer adapter = new MediaAdapter(audioType);
+            adapter.play(audioType, fileName);
+        } else {
+            System.out.println("Invalid media type: " + audioType);
+        }
+    }
+}
+
+// Client Code
+public class AdapterPatternExample {
+    public static void main(String[] args) {
+        MediaPlayer player = new AudioPlayer();
+
+        player.play("mp3", "song.mp3"); // Playing mp3 file: song.mp3
+        player.play("mp4", "video.mp4"); // Playing mp4 file: video.mp4
+        player.play("vlc", "movie.vlc"); // Playing vlc file: movie.vlc
+        player.play("avi", "clip.avi"); // Invalid media type: avi
+    }
+}
+```
+
+In this example, the `MediaAdapter` class adapts the `AdvancedMediaPlayer` class to the `MediaPlayer` interface, allowing the `AudioPlayer` to play both `mp4` and `vlc` files in addition to `mp3` files. The client interacts with the `MediaPlayer` interface without worrying about the underlying implementation details.

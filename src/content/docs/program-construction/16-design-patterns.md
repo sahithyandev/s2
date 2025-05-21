@@ -25,6 +25,7 @@ overcome development and architectural problems.
   - [Facade Pattern](/program-construction/structural-design-patterns#facade-pattern)
   - [Proxy Pattern](/program-construction/structural-design-patterns#proxy-pattern)
   - [Composite Pattern](/program-construction/structural-design-patterns#composite-pattern)
+  - [Adapter Pattern](/program-construction/structural-design-patterns#adapter-pattern)
 - [Behavioral](/program-construction/behavioral-design-patterns)
   - [Template Method Pattern](/program-construction/behavioral-design-patterns#template-method-pattern)
   - [Command Pattern](/program-construction/behavioral-design-patterns#command-pattern)
