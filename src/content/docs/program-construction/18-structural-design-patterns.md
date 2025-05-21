@@ -385,3 +385,76 @@ public class FacadePatternExample {
 ```
 
 In this example, the `ComputerFacade` class provides a simplified interface to start and shut down the computer, hiding the complexities of the subsystem classes (`CPU`, `Memory`, and `HardDrive`).
+
+## Proxy Pattern
+
+The Proxy Pattern provides a surrogate or placeholder for another object to control access to it. It is used to add an additional layer of control, such as lazy initialization, access control, logging, or caching, without changing the original object's code.
+
+- **Proxy**: The class that acts as an intermediary between the client and the real object.
+- **Real Subject**: The actual object that the proxy represents.
+- **Client**: The object that interacts with the proxy.
+
+### Types of Proxy
+1. **Virtual Proxy**: Used for lazy initialization and caching.
+2. **Protection Proxy**: Controls access to the real object based on permissions.
+3. **Remote Proxy**: Represents an object located in a different address space.
+4. **Smart Proxy**: Adds additional functionality, such as reference counting or logging.
+
+```java
+// Subject interface
+interface Image {
+    void display();
+}
+
+// Real Subject
+class RealImage implements Image {
+    private final String filename;
+
+    public RealImage(String filename) {
+        this.filename = filename;
+        loadFromDisk();
+    }
+
+    private void loadFromDisk() {
+        System.out.println("Loading " + filename);
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Displaying " + filename);
+    }
+}
+
+// Proxy
+class ProxyImage implements Image {
+    private RealImage realImage;
+    private final String filename;
+
+    public ProxyImage(String filename) {
+        this.filename = filename;
+    }
+
+    @Override
+    public void display() {
+        if (realImage == null) {
+            realImage = new RealImage(filename); // Lazy initialization
+        }
+        realImage.display();
+    }
+}
+
+// Client code
+public class ProxyPatternExample {
+    public static void main(String[] args) {
+        Image image = new ProxyImage("test_image.jpg");
+
+        // Image will be loaded from disk
+        image.display();
+
+        // Image will not be loaded from disk again
+        image.display();
+    }
+}
+```
+
+In this example, the `ProxyImage` class acts as a proxy for the `RealImage` class. The real image is only loaded from disk when it is needed, demonstrating lazy initialization. The client interacts with the proxy as if it were the real object.
