@@ -18,6 +18,7 @@ overcome development and architectural problems.
   - [Singleton Pattern](/program-construction/creational-design-patterns#singleton-pattern)
   - [Factory Pattern](/program-construction/creational-design-patterns#factory-pattern)
   - [Abstract Factory Pattern](/program-construction/creational-design-patterns#abstract-factory-pattern) 
+  - [Prototype Pattern](/program-construction/creational-design-patterns#prototype-pattern) 
 - [Structural](/program-construction/structural-design-patterns)
   - [Flyweight Pattern](/program-construction/structural-design-patterns#flyweight-pattern)
   - [Bridge Pattern](/program-construction/structural-design-patterns#bridge-pattern)

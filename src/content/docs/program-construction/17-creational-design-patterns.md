@@ -271,3 +271,102 @@ public class AbstractFactoryPatternExample {
     }
 }
 ```
+
+## Prototype Pattern
+
+Provides a way to copy existing objects without making the code dependent on their classes. Used to duplicate objects in a performant manner. Useful when object creation is expensive or complex.
+
+```java
+// Step 1: Create an abstract class implementing Cloneable
+// `Cloneable` is a marker interface, defined in java.lang,
+// which indicates that an object can be cloned.
+abstract class Shape implements Cloneable {
+    private String id;
+    protected String type;
+
+    abstract void draw();
+
+    public String getType() {
+        return type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public Object clone() {
+        Object clone = null;
+        try {
+            clone = super.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return clone;
+    }
+}
+
+// Step 2: Create concrete classes extending the abstract class
+class Circle extends Shape {
+    public Circle() {
+        type = "Circle";
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Rectangle extends Shape {
+    public Rectangle() {
+        type = "Rectangle";
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+// Step 3: Create a class to get concrete classes from a cache
+class ShapeCache {
+    private static Map<String, Shape> shapeMap = new HashMap<>();
+
+    public static Shape getShape(String shapeId) {
+        Shape cachedShape = shapeMap.get(shapeId);
+        return (Shape) cachedShape.clone();
+    }
+
+    public static void loadCache() {
+        Circle circle = new Circle();
+        circle.setId("1");
+        shapeMap.put(circle.getId(), circle);
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.setId("2");
+        shapeMap.put(rectangle.getId(), rectangle);
+    }
+}
+
+// Step 4: Client code using the Prototype Pattern
+public class PrototypePatternExample {
+    public static void main(String[] args) {
+        ShapeCache.loadCache();
+
+        Shape clonedShape1 = ShapeCache.getShape("1");
+        System.out.println("Shape: " + clonedShape1.getType());
+        clonedShape1.draw();
+
+        Shape clonedShape2 = ShapeCache.getShape("2");
+        System.out.println("Shape: " + clonedShape2.getType());
+        clonedShape2.draw();
+    }
+}
+```
+
+In this example, the `ShapeCache` class stores a cache of objects. When a client requests a shape, it clones the cached object instead of creating a new one, improving performance and reducing complexity.
