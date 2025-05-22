@@ -8,7 +8,9 @@ prev: true
 next: true
 ---
 
-## Probability Density Function
+## Properties
+
+### Probability Density Function
 
 Denoted by $f$. Used for continuous random variables. Doesn't give the probability at an exact point (which is always 0 for continuous variables). Instead, gives the relative likelihood of the random variable taking on a value in a small interval around a point. $ $
 
@@ -33,7 +35,7 @@ f(x) = \frac{1}{\sqrt{2\pi}}\exp\bigg(-\frac{x^2}{2}\bigg)
 
 :::
 
-## Mean
+### Mean
 
 The integral is taken over the entire domain of the random variable
 
@@ -43,7 +45,7 @@ E(X) = \mu = \int_{-\infty}^{\infty} x \cdot f(x) \, dx
 
 Here $f(x)$ is the probability density function. $ $
 
-## Variance
+### Variance
 
 ```math
 \text{Var}(X) = \sigma^2 = \int_{-\infty}^{\infty} (x - \mu)^2 \cdot f(x) \, dx
@@ -55,13 +57,13 @@ An equivalent computational formula is:
 \text{Var}(X) = \int_{-\infty}^{\infty} x^2 \cdot f(x) \, dx - \mu^2
 ```
 
-## Covariance
+### Covariance
 
 ```math
 \text{Cov}(X,Y) = E(XY) - E(X)E(Y)
 ```
 
-## Cumulative Distribution Function
+### Cumulative Distribution Function
 
 ```math
 F(x) = \int_{-\infty}^{x} f(t) dt
@@ -81,3 +83,106 @@ f(x) = \begin{cases}
 The mean would be: $E(X) = \int_{0}^{4} x \cdot \frac{1}{4} \, dx = \frac{1}{4} \cdot \frac{x^2}{2} \bigg|_{0}^{4} = \frac{1}{4} \cdot \frac{16}{2} = 2$. $ $
 
 The variance would be: $\text{Var}(X) = \int_{0}^{4} (x-2)^2 \cdot \frac{1}{4} \, dx = \frac{1}{4} \cdot \frac{16}{12} = \frac{4}{3} \approx 1.33$. $ $
+
+## Types
+
+### Uniform Distribution
+
+A type of continuous probability distribution where all outcomes are equally likely within a specified range. Has the PDF:
+
+```math
+f(x) = \begin{cases}
+\frac{1}{b-a} & \text{for } a \leq x \leq b \\
+0 & \text{otherwise}
+\end{cases}
+```
+
+The mean, variance and CDF are:
+
+```math
+E(X) = \mu = \frac{a + b}{2}
+```
+
+```math
+\text{Var}(X) = \sigma^2 = \frac{(b-a)^2}{12}
+```
+
+```math
+F(x) = \begin{cases}
+0 & \text{for } x < a \\
+\frac{x-a}{b-a} & \text{for } a \leq x \leq b \\
+1 & \text{for } x > b
+\end{cases}
+```
+
+### Normal distribution
+
+Describes data that clusters around a mean value, forming a symmetric bell-shaped curve. Denoted by $N(\mu, \sigma^2)$. Has PDF: $ $
+
+```math
+f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp{\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)}
+```
+
+Follows [the empirical rule](/methods-of-mathematics/probability-and-statistics/empirical-rule/).
+
+It’s often used to model real-world phenomena like heights, test scores, or measurement errors, where most values are near the mean, and fewer occur as you move away from it.
+
+### Standard normal distribution
+
+A special case of the normal distribution where $\mu=0$ and $\sigma= 1$. Denoted by $N(0, 1)$. Has PDF:
+
+```math
+f(x) = \frac{1}{\sqrt{2\pi}} \exp{\left(-\frac{x^2}{2}\right)}
+```
+
+:::note
+
+Z-score equation is used to standardize a normal distribution.
+
+```math
+Z = \frac{X - \mu}{\sigma}
+```
+
+:::
+
+### Chi-square Distribution
+
+Distribution of the sum of the squares of $k$ independent standard normal random variables, where $k$ is the degrees of freedom. Has the PDF:
+
+```math
+f(x; k) = \frac{1}{2^{k/2} \Gamma(k/2)} x^{k/2 - 1} e^{-x/2}, \quad x > 0
+```
+
+Here:
+- $k$ is the degrees of freedom
+- $\Gamma$ is the [gamma function](https://s1.sahithyan.dev/mathematics/riemann-integration/gamma-function/)
+
+Used in tests like the Chi-square goodness-of-fit test and tests for independence in contingency tables.
+
+### Student's t-distribution
+
+Probability distribution of the ratio $\frac{Z}{\sqrt{V/\nu}}$ with $\nu$ degress of freedom.
+
+Here:
+- $Z \sim N(0,1)$
+- $V \sim \text{Chi}(\nu)$
+- $Z$ and $V$ are independent
+
+## Normal approximation for Bin(n,p)
+
+When $n$ is large and $np > 5$:
+
+```math
+X \sim Bin(n,p)
+\approx
+X \sim N(np, np(1-p))
+```
+
+### Continuity Correction
+
+| When         | Use       |
+| ------------ | --------- |
+| $ X > n $    | $n + 0.5$ |
+| $ X \leq n $ | $n + 0.5$ |
+| $ X < n $    | $n - 0.5$ |
+| $ X \geq n $ | $n - 0.5$ |

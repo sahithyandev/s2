@@ -8,7 +8,9 @@ prev: true
 next: true
 ---
 
-## Probability Mass Function
+## Properties
+
+### Probability Mass Function
 
 Denoted by $P$. Used for discrete random variables. Gives the probability that a discrete random variable $X$ is exactly equal to some value $x$.
 
@@ -16,7 +18,7 @@ Denoted by $P$. Used for discrete random variables. Gives the probability that a
 \sum_{x} P(x) = 1
 ```
 
-## Mean
+### Mean
 
 ```math
 E(X) = \mu = \sum_{i} x_i \cdot P(X = x_i)
@@ -26,7 +28,7 @@ Here:
 - $x_i$ represents each possible value of $X$
 - $P(X = x_i)$ is the probability of observing that value
 
-## Variance
+### Variance
 
 ```math
 \text{Var}(X) = \sigma^2 = \sum_{i} (x_i - \mu)^2 \cdot P(X = x_i)
@@ -38,7 +40,7 @@ An equivalent computational formula is:
 \text{Var}(X) = \sum_{i} x_i^2 \cdot P(X = x_i) - \mu^2
 ```
 
-## Cumulative Distribution Function
+### Cumulative Distribution Function
 
 ```math
 F(x) = \sum_{t \leq x} P(X = t)
@@ -103,7 +105,7 @@ For a large sample of a binomial distribution:
 \;\;
 \land
 \;\;
-\sigma = \sqrt{npq}
+\sigma = \sqrt{np(1-p)}
 ```
 
 ### Poisson distribution
