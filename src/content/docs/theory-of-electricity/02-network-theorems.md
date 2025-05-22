@@ -7,6 +7,12 @@ prev: true
 next: true
 ---
 
+## Definitions
+
+### Linear network
+
+A network is linear **iff** frequency of the output signal is equal to the frequency of the input signal.
+
 ## Thevenin's theorem
 
 Any linear electrical network containing only voltage sources, current sources

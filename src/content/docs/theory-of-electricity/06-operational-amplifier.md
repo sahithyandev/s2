@@ -1,7 +1,7 @@
 ---
 title: Operational Amplifier
 sidebar:
-  order: 7
+  order: 6
 slug: theory-of-electricity/operational-amplifier
 prev: true
 next: true

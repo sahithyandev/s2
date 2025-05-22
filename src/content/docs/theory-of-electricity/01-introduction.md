@@ -23,6 +23,7 @@ Review these from [S1](https://s1.sahithyan.dev).
   Current through an inductor cannot change instantaneously
 - [Impedance & Admittance](https://s1.sahithyan.dev/electrical-fundamentals/basics/impedance-and-admittance/)
 - [Active elements](https://s1.sahithyan.dev/electrical-fundamentals/basics/circuit-elements/#active)
+- [AC Theory](https://s1.sahithyan.dev/electrical-fundamentals/basics/ac-theory)
 
 ### Recommended textbooks
 

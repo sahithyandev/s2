@@ -1,7 +1,7 @@
 ---
 title: Filters
 sidebar:
-  order: 9
+  order: 8
 slug: theory-of-electricity/filters
 prev: true
 next: true
