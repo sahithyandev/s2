@@ -22,7 +22,7 @@ A group of tasks with varying inputs.
 
 ## Algorithm specification
 
-Algorithms are explained in either:
+Algorithms are specified in either:
 
 - Flowcharts  
   A diagram that shows a flow of control.

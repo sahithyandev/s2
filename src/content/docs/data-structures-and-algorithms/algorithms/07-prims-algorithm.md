@@ -1,14 +1,14 @@
 ---
 title: Prim's Algorithm
 sidebar:
-  order: 6
+  order: 7
 slug: data-structures-and-algorithms/algorithms/prims-algorithm
 prev: true
 next: true
 ---
 
-A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find MST of a graph. Starts with a single vertex and grows the MST one edge at a time by adding the
-smallest edge that connects a vertex in the MST to a vertex outside the MST.
+
+A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Starts with a single vertex and grows the MST one edge at a time by adding the smallest edge that connects a vertex in the MST to a vertex outside the MST.
 
 Unlike Kruskal's algorithm which sorts all edges at the beginning, Prim's algorithm maintains a priority queue (implemented here using arrays for simplicity) to always select the minimum-weight edge to add next.
 

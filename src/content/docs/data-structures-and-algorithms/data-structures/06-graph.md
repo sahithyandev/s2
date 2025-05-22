@@ -126,42 +126,6 @@ All edges have no weights associated with them.
 
 All edges have weights associated with them.
 
-## Traversal
-
-### Breadth-first search (BFS)
-
-The algorithm:
-
-1. Select a node to start traversal.
-2. Push the node to a queue.
-3. Pop node from queue. Mark it visited. Process the node.
-4. Push all unvisited adjacent nodes to the queue.
-5. Repeat steps 3-4 until queue is empty.
-
-Properties:
-
-- Space complexity: $O(w)$ where w is the width of the tree.
-- More memory needed, due to storing nodes at current level.
-- Finds the shortest path between nodes when edges are unweighted.
-- Good for searching nearby nodes and level-wise traversal.
-
-### Depth-first search (DFS)
-
-The algorithm:
-
-1. Select a node to start traversal.
-2. Push the node to a stack.
-3. Pop node from stack. Mark it visited. Process the node.
-4. Push all unvisited adjacent nodes to the stack.
-5. Repeat steps 3-4 until stack is empty.
-
-Properties:
-
-- Space complexity: $O(h)$ where h is height of the tree.
-- Less memory than BFS since only nodes on the current path are stored.
-- Might not find the shortest path between nodes.
-- Good for checking connectivity and finding cycles.
-
 ## Applications
 
 - Social Networks: Representing relationships between people.

@@ -1,7 +1,7 @@
 ---
 title: Recursion
 sidebar:
-  order: 4
+  order: 5
 slug: data-structures-and-algorithms/algorithms/recursion
 prev: true
 next: true
@@ -9,9 +9,7 @@ next: true
 
 ### Recursive
 
-A recursive algorithm or function is a algorithm or function that calls itself
-directly or indirectly to solve a smaller version of its task. Recursion
-requires terminating or base conditions.
+A recursive algorithm or function is the one that calls itself to solve a smaller version of its task. Terminating or base conditions are required.
 
 ### Divide & Conquer
 
@@ -21,10 +19,10 @@ requires terminating or base conditions.
 
 Examples:
 
-- Binary search
-- Merge sort
-- Quick sort
-- Depth-first tree traversals
+- [Binary search](/data-structures-and-algorithms/algorithms/searching/#binary-search)
+- [Merge sort](/data-structures-and-algorithms/algorithms/sorting/#merge-sort)
+- [Quick sort](/data-structures-and-algorithms/algorithms/sorting/#quicksort)
+- [Depth-first traversals](/data-structures-and-algorithms/algorithms/searching/#depth-first-search)
 
 ## Analysis
 
