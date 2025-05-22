@@ -1,7 +1,10 @@
 ---
 title: Central Limit Theorem
 sidebar:
-  order: 11
+  order: 12
+slug: methods-of-mathematics/probability-and-statistics/central-limit-theorem
+prev: true
+next: false
 ---
 
 ## Definition

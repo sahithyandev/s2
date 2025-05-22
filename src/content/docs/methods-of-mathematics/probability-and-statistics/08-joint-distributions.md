@@ -1,7 +1,7 @@
 ---
 title: Joint Distributions
 sidebar:
-  order: 7
+  order: 8
 slug: methods-of-mathematics/probability-and-statistics/joint-distributions
 prev: true
 next: true
