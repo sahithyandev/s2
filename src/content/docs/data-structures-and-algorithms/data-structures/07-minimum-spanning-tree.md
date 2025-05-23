@@ -4,7 +4,7 @@ sidebar:
   order: 7
 slug: data-structures-and-algorithms/data-structures/minimum-spanning-tree
 prev: true
-next: false
+next: true
 ---
 
 A subset of the edges of a connected, undirected graph that connects all the
