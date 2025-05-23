@@ -10,6 +10,9 @@ next: true
 A widely used abstract data type that simulates a hierarchical tree structure
 with a set of connected nodes.
 
+Used in various applications
+such as databases, file systems, and network routing algorithms.
+
 ## Terminology
 
 ### Root
@@ -54,20 +57,11 @@ The length of the path from the root to a node.
 - Insertion: Adding a node to the tree.
 - Deletion: Removing a node from the tree.
 - Traversal: Visiting all the nodes in some order
-- Searching: Finding a node in the tree.
-
-Trees are fundamental in computer science and are used in various applications
-such as databases, file systems, and network routing algorithms.
-
-## Traversal Order
-
-- In-order Traversal: Visit the left subtree, the root, and then the right
-  subtree.
-- Pre-order Traversal: Visit the root, the left subtree, and then the right
-  subtree.
-- Post-order Traversal: Visit the left subtree, the right subtree, and then the
-  root.
-- Level-order Traversal: Visit nodes level by level from top to bottom.
+  - In-order Traversal: left, root, right
+  - Pre-order Traversal: root, left, right
+  - Post-order Traversal: left, right, root
+  - Level-order Traversal: Visit nodes level by level from top to bottom.
+- [Searching](/data-structures-and-algorithms/algorithms/searching/#depth-first-search-dfs): Finding a node in the tree.
 
 ## Binary Tree
 
@@ -91,8 +85,7 @@ After adding the new node, the tree must remain valid.
   - If the value is less than the current node's value, move to the left child.
   - If the value is greater than the current node's value, move to the right
     child.
-- Insert the Node: When you reach a `null` position (where there is no left or
-  right child), insert the new node there.
+- Insert the Node: When a `null` position is reached, the new node is inserted.
 
 ### Deletion Logic
 
@@ -103,18 +96,26 @@ Deletion algorithm depends on the node to be deleted.
 - Node with Two Children: Find the in-order successor (smallest node in the
   right subtree), replace the node's value with the successor's value, and then
   delete the successor.
+  
+## Types
 
-## Balanced Tree
+### Balanced Tree
 
-A tree where the height of the left and right subtrees of any node differ by at
-most one.
+A tree data structure where the height difference between the left and right subtrees of any node is minimal, typically constrained to a specific limit. This ensures that operations like insertion, deletion, and searching can be performed efficiently, maintaining a time complexity close to O(log n). Examples of balanced trees include AVL trees and Red-Black trees.
 
-## AVL Tree
+### AVL Tree
 
-A self-balancing binary search tree where the difference in heights of left and
-right subtrees cannot be more than one for all nodes.
+Short for Adelson-Velsky and Landis tree. A self-balancing binary search tree where the difference in heights (also known as the balance factor) of the left and right subtrees of any node is at most one. If this condition is violated during insertion or deletion, rotations (single or double) are performed to restore balance.
 
-## Red-Black Tree
+Used when frequent lookups are required, as they maintain a strict balance.
 
-A self-balancing binary search tree where each node contains an extra bit for
-denoting the color of the node, either red or black.
+### Red-Black Tree
+
+A Red-Black Tree is another type of self-balancing binary search tree that uses an additional property: each node is assigned a color, either red or black. The tree maintains balance through a set of rules:
+- The root is always black.
+- Red nodes cannot have red children (no two consecutive red nodes).
+- Every path from a node to its descendant null pointers must have the same number of black nodes.
+
+These properties ensure that the tree remains approximately balanced, allowing for efficient operations.
+
+Used in applications like implementing associative arrays and priority queues.

@@ -1,7 +1,7 @@
 ---
 title: Dijkstras Algorithm
 sidebar:
-  order: 8
+  order: 9
 slug: data-structures-and-algorithms/algorithms/dijkstras-algorithm
 prev: true
 next: true

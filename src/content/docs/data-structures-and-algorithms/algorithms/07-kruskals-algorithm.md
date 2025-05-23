@@ -1,7 +1,7 @@
 ---
 title: Kruskal's Algorithm
 sidebar:
-  order: 6
+  order: 7
 slug: data-structures-and-algorithms/algorithms/kruskals-algorithm
 prev: true
 next: true

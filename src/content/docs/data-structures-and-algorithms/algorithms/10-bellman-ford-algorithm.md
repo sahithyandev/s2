@@ -1,7 +1,7 @@
 ---
 title: Bellman Ford Algorithm
 sidebar:
-  order: 9
+  order: 10
 slug: data-structures-and-algorithms/algorithms/bellman-ford-algorithm
 prev: true
 next: true

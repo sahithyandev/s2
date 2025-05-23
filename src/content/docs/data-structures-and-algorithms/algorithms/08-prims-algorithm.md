@@ -1,7 +1,7 @@
 ---
 title: Prim's Algorithm
 sidebar:
-  order: 7
+  order: 8
 slug: data-structures-and-algorithms/algorithms/prims-algorithm
 prev: true
 next: true

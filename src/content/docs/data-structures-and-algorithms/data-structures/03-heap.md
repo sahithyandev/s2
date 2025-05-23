@@ -10,6 +10,13 @@ next: true
 A special type of binary tree with an additional property called _the heap
 property_.
 
+Used in:
+
+- [Priority Queues](/data-structures-and-algorithms/data-structures/introduction/#priority-queue)
+- [Heap Sort](/data-structures-and-algorithms/algorithms/sorting/#heap-sort)
+- Graph Algorithms: Used in algorithms like [Dijkstra's shortest path](/data-structures-and-algorithms/algorithms/dijkstras-algorithm/) and
+  [Prim's minimum spanning tree](/data-structures-and-algorithms/algorithms/prims-algorithm/).
+
 2 types:
 
 - Max heap - root node is the largest
@@ -18,18 +25,17 @@ property_.
 Here, max heaps are explained. The same reasoning and logic can be adapted for
 min heaps.
 
-Can be implemented using linked lists or arrays. Mostly implemented using arrays
-for better performance.
-
 ### Heap property
 
 For any given node $I$, the value of $I$ is greater than or equal to the values
 of its children.
 
-### Array implementation
+## Implementation
 
-In a heap implemented using 0-based arrays, the relation between the parent node
-and its child node(s) is important.
+### Array based
+
+The relation between the parent node
+and its child node(s) is important. Better than linked based implementation in terms of performance. Array based implementation is used in the below operations section.
 
 ```cpp
 /**
@@ -63,6 +69,64 @@ int rightChildIndex(int parent_index)
 }
 ```
 
+### Linked List based
+
+Less common due to performance considerations. Each node in the linked list represents a node in the heap, with pointers to its left and right children.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Node {
+  int value;
+  Node* left;
+  Node* right;
+
+  Node(int val) : value(val), left(nullptr), right(nullptr) {}
+};
+
+// Example of inserting a node (manual linking required for simplicity)
+Node* insert(Node* root, int value) {
+  if (!root) return new Node(value);
+
+  if (value > root->value) {
+    swap(value, root->value);
+  }
+
+  if (!root->left) {
+    root->left = insert(root->left, value);
+  } else if (!root->right) {
+    root->right = insert(root->right, value);
+  } else {
+    root->left = insert(root->left, value); // Continue to left subtree
+  }
+
+  return root;
+}
+
+void printHeap(Node* root) {
+  if (!root) return;
+  cout << root->value << " ";
+  printHeap(root->left);
+  printHeap(root->right);
+}
+
+int main() {
+  Node* heap = nullptr;
+
+  heap = insert(heap, 10);
+  heap = insert(heap, 20);
+  heap = insert(heap, 5);
+  heap = insert(heap, 30);
+
+  printHeap(heap);
+
+  return 0;
+}
+```
+
+In this implementation, the `insert` function maintains the heap property by swapping values as needed. However, managing the structure manually makes this approach less efficient compared to array-based heaps.
+
 ## Operations
 
 ### Insertion
@@ -75,7 +139,7 @@ To insert an element into a max heap, follow these steps:
 3. Repeat step 2 until the heap property is restored or the element becomes the
    root.
 
-Runs in $O(log n)$ time. $ $
+Runs in $O(\log n)$ time. $ $
 
 ```cpp
 #include <iostream>
@@ -128,7 +192,7 @@ To delete the root element from a max heap:
 4. Repeat step 3 until the heap property is restored or the new root becomes a
    leaf.
 
-Runs in $O(log n)$ time. $ $
+Runs in $O(\log n)$ time. $ $
 
 ```cpp
 #include <iostream>
@@ -181,13 +245,40 @@ down the tree. The `deleteRoot` function removes the root element from the heap.
 
 ### Peek
 
-Runs in $O(1)$ if implemented using arrays. $ $
+To view the root element. Always $O(1)$ regardless of the implementation. $ $
 
-## Applications of Heaps
+```cpp
+#include <iostream>
+#include <vector>
 
-- **Priority Queues**: Heaps are commonly used to implement priority queues,
-  where the highest (or lowest) priority element is always at the root.
-- **Heap Sort**: An efficient sorting algorithm that uses the heap data
-  structure to sort elements.
-- **Graph Algorithms**: Used in algorithms like Dijkstra's shortest path and
-  Prim's minimum spanning tree.
+using namespace std;
+
+int peek(const vector<int>& heap) {
+  if (heap.empty()) {
+    throw runtime_error("Heap is empty");
+  }
+  return heap[0]; // Return the root element
+}
+
+int main() {
+  vector<int> maxHeap = {30, 20, 10, 5};
+
+  try {
+    cout << "Top element: " << peek(maxHeap) << endl;
+  } catch (const runtime_error& e) {
+    cout << e.what() << endl;
+  }
+
+  return 0;
+}
+```
+
+## Comparison
+
+| Implementation    | Operation | Best Case   | Average Case | Worst Case  |
+| ----------------- | --------- | ----------- | ------------ | ----------- |
+| Array             | Insertion | $O(1)$      | $O(\log n)$  | $O(\log n)$ |
+| Array             | Deletion  | $O(\log n)$ | $O(\log n)$  | $O(\log n)$ |
+| Array/Linked List | Peek      | $O(1)$      | $O(1)$       | $O(1)$      |
+| Linked list       | Insertion | $O(1)$      | $O(n)$       | $O(n)$      |
+| Linked list       | Deletion  | $O(1)$      | $O(n)$       | $O(n)$      |
