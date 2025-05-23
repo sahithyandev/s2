@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Sorts all the edges of the graph by their weights and adds them one by one to
+A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Sorts all edges by increasing weights and adds them one by one to
 the MST, ensuring that no cycles are formed.
 
 ## Implementation
@@ -19,59 +19,78 @@ the MST, ensuring that no cycles are formed.
 
 using namespace std;
 
+// Structure to represent an edge in the graph
 struct Edge {
     int src, dest, weight;
 };
 
+// Comparator function to sort edges by weight in non-decreasing order
 bool compareEdges(const Edge &a, const Edge &b) {
     return a.weight < b.weight;
 }
 
-int find(vector<int> &parent, int i) {
-    if (parent[i] != i) {
-        parent[i] = find(parent, parent[i]);
-    }
-    return parent[i];
-}
+// Union-Find data structure to detect cycles
+class UnionFind {
+    vector<int> parent, rank;
 
-void unionSets(vector<int> &parent, vector<int> &rank, int x, int y) {
-    int xroot = find(parent, x);
-    int yroot = find(parent, y);
-
-    if (rank[xroot] < rank[yroot]) {
-        parent[xroot] = yroot;
-    } else if (rank[xroot] > rank[yroot]) {
-        parent[yroot] = xroot;
-    } else {
-        parent[yroot] = xroot;
-        rank[xroot]++;
-    }
-}
-
-void kruskalMST(int V, vector<Edge> &edges) {
-    sort(edges.begin(), edges.end(), compareEdges);
-
-    vector<int> parent(V);
-    vector<int> rank(V, 0);
-    for (int i = 0; i < V; ++i) {
-        parent[i] = i;
+public:
+    UnionFind(int n) : parent(n), rank(n, 0) {
+        for (int i = 0; i < n; ++i) {
+            parent[i] = i;
+        }
     }
 
-    vector<Edge> result;
-    for (const auto &edge : edges) {
-        int x = find(parent, edge.src);
-        int y = find(parent, edge.dest);
+    int find(int u) {
+        if (u != parent[u]) {
+            parent[u] = find(parent[u]); // Path compression
+        }
+        return parent[u];
+    }
 
-        if (x != y) {
-            result.push_back(edge);
-            unionSets(parent, rank, x, y);
+    bool unionSets(int u, int v) {
+        int rootU = find(u);
+        int rootV = find(v);
+
+        if (rootU == rootV) {
+            return false; // Cycle detected
         }
 
+        // Union by rank
+        if (rank[rootU] > rank[rootV]) {
+            parent[rootV] = rootU;
+        } else if (rank[rootU] < rank[rootV]) {
+            parent[rootU] = rootV;
+        } else {
+            parent[rootV] = rootU;
+            rank[rootU]++;
+        }
+
+        return true;
+    }
+};
+
+// Function to implement Kruskal's Algorithm to find the MST
+void kruskalMST(int V, vector<Edge> &edges) {
+    // Step 1: Sort all edges in non-decreasing order of their weight
+    sort(edges.begin(), edges.end(), compareEdges);
+
+    UnionFind uf(V);
+    vector<Edge> result; // To store the edges included in the MST
+
+    // Iterate through all sorted edges
+    for (const auto &edge : edges) {
+        // Check if adding this edge forms a cycle
+        if (uf.unionSets(edge.src, edge.dest)) {
+            result.push_back(edge); // Include the edge in the MST
+        }
+
+        // Stop if we already have V-1 edges in the MST
         if (result.size() == V - 1) {
             break;
         }
     }
 
+    // Print the edges in the constructed MST
     cout << "Following are the edges in the constructed MST\n";
     for (const auto &edge : result) {
         cout << edge.src << " -- " << edge.dest << " == " << edge.weight << "\n";
@@ -91,23 +110,74 @@ int main() {
 }
 ```
 
-This code demonstrates how to find the MST of a graph using Kruskal's Algorithm.
-The `Edge` class represents an edge in the graph, and the `KruskalMST` class
-contains the logic for finding the MST.
-
 ## Example
 
-```txt
-    1       2
-A-------B-------C
-| \     |      /|
-|  \    |     / |
-4   3   5    6  |
-|    \  |  /    |
-|     \ | /     |
-D-------E-------F
-    7       8
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="600" height="400" class="mx-auto">
+  <style>
+    .vertex {
+      fill: lightblue;
+      stroke: black;
+      stroke-width: 1px;
+    }
+    .edge {
+      stroke: currentColor;
+      stroke-width: 2px;
+    }
+    .label {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .weight {
+      font-size: .7rem;
+      fill: currentColor;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Edges -->
+  <line x1="50" y1="50" x2="150" y2="50" class="edge" />
+  <text x="100" y="45" class="weight" text-anchor="middle">1</text>
+
+  <line x1="150" y1="50" x2="250" y2="50" class="edge" />
+  <text x="200" y="45" class="weight" text-anchor="middle">2</text>
+
+  <line x1="50" y1="50" x2="50" y2="150" class="edge" />
+  <text x="40" y="100" class="weight" text-anchor="middle">4</text>
+
+  <line x1="50" y1="50" x2="150" y2="150" class="edge" />
+  <text x="90" y="108" class="weight" text-anchor="middle">3</text>
+
+  <line x1="150" y1="50" x2="150" y2="150" class="edge" />
+  <text x="160" y="100" class="weight" text-anchor="middle">5</text>
+
+  <line x1="250" y1="50" x2="250" y2="150" class="edge" />
+  <text x="260" y="100" class="weight" text-anchor="middle">6</text>
+
+  <line x1="50" y1="150" x2="150" y2="150" class="edge" />
+  <text x="100" y="145" class="weight" text-anchor="middle">7</text>
+
+  <line x1="150" y1="150" x2="250" y2="150" class="edge" />
+  <text x="200" y="145" class="weight" text-anchor="middle">8</text>
+
+  <!-- Vertices -->
+  <circle cx="50" cy="50" r="20" class="vertex" />
+  <text x="50" y="55" class="label" text-anchor="middle">A</text>
+
+  <circle cx="150" cy="50" r="20" class="vertex" />
+  <text x="150" y="55" class="label" text-anchor="middle">B</text>
+
+  <circle cx="250" cy="50" r="20" class="vertex" />
+  <text x="250" y="55" class="label" text-anchor="middle">C</text>
+
+  <circle cx="50" cy="150" r="20" class="vertex" />
+  <text x="50" y="155" class="label" text-anchor="middle">D</text>
+
+  <circle cx="150" cy="150" r="20" class="vertex" />
+  <text x="150" y="155" class="label" text-anchor="middle">E</text>
+
+  <circle cx="250" cy="150" r="20" class="vertex" />
+  <text x="250" y="155" class="label" text-anchor="middle">F</text>
+</svg>
 
 1. Sort the edges by weight:
 
@@ -123,3 +193,19 @@ D-------E-------F
 
 The resulting MST will have the edges: (A-B, 1), (B-C, 2), (A-E, 3), (A-D, 4),
 (C-F, 6).
+
+## Time and Space Complexity
+
+### Time Complexity
+
+1. Sorting all edges: Takes $O(E \log E)$. Since $E \log E$ is equivalent to $O(E \log V)$ in a connected graph, this step dominates the overall complexity.
+2. Union-Find operations: The union-find data structure is used to detect cycles and merge sets. Each union or find operation has an amortized time complexity of $O(\alpha(V))$, where $\alpha(V)$ is the inverse Ackermann function, which grows extremely slowly. For $E$ edges, the total complexity of union-find operations is $O(E \alpha(V))$.
+
+Thus, the overall time complexity of Kruskal's Algorithm is: $O(E \log E + E \alpha(V)) \approx O(E \log V)$. $ $
+
+### Space Complexity
+
+1. Edge list: $O(E)$ is required to store all edges.
+2. Union-Find data structure: The parent and rank arrays used in the union-find operations require $O(V)$ space.
+
+Therefore, the total space complexity is: $O(E + V)$. $ $

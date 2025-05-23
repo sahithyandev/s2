@@ -9,8 +9,9 @@ next: false
 
 A subset of the edges of a connected, undirected graph that connects all the
 vertices together, without any cycles, and with the minimum possible total edge
-weight. In other words, a spanning tree whose sum of edge weights is as small as
-possible.
+weight.
+
+Used in network design, clustering, and image segmentation.
 
 ### Spanning tree
 
@@ -36,9 +37,6 @@ The number of distinct spanning trees in a complete graph with $n$ vertices is $
 
 ## Definitions
 
-### Safe Edge
-An edge that can be safely included in the growing MST subset without violating the MST property.
-
 ### Cut
 A partition of the vertices of a graph into 2 disjoint subsets.
 
@@ -51,6 +49,21 @@ Given a subset $A$ of edges, a cut respects $A$ **iff** no edge in $A$ crosses t
 ### Light Edge
 For a given cut, the edge with the minimum weight among all edges crossing the cut. Prime candidates in MST algorithms.
 
+### MST property
+
+For any cut in a graph, the light edge crossing the cut is always part of a minimum spanning tree.
+
+Used in [Kruskal's algorithm](/data-structures-and-algorithms/algorithms/kruskals-algorithm/) and [Prim's algorithm](/data-structures-and-algorithms/algorithms/prims-algorithm/).
+
+### Safe Edge
+An edge that can be safely included in the growing MST subset without violating the MST property.
+
+#### Finding a Safe Edge
+
+- Choose a cut that respects the current set of edges A
+- Select the light edge crossing this cut
+- This light edge is guaranteed to be safe for inclusion in the MST
+
 ## Algorithms to Find MST
 
 The general idea is to:
@@ -62,16 +75,3 @@ The general idea is to:
 Commonly used algorithms to find MST are:
 - [Kruskal's algorithm](/data-structures-and-algorithms/algorithms/kruskals-algorithm)
 - [Prim's algorithm](/data-structures-and-algorithms/algorithms/prims-algorithm)
-
-### Finding a Safe Edge
-
-- Choose a cut that respects the current set of edges A
-- Select the light edge crossing this cut
-- This light edge is guaranteed to be safe for inclusion in the MST
-
-## Applications
-
-- Network design (e.g., designing least-cost networks for telecommunication,
-  electrical grids, etc.)
-- Approximation algorithms for NP-hard problems
-- Cluster analysis in machine learning
