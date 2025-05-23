@@ -1,15 +1,18 @@
 ---
-title: Dijkstras Algorithm
+title: Dijkstra's Algorithm
 sidebar:
-  order: 9
+  order: 7
 slug: data-structures-and-algorithms/algorithms/dijkstras-algorithm
 prev: true
 next: true
 ---
 
-A greedy algorithm used to find the shortest paths from a single source vertex to another vertices in a graph with non-negative edge weights. Widely used in network routing and other optimization problems.
+Finds the shortest path from a single source vertex to another vertices in a grap. Widely used in network routing and other optimization problems. A greedy algorithm.
 
-The algorithm works as follows:
+Fails for graphs with negative edge weights. Because a vertex is visited only once.
+
+## Explanation
+
 1. Initialize the distance to the source vertex as 0 and all other vertices as infinity.
 2. Create a priority queue (min-heap) to store vertices based on their current shortest distance.
 3. While the priority queue is not empty:
@@ -17,8 +20,6 @@ The algorithm works as follows:
    - For each adjacent vertex, calculate the distance through the current vertex. If this distance is smaller than the previously known distance, update it and push the vertex into the priority queue.
 
 ## Implementation
-
-Below is an implementation of Dijkstra's algorithm in C++:
 
 ```cpp
 #include <iostream>
@@ -90,16 +91,59 @@ int main() {
 
 Consider the following graph:
 
-```txt
-    (0)
-   / | \
-  2  |  1
- /   |   \
-(1)  |    (4)
-  \  |   / |
-   3 |  2  |
-    (2)--1--(3)
-```
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" class="w-[600px] w-[400px] mx-auto">
+    <style>
+      .graph-edges {
+        fill: currentColor;
+        stroke: currentColor;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .graph-edge-line {
+        stroke-width: 2;
+      }
+      .graph-nodes {
+        fill: lightblue;
+        stroke: none;
+      }
+      .graph-node-text {
+        font-size: 12px;
+        text-anchor: middle;
+        fill: black;
+      }
+    </style>
+  <!-- Edges -->
+  <g class="graph-edges">
+    <line x1="50" y1="50" x2="50" y2="150" class="graph-edge-line" />
+    <text x="40" y="100">2</text>
+    <line x1="50" y1="50" x2="150" y2="100" class="graph-edge-line" />
+    <text x="90" y="85">3</text>
+    <line x1="50" y1="50" x2="250" y2="50" class="graph-edge-line" />
+    <text x="150" y="40">1</text>
+    <line x1="50" y1="150" x2="150" y2="100" class="graph-edge-line" />
+    <text x="90" y="140">3</text>
+    <line x1="150" y1="100" x2="250" y2="150" class="graph-edge-line" />
+    <text x="200" y="120">1</text>
+    <line x1="250" y1="50" x2="250" y2="150" class="graph-edge-line" />
+    <text x="260" y="100">2</text>
+    <line x1="150" y1="100" x2="250" y2="50" class="graph-edge-line" />
+    <text x="200" y="68">2</text>
+  </g>
+
+  <!-- Nodes -->
+  <g class="graph-nodes">
+    <circle cx="50" cy="50" r="20" />
+    <text x="50" y="55" class="graph-node-text">0</text>
+    <circle cx="50" cy="150" r="20" />
+    <text x="50" y="155" class="graph-node-text">1</text>
+    <circle cx="150" cy="100" r="20" />
+    <text x="150" y="105" class="graph-node-text">2</text>
+    <circle cx="250" cy="150" r="20" />
+    <text x="250" y="155" class="graph-node-text">3</text>
+    <circle cx="250" cy="50" r="20" />
+    <text x="250" y="55" class="graph-node-text">4</text>
+  </g>
+</svg>
 
 1. Initialize distances: `dist[0] = 0`, all others = `INF`.
 2. Process vertices in order of their current shortest distance:
