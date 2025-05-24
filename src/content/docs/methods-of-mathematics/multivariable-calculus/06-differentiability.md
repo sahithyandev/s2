@@ -7,16 +7,16 @@ prev: true
 next: true
 ---
 
-For a single-variable function $f$, **if** $f$ is differentiable at $x_0$,
-**then** the graph of $f$ will have a tangent line at $x_0$. The tangent line's
-equation is:
+### Equation of tangent line
+
+Suppose $f$ is a single-variable function, and $f$ is differentiable at $x_0$.
+The equation of the tangent line to $f$ at $x_0$ is:
 
 ```math
 y - f(x_0) = f'(x_0)(x - x_0)
 ```
 
-The same idea can be generalized to two-variable functions. They will have a
-tangent plane instead of a line. For functions with more than 2 variables, they
+For 2-variable functions, they will have a tangent plane. For functions with more than 2 variables, they
 have a tangent space.
 
 ## Differentiable

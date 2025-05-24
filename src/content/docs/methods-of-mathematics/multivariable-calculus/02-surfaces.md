@@ -31,6 +31,8 @@ the graphs $f(x,y)=k$ where $k$ is a constant. Aka. level sets.
 
 ## Common shapes of functions
 
+I have created a visualization of all these common shapes in [Geogebra](https://www.geogebra.org/calculator/nhxratj5). Use that as an aid when learning about these shapes.
+
 ### Parabolic cylinder
 
 A parabola shifted along a straight line. In the form:

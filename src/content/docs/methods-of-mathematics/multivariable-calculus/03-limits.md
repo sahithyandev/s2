@@ -65,21 +65,21 @@ of $y$ only, **then** the limit of this function as $y\to b$ can be written as:
 Similarily, another limit exists.
 
 ```math
-\lim_\limits{y\to{b}}
-\;
 \lim_\limits{x\to{a}}
+\;
+\lim_\limits{y\to{b}}
  {f(x,y)}
 ```
 
 Note:
 
-- The two repeated limits may or may not exist
+- The two repeated limits may or may not exist independently
 - The two repeated limits, when they exist, may or may not be equal.
-- The existence of the 2-variable limit does not imply the existence of either
+- Existence of the 2-variable limit $\centernot\implies$ existence of either
   of the two repeated limits
-- The existence of the repeated limits does not imply the existence of
+- Existence of the repeated limits $\centernot\implies$ existence of
   2-variable limit
-- If the repeated limit exists and they are not equal, then the 2-variable limit
+- **If** the repeated limit exists and they are not equal, **then** the 2-variable limit
   cannot exist.
-- If a repeated limit exists, along with the 2-variable limit, these two would
+- **If** a repeated limit exists, along with the 2-variable limit, **then** these two would
   be equal

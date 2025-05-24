@@ -11,29 +11,28 @@ Let
 
 - $F(x,y,z)$ is a 3-variable function
 - $S$ is the level surface of $F$ at $F(x,y,z)=k$
-- $C: r(t) = (x(t), y(t), z(t))$ be a continuous curve on $S$
-- $P = r(t_0) = (x_0,y_0,z_0)$ be a point on $C$
+- $P = (x_0,y_0,z_0)$ be a point on $S$
+- $C: \boldsymbol{r}(t) = (x(t), y(t), z(t))$ be a continuous curve on $S$, passing through $P$
+- $P = \boldsymbol{r}(t_0)$
 
-All points on $C$ satisfy the equation $F = 0$. The below equation can be
-deduced by differentiating the equation.
-
-```math
-\bigtriangledown F \cdot \boldsymbol{\underline{r}'} = 0
-```
-
-The gradient vector of $F$ is perpendicular to the tangent vector
-$\boldsymbol{\underline{r}'}$ (of $C$).
-
-Tangent plane to $S$ can be defined by applying the above equation at point $P$.
-**If** $F(x_0,y_0,z_0) \neq 0$, **then** the tangent plane to $S$ at $P$ is the
-one that passes through $P$ and has a normal vector
-$\bigtriangledown F(x_0,y_0,z_0)$.
-
-The equation of the tangent plane:
+The equation of the tangent plane on $P$: $ $
 
 ```math
 F_x(x_0, y_0, z_0)(x − x_0) + F_y(x_0, y_0, z_0)(y − y_0) + F_z(x_0, y_0, z_0)(z − z_0) = 0
 ```
+
+:::note[Proof Hint]
+
+- All points on $C$ satisfy the equation $F = k$
+  ```math
+  F\big(x(t),y(t),z(t)\big) = k
+  ```
+- By differentiating the above equation: $\bigtriangledown F \cdot \boldsymbol{\underline{r}'} = 0$    
+  The gradient vector of $F$ is perpendicular to $\boldsymbol{\underline{r}'}$, the tangent vector of $C$
+- The tangent plane of $S$ on $P can be defined as:   
+  $\bigtriangledown F(x_0,y_0,z_0) \cdot \big(\boldsymbol{p} - \boldsymbol{\underline{r}}(t_0)\big) = 0$
+
+:::
 
 ## Normal line
 

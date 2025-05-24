@@ -23,9 +23,6 @@ order for this partial derivative to exist.
 
 ## Higher partial derivatives
 
-Similar to higher order derivatives of single-variable functions, the same logic
-can be extended for mutlivariable functions.
-
 The second-order partial derivates of $f(x,y)$ are: $ $
 
 ```math
@@ -43,5 +40,3 @@ The second-order partial derivates of $f(x,y)$ are: $ $
 ```math
 \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) = f_{xy}
 ```
-
-Higher order partial derivatives are defined similarily.
