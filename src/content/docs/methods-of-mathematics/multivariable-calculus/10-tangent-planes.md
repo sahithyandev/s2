@@ -4,7 +4,7 @@ sidebar:
   order: 10
 slug: methods-of-mathematics/multivariable-calculus/tangent-planes
 prev: true
-next: false
+next: true
 ---
 
 Let
