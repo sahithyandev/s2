@@ -4,7 +4,7 @@ sidebar:
   order: 12
 slug: methods-of-mathematics/multivariable-calculus/hessian-matrix
 prev: true
-next: false
+next: true
 ---
 
 Suppose $f: \mathbb{R}^n \to \mathbb{R}$ is a twice partially differentiable function. The Hessian matrix of $f$ is the matrix of second partial derivatives.

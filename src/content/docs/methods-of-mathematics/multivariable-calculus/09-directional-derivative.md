@@ -55,6 +55,10 @@ The $\bigtriangledown$ is the "del operator". $ $
 +\frac{\partial }{\partial y}\boldsymbol{j}
 ```
 
+### Critical point
+
+Aka stationary point. A point where the gradient is zero or where one of the partial derivatives is undefined.
+
 ## Maxmimum of Directional Derivative
 
 Maximum value of the directional derivative $D_\boldsymbol{u} f$ is
