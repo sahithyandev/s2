@@ -12,7 +12,14 @@ rather than their insertion order. Implements a priority heap data structure
 where elements are ordered according to their natural ordering or a custom
 comparator.
 
-Key characteristics of PriorityQueue in Java:
+Used in:
+- Task scheduling by priority
+- Event handling systems
+- [Dijkstra's shortest path algorithm](http://localhost:4321/data-structures-and-algorithms/algorithms/dijkstras-algorithm/)
+- Huffman coding compression
+- Network traffic prioritization
+
+## Key characteristics
 
 - Elements are stored in a priority heap - a complete binary tree
 - The head (first element) is always the smallest element based on natural
@@ -38,17 +45,29 @@ while(!pQueue.isEmpty()) {
 }
 ```
 
-Common Methods:
+## Common Methods
 
-- add(E element) - Inserts element
-- offer(E element) - Adds element (preferred method)
-- peek() - Returns but does not remove head element
-- poll() - Returns and removes head element
-- remove(Object obj) - Removes specific element
-- clear() - Removes all elements
-- size() - Returns number of elements
+- `add(E element)` - Inserts element
+- `offer(E element)` - Adds element (preferred method)
+- `peek()` - Returns but does not remove head element
+- `poll()` - Returns and removes head element
+- `remove(Object obj)` - Removes specific element
+- `clear()` - Removes all elements
+- `size()` - Returns number of elements
 
-Example with Custom Comparator:
+### Difference Between `add` and `offer`
+
+Both `add` and `offer` methods are used to insert elements into the priority queue.
+
+- `add(E element)`:
+  - Throws an `IllegalStateException` if the queue has a fixed capacity and is full.
+  - Suitable for cases where you are certain the queue can accommodate the new element.
+
+- `offer(E element)`:
+  - Returns `true` if the element was successfully added, or `false` if the queue is full (in case of a bounded queue).
+  - Preferred for scenarios where you want to handle capacity constraints gracefully without exceptions.
+
+## Example
 
 ```java
 // Custom comparator for reverse order
@@ -64,18 +83,12 @@ while(!pQueue.isEmpty()) {
 }
 ```
 
-Time Complexity:
+## Complexity
 
-- Insertion (offer/add): O(log n)
-- Removal (poll): O(log n)
-- Peek: O(1)
-- Contains: O(n)
-- Size: O(1)
-
-Common Use Cases:
-
-- Task scheduling by priority
-- Event handling systems
-- Dijkstra's shortest path algorithm
-- Huffman coding compression
-- Network traffic prioritization
+| Operation | Time        | Space  |
+| --------- | ----------- | ------ |
+| Insertion | $O(\log n)$ | $O(1)$ |
+| Removal   | $O(\log n)$ | $O(1)$ |
+| Peek      | $O(1)$      | $O(1)$ |
+| Contains  | $O(n)$      | $O(1)$ |
+| Size      | $O(1)$      | $O(1)$ |

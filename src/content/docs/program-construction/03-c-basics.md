@@ -26,8 +26,9 @@ Memory layout in C is similar to the image below.
 </figcaption>
 </figure>
 
-- data - initialized variables
-- bss - uninitialized variables
+- text - readonly. stores compiled machine code. fixed size, determined at compile time.
+- data - initialized variables. stores global and static variables. readable & writable. fixed size, determined at compile time.
+- bss - short for block started by symbol. uninitialized variables. stores global and static variables that are uninitialized or initialized to 0. fixed size, determined at compile time. automatically initialized to 0 by OS.
 - heap and stack grows in the opposite directions
 - heap can have gaps but stack cannot
 

@@ -59,11 +59,11 @@ Cannot hold primitive types, like int, char, etc. Wrapper classes are needed.
   Return an array containing all of the elements in the list in the correct
   order.
 
-## Complexity of Java ArrayList
+## Complexity
 
-| Operation                        | Time complexity | Space complexity |
-| -------------------------------- | --------------- | ---------------- |
-| Inserting Element in ArrayList   | $O(1)$          | $O(n)$           |
-| Removing Element from ArrayList  | $O(n)$          | $O(1)$           |
-| Traversing Elements in ArrayList | $O(n)$          | $O(n)$           |
-| Replacing Elements in ArrayList  | $O(1)$          | $O(1)$           |
+| Operation                        | Time   | Space  |
+| -------------------------------- | ------ | ------ |
+| Inserting Element in ArrayList   | $O(1)$ | $O(n)$ |
+| Removing Element from ArrayList  | $O(n)$ | $O(1)$ |
+| Traversing Elements in ArrayList | $O(n)$ | $O(n)$ |
+| Replacing Elements in ArrayList  | $O(1)$ | $O(1)$ |

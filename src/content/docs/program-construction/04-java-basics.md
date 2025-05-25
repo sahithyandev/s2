@@ -28,9 +28,15 @@ deallocated implicitly (by the runtime).
 
 ## Object overhead
 
-In a 32-bit system, `int` type is stored using 4 bytes. But `Integer` object
-will require 16 bytes of memory. The reason for this is, to accomodate for the
-object metadata (such as class pointer, flags, lock, size, etc.)
+In Java, objects have additional memory overhead due to metadata stored alongside the actual data.
+
+For example, in a 32-bit system, a primitive `int` requires 4 bytes of memory; An `Integer` object, requires 16 bytes. The extra memory is used to store object metadata:
+- class pointer: A reference to the class metadata that defines the object's structure and behavior.
+- flags: Indicators used to store object-specific state information, such as garbage collection status.
+- synchronization locks: Mechanisms to manage thread-safe access to the object. More on this [here](/program-construction/concurrency/).
+- object size information: Data about the memory footprint of the object.
+
+These metadata are essential for the Java Virtual Machine (JVM) to manage objects effectively.
 
 ## Collections framework
 
