@@ -39,7 +39,5 @@ overcome development and architectural problems.
   - [Interpreter Pattern](/program-construction/behavioral-design-patterns#interpreter-pattern)
   - [Iterator Pattern](/program-construction/behavioral-design-patterns#iterator-pattern)
   - [Mediator Pattern](/program-construction/behavioral-design-patterns#mediator-pattern)
-  - [Observer Pattern](/program-construction/behavioral-design-patterns#observer-pattern)
-
 
 All design patterns are included here for the sake of completeness.

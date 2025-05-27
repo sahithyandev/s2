@@ -15,11 +15,13 @@ Aims to minimize memory usage by sharing as much data as possible with similar
 objects. A way of optimization. Useful when dealing with a large number of
 objects that have some shared state.
 
-- **Flyweight Factory**: This factory ensures that flyweight objects are shared
+- Flyweight Factory: This factory ensures that flyweight objects are shared
   and reused. It maintains a pool of flyweight objects and returns existing
   objects from the pool instead of creating new ones.
-- **Flyweight Object**: This object contains the intrinsic state and methods to
+- Flyweight Object: This object contains the intrinsic state and methods to
   operate on it.
+
+Used in applications like text editors, game development, graphics systems, caching systems, and document management systems.
 
 ```java
 // Flyweight interface
@@ -204,12 +206,12 @@ Lets you attach new behaviors to objects by placing them inside wrapper objects
 that contain these behaviors. Provides a flexible alternative to subclassing for
 extending functionality.
 
-- **Component**: Defines the interface for objects that can have
+- Component: Defines the interface for objects that can have
   responsibilities added to them.
-- **Concrete Component**: The base object that responsibilities can be added to.
-- **Decorator**: Maintains a reference to a Component object and implements the
+- Concrete Component: The base object that responsibilities can be added to.
+- Decorator: Maintains a reference to a Component object and implements the
   Component interface.
-- **Concrete Decorator**: Adds responsibilities to the component.
+- Concrete Decorator: Adds responsibilities to the component.
 
 ```java
 // Component interface
@@ -296,16 +298,12 @@ public class DecoratorPatternExample {
 }
 ```
 
-In this example, we can add milk and sugar to a simple coffee by wrapping it
-with decorator objects. Each decorator adds its own behavior while maintaining
-the same interface as the base coffee object.
-
 ## Facade Pattern
 
 Provides a simplified interface to a larger body of code, making a subsystem easier to use. It hides the complexities of the system and provides a unified interface to the client.
 
-- **Facade**: The class that provides a simplified interface to the subsystem.
-- **Subsystem Classes**: The classes that perform the actual work and contain the complex logic.
+- Facade: The class that provides a simplified interface to the subsystem.
+- Subsystem Classes: The classes that perform the actual work and contain the complex logic.
 
 ```java
 // Subsystem classes
@@ -384,21 +382,19 @@ public class FacadePatternExample {
 }
 ```
 
-In this example, the `ComputerFacade` class provides a simplified interface to start and shut down the computer, hiding the complexities of the subsystem classes (`CPU`, `Memory`, and `HardDrive`).
-
 ## Proxy Pattern
 
 The Proxy Pattern provides a surrogate or placeholder for another object to control access to it. It is used to add an additional layer of control, such as lazy initialization, access control, logging, or caching, without changing the original object's code.
 
-- **Proxy**: The class that acts as an intermediary between the client and the real object.
-- **Real Subject**: The actual object that the proxy represents.
-- **Client**: The object that interacts with the proxy.
+- Proxy: The class that acts as an intermediary between the client and the real object.
+- Real Subject: The actual object that the proxy represents.
+- Client: The object that interacts with the proxy.
 
 ### Types of Proxy
-1. **Virtual Proxy**: Used for lazy initialization and caching.
-2. **Protection Proxy**: Controls access to the real object based on permissions.
-3. **Remote Proxy**: Represents an object located in a different address space.
-4. **Smart Proxy**: Adds additional functionality, such as reference counting or logging.
+1. Virtual Proxy: Used for lazy initialization and caching.
+2. Protection Proxy: Controls access to the real object based on permissions.
+3. Remote Proxy: Represents an object located in a different address space.
+4. Smart Proxy: Adds additional functionality, such as reference counting or logging.
 
 ```java
 // Subject interface
@@ -457,15 +453,13 @@ public class ProxyPatternExample {
 }
 ```
 
-In this example, the `ProxyImage` class acts as a proxy for the `RealImage` class. The real image is only loaded from disk when it is needed, demonstrating lazy initialization. The client interacts with the proxy as if it were the real object.
-
 ## Composite Pattern
 
-The Composite Pattern is a structural design pattern that allows you to compose objects into tree-like structures to represent part-whole hierarchies. It lets clients treat individual objects and compositions of objects uniformly.
+Allows you to compose objects into tree-like structures to represent part-whole hierarchies. It lets clients treat individual objects and compositions of objects uniformly.
 
-- **Component**: Declares the interface for objects in the composition.
-- **Leaf**: Represents the leaf objects in the composition. A leaf has no children.
-- **Composite**: Represents a node that can have children. Implements the component interface and stores child components.
+- Component: Declares the interface for objects in the composition.
+- Leaf: Represents the leaf objects in the composition. A leaf has no children.
+- Composite: Represents a node that can have children. Implements the component interface and stores child components.
 
 This pattern is particularly useful when you need to work with tree structures, such as representing a file system, organization hierarchies, or graphical user interfaces.
 
@@ -535,16 +529,14 @@ public class CompositePatternExample {
 }
 ```
 
-In this example, the `CompositeGraphic` class allows you to group multiple `Graphic` objects (both `Circle` and `Rectangle`) and treat them as a single object. The client can interact with both individual objects and composites in the same way, simplifying the code.
-
 ## Adapter Pattern
 
-The Adapter Pattern is a structural design pattern that allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of one class into another that the client expects.
+Allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of one class into another that the client expects.
 
-- **Target Interface**: Defines the domain-specific interface that the client uses.
-- **Adapter**: Implements the target interface and translates requests from the client to the adaptee.
-- **Adaptee**: The existing class that needs to be adapted.
-- **Client**: The object that interacts with the target interface.
+- Target Interface: Defines the domain-specific interface that the client uses.
+- Adapter: Implements the target interface and translates requests from the client to the adaptee.
+- Adaptee: The existing class that needs to be adapted.
+- Client: The object that interacts with the target interface.
 
 This pattern is particularly useful when integrating legacy code with new systems or when working with third-party libraries that have different interfaces.
 
@@ -626,5 +618,3 @@ public class AdapterPatternExample {
     }
 }
 ```
-
-In this example, the `MediaAdapter` class adapts the `AdvancedMediaPlayer` class to the `MediaPlayer` interface, allowing the `AudioPlayer` to play both `mp4` and `vlc` files in addition to `mp3` files. The client interacts with the `MediaPlayer` interface without worrying about the underlying implementation details.

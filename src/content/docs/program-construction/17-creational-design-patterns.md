@@ -125,7 +125,7 @@ connection instance is required at runtime.
 Provides an interface for creating objects of different types. The type of the
 object is passed to the factory method.
 
-Used in
+Used in notification systems (e.g., email, SMS, push notifications), payment gateways (e.g., creating objects for different payment methods like credit card, PayPal, etc.), and document converters (e.g., converting files to PDF, Word, or Excel formats).
 
 ```java
 // Step 1: Define an interface for notifications
