@@ -1,0 +1,188 @@
+---
+title: System of Linear Equations
+sidebar:
+  order: 5
+slug: methods-of-mathematics/numerical-methods/system-of-linear-equations
+prev: true
+next: true
+---
+
+A linear equation is an equation that may be put in the form:
+
+```math
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n = b_1
+```
+
+where $x_1, x_2, x_3, \cdots, x_n$ are variables, $a$’s are coefficients, and $b_1$ is constant.
+
+A system of linear equations (or linear system) is a collection of linear equations involving the same set of variables.
+
+A general system of $n$ linear equations with $n$ unknowns can be written as:
+
+```math
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + \cdots + a_{1n}x_n &= b_1 \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + \cdots + a_{2n}x_n &= b_2 \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 + \cdots + a_{3n}x_n &= b_3 \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + a_{n3}x_3 + \cdots + a_{nn}x_n &= b_n
+\end{aligned}
+```
+
+It can also be written in matrix form:
+
+```math
+A \vec{X} = \vec{B}
+```
+where $A$ is called the coefficient matrix, $\vec{X}$ is a variable or unknown matrix, and $\vec{B}$ is a constant matrix.
+
+```math
+\begin{pmatrix}
+  {11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+  a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
+  a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+  \vdots & \vdots & \vdots & \ddots & \vdots \\
+  a_{n1} & a_{n2} & a_{n3} & \cdots & a_{nn}
+\end{pmatrix}
+\begin{pmatrix}
+  x_1 \\
+  x_2 \\
+  x_3 \\
+  \vdots \\
+  x_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+b_3 \\
+\vdots \\
+b_n
+\end{pmatrix}
+```
+
+## Iterative Techniques
+
+### Jacobi Method
+
+A slow method. Solve the $i$th equation in $A\vec{X} = \vec{B}$ for $x_i$ to obtain (provided $a_{ii} \neq 0$)
+
+```math
+x_i = \sum_{j=1, j \neq i}^{n} \left( -\frac{a_{ij}x_j}{a_{ii}} \right) + \frac{b_i}{a_{ii}}, \quad i = 1, 2, \ldots, n
+```
+
+For each $k \geq 1$, generate the components $x_i^{(k)}$ of $\vec{X}^{(k)}$ using the components of previous iteration $\vec{X}^{(k-1)}$ for each $i = 1, 2, \ldots, n$ using:
+```math
+x_i^{(k)} = \frac{1}{a_{ii}} \left[ -\sum_{j=1, j \neq i}^{n} a_{ij}x_j^{(k-1)} + b_i \right]
+```
+
+#### Diagonally dominant matrix
+
+$A_{n\times n}$ is diagonally dominant **when** $\forall i \in \{1, 2, \ldots, n\}$:
+
+```math
+\lvert a_{ii} \rvert \ge \sum_{j=1,j\neq i}^{n} \lvert a_{ij} \rvert
+```
+
+$A_{n\times n}$ is strictly diagonally dominant **when** $\forall i \in \{1, 2, \ldots, n\}$:
+```math
+\lvert a_{ii} \rvert \gt \sum_{j=1,j\neq i}^{n} \lvert a_{ij} \rvert
+```
+
+#### The algorithm
+
+1. Rearrange the given equations, if possible, such that the system becomes diagonally
+dominant.
+2. Select the initial approximation $x_i^{(0)}$ for $i = 1, 2, \ldots, n$.
+3. Use the equation for $x_i$ defined above to generate the sequence of approximate solution using the equation (3.5) until a good enough approximation is obtained.
+
+Relative error is given by:
+```math
+\text{Relative error} = 
+\frac
+{\lVert \vec{X}^{(k)} \rVert - \lVert \vec{X}^{(k - 1)} \rVert}
+{\lVert \vec{X}^{(k)} \rVert}
+```
+
+Here any convenient [matrix norms](https://s1.sahithyan.dev/mathematics/matrices/matrix-norms/) can be used. Usually infinity norm is used.
+
+```math
+l_\infty = 
+\max
+\bigg\{
+    \sum_{j=1}^{n}
+    {\lvert a_{ij} \rvert}
+    \;;\;
+    i \in [1,n]
+\bigg\}
+```
+
+:::note
+The equation $A \vec{X} + \vec{B}$ can be converted to the form $\vec{X} = T\vec{X} + \vec{C}$.
+
+```math
+T = D^{-1}(L + U)
+\land 
+C = D^{-1} \vec{B}
+```
+
+Here:
+- $D$ is a diagonal matrix whose entries are of $A$.
+- $-L$ is the strictly lower-triangular part of $A$.
+- $-U$ is the strictly upper-triangular part of $A$.
+
+:::
+
+### Gauss-Seidel Method
+
+An improvement over the Jacobi method. The components $x_1^{(k)}, \ldots, x_{i-1}^{(k)}$ have already been computed when computing $x_i^{(k)}$ and therefore they can be used to compute the $x_i^{(k)}$ as follows for each $i = 1, 2, \ldots, n$.
+
+```math
+x_i^{(k)} = \frac{1}{a_{ii}} \left[ -\sum_{j=1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k-1)} + b_i \right]
+```
+
+As in Jacobi Method, Gauss-Seidel Method can be written in matrix form as:
+
+```math
+(D - L)\vec{X} = U\vec{X} + \vec{B}
+```
+
+```math
+\vec{X}^{(k)} = (D - L)^{-1}U\vec{X}^{(k-1)} + (D - L)^{-1}\vec{B}, \quad k = 1, 2, 3, \ldots
+```
+
+For $D-L$ to be non-singular, $\forall i \in \{1,2,\dots,n\}\;\; a_{ii} \neq 0$.
+
+This method can also be expressed as:
+
+```math
+\vec{X}^{(k)} = T_g \vec{X}^{(k-1)} + \vec{C}_g \quad k = 1,2,3,\ldots
+```
+
+Here:
+- $T = (D - L)^{-1}U$
+- $\vec{C}_g = (D - L)^{-1}\vec{B}$
+
+## Convergence of iterative methods
+
+### Theorem 1
+
+Suppose $\vec{X}^{(0)} \in R^n$. And $\vec{X}^{(k)} = T \vec{X}^{(k-1)} + \vec{C}, \quad \text{for each } k \geq 1$.
+
+The sequence ${\vec{X}^{(k)}}_{k=0}^\infty$ converges to the unique solution of $\vec{X} = T\vec{X} + \vec{C}$ **iff** $\rho(T) < 1$. Here $\rho$ denotes the [spectral radius](https://s1.sahithyan.dev/mathematics/matrices/eigenvalues-eigenvectors/#spectral-radius).
+
+Suppose a sequence ${\vec{X}^{(k)}}_{k=0}^\infty$ defined by $\vec{X}^{(k)} = T \vec{X}^{(k-1)} + \vec{C}$.
+
+**If** $||T|| < 1$ for any natural matrix norm and $\vec{C}$ is a given vector, **then** for any $\vec{X}^{(0)} \in R^n$, the sequence converges to a vector $\vec{X} \in R^n$, with $\vec{X} = T\vec{X} + \vec{C}$, and the following error bounds hold:
+
+```math
+\lVert\vec{X} - \vec{X}^{(k)}\lVert \leq \lVert T\lVert^k \;\cdot\; \lVert\vec{X} - \vec{X}^{(0)}\lVert
+```
+
+```math
+\lVert\vec{X} - \vec{X}^{(k)}\rVert \leq \frac{\lVert T\rVert^k}{1 - \lVert T\rVert} \lVert\vec{X}^{(1)} - \vec{X}^{(0)}\rVert
+```
+
+### Theorem 2
+
+**If** $A$ is strictly diagonally dominant, **then** for any choice of $X^{(0)}$, both Jacobi and Gauss-Seidel methods gives sequences ${\vec{X}^{(k)}}_{k=0}^\infty$ that converge to the unique solution of $A\vec{X} = \vec{B}$.

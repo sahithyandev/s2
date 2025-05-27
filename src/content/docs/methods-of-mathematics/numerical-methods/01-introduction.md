@@ -56,7 +56,7 @@ When $p$ is unknown and $p*$ is found through iterations, the relative error can
 be used as:
 
 ```math
-\lvert \frac{p_n(x) - p_{n-1}(x)}{p_n(x)} \rvert
+\left\lvert \frac{p_n(x) - p_{n-1}(x)}{p_n(x)} \right\rvert
 ```
 
 Here $p_n(x)$ means the $n$-th approximation of $p$.
@@ -119,7 +119,7 @@ When a algorithm is not stable.
 
 ### Conditionally Stable
 
-When an algorithm is stable only when the input is within a certain range.
+When an algorithm is stable only within a certain input range.
 
 ## Growth of Error
 

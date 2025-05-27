@@ -4,7 +4,7 @@ sidebar:
   order: 4
 slug: methods-of-mathematics/numerical-methods/newtons-method
 prev: true
-next: false
+next: true
 ---
 
 A special case of
