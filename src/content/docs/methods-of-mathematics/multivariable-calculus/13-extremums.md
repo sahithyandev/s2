@@ -4,7 +4,7 @@ sidebar:
   order: 13
 slug: methods-of-mathematics/multivariable-calculus/extremums
 prev: true
-next: false
+next: true
 ---
 
 Revise [Extremums](https://s1.sahithyan.dev/mathematics/real-analysis/extremums/) from S1.

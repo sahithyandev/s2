@@ -178,6 +178,14 @@ clipping of the AC voltage when amplification. Causes the waveform to have
 reduced dynamic range, reduced headroom, increases noise when amplified and
 causes problems with DC-coupled circuits.
 
+- Dynamic Range: Refers to the ratio between the largest and smallest signal levels it can handle effectively. Expressed in decibels (dB).
+
+- Headroom: Difference between the nominal operating level of a system and its maximum level before distortion occurs. It provides a safety margin to accommodate unexpected peaks in the signal without causing clipping or distortion. Adequate headroom ensures the integrity of the signal during amplification or processing.
+
+- Nominal Operating Level: Refers to the standard or reference level at which a system is designed to operate optimally.
+
+- Noise: Refers to any unwanted electrical signals or disturbances that interfere with the desired signal. It can be from thermal noise, electromagnetic interference, or circuit imperfections. Reduces the clarity and quality of the signal.
+
 ### Moving iron instrument
 
 Can be identified by AC symbol. Measures the rms value of the signal.
@@ -190,7 +198,7 @@ Can be identified by DC symbol. Measures the average value of the signal.
 
 Can be identified by diode symbol. Measures the rms value of the rectified
 signal. Full wave rectifier bridge of 4 diodes is used. Assuming the current is
-sinusoidal, the scale of this instrument must be marked in terms of 1.11 timies
+sinusoidal, the scale of this instrument must be marked in terms of 1.11 times
 the current.
 
 ```math
