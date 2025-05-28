@@ -4,7 +4,7 @@ sidebar:
   order: 10
 slug: methods-of-mathematics/numerical-methods/least-squares-approximation
 prev: true
-next: false
+next: true
 ---
 
 ```math
