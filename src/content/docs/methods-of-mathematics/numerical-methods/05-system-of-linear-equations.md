@@ -38,7 +38,7 @@ where $A$ is called the coefficient matrix, $\vec{X}$ is a variable or unknown m
 
 ```math
 \begin{pmatrix}
-  {11} & a_{12} & a_{13} & \cdots & a_{1n} \\
+  a_{11} & a_{12} & a_{13} & \cdots & a_{1n} \\
   a_{21} & a_{22} & a_{23} & \cdots & a_{2n} \\
   a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
   \vdots & \vdots & \vdots & \ddots & \vdots \\
@@ -63,12 +63,14 @@ b_n
 
 ## Iterative Techniques
 
+The solution is guessed and then iteratively improved.
+
 ### Jacobi Method
 
-A slow method. Solve the $i$th equation in $A\vec{X} = \vec{B}$ for $x_i$ to obtain (provided $a_{ii} \neq 0$)
+A slow method for solving systems of linear equations iteratively. An initial guess is made for the solution vector $\vec{X}^{(0)}$. Then iteratively, subsequent approximations are made using the equation: ($x_i$ is made subject in $i$-th equation). $ $
 
 ```math
-x_i = \sum_{j=1, j \neq i}^{n} \left( -\frac{a_{ij}x_j}{a_{ii}} \right) + \frac{b_i}{a_{ii}}, \quad i = 1, 2, \ldots, n
+x_i = \left(\sum_{j=1, j \neq i}^{n}  -\frac{a_{ij}x_j}{a_{ii}} \right) + \frac{b_i}{a_{ii}}, \quad i = 1, 2, \ldots, n
 ```
 
 For each $k \geq 1$, generate the components $x_i^{(k)}$ of $\vec{X}^{(k)}$ using the components of previous iteration $\vec{X}^{(k-1)}$ for each $i = 1, 2, \ldots, n$ using:
@@ -76,7 +78,9 @@ For each $k \geq 1$, generate the components $x_i^{(k)}$ of $\vec{X}^{(k)}$ usin
 x_i^{(k)} = \frac{1}{a_{ii}} \left[ -\sum_{j=1, j \neq i}^{n} a_{ij}x_j^{(k-1)} + b_i \right]
 ```
 
-#### Diagonally dominant matrix
+Cannot be used for singular matrix.
+
+:::note[Diagonally dominant matrix]
 
 $A_{n\times n}$ is diagonally dominant **when** $\forall i \in \{1, 2, \ldots, n\}$:
 
@@ -89,12 +93,7 @@ $A_{n\times n}$ is strictly diagonally dominant **when** $\forall i \in \{1, 2, 
 \lvert a_{ii} \rvert \gt \sum_{j=1,j\neq i}^{n} \lvert a_{ij} \rvert
 ```
 
-#### The algorithm
-
-1. Rearrange the given equations, if possible, such that the system becomes diagonally
-dominant.
-2. Select the initial approximation $x_i^{(0)}$ for $i = 1, 2, \ldots, n$.
-3. Use the equation for $x_i$ defined above to generate the sequence of approximate solution using the equation (3.5) until a good enough approximation is obtained.
+:::
 
 Relative error is given by:
 ```math
@@ -135,10 +134,12 @@ Here:
 
 ### Gauss-Seidel Method
 
-An improvement over the Jacobi method. The components $x_1^{(k)}, \ldots, x_{i-1}^{(k)}$ have already been computed when computing $x_i^{(k)}$ and therefore they can be used to compute the $x_i^{(k)}$ as follows for each $i = 1, 2, \ldots, n$.
+An improvement over the Jacobi method. Major difference from Jacobi method is instead of using values from the previous iteration, here newest approximations for $x_i$ are used. $ $
+
+When computing $x_i^{(k)}$, the components $x_1^{(k)}, \ldots, x_{i-1}^{(k)}$ would have already been computed. They will be used to compute the $x_i^{(k)}$ as follows for each $i = 1, 2, \ldots, n$.
 
 ```math
-x_i^{(k)} = \frac{1}{a_{ii}} \left[ -\sum_{j=1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k-1)} + b_i \right]
+x_i^{(k)} = \frac{1}{a_{ii}} \left[ b_i -\sum_{j=1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k-1)} \right]
 ```
 
 As in Jacobi Method, Gauss-Seidel Method can be written in matrix form as:
