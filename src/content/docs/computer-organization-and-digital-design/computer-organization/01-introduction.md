@@ -10,21 +10,35 @@ next: true
 
 Computer organization defines the internal details of operational units, their interconnection, & control. Defined by the internal registers, timing and control structures, and the set of instructions.
 
+### High level view 
+
+Consists of 4 components.
+- CPU - executes instructions
+- Memory - store program and data
+- I/O - receive inputs and produce outputs
+- Bus - interconnects everything as a data medium
+
+## CPU
+
+Consists of
+- ALU
+- Control Unit
+
 ## Bus
 
 A communication channel that connects different components of a computer system. Provides a way for these components to exchange data and control signals.
 
 ### Address Bus
 
-The bus that carries the memory addresses between the CPU and the memory.
+Carries memory addresses from CPU to memory.
 
 ### Data Bus
 
-The bus that carries the data between the CPU and the memory.
+Carries data between CPU and memory. Bidirectional.
 
 ### Control Bus
 
-The bus that carries control signals between the CPU and the memory.
+Carries control signals from CPU to memory.
 
 ## Register
 
@@ -34,63 +48,60 @@ General purpose registers are used for temporary storage of data and instruction
 
 ### Parallel-in Parallel-out Register
 
-A type of register where all bits of data can be loaded/reaqd simultaneously through parallel lines. Commonly used in applications requiring rapid data access and manipulation, such as in CPU design and digital signal processing.
+All bits of data can be loaded/read simultaneously through parallel lines. Commonly used in applications requiring rapid data access and manipulation, such as in CPU design and digital signal processing.
+
+<figure style="max-width: 800px; margin: 10px auto;">
+
+![4-bit Parallel-in Parallel-out Register](/images/codd/pipo-register.png)
+
+<figcaption>
+
+Image from [NBCAFE](https://www.electronicsengineering.nbcafe.in/parallel-in-parallel-out-shift-register/)
+
+</figcaption>
+</figure>
+
+Clock signal is required.
 
 ### Serial-in Serial-out Register
 
-A type of register where data bits are loaded and read one bit at a time in a sequential manner. Data is shifted through the register 1 bit position at a time with each clock pulse. Commonly used in applications where data transmission bandwidth is limited, such as in serial communication interfaces and data conversion between parallel and serial formats.
+Data bits are loaded and read one bit at a time in a sequential manner. Data is shifted through the register 1 bit position at a time with each clock pulse. Commonly used in applications where data transmission bandwidth is limited, such as in serial communication interfaces and data conversion between parallel and serial formats.
+
+<figure style="max-width: 800px; margin: 10px auto;">
+
+![4-bit Serial-in Serial-out Register](/images/codd/siso-register.png)
+
+<figcaption>
+
+Image from [NBCAFE](https://www.electronicsengineering.nbcafe.in/serial-serial-shift-register-siso/)
+
+</figcaption>
+</figure>
 
 ### Special Purpose Registers
 
-| Register | Description |
-| --- | --- |
-| Program Counter (PC) | Holds the memory address of the next instruction to be executed |
-| Instruction Register (IR) | Holds the current instruction being executed |
-| Memory Address Register (MAR) | Holds the address of the memory location to be accessed |
-| Memory Data Register (MDR) | Holds the data being read from or written to memory |
-| Accumulator (ACC) | Stores intermediate arithmetic and logic results |
-| Status Register / Flag Register | Contains flags that indicate the status of operations (zero, carry, overflow, etc.) |
-| Stack Pointer (SP) | Points to the top of the stack in memory |
-| Index Register | Used for addressing techniques such as indexed addressing |
+| Register                      | Description                                                                         |
+| ----------------------------- | ----------------------------------------------------------------------------------- |
+| Program Counter (PC)          | Holds the memory address of the next instruction to be executed                     |
+| Instruction Register (IR)     | Holds the current instruction being executed                                        |
+| Memory Address Register (MAR) | Holds the address of the memory location to be accessed                             |
+| Memory Data Register (MDR)    | Holds the data being read from or written to memory                                 |
+| Accumulator (ACC)             | Stores intermediate arithmetic and logic results                                    |
+| Status / Flag Register        | Contains flags that indicate the status of operations (zero, carry, overflow, etc.) |
+| Stack Pointer (SP)            | Points to the top of the stack in memory                                            |
+| Index Register                | Used for addressing techniques such as indexed addressing                           |
 
-## Memory organization
+### Flag Register
 
-### Memory cell
+Individual bits indicate status of ALU operations.
 
-Basic element of a semiconductor memory. Carries two stable states: 1 and 0. State can be read or written.
+<figure style="max-width: 800px; margin: 10px auto;">
 
-### Memory chip
+![](/images/codd/flagregister.png)
 
-Contains a 2D array of memory cells.
+<figcaption>
 
-### Word
+Image from [Plantation Productions](https://www.plantation-productions.com/Webster/www.artofasm.com/Linux/HTML/RealArithmetic.html)
 
-Number of bits written to/read from a chip simultaneously.
-
-### Memory module
-
-Collection of memory chips.
-
-<figure style="max-width: 700px; margin: 10px auto;">
-
-![Memory module organization](/images/codd/memory-module-organization.jpg)
-
+</figcaption>
 </figure>
-
-
-### Memory types
-
-#### RAM
-
-Volatile. High-speed read and write. Can either be dynamic (built using capacitors) or static (built using flip flops).
-
-- SRAM: built using flip flops. used for caching.
-- DRAM: built using capacitors. used for main memory.
-
-### ROM
-
-Non-volatile memory.
-
-### PROM
-
-Can be programmed using special tools.
