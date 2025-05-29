@@ -58,7 +58,7 @@ D(a, b) = f_{xx}(a, b)f_{yy} (a, b) − f_{xy}^2(a, b)
 
 ### Saddle point
 
-If $D < 0$, then $f(a, b)$ is not a local maximum or minimum. And $f(a, b)$ is a saddle point. The graph of $f$ has a crosses its tangent plane at $(a, b)$.
+A [critical point](/methods-of-mathematics/multivariable-calculus/directional-derivative/#critical-point) in which it is not a local maximum or local minimum.
 
 ## Closed interval method
 

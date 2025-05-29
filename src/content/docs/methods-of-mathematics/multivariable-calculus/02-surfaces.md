@@ -26,7 +26,7 @@ Plot of a linear function is a plane surfaces.
 
 ### Level curves
 
-Suppose $f: \mathbb{R}^{2} \rightarrow \mathbb{R}$. The level curves of $f$ are
+Aka. contours. Suppose $f: \mathbb{R}^{2} \rightarrow \mathbb{R}$. The level curves of $f$ are
 the graphs $f(x,y)=k$ where $k$ is a constant. Aka. level sets.
 
 ## Common shapes of functions
