@@ -10,7 +10,23 @@ next: true
 A method for maximizing or minimizing a general function $f(x, y, z)$ subject
 to a constraint (or side condition) of the form $g(x, y, z) = k$.
 
-### Theorem
+:::note
+
+Jacobian of the transformation $T$ given by $x=x(u,v)$ and $y=(u,v)$ is
+
+```math
+\frac{\partial(x, y)}{\partial(u, v)} =
+\det
+\begin{bmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{bmatrix} =
+\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}
+```
+
+:::
+
+## Theorem
 
 **Suppose** $f,g \in C^1$ and $\bigtriangledown g \neq 0$. **Then** the extremum(s) of $f(x,y)$ subjected to $g(x,y) = k$ are included in each of:
 
