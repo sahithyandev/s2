@@ -45,7 +45,7 @@ As $i_1$ and $i_2$ are opposing:
 \mathfrak{f} = N_1i_1 - N_2i_2 = \mathcal{R}\phi
 ```
 
-As $f=0$: $ $
+As $\mathcal{R}=0$: $ $
 
 ```math
 I_{2_\text{rms}} = \frac{N_1}{N_2} I_{1_\text{rms}}
@@ -54,7 +54,7 @@ I_{2_\text{rms}} = \frac{N_1}{N_2} I_{1_\text{rms}}
 ## Impedance
 
 ```math
-\frac{Z_2}{Z_1} = (\frac{N_2}{N_1})^2
+\frac{Z_2}{Z_1} = \left(\frac{N_2}{N_1}\right)^2
 ```
 
 Here:
@@ -72,16 +72,15 @@ p_2(t) = p_1(t)
 
 ### Eddy current
 
-Loops of electric current induced within conductors by a changing magnetic field in the conductor, due to Faraday's law of electromagnetic induction. These currents flow in closed loops within the plane of the conductor and can cause significant energy losses in the form of heat.
+Loops of electric current induced within conductors. Current flows in closed loop within a plane. Occurs because of a changing magnetic field in the conductor as described by Faraday's law. Causes significant energy losses as heat.
 
 To reduce eddy currents:
 - Laminated cores: Use thin, insulated layers of magnetic material stacked together to restrict the flow of eddy currents.
 - High-resistivity materials: Use materials with higher electrical resistance to reduce the magnitude of the currents.
-- Core design: Optimize the shape and structure of the core to minimize areas where eddy currents can form.
 
 ### Hysteresis
 
-The lag between the changes in the magnetic flux density ($B$) and the magnetizing force ($H$) in a magnetic material. This phenomenon occurs because the magnetic domains within the material do not align instantaneously with the applied magnetic field. As a result, when the magnetic field is cycled, the $B$-$H$ curve forms a loop, known as the hysteresis loop.
+The lag between the changes in the magnetic flux density ($B$) and the magnetizing force ($H$) in a magnetic material. Occurs because the magnetic domains within the material do not align instantaneously with the applied magnetic field. As a result, when the magnetic field is cycled, the $B$-$H$ curve forms a loop, known as the hysteresis loop.
 
 The area of the hysteresis loop represents the energy lost as heat in the core material during each cycle of magnetization and demagnetization. This loss is known as hysteresis loss.
 

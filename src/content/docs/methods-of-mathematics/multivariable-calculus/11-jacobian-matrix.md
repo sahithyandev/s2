@@ -21,6 +21,20 @@ Jacobian matrix for $f: \mathbb{R}^n \to \mathbb{R}^m$ is defined as: $ $
 \end{pmatrix}
 ```
 
+## Jacobian of a transformation
+
+Jacobian of the transformation $T: x=x(u,v),\;y=(u,v)$ is
+
+```math
+\frac{\partial(x, y)}{\partial(u, v)} =
+\det
+\begin{bmatrix}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{bmatrix} =
+\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial x}{\partial v} \frac{\partial y}{\partial u}
+```
+
 ## Approximation
 
 First order approximation of $f(x)$ around $x_0$ can be obtained by the Jacobian matrix.

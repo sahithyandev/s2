@@ -48,7 +48,7 @@ Here:
 
 - $R_\text{in}$ - Input resistance, very high
 - $R_\text{out}$ - Output resistance, very low
-- $A$ - Gain, ranges from $10^5$ to $10^7$.
+- $A$ - Gain, ranges from $10^5$ to $10^7$
 - $V_{d}$ - voltage difference between input terminals
 - $V_{in}$ - voltage input, ranges between $5V$ and $18V$
 
@@ -76,7 +76,7 @@ resistor. Gain decreases.
 
 ### Positive feedback
 
-The output signal is fed back to the inverting input terminal through a
+The output signal is fed back to the non-inverting input terminal through a
 resistor.
 
 ## Types
@@ -128,7 +128,7 @@ v_0 = -\left(\frac{R_f}{R_1}v_1 + \frac{R_f}{R_2}v_2 + \ldots + \frac{R_f}{R_n}v
 Used to amplify the difference between two input signals.
 
 ```math
-v_0 = \frac{R_B}{R_A}(v_1 - v_2)
+v_0 = \frac{R_2}{R_1}(v_1 - v_2)
 ```
 
 Only valid when:
@@ -141,7 +141,7 @@ Only valid when:
 
 ![Integrator](/images/theory-of-electricity/integrator.jpg)
 
-Input is fed to non-inverting input terminal through a resistor $R$. Inverting
+Input is fed to inverting input terminal through a resistor $R$. Non-inverting
 input terminal is grounded. Negative feedback through a capacitor. Includes a
 reset switch. Output is the integral of the input signal. $ $
 

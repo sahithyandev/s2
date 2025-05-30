@@ -44,12 +44,12 @@ L_p = \frac{N_p \phi_p}{i_p} = \frac{N_p^2 \mu A}{l}
 
 ### Magnetic field strength
 
-Aka. magnetic field intensity. Denoted by $H$ (henry). Measured in ampere per meter ($Am^{-1}$).
+Aka. magnetic field intensity. Denoted by $H$. Measured in $H$ (henry) or ampere per meter ($Am^{-1}$).
 
 ### Magnetic permeability
 
 Measure of magnetization on a material when a magnetic field is applied. Depends
-on the material. Denoted by $\mu$. Meausred in $Hm^{-1}$ or $NA^{-2}$.
+on the material. Denoted by $\mu$. Measured in $Hm^{-1}$ or $NA^{-2}$.
 
 :::note
 
@@ -124,7 +124,7 @@ A_\text{gap} = (\text{width} + \text{gap length}) \times (\text{thickness} + \te
 
 ### Faraday's Law
 
-The magnetic flux passing through a surface A is given by the surface integral:
+The magnetic flux passing through a surface $A$ is given by the surface integral: $ $
 
 ```math
 \phi = \int {B\cdot \text{d}A} = BA

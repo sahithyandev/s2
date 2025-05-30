@@ -119,8 +119,10 @@ impedance. This is also Thevenin's theorem applied to generators in parallel.
 ```math
 E_\text{eq}=
 \frac
+{1}
+{Y_\text{eq}}
+
 {\sum_{k=1}^n E_k Y_k}
-{\sum_{k=1}^n Y_k}
 ```
 
 ```math
