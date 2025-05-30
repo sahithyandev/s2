@@ -2,6 +2,9 @@
 title: Statecharts
 sidebar:
   order: 20
+slug: program-construction/statecharts
+prev: true
+next: false
 ---
 
 ## Finite State Machine

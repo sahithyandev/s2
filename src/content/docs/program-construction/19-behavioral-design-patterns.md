@@ -4,7 +4,7 @@ sidebar:
   order: 19
 slug: program-construction/behavioral-design-patterns
 prev: true
-next: false
+next: true
 ---
 
 Deals with how different kinds of objects interact with each other.
