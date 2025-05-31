@@ -1,7 +1,7 @@
 ---
 title: Recursion
 sidebar:
-  order: 5
+  order: 7
 slug: data-structures-and-algorithms/algorithms/recursion
 prev: true
 next: true

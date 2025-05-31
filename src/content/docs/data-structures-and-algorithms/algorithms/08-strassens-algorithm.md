@@ -1,7 +1,7 @@
 ---
 title: Strassen's Algorithm
 sidebar:
-  order: 6
+  order: 8
 slug: data-structures-and-algorithms/algorithms/strassens-algorithm
 prev: true
 next: true

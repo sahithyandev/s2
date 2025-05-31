@@ -1,17 +1,17 @@
 ---
 title: Dijkstra's Algorithm
 sidebar:
-  order: 8
+  order: 10
 slug: data-structures-and-algorithms/algorithms/dijkstras-algorithm
 prev: true
 next: true
 ---
 
-Finds the shortest path from a single source vertex to another vertices in a grap. Widely used in network routing and other optimization problems. A greedy algorithm.
+A greedy algorithm to find the shortest path from a single source vertex to all other nodes. Widely used in network routing and other optimization problems.
 
 Fails for graphs with negative edge weights. Because a vertex is visited only once.
 
-## Explanation
+### Steps
 
 1. Initialize the distance to the source vertex as 0 and all other vertices as infinity.
 2. Create a priority queue (min-heap) to store vertices based on their current shortest distance.

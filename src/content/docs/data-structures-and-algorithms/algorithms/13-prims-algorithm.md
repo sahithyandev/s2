@@ -1,17 +1,15 @@
 ---
 title: Prim's Algorithm
 sidebar:
-  order: 11
+  order: 13
 slug: data-structures-and-algorithms/algorithms/prims-algorithm
 prev: true
 next: true
 ---
 
-A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Starts with a single vertex and grows the MST one edge at a time by adding the smallest edge that connects a vertex in the MST to a vertex outside the MST.
+A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Starts with a single vertex. Discovered edges are stored in a priority queue. In each turn, MST grows by 1 edge which is the smallest in the discovered edgegs and would not cause a cycle.
 
-Unlike Kruskal's algorithm which sorts all edges at the beginning, Prim's algorithm maintains a priority queue to always select the minimum-weight edge to add next.
-
-## Explanation
+### Steps
 
 1. Initialize a set to keep track of vertices included in MST
 2. Assign key value of $0$ to the first vertex and $\infty$ to all others
@@ -20,7 +18,7 @@ Unlike Kruskal's algorithm which sorts all edges at the beginning, Prim's algori
    - Include this vertex in MST
    - Update key values of adjacent vertices: if the weight of edge is less than the current key value, update the key value
 
-Prim's algorithm works particularly well for dense graphs where the number of edges is close to the maximum possible.
+Works particularly well for dense graphs where the number of edges is close to the maximum possible.
 
 ## Implementation
 
@@ -240,7 +238,7 @@ The space complexity of Prim's algorithm is $O(V + E)$. $ $
 - $O(V)$ for storing the key values, parent array, and MST set.
 - $O(E)$ for storing the graph representation (adjacency list or matrix).
 
-| Graph Type    | Time Complexity     | Space Complexity | Implementation Details              |
-| ------------- | ------------------- | ---------------- | ----------------------------------- |
-| Dense Graphs  | $O(V^2)$            | $O(V^2)$         | Uses adjacency matrix               |
-| Sparse Graphs | $O((V + E) \log V)$ | $O(V + E)$       | Uses adjacency list and binary heap |
+| Graph Type    | Time Complexity     | Space Complexity |
+| ------------- | ------------------- | ---------------- |
+| Dense Graphs  | $O(V^2)$            | $O(V^2)$         |
+| Sparse Graphs | $O((V + E) \log V)$ | $O(V + E)$       |

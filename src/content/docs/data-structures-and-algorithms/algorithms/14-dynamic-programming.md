@@ -1,7 +1,7 @@
 ---
 title: Dynamic Programming
 sidebar:
-  order: 12
+  order: 14
 slug: data-structures-and-algorithms/algorithms/dynamic-programming
 prev: true
 next: false

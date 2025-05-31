@@ -1,39 +1,35 @@
 ---
-title: Minimum Spanning Tree
+title: Spanning Tree
 sidebar:
   order: 7
-slug: data-structures-and-algorithms/data-structures/minimum-spanning-tree
+slug: data-structures-and-algorithms/data-structures/spanning-tree
 prev: true
 next: true
 ---
 
-A subset of the edges of a connected, undirected graph that connects all the
-vertices together, without any cycles, and with the minimum possible total edge
-weight.
+A connected, acyclic subgraph that includes all the vertices of the original graph.
 
-Used in network design, clustering, and image segmentation.
+### Minimum Spanning Tree
 
-### Spanning tree
+A spanning tree with the smallest total edge weight. Defined for weighted graphs. May not be unique.
 
-A subgraph that includes all the vertices of the original graph and is a single
-connected tree.
+- If all weights are different, the MST is unique.
+- If 2 or more edges have the same weight, there are more than 1 MSTs
+- If all edges have the same weight, there are $n^{n-2}$ MSTs
 
-Out of all these spanning trees, MST is the one with the smallest total edge
-weight.
+:::note[Cayley's formula]
+
+The number of distinct spanning trees in a complete unweighted graph is $V^{V-2}$. $ $
+
+:::
 
 ### Steiner spanning tree
 
-A tree that connects a subset of vertices while potentially adding additional vertices (called Steiner points or Steiner vertices) to minimize the total edge weight.
+A spanning tree with a subset of vertices. Terminals are the nodes that are required to be included in the tree. Steiner points are the nodes that are not terminals but can be added to minimize the total edge weight.
 
 ### Minimum Steiner tree
 
 A Steiner spanning tree that has the minimum weight. Finding a minimum Steiner tree is NP-hard, making it computationally more difficult than finding a minimum spanning tree. Useful in network design problems where new junction points can be added to reduce the overall cost of connecting required locations.
-
-:::note[Cayley's formula]
-
-The number of distinct spanning trees in a complete graph with $n$ vertices is $n^{n-2}$.
-
-:::
 
 ## Definitions
 

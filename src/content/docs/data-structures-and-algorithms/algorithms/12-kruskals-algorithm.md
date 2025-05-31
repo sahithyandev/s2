@@ -1,16 +1,15 @@
 ---
 title: Kruskal's Algorithm
 sidebar:
-  order: 10
+  order: 12
 slug: data-structures-and-algorithms/algorithms/kruskals-algorithm
 prev: true
 next: true
 ---
 
-A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Sorts all edges by increasing weights and adds them one by one to
-the MST, ensuring that no cycles are formed.
+A [greedy algorithm](/data-structures-and-algorithms/algorithms/introduction#greedy-algorithm) to find [MST](/data-structures-and-algorithms/data-structures/minimum-spanning-tree/) of a [graph](/data-structures-and-algorithms/data-structures/graph/). Sorts all edges by increasing weights and adds them one by one to the MST, ensuring that no cycles are formed.
 
-## Explanation
+### Steps
 
 1. Sort Edges: All edges are sorted by their weights in ascending order.
 2. Initialize [Union-Find](/data-structures-and-algorithms/data-structures/union-find/): To manage the connected components of the graph.
@@ -18,7 +17,7 @@ the MST, ensuring that no cycles are formed.
    - Check if the edge connects two different components using the Union-Find structure.
    - If it does, add the edge to the MST and merge the two components.
    - If it forms a cycle, skip the edge.
-4. Stop When MST is Complete: The algorithm stops when the MST contains exactly \( V - 1 \) edges, where \( V \) is the number of vertices in the graph.
+4. Stop When MST is Complete: The algorithm stops when the MST contains exactly $V - 1$ edges
 
 ## Implementation
 

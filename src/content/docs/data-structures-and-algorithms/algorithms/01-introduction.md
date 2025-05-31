@@ -35,10 +35,10 @@ Algorithms are specified in either:
 
 ## Algorithm types
 
-### Greedy algorithm
-
-An algorithm that makes the locally optimal choice at each stage with the hope of finding a global optimum.
-
 ### Brute Force algorithm
 
 An algorithm that tries all possible solutions and selects the optimal solution. Solution is optimal. Time of execution can be huge.
+
+### Greedy algorithm
+
+An algorithm that makes the locally optimal choice at each stage with the hope of finding a global optimum.

@@ -1,7 +1,7 @@
 ---
 title: Collision Handling
 sidebar:
-  order: 7
+  order: 9
 slug: data-structures-and-algorithms/algorithms/collision-handling
 prev: true
 next: true

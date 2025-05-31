@@ -1,15 +1,15 @@
 ---
 title: Bellman Ford Algorithm
 sidebar:
-  order: 9
+  order: 11
 slug: data-structures-and-algorithms/algorithms/bellman-ford-algorithm
 prev: true
 next: true
 ---
 
-A dynamic algorithm to find the shortest paths from a single source vertex to all other vertices in a weighted graph. Can handle graphs with negative weight edges.
+A dynamic algorithm to find the shortest paths from a source node to all other node in a weighted graph. Can handle graphs with negative weight edges. Fails for graphs with negative weight cycle.
 
-## Explanation
+### Steps
 
 1. Initialize the distance to the source vertex as 0 and all other vertices as infinity.
 2. Relax all edges $V - 1$ times. For each edge $(u, v)$ with weight $w$, if $\text{dist}(u) + w < \text{dist}(v)$, update the distance to $v$.
