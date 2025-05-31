@@ -19,6 +19,27 @@ There are 3 types of DFS.
 
 Space complexity is $O(h)$ where $h$ is the height of the tree.
 
+```cpp
+#include "iostream"
+
+using namespace std;
+
+struct Node {
+    int value;
+    Node* left;
+    Node* right;
+};
+
+void postOrderTraversal(Node* root) {
+    if (root->left != NULL) {
+        root->left->postOrderTraversal();
+    }
+    if (root->right != NULL) {
+        root->right->postOrderTraversal();
+    }
+    cout << root->value << " ";}
+```
+
 ## In [Graphs](/data-structures-and-algorithms/data-structures/graph)
 
 Uses a stack to track the path.
