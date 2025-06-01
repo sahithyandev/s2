@@ -51,40 +51,40 @@ int main() {
 Container classes are used to store and manage collections of data. Categorized into three types:
 
 - Sequence Containers: Store elements in a linear order.
-  - `std::vector`: Dynamic array that can grow or shrink in size.
-  - `std::deque`: Double-ended queue that allows insertion and deletion at both ends.
-  - `std::list`: Doubly linked list for efficient insertion and deletion.
-  - `std::stack`: Adapts other containers to provide stack (LIFO) functionality.
-  - `std::queue`: Adapts other containers to provide queue (FIFO) functionality.
-  - `std::priority_queue`: Provides a container adapter that maintains elements in a priority order.
+  - [`std::vector`](https://en.cppreference.com/w/cpp/container/vector): Dynamic array that can grow or shrink in size.
+  - [`std::deque`](https://en.cppreference.com/w/cpp/container/deque): Double-ended queue that allows insertion and deletion at both ends.
+  - [`std::list`](https://en.cppreference.com/w/cpp/container/list): Doubly linked list for efficient insertion and deletion.
+  - [`std::stack`](https://en.cppreference.com/w/cpp/container/stack): Adapts other containers to provide stack (LIFO) functionality.
+  - [`std::queue`](https://en.cppreference.com/w/cpp/container/queue): Adapts other containers to provide queue (FIFO) functionality.
+  - [`std::priority_queue`](https://en.cppreference.com/w/cpp/container/priority_queue): Provides a container adapter that maintains elements in a priority order.
 
 - Associative Containers: Store elements in a sorted order and allow fast retrieval based on keys.
-  - `std::set`: Stores unique elements in sorted order.
-  - `std::map`: Stores key-value pairs with unique keys in sorted order.
+  - [`std::set`](https://en.cppreference.com/w/cpp/container/set): Stores unique elements in sorted order.
+  - [`std::map`](https://en.cppreference.com/w/cpp/container/map): Stores key-value pairs with unique keys in sorted order.
 
 - Unordered Containers: Store elements in an unsorted order but provide faster average lookup times using hash tables.
-  - `std::unordered_set`: Stores unique elements without any specific order.
-  - `std::unordered_map`: Stores key-value pairs without any specific order.
+  - [`std::unordered_set`](https://en.cppreference.com/w/cpp/container/unordered_set): Stores unique elements without any specific order.
+  - [`std::unordered_map`](https://en.cppreference.com/w/cpp/container/unordered_map): Stores key-value pairs without any specific order.
 
 ### Algorithms
 
-- `std::sort`: Sorts elements in a range.
-- `std::find`: Searches for a specific value in a range.
-- `std::accumulate`: Computes the sum of elements in a range.
+- [`std::sort`](https://en.cppreference.com/w/cpp/algorithm/sort): Sorts elements in a range.
+- [`std::find`](https://en.cppreference.com/w/cpp/algorithm/find): Searches for a specific value in a range.
+- [`std::accumulate`](https://en.cppreference.com/w/cpp/algorithm/accumulate): Computes the sum of elements in a range.
 
 ### Iterators
 
 Allow traversal of elements in a container. They provide a way to access elements sequentially without exposing the underlying representation. Common types of iterators:
-- `std::begin` and `std::end`: Used to obtain iterators pointing to the beginning and end of a container.
-- `std::advance`: Moves an iterator forward by a specified number of steps.
+- [`std::begin`](https://en.cppreference.com/w/cpp/iterator/begin) and [`std::end`](https://en.cppreference.com/w/cpp/iterator/end): Used to obtain iterators pointing to the beginning and end of a container.
+- [`std::advance`](https://en.cppreference.com/w/cpp/iterator/advance): Moves an iterator forward by a specified number of steps.
 
 ### Utilities
 
-- `std::pair` and `std::tuple`: Used to group multiple values together.
-- `std::function`: Encapsulates callable objects like functions, lambdas, and functors.
-- `std::unique_ptr` and `std::shared_ptr`: Smart pointers for managing dynamic memory.
+- [`std::pair`](https://en.cppreference.com/w/cpp/utility/pair) and [`std::tuple`](https://en.cppreference.com/w/cpp/utility/tuple): Used to group multiple values together.
+- [`std::function`](https://en.cppreference.com/w/cpp/utility/functional/function): Encapsulates callable objects like functions, lambdas, and functors.
+- [`std::unique_ptr`](https://en.cppreference.com/w/cpp/memory/unique_ptr) and [`std::shared_ptr`](https://en.cppreference.com/w/cpp/memory/shared_ptr): Smart pointers for managing dynamic memory.
 
 ### Input/Output
 
-- `std::cin` and `std::cout`: Used for console input and output.
-- `std::fstream`: Used for file input and output.
+- [`std::cin`](https://en.cppreference.com/w/cpp/io/cin) and [`std::cout`](https://en.cppreference.com/w/cpp/io/cout): Used for console input and output.
+- [`std::fstream`](https://en.cppreference.com/w/cpp/io/basic_fstream): Used for file input and output.
