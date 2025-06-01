@@ -81,6 +81,13 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
     label: "Data Structures & Algorithms",
     items: [
       {
+        label: "Common",
+        collapsed: true,
+        autogenerate: {
+          directory: "data-structures-and-algorithms/common",
+        },
+      },
+      {
         label: "Algorithms",
         collapsed: true,
         autogenerate: {
