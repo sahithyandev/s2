@@ -10,7 +10,7 @@ next: true
 A rearranged version of Newton's Divided Difference Interpolating Polynomial.
 
 ```math
-L_{n,k} = \prod_{i=0,i\neq k}^{n} \frac{x - x_i}{x_k - x_i}
+L_{n,k}(x) = \prod_{i=0,i\neq k}^{n} \frac{x - x_i}{x_k - x_i}
 ```
 
 $n$-th Lagrange interpolating polynomial is: $ $

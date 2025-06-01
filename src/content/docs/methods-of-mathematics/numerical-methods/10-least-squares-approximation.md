@@ -44,8 +44,9 @@ P_n(x) = \sum_{i=1}^{n} a_i x^i
 
 Here $n \lt m-1$. $ $
 
-The constants $a_i$ can be found by solving: $ $
+The constants $a_i$ can be found by solving the system of equations: $ $
 
 ```math
 \sum_{k=0}^n \left\{a_k \sum_{i=1}^m x_i^{j+k} \right\} = \sum_{i=1}^m y_i x_i^{j}
+\;\;\text{where}\; j = 0,1,\dots,n
 ```

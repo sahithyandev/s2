@@ -1,9 +1,8 @@
 ---
-title: Divided Difference Interpolating Polynomials
+title: Newton's Interpolating Polynomials
 sidebar:
   order: 7
-slug: >-
-  methods-of-mathematics/numerical-methods/divided-difference-interpolating-polynomials
+slug: methods-of-mathematics/numerical-methods/newton-interpolating-polynomials
 prev: true
 next: true
 ---

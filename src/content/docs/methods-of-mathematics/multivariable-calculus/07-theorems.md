@@ -34,7 +34,8 @@ Let
 
 :::
 
-## Clairaut
+## Schwarz's theorem
+Aka. Clairaut's theorem on equality of mixed partials.
 
 Let $D \subset \mathbb{R}^2$ be open. Let $f: D \rightarrow \mathbb{R}$. **If**
 $f_{xy}$ and $f_{yx}$ are continous on $D$ **then** $f_{xy}=f_{yx}$.

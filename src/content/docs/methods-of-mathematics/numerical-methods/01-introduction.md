@@ -11,24 +11,21 @@ next: true
 ## Round-Off Errors
 
 The error that is produced when a calculator or computer is used to perform real
-number calculations is called round-off error. Real numbers are typically
-represented in computers using floating-point form.
+number calculations. Real numbers are typically represented in computers using floating-point form.
 
 ## Machine Numbers
 
 Represented in the normalized decimal floating-point form.
 
 ```math
-\pm\;0.d_{1}d_{2}\ldots d_{k}\times 10^{n},\quad 1\leq d_{1}\leq 9,\ \text{and}\ 0 \leq d_{i}\leq 9
+\pm\;0.d_{1}d_{2}\ldots d_{k}\times 10^{n}\;\;\text{where}\;\;1\leq d_{1}\leq 9,\ \text{and}\ 0 \leq d_{i}\leq 9
 ```
 
-Aka. k-digit decimal machine numbers. Any positive real number can be written in
-the above form.
+Aka. $k$-digit decimal machine numbers. Any positive real number can be written in the above form. $ $
 
-The floating-point form of $y$, denoted $fl(y)$, is obtained by terminating the
-mantissa of $y$ at $k$ decimal digits. There are 2 common ways of performing
-this termination.
+### Floating point form
 
+Denoted as $fl(y)$. Obtained by terminating the mantissa of $y$ at $k$ decimal digits. The termination can be done in 2 ways:
 - chopping: chop off the digits $d_{k+1}d_{k+2} \dots$ to produce the
   floating-point form
 - rounding: when $d_{k+1} ≥ 5$, add $1$ to $d_k$ to obtain $fl(y)$ and then chop
@@ -123,8 +120,7 @@ When an algorithm is stable only within a certain input range.
 
 ## Growth of Error
 
-Suppose $E_0 \gt 0$ denotes an error introduced at some stage in the
-calculations. $E_n$ represents the error after $n$ subsequent operations.
+Suppose $E_0 \gt 0$ denotes an error introduced in a calculation. $E_n$ represents the error after $n$ subsequent operations.
 
 ### Linear growth
 
@@ -164,12 +160,10 @@ Suppose $\lim_\limits{h \to 0} G(h) = 0$ and $\lim_\limits{h \to 0} F(h) = L$.
 
 ## Numerical solution of non-linear equations
 
-Non-linear function is a function whose graph is not a straight line. A solution
-to the equation $f(x) = 0$ (aka. root of the equation or zero of the function
-$f$) is a numerical value of $x$ that satisfies the equation.
+Non-linear function is a function whose graph is not a straight line.
 
-In many situations, non-linear equations cannot be solved analytically. In this
-case, therefore, the solutions of the equations must be approached using
+In many situations, non-linear equations cannot be solved analytically. In that
+case, the solutions of the equations must be approached using
 iterative methods. The principle of these methods of solving consists in
 starting from an arbitrary point, the closest possible point to the solution
 sought, and involves arriving at the solution gradually through successive

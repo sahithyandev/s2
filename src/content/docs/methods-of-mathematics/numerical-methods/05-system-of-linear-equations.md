@@ -142,27 +142,23 @@ When computing $x_i^{(k)}$, the components $x_1^{(k)}, \ldots, x_{i-1}^{(k)}$ wo
 x_i^{(k)} = \frac{1}{a_{ii}} \left[ b_i -\sum_{j=1}^{i-1} a_{ij}x_j^{(k)} - \sum_{j=i+1}^{n} a_{ij}x_j^{(k-1)} \right]
 ```
 
-As in Jacobi Method, Gauss-Seidel Method can be written in matrix form as:
+:::note
+
+The equation $A \vec{X} + \vec{B}$ can be converted to the form: $\vec{X} = T\vec{X} + \vec{C}$.
 
 ```math
-(D - L)\vec{X} = U\vec{X} + \vec{B}
-```
-
-```math
-\vec{X}^{(k)} = (D - L)^{-1}U\vec{X}^{(k-1)} + (D - L)^{-1}\vec{B}, \quad k = 1, 2, 3, \ldots
+\vec{X} = (D - L)^{-1} U\vec{X} + (D - L)^{-1}\vec{B}
+\quad k = 1, 2, 3, \ldots
 ```
 
 For $D-L$ to be non-singular, $\forall i \in \{1,2,\dots,n\}\;\; a_{ii} \neq 0$.
 
-This method can also be expressed as:
-
-```math
-\vec{X}^{(k)} = T_g \vec{X}^{(k-1)} + \vec{C}_g \quad k = 1,2,3,\ldots
-```
-
 Here:
-- $T = (D - L)^{-1}U$
-- $\vec{C}_g = (D - L)^{-1}\vec{B}$
+- $D$ is a diagonal matrix whose entries are of $A$.
+- $-L$ is the strictly lower-triangular part of $A$.
+- $-U$ is the strictly upper-triangular part of $A$.
+
+:::
 
 ## Convergence of iterative methods
 
@@ -171,8 +167,6 @@ Here:
 Suppose $\vec{X}^{(0)} \in R^n$. And $\vec{X}^{(k)} = T \vec{X}^{(k-1)} + \vec{C}, \quad \text{for each } k \geq 1$.
 
 The sequence ${\vec{X}^{(k)}}_{k=0}^\infty$ converges to the unique solution of $\vec{X} = T\vec{X} + \vec{C}$ **iff** $\rho(T) < 1$. Here $\rho$ denotes the [spectral radius](https://s1.sahithyan.dev/mathematics/matrices/eigenvalues-eigenvectors/#spectral-radius).
-
-Suppose a sequence ${\vec{X}^{(k)}}_{k=0}^\infty$ defined by $\vec{X}^{(k)} = T \vec{X}^{(k-1)} + \vec{C}$.
 
 **If** $||T|| < 1$ for any natural matrix norm and $\vec{C}$ is a given vector, **then** for any $\vec{X}^{(0)} \in R^n$, the sequence converges to a vector $\vec{X} \in R^n$, with $\vec{X} = T\vec{X} + \vec{C}$, and the following error bounds hold:
 

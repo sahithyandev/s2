@@ -23,7 +23,7 @@ Let the midpoint $m = \frac{1}{2}(a + b)$. $ $
 - **If** $f(m) \cdot f(b) < 0$, **then** the root lies in $[m, b]$, so the
   interval is updated to $[m, b]$.
 
-## Implementation
+### Code example
 
 ```py
 def bisection(f, a, b, tolerance=1e-6):
@@ -43,8 +43,13 @@ def bisection(f, a, b, tolerance=1e-6):
 ## Bisection theorem
 
 Suppose $f$ is continuous in $[a, b]$ and $f(a) \cdot f(b) < 0$. The bisection
-generates a sequence $p_n$ such that $|p_n - c| \leq \frac{b - a}{2^n}$ where
-$c$ is a root of $f$.
+generates a sequence $p_n$ such that:
+
+```math
+|p_n - c| \leq \frac{b - a}{2^n}
+```
+
+Here $c$ is a root of $f$.
 
 ## Properties
 
@@ -60,5 +65,4 @@ $c$ is a root of $f$.
 - Slow convergence
 - Cannot approximate solutions for even functions and more
 - Cannot determine complex roots
-- Cannot be applied if there are discontinuities
-- Cannot be applied if its sign doesn't change in the interval
+- Cannot be applied if there are discontinuities or its sign doesn't change in the interval
