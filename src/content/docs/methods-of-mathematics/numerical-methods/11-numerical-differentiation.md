@@ -19,7 +19,7 @@ f'(x_0) = \frac{f(x_0+h) - f(x_0)}{h} + \frac{h}{2!} f^{(2)}(\epsilon)
 
 Here $h$ is a small positive number, and is called the step size. $ $
 
-Error is bounded by :
+Error is bounded by: $ $
 
 ```math
 \frac{M \lvert h \rvert}{2}
@@ -28,7 +28,7 @@ Error is bounded by :
 ### Forward difference formula
 
 ```math
-f'(x_0) \approx \frac{f(x_0+h) - f(x_0)}{h}
+f'(x_0) = \frac{f(x_0+h) - f(x_0)}{h} + O(h)
 ```
 
 Here $M$ is a bound on $f^{(2)}(x)$ between $x_0$ and $x_0 + h$.
@@ -36,7 +36,7 @@ Here $M$ is a bound on $f^{(2)}(x)$ between $x_0$ and $x_0 + h$.
 ### Backward difference formula
 
 ```math
-f'(x_0) \approx \frac{f(x_0) - f(x_0 - h)}{h}
+f'(x_0) \approx \frac{f(x_0) - f(x_0 - h)}{h} + O(h)
 ```
 
 Here $M$ is a bound on $f^{(2)}(x)$ between $x_0$ and $x_0 - h$.
@@ -46,7 +46,7 @@ Here $M$ is a bound on $f^{(2)}(x)$ between $x_0$ and $x_0 - h$.
 Aka. three-point mid point formula. Truncated after $2^{\text{nd}}$ derivative. $ $
 
 ```math
-f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - h)}{2h}
+f'(x_0) = \frac{f(x_0 + h) - f(x_0 - h)}{2h} + O(h^2)
 ```
 
 Error is in order of $O(h^2)$ which is better than $O(h)$.
@@ -72,20 +72,38 @@ f^{(2)}(x_0) \approx
 \frac{1}{h^2} \Big[ f(x_0 + 2h) - 2f(x_0 + h) + f(x_0) \Big]
 ```
 
+Error is in the order of $O(h)$. $ $
+
 ### Second backward difference formula 
 
 ```math
-f^{(2)}(x_0) \approx
+f^{(2)}(x_0) =
 \frac{1}{h^2} \Big[ f(x_0) - 2f(x_0 - h) + f(x_0 - 2h) \Big]
++O(h)
 ```
+
+Error is in the order of $O(h)$. $ $
 
 ### Second centered difference formula
 
 ```math
-f^{(2)}(x_0) \approx
+f^{(2)}(x_0) =
 \frac{1}{h^2} \Big[ f(x_0 + h) - 2f(x_0) + f(x_0 - h) \Big]
++ O(h^2)
 ```
 
 ## Accuracy
 
 The accuracy of these divided difference formulas can be increased by including additional terms in the Taylor series. In each step the accuracy is improved by a power of $h$. $ $
+
+```math
+f'(x_0) = 
+
+\frac{1}{h} \left[
+-\frac{3}{2}
+f(x_0)
++2f(x_0+h) 
+-\frac{1}{2}f(x_0+2h)
+\right]
++O(h^2)
+```

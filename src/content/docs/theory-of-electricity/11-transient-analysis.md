@@ -23,7 +23,7 @@ Transient state diminishes over time. Differential equations are used to model t
 
 ## Time Domain
 
-In the time domain, how a signal varies with time is analyzed. This is considered the most intuitive representation as the amplitude of a signal at each point in time is shown. Signals are expressed as a function of time, e.g., $v(t) = V_m \sin(\omega t + \phi)$. Amplitude vs. time is shown. $ $
+How a signal varies with time is analyzed. This is considered the most intuitive representation as the amplitude of a signal at each point in time is shown. Signals are expressed as a function of time, e.g., $v(t) = V_m \sin(\omega t + \phi)$. Amplitude vs. time is shown. $ $
 
 Time domain analysis is particularly useful when the response of a circuit to sudden changes needs to be understood or when non-periodic signals are being analyzed.
 
@@ -31,7 +31,7 @@ Used in analysis of circuit start-up behavior, step responses, and transient eff
 
 ## Frequency Domain
 
-The frequency domain representation shows how much of a signal exists at each frequency, rather than at each time moment. Signals are expressed as a function of frequency, typically using Fourier or Laplace transforms. Amplitude and phase vs. frequency are shown, frequency components of complex signals are revealed
+How much of a signal exists at each frequency is analyzed. Signals are expressed as a function of frequency, typically using Fourier or [Laplace transforms](/theory-of-electricity/laplace-transform/). Amplitude and phase vs. frequency are shown.
 
 By frequency domain analysis, the following aspects can be more easily understood:
 - How different frequency components are responded to by circuits
@@ -46,8 +46,6 @@ Used in filter design, frequency response analysis, impedance calculations are p
 These two representations are mathematically related through transforms:
 - Fourier transform is used to convert from time domain to frequency domain for periodic and some non-periodic signals
 - Laplace transform is considered more general and a wider range of signals, including those with transient components, can be handled by it
-
-In circuit analysis, a switch between these domains is often made by engineers depending on which provides the clearer insight for a particular problem.
 
 :::note
 
@@ -65,8 +63,8 @@ In transient analysis, the behavior is expressed in differential equations. Solv
 
 ### Transient response
 
-Aka. free response. Complementary solution of the differential equation. The equation is solved after setting RHS to 0. The initial conditions (immediately after switch is closed or opened) must be known.
+Aka. free response. Complementary solution of the differential equation. The equation is solved after setting RHS to $0$. The initial conditions (immediately after switch is closed or opened) must be known. $ $
 
 ### Steady-state response
 
-Aka. forced response. Particular solution of the differential equation. All initial conditions are set to 0.
+Aka. forced response. Particular solution of the differential equation. All initial conditions are set to $0$. $ $
