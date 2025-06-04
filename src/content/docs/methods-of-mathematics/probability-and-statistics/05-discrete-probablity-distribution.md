@@ -46,6 +46,10 @@ An equivalent computational formula is:
 F(x) = \sum_{t \leq x} P(X = t)
 ```
 
+```math
+F(x) = F(\lfloor x \rfloor)\;\;\text{for } x \in \mathbb{Z}^{c}
+```
+
 ## Example
 
 Consider a discrete random variable $X$ with the following probability distribution: $ $
@@ -138,7 +142,7 @@ fixed time interval
 \text{Poisson}\bigg(
 \sum_{i=1}^n \lambda_i
 \bigg)
-```
+`k``
 
 :::note[Relation between Poisson and Binomial]
 

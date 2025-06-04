@@ -1,7 +1,10 @@
 ---
 title: First Order ODE
 sidebar:
-  order: 18
+  order: 19
+slug: methods-of-mathematics/multivariable-calculus/first-order-ode
+prev: true
+next: true
 ---
 
 [Solving first order ODE](https://s1.sahithyan.dev/mathematics/ode/first-order-ode/) was introduced in 1st semester. This section extends upon it.

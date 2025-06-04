@@ -1,7 +1,10 @@
 ---
 title: Partial Differential Equations
 sidebar:
-  order: 19
+  order: 20
+slug: methods-of-mathematics/multivariable-calculus/partial-differential-equations
+prev: true
+next: false
 ---
 
 Introduced in [Semester 1](https://s1.sahithyan.dev/mathematics/ode/introduction/#partial-differential-equations).

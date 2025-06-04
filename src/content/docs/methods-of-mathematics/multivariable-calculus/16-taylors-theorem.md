@@ -1,7 +1,7 @@
 ---
 title: Taylor's Theorem
 sidebar:
-  order: 15
+  order: 16
 slug: methods-of-mathematics/multivariable-calculus/taylors-theorem
 prev: true
 next: true

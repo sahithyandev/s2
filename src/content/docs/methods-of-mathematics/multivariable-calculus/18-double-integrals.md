@@ -1,10 +1,10 @@
 ---
 title: Double Integrals
 sidebar:
-  order: 17
+  order: 18
 slug: methods-of-mathematics/multivariable-calculus/double-integrals
 prev: true
-next: false
+next: true
 ---
 
 Suppose $f$ is defined on $R = [a,b] \times [c,d]$.

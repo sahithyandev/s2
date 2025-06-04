@@ -1,7 +1,7 @@
 ---
 title: Extremums
 sidebar:
-  order: 13
+  order: 14
 slug: methods-of-mathematics/multivariable-calculus/extremums
 prev: true
 next: true

@@ -1,7 +1,7 @@
 ---
 title: Hessian Matrix
 sidebar:
-  order: 12
+  order: 13
 slug: methods-of-mathematics/multivariable-calculus/hessian-matrix
 prev: true
 next: true

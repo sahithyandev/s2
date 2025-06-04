@@ -1,7 +1,7 @@
 ---
 title: Lagrange Multipliers
 sidebar:
-  order: 14
+  order: 15
 slug: methods-of-mathematics/multivariable-calculus/lagrange-multipliers
 prev: true
 next: true

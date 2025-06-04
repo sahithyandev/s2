@@ -32,7 +32,13 @@ below form, **then** $f$ is differentiable at $(a,b)$.
 ```
 
 where $\epsilon_1$ and $\epsilon_2$ approach $0$ as $(\Delta x, \Delta y)$
-approach $(0,0)$.
+approach $(0,0)$. OR
+
+$f$ is differentiable at $(a,b)$ **iff** the limit exists:
+
+```math
+\lim_{(x,y)\to(a,b)} \frac{f(x,y)-f(a,b)-f_x(a,b)\Delta x -f_y(a,b)\Delta y }{\sqrt{(x-a)^2+(y-b)^2}}
+```
 
 $f$ is said to be differentiable **iff** it is differentiable at every point in
 its domain. $ $

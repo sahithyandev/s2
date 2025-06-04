@@ -1,7 +1,7 @@
 ---
 title: Jacobian Matrix
 sidebar:
-  order: 11
+  order: 12
 slug: methods-of-mathematics/multivariable-calculus/jacobian-matrix
 prev: true
 next: true
