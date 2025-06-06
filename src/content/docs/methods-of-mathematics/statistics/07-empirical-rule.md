@@ -1,7 +1,7 @@
 ---
 title: Empirical Rule
 sidebar:
-  order: 5
+  order: 7
 slug: methods-of-mathematics/statistics/empirical-rule
 prev: true
 next: true

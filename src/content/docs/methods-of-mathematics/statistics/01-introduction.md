@@ -14,6 +14,10 @@ next: true
 
 A specific group that a researcher aims to study in order to draw meaningful conclusions or make statistical inferences about its characteristics.
 
+### Sample of a population
+
+A subset of the population of interest. Used to represent the population in statistical analysis.
+
 ### Variable of interest
 
 A changing quantity which is being measured in an experimental study.

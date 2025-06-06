@@ -15,6 +15,8 @@ Denoted by $P$. Gives the probability that a discrete random variable $X$ is exa
 \sum_{x} P(x) = 1
 ```
 
+## Parameters
+
 ### Mean
 
 ```math

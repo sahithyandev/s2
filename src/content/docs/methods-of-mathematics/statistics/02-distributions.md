@@ -9,7 +9,7 @@ next: true
 
 A distribution describes how the values of a random variable are spread out. It provides a mathematical function that gives the probability of a random variable taking on each possible value.
 
-## Properties
+## Parameters
 
 ### Mean
 
@@ -20,6 +20,10 @@ Properties:
 - $E(X+c) = E(X) + c$
 - $E(cX) = cE(X)$
 - $E(g(x)) = g(E(x))$, where $g$ is a linear function
+
+### Median
+
+Middle value dividing the distribution into 2 equal parts.
 
 ### Variance
 
@@ -32,8 +36,18 @@ Properties:
 - $\text{Var}(X+Y) = \text{Var}(X) + \text{Var}(Y) + 2\text{Cov}(X,Y)$
 - If $X$ and $Y$ are independent, $\text{Cov}(X,Y) = 0$
 
-Covariance will be defined later in [joint distributions](../joint-distributions).
+### Standard deviation
+
+Square root of variance. Denoted by $\sigma$. $ $
+
+### Skewness
+
+Measure of the asymmetry about its mean. Positive skewness indicates a distribution with a longer right tail.
+
+### Kurtosis 
+
+Measure of the "tailedness" of the distribution. High kurtosis indicates a distribution with heavy tails or outliers.
 
 ### Cumulative Distribution Function
 
-Denoted by $F$. Gives the probability that the random variable $X$ is less than or equal to $x$. Always non-decreasing and has a range of $[0,1]$.
+Denoted by $\hat{F}$. Gives the proportion of observations less than or equal to $x$. Always non-decreasing.

@@ -7,6 +7,8 @@ prev: true
 next: true
 ---
 
+Describes a continuous random variable.
+
 ### Probability Density Function
 
 Denoted by $f$. Does not give the probability at an exact point (which is always 0 for continuous variables). Instead, gives the relative likelihood of the random variable taking on a value in a small interval around a point. $ $

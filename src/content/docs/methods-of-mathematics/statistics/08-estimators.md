@@ -1,7 +1,7 @@
 ---
 title: Estimators
 sidebar:
-  order: 6
+  order: 8
 slug: methods-of-mathematics/statistics/estimators
 prev: true
 next: false

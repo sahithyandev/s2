@@ -121,10 +121,17 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
         },
       },
       {
-        label: "Probability & Statistics",
+        label: "Probability",
         collapsed: true,
         autogenerate: {
-          directory: "methods-of-mathematics/probability-and-statistics",
+          directory: "methods-of-mathematics/probability",
+        },
+      },
+      {
+        label: "Statistics",
+        collapsed: true,
+        autogenerate: {
+          directory: "methods-of-mathematics/statistics",
         },
       },
     ],
