@@ -1,18 +1,15 @@
 ---
 title: Discrete Probability Distribution
 sidebar:
-  order: 5
-slug: >-
-  methods-of-mathematics/probability-and-statistics/discrete-probablity-distribution
+  order: 4
+slug: methods-of-mathematics/probability/discrete-probablity-distribution
 prev: true
 next: true
 ---
 
-## Properties
-
 ### Probability Mass Function
 
-Denoted by $P$. Used for discrete random variables. Gives the probability that a discrete random variable $X$ is exactly equal to some value $x$.
+Denoted by $P$. Gives the probability that a discrete random variable $X$ is exactly equal to some value $x$.
 
 ```math
 \sum_{x} P(x) = 1

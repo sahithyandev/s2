@@ -1,8 +1,8 @@
 ---
 title: Empirical Rule
 sidebar:
-  order: 10
-slug: methods-of-mathematics/probability-and-statistics/empirical-rule
+  order: 5
+slug: methods-of-mathematics/statistics/empirical-rule
 prev: true
 next: true
 ---

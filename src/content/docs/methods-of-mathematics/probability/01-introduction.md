@@ -1,9 +1,9 @@
 ---
-title: Introduction to Probability & Statistics
+title: Introduction to Probability
 sidebar:
   label: Introduction
   order: 1
-slug: methods-of-mathematics/probability-and-statistics/introduction
+slug: methods-of-mathematics/probability/introduction
 prev: false
 next: true
 ---
@@ -75,22 +75,41 @@ Outcomes that can take on any value within a range. For example:
 - time
 - temperature measurements.
 
-## Observational data
+For all the definitions below, consider $A, B$ as events of a sample space $S$.
 
-### Population of interest
+## Probability of an event
 
-A specific group that a researcher aims to study in order to draw meaningful conclusions or make statistical inferences about its characteristics.
+```math
+P(A) = \frac{n(A)}{n(S)}
+```
 
-### Variable of interest
+Can be in the range $[0,1]$. $ $
 
-A changing quantity which is being measured in an experimental study.
+:::note
 
-### Census
+**If** $A$ and $B$ are mutually exclusive events, **then** $P(A \cap B) = 0$.
 
-The process of gathering information about the members of a given population of
-interest.
+:::
 
-### Cohort
+## Marginal probability
 
-A group of subjects who share a particular event during a particular time
-duration.
+The probability of an event occurring without any additional information or conditions from other events. Useful when dealing with joint probability distributions and when analyzing how events relate to each other.
+
+## Conditional probability
+
+The probability of an event $A$ occurring, given that another event $B$ has already occurred.
+
+```math
+P(A|B) = \frac{P(A \cap B)}{P(B)}
+```
+
+Where:
+- $P(A|B)$ is the conditional probability of $A$ given $B$
+- $P(A \cap B)$ is the joint probability of both $A$ and $B$ occurring
+- $P(B)$ is the probability of event $B$ occurring
+
+Probability assessments can be updated when new information becomes available through conditional probability. It is particularly useful in scenarios where events are dependent on one another.
+
+:::note
+**If** events $A$ and $B$ are independent, **then** $P(A|B) = P(A)$.
+:::

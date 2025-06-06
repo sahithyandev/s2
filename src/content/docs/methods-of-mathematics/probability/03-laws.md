@@ -1,59 +1,17 @@
 ---
-title: Probability Fundamentals
+title: Laws
 sidebar:
   order: 3
-slug: methods-of-mathematics/probability-and-statistics/probability-fundamentals
+slug: methods-of-mathematics/probability/laws
 prev: true
 next: true
 ---
-
-For all the definitions below, consider $A, B$ as events of a sample space $S$.
-
-## Probability of an event
-
-Suppose $A$ is an event of the sample space $S$.
-
-```math
-P(A) = \frac{n(A)}{n(S)}
-
-```
-
-Can be in the range $[0,1]$. $ $
-
-:::note
-
-**If** $A$ and $B$ are mutually exclusive events, **then** $P(A \cap B) = 0$.
-
-:::
 
 ## Addition Law
 
 ```math
 P(A \cup B) = P(A) + P(B) - P(A \cap B)
 ```
-
-## Marginal probability
-
-The probability of an event occurring without any additional information or conditions from other events. Useful when dealing with joint probability distributions and when analyzing how events relate to each other.
-
-## Conditional probability
-
-The probability of an event $A$ occurring, given that another event $B$ has already occurred.
-
-```math
-P(A|B) = \frac{P(A \cap B)}{P(B)}
-```
-
-Where:
-- $P(A|B)$ is the conditional probability of $A$ given $B$
-- $P(A \cap B)$ is the joint probability of both $A$ and $B$ occurring
-- $P(B)$ is the probability of event $B$ occurring
-
-Probability assessments can be updated when new information becomes available through conditional probability. It is particularly useful in scenarios where events are dependent on one another.
-
-:::note
-**If** events $A$ and $B$ are independent, **then** $P(A|B) = P(A)$.
-:::
 
 ## Bayes' Theorem
 

@@ -1,8 +1,8 @@
 ---
 title: Joint Distributions
 sidebar:
-  order: 8
-slug: methods-of-mathematics/probability-and-statistics/joint-distributions
+  order: 3
+slug: methods-of-mathematics/statistics/joint-distributions
 prev: true
 next: true
 ---
@@ -20,7 +20,7 @@ For a joint probability distribution $P(A \cap B)$, $P(A)$ and $P(B)$ are the ma
 
 ### Covariance
 
-Denoted by $\text{Cov}(X,Y)$ or $\sigma_{XY}$. Measures the linear relationship between two random variables. Not standardized.
+Denoted by $\text{Cov}(X,Y)$ or $\sigma_{XY}$. Measures the linear relationship between two random variables. High value
 
 Properties:
 - $\text{Cov}(X,Y) = E\Big[\big(X-E(X)\big)\big(Y-E(Y)\big)\Big]$

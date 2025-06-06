@@ -1,8 +1,8 @@
 ---
 title: Approximations
 sidebar:
-  order: 7
-slug: methods-of-mathematics/probability-and-statistics/approximations
+  order: 6
+slug: methods-of-mathematics/probability/approximations
 prev: true
 next: true
 ---

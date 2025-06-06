@@ -1,18 +1,15 @@
 ---
 title: Continuous Probability Distribution
 sidebar:
-  order: 6
-slug: >-
-  methods-of-mathematics/probability-and-statistics/continuous-probablity-distribution
+  order: 5
+slug: methods-of-mathematics/probability/continuous-probablity-distribution
 prev: true
 next: true
 ---
 
-## Properties
-
 ### Probability Density Function
 
-Denoted by $f$. Used for continuous random variables. Doesn't give the probability at an exact point (which is always 0 for continuous variables). Instead, gives the relative likelihood of the random variable taking on a value in a small interval around a point. $ $
+Denoted by $f$. Does not give the probability at an exact point (which is always 0 for continuous variables). Instead, gives the relative likelihood of the random variable taking on a value in a small interval around a point. $ $
 
 The probability of an event is the integral of the PDF over the region corresponding to the event:
 

@@ -1,10 +1,10 @@
 ---
 title: Estimators
 sidebar:
-  order: 11
-slug: methods-of-mathematics/probability-and-statistics/estimators
+  order: 6
+slug: methods-of-mathematics/statistics/estimators
 prev: true
-next: true
+next: false
 ---
 
 An estimator is a guess of a population parameter based on a sample data.

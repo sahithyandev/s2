@@ -1,8 +1,8 @@
 ---
 title: Central Limit Theorem
 sidebar:
-  order: 12
-slug: methods-of-mathematics/probability-and-statistics/central-limit-theorem
+  order: 8
+slug: methods-of-mathematics/probability/central-limit-theorem
 prev: true
 next: false
 ---

@@ -1,8 +1,8 @@
 ---
 title: Distributions
 sidebar:
-  order: 4
-slug: methods-of-mathematics/probability-and-statistics/distributions
+  order: 2
+slug: methods-of-mathematics/statistics/distributions
 prev: true
 next: true
 ---
