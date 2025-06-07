@@ -9,68 +9,89 @@ next: true
 
 Deals with how different kinds of objects interact with each other.
 
-## Template method pattern
+## Chain of Responsibility pattern
 
-Defines the structure of an algorithm in the superclass but allows the steps of
-the algorithm to be implemented or overridden by subclasses.
+Allows a request to be passed along a chain of handlers until it is handled. Each handler decides whether to process the request or pass it to the next handler in the chain.
 
-Used in parsing logic of different kinds of files, web frameworks for request
-handling, testing frameworks with lifecycle hooks.
+Used in logging frameworks, event handling systems, and middleware pipelines.
 
 ```java
-// Abstract class that defines the template method
-abstract class Game {
-    // Template method defines the overall algorithm
-    public final void play() {
-        initialize();
-        startPlay();
-        endPlay();
+abstract class Validator {
+    private Validator next;
+
+    public Validator linkWith(Validator next) {
+        this.next = next;
+        return next;
     }
 
-    // Concrete methods - Common behavior for all games
-    private void initialize() {
-        System.out.println("Initializing game...");
+    public boolean validate(String input) {
+        if (!check(input)) return false;
+        if (next == null) return true;
+        return next.validate(input);
     }
 
-    private void endPlay() {
-        System.out.println("Ending game...");
-    }
-
-    // Abstract methods - Specific behavior that must be implemented by subclasses
-    protected abstract void startPlay();  // To be implemented by subclasses
+    protected abstract boolean check(String input);
 }
 
-// Concrete class for Chess, implementing specific gameplay behavior
-class ChessGame extends Game {
-    @Override
-    protected void startPlay() {
-        System.out.println("Starting Chess game...");
-    }
-}
-
-// Concrete class for Card game, implementing specific gameplay behavior
-class CardGame extends Game {
-    @Override
-    protected void startPlay() {
-        System.out.println("Starting Card game...");
+// Concrete Validators
+class NotEmptyValidator extends Validator {
+    protected boolean check(String input) {
+        if (input == null || input.isEmpty()) {
+            System.out.println("Validation failed: input is empty");
+            return false;
+        }
+        return true;
     }
 }
 
-// Client - Demonstrates the Template Method pattern
-public class TemplateMethodPatternExample {
+class EmailValidator extends Validator {
+    protected boolean check(String input) {
+        if (!input.contains("@")) {
+            System.out.println("Validation failed: invalid email");
+            return false;
+        }
+        return true;
+    }
+}
+
+class LengthValidator extends Validator {
+    protected boolean check(String input) {
+        if (input.length() < 5) {
+            System.out.println("Validation failed: input too short");
+            return false;
+        }
+        return true;
+    }
+}
+
+// Usage
+public class ChainOfResponsibilityDemo {
     public static void main(String[] args) {
-        Game chess = new ChessGame();
-        chess.play();  // Chess game will use the template and implement its own behavior
+        Validator chain = new NotEmptyValidator();
+        chain.linkWith(new EmailValidator())
+             .linkWith(new LengthValidator());
 
-        System.out.println("\n");
-
-        Game cardGame = new CardGame();
-        cardGame.play();  // Card game will use the template and implement its own behavior
+        String input = "user@example.com";
+        if (chain.validate(input)) {
+            System.out.println("All validations passed");
+        }
     }
 }
 ```
 
-Reduces duplication and forces a structure. Allows for customization.
+Benefits:
+
+- Reduces coupling between sender and receiver
+- Adds flexibility in assigning responsibilities
+- Simplifies object interactions
+
+Drawbacks:
+
+- May lead to unhandled requests if no handler processes them
+- Debugging can be difficult due to dynamic request flow
+- Can become complex with long chains
+
+
 
 ## Command pattern
 
@@ -79,82 +100,68 @@ Turns a request into a standalone Command object. Can be passed, queued, logged.
 Used in controllers, job scheduling systems, user actions in GUI.
 
 ```java
-// Command Interface - Defines an interface for all command objects.
+import java.util.*;
+
 interface Command {
-    void execute();  // Executes the command.
+    void execute();
+    void undo();
 }
 
-// Concrete Command 1 - Turns on the light.
-class LightOnCommand implements Command {
-    private final Light light;
+class TextDocument {
+    private StringBuilder content = new StringBuilder();
 
-    public LightOnCommand(Light light) {
-        this.light = light;
+    public void write(String text) {
+        content.append(text);
     }
 
-    @Override
+    public void erase(int length) {
+        content.delete(content.length() - length, content.length());
+    }
+
+    public String getContent() {
+        return content.toString();
+    }
+}
+
+class WriteCommand implements Command {
+    private TextDocument doc;
+    private String text;
+
+    public WriteCommand(TextDocument doc, String text) {
+        this.doc = doc;
+        this.text = text;
+    }
     public void execute() {
-        light.turnOn();  // Calls the action on the receiver (Light).
+        doc.write(text);
+    }
+    public void undo() {
+        doc.erase(text.length());
     }
 }
-
-// Concrete Command 2 - Turns off the light.
-class LightOffCommand implements Command {
-    private final Light light;
-
-    public LightOffCommand(Light light) {
-        this.light = light;
+class Editor {
+    private Stack<Command> history = new Stack<>();
+    public void executeCommand(Command cmd) {
+        cmd.execute();
+        history.push(cmd);
     }
-
-    @Override
-    public void execute() {
-        light.turnOff();  // Calls the action on the receiver (Light).
+    public void undo() {
+        if (!history.isEmpty()) {
+            history.pop().undo();
+        }
     }
 }
-
-// Receiver - The object that performs the actual action.
-class Light {
-    public void turnOn() {
-        System.out.println("The light is ON");
-    }
-
-    public void turnOff() {
-        System.out.println("The light is OFF");
-    }
-}
-
-// Invoker - The object that asks the command to execute.
-class RemoteControl {
-    private Command command;
-
-    // Set a command to be executed
-    public void setCommand(Command command) {
-        this.command = command;
-    }
-
-    // Executes the set command
-    public void pressButton() {
-        command.execute();
-    }
-}
-
-// Client - Demonstrates the use of the Command pattern.
 public class CommandPatternExample {
     public static void main(String[] args) {
-        // Create the receiver (light) and the invoker (remote control)
-        Light light = new Light();
-        Command lightOn = new LightOnCommand(light);
-        Command lightOff = new LightOffCommand(light);
+        TextDocument doc = new TextDocument();
+        Editor editor = new Editor();
 
-        RemoteControl remote = new RemoteControl();
+        Command writeHello = new WriteCommand(doc, "Hello");
+        editor.executeCommand(writeHello);
 
-        // Turn the light on using the command
-        remote.setCommand(lightOn);
-        remote.pressButton();  // Output: The light is ON
+        System.out.println(doc.getContent()); // Hello
 
-        // Turn the light off using the command
-        remote.setCommand(lightOff);
-        remote.pressButton();  // Output: The light is OFF
+        editor.undo();
+        System.out.println(doc.getContent()); // (empty)
     }
 }
 ```
@@ -175,6 +182,246 @@ Drawbacks:
 - Harder to maintain – As new commands are added, the invoker (client) and
   command interface may need modifications, leading to possible changes in other
   parts of the system.
+  
+## Interpreter pattern
+
+Defines a way to evaluate sentences in a language by representing its grammar as a class hierarchy. Each rule in the grammar is represented by a class, and the interpretation is done by traversing the structure.
+
+Used in SQL query parsing, mathematical expression evaluation, and configuration file parsing.
+
+```java
+// Abstract Expression - Defines the interface for interpreting expressions
+interface Expression {
+    int interpret();
+}
+
+// Terminal Expression - Represents numbers in the grammar
+class NumberExpression implements Expression {
+    private final int number;
+
+    public NumberExpression(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public int interpret() {
+        return number;
+    }
+}
+
+// Non-Terminal Expression - Represents addition in the grammar
+class AddExpression implements Expression {
+    private final Expression leftExpression;
+    private final Expression rightExpression;
+
+    public AddExpression(Expression leftExpression, Expression rightExpression) {
+        this.leftExpression = leftExpression;
+        this.rightExpression = rightExpression;
+    }
+
+    @Override
+    public int interpret() {
+        return leftExpression.interpret() + rightExpression.interpret();
+    }
+}
+
+// Non-Terminal Expression - Represents subtraction in the grammar
+class SubtractExpression implements Expression {
+    private final Expression leftExpression;
+    private final Expression rightExpression;
+
+    public SubtractExpression(Expression leftExpression, Expression rightExpression) {
+        this.leftExpression = leftExpression;
+        this.rightExpression = rightExpression;
+    }
+
+    @Override
+    public int interpret() {
+        return leftExpression.interpret() - rightExpression.interpret();
+    }
+}
+
+// Client - Demonstrates the Interpreter pattern
+public class InterpreterPatternExample {
+    public static void main(String[] args) {
+        // Represents the expression: (5 + 3) - 2
+        Expression five = new NumberExpression(5);
+        Expression three = new NumberExpression(3);
+        Expression two = new NumberExpression(2);
+
+        Expression addition = new AddExpression(five, three); // (5 + 3)
+        Expression subtraction = new SubtractExpression(addition, two); // (5 + 3) - 2
+
+        System.out.println("Result: " + subtraction.interpret()); // Output: 6
+    }
+}
+```
+
+Benefits:
+
+- Simplifies the implementation of complex grammars
+- Easy to extend by adding new rules
+
+Drawbacks:
+
+- Can become complex with large grammars
+- Performance issues with deeply nested expressions
+  
+## Iterator pattern
+
+Provides a way to access elements of a collection sequentially without exposing the underlying representation.
+
+Used in collections like lists, sets, and maps, or any data structure that needs sequential traversal.
+
+```java
+import java.util.*;
+
+// Custom Collection
+class UserGroup {
+    private List<String> users = new ArrayList<>();
+
+    public void addUser(String user) {
+        users.add(user);
+    }
+
+    public Iterator<String> iterator() {
+        return new UserIterator();
+    }
+
+    // Inner Iterator
+    private class UserIterator implements Iterator<String> {
+        private int index = 0;
+
+        public boolean hasNext() {
+            return index < users.size();
+        }
+
+        public String next() {
+            return users.get(index++);
+        }
+    }
+}
+
+// Usage
+public class IteratorPatternDemo {
+    public static void main(String[] args) {
+        UserGroup group = new UserGroup();
+        group.addUser("Alice");
+        group.addUser("Bob");
+        group.addUser("Eve");
+
+        Iterator<String> it = group.iterator();
+        while (it.hasNext()) {
+            System.out.println(it.next());
+        }
+    }
+}
+```
+
+Benefits:
+
+- Provides a uniform way to traverse different collections
+- Encapsulates traversal logic, keeping it separate from the collection
+- Supports multiple iterators on the same collection
+
+Drawbacks:
+
+- May not be suitable for very large collections due to memory overhead
+- Can increase complexity for custom collections
+
+
+## Mediator pattern
+
+Defines an object that encapsulates how a set of objects interact. This pattern promotes loose coupling by keeping objects from referring to each other explicitly and allows their interaction to be varied independently.
+
+Used in chat applications, traffic control systems, and GUI frameworks.
+
+```java
+import java.util.*;
+
+// Mediator Interface
+interface ChatRoomMediator {
+    void sendMessage(String message, User sender);
+    void addUser(User user);
+}
+
+// Concrete Mediator
+class ChatRoom implements ChatRoomMediator {
+    private List<User> users = new ArrayList<>();
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void sendMessage(String message, User sender) {
+        for (User user : users) {
+            if (user != sender) {
+                user.receive(message);
+            }
+        }
+    }
+}
+
+// Colleague
+abstract class User {
+    protected ChatRoomMediator chatRoom;
+    protected String name;
+
+    public User(String name, ChatRoomMediator chatRoom) {
+        this.name = name;
+        this.chatRoom = chatRoom;
+    }
+
+    public abstract void send(String message);
+    public abstract void receive(String message);
+}
+
+// Concrete User
+class ChatUser extends User {
+    public ChatUser(String name, ChatRoomMediator chatRoom) {
+        super(name, chatRoom);
+    }
+
+    public void send(String message) {
+        System.out.println(name + " sends: " + message);
+        chatRoom.sendMessage(message, this);
+    }
+
+    public void receive(String message) {
+        System.out.println(name + " received: " + message);
+    }
+}
+
+// Usage
+public class MediatorChatExample {
+    public static void main(String[] args) {
+        ChatRoomMediator room = new ChatRoom();
+
+        User alice = new ChatUser("Alice", room);
+        User bob = new ChatUser("Bob", room);
+        User eve = new ChatUser("Eve", room);
+
+        room.addUser(alice);
+        room.addUser(bob);
+        room.addUser(eve);
+
+        alice.send("Hello, everyone!");
+        bob.send("Hey Alice!");
+    }
+}
+```
+
+Benefits:
+
+- Reduces coupling between components
+- Centralizes control of interactions
+- Simplifies maintenance and testing
+
+Drawbacks:
+
+- Can become a bottleneck if the mediator grows too complex
+- May introduce a single point of failure
+
 
 ## Momento pattern
 
@@ -303,105 +550,8 @@ public class MementoPatternExample {
 }
 ```
 
-Encapsulation property is maintained.
+Encapsulation property is maintained. Not suitable when the state is complex, or large, or frequently changing.
 
-Not suitable when the state is complex, or large, or frequently changing.
-
-## Visitor pattern
-
-Allows adding new operations to objects without modifying them. The operation is
-abstracted into a separate class.
-
-Used for AST (Abstract Syntax Tree) traversal, serialization, graphic rendering,
-etc.
-
-```java
-// Visitor interface - Defines the operations that can be performed on different file types.
-interface FileVisitor {
-    void visit(TextFile textFile);
-    void visit(ImageFile imageFile);
-}
-
-// Element interface - Represents a file that can accept a visitor.
-interface File {
-    void accept(FileVisitor visitor);
-}
-
-// Concrete Element 1 - A text file that can be scanned.
-class TextFile implements File {
-    private String name;
-
-    public TextFile(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void accept(FileVisitor visitor) {
-        visitor.visit(this);  // Calls the visitor's method for text files.
-    }
-}
-
-// Concrete Element 2 - An image file that can be scanned.
-class ImageFile implements File {
-    private String name;
-
-    public ImageFile(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public void accept(FileVisitor visitor) {
-        visitor.visit(this);  // Calls the visitor's method for image files.
-    }
-}
-
-// Concrete Visitor - VirusScanner that implements scanning logic for different file types.
-class VirusScanner implements FileVisitor {
-    @Override
-    public void visit(TextFile textFile) {
-        System.out.println("Scanning text file: " + textFile.getName() + " for viruses.");
-    }
-
-    @Override
-    public void visit(ImageFile imageFile) {
-        System.out.println("Scanning image file: " + imageFile.getName() + " for viruses.");
-    }
-}
-
-// Client - Demonstrates how the Visitor pattern is used in a file scanning scenario.
-public class VisitorPatternExample {
-    public static void main(String[] args) {
-        // Create different types of files
-        File textFile = new TextFile("document.txt");
-        File imageFile = new ImageFile("photo.jpg");
-
-        // Create a virus scanner visitor
-        FileVisitor virusScanner = new VirusScanner();
-
-        // Apply the visitor to each file
-        textFile.accept(virusScanner);
-        imageFile.accept(virusScanner);
-    }
-}
-```
-
-Drawbacks:
-
-- Open/closed principle is broken – Every time a new file type is added (e.g.,
-  VideoFile), the visitor interface must be modified, which affects all concrete
-  visitors.
-- Increased complexity – More interfaces and classes make the system harder to
-  understand for beginners.
-- Not ideal for frequently changing structures – If the object structure (i.e.,
-  file types) changes frequently, modifying all visitors becomes cumbersome.
 
 ## Observer pattern
 
@@ -412,81 +562,55 @@ Used in event handling systems, MVC pattern (Model-View relationship),
 publish-subscribe systems.
 
 ```java
-// Observer interface - Defines method that gets called when subject changes
-interface Observer {
-    void update(String message);
+import java.util.*;
+
+// Observer Interface
+interface Plugin {
+    void onEvent(String event);
 }
 
-// Subject interface - Defines methods for managing observers
-interface Subject {
-    void registerObserver(Observer observer);
-    void removeObserver(Observer observer);
-    void notifyObservers();
-}
+// Subject (Publisher)
+class PluginManager {
+    private List<Plugin> plugins = new ArrayList<>();
 
-// Concrete Subject - NewsAgency that broadcasts news to subscribers
-class NewsAgency implements Subject {
-    private List<Observer> observers = new ArrayList<>();
-    private String news;
-
-    @Override
-    public void registerObserver(Observer observer) {
-        observers.add(observer);
+    public void register(Plugin plugin) {
+        plugins.add(plugin);
     }
 
-    @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update(news);
+    public void fireEvent(String event) {
+        for (Plugin plugin : plugins) {
+            plugin.onEvent(event);
         }
     }
+}
 
-    // Method that changes the subject's state
-    public void setNews(String news) {
-        this.news = news;
-        notifyObservers();
+// Concrete Plugins
+class AutoSavePlugin implements Plugin {
+    public void onEvent(String event) {
+        if (event.equals("file.close")) {
+            System.out.println("Auto-saving file...");
+        }
     }
 }
 
-// Concrete Observer - NewsChannel that receives news updates
-class NewsChannel implements Observer {
-    private String name;
-
-    public NewsChannel(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void update(String news) {
-        System.out.println(name + " received news: " + news);
+class SyntaxCheckPlugin implements Plugin {
+    public void onEvent(String event) {
+        if (event.equals("file.save")) {
+            System.out.println("Checking syntax...");
+        }
     }
 }
 
-// Client - Demonstrates the Observer pattern
-public class ObserverPatternExample {
+// Usage
+public class PluginSystemDemo {
     public static void main(String[] args) {
-        NewsAgency newsAgency = new NewsAgency();
+        PluginManager manager = new PluginManager();
 
-        NewsChannel channel1 = new NewsChannel("Channel 1");
-        NewsChannel channel2 = new NewsChannel("Channel 2");
+        manager.register(new AutoSavePlugin());
+        manager.register(new SyntaxCheckPlugin());
 
-        // Register observers
-        newsAgency.registerObserver(channel1);
-        newsAgency.registerObserver(channel2);
-
-        // Set news, which will notify all observers
-        newsAgency.setNews("Breaking News: Observer Pattern Demonstration!");
-
-        // Remove an observer
-        newsAgency.removeObserver(channel2);
-
-        // Set news again, only channel1 will be notified
-        newsAgency.setNews("Channel 2 won't receive this news!");
+        manager.fireEvent("file.save");
+        manager.fireEvent("file.close");
     }
 }
 ```
@@ -513,64 +637,43 @@ Used for different sorting algorithms, payment methods, compression algorithms,
 etc.
 
 ```java
-// Strategy interface - Defines the common interface for all algorithms
-interface PaymentStrategy {
-    void pay(int amount);
+Pinterface CompressionStrategy {
+    void compress(String file);
 }
 
-// Concrete Strategy 1 - Credit Card payment
-class CreditCardPayment implements PaymentStrategy {
-    private String cardNumber;
-
-    public CreditCardPayment(String cardNumber) {
-        this.cardNumber = cardNumber;
-    }
-
-    @Override
-    public void pay(int amount) {
-        System.out.println("Paid $" + amount + " using Credit Card: " + cardNumber);
+class ZipCompression implements CompressionStrategy {
+    public void compress(String file) {
+        System.out.println("Compressing " + file + " using ZIP");
     }
 }
 
-// Concrete Strategy 2 - PayPal payment
-class PayPalPayment implements PaymentStrategy {
-    private String email;
-
-    public PayPalPayment(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public void pay(int amount) {
-        System.out.println("Paid $" + amount + " using PayPal account: " + email);
+class GzipCompression implements CompressionStrategy {
+    public void compress(String file) {
+        System.out.println("Compressing " + file + " using GZIP");
     }
 }
 
-// Context - Shopping Cart that uses payment strategy
-class ShoppingCart {
-    private PaymentStrategy paymentStrategy;
+class CompressionService {
+    private CompressionStrategy strategy;
 
-    public void setPaymentStrategy(PaymentStrategy strategy) {
-        this.paymentStrategy = strategy;
+    public void setStrategy(CompressionStrategy strategy) {
+        this.strategy = strategy;
     }
 
-    public void checkout(int amount) {
-        paymentStrategy.pay(amount);
+    public void compressFile(String file) {
+        strategy.compress(file);
     }
 }
 
-// Client - Demonstrates the Strategy pattern
-public class StrategyPatternExample {
+public class StrategyPatternDemo {
     public static void main(String[] args) {
-        ShoppingCart cart = new ShoppingCart();
+        CompressionService service = new CompressionService();
 
-        // Pay with Credit Card
-        cart.setPaymentStrategy(new CreditCardPayment("1234-5678-9012-3456"));
-        cart.checkout(100);
+        service.setStrategy(new ZipCompression());
+        service.compressFile("report.txt");
 
-        // Pay with PayPal
-        cart.setPaymentStrategy(new PayPalPayment("example@email.com"));
-        cart.checkout(200);
+        service.setStrategy(new GzipCompression());
+        service.compressFile("data.json");
     }
 }
 ```
@@ -595,110 +698,76 @@ appearing to change its class.
 Used in workflow management, game state handling, user interface states, etc.
 
 ```java
-// State interface - Defines behavior associated with each state
-interface VendingMachineState {
-    void insertCoin(VendingMachine machine);
-    void pressButton(VendingMachine machine);
-    void dispense(VendingMachine machine);
+interface ServerState {
+    void start(ServerContext server);
+    void handleRequest(ServerContext server);
+    void stop(ServerContext server);
 }
-
-// Concrete State 1 - No Coin State
-class NoCoinState implements VendingMachineState {
-    @Override
-    public void insertCoin(VendingMachine machine) {
-        System.out.println("Coin inserted");
-        machine.setState(new HasCoinState());
+class StartingState implements ServerState {
+    public void start(ServerContext server) {
+        System.out.println("Server is already starting...");
     }
 
-    @Override
-    public void pressButton(VendingMachine machine) {
-        System.out.println("Please insert a coin first");
+    public void handleRequest(ServerContext server) {
+        System.out.println("Cannot handle request while starting.");
     }
 
-    @Override
-    public void dispense(VendingMachine machine) {
-        System.out.println("Please insert a coin first");
+    public void stop(ServerContext server) {
+        System.out.println("Stopping server while starting...");
+        server.setState(new StoppedState());
     }
 }
 
-// Concrete State 2 - Has Coin State
-class HasCoinState implements VendingMachineState {
-    @Override
-    public void insertCoin(VendingMachine machine) {
-        System.out.println("Coin already inserted");
+class RunningState implements ServerState {
+    public void start(ServerContext server) {
+        System.out.println("Server is already running.");
     }
 
-    @Override
-    public void pressButton(VendingMachine machine) {
-        System.out.println("Button pressed, dispensing item");
-        machine.setState(new DispensingState());
+    public void handleRequest(ServerContext server) {
+        System.out.println("Handling HTTP request.");
     }
 
-    @Override
-    public void dispense(VendingMachine machine) {
-        System.out.println("Please press the button first");
+    public void stop(ServerContext server) {
+        System.out.println("Stopping the server...");
+        server.setState(new StoppedState());
     }
 }
 
-// Concrete State 3 - Dispensing State
-class DispensingState implements VendingMachineState {
-    @Override
-    public void insertCoin(VendingMachine machine) {
-        System.out.println("Please wait, dispensing in progress");
+class StoppedState implements ServerState {
+    public void start(ServerContext server) {
+        System.out.println("Starting the server...");
+        server.setState(new StartingState());
     }
 
-    @Override
-    public void pressButton(VendingMachine machine) {
-        System.out.println("Please wait, dispensing in progress");
+    public void handleRequest(ServerContext server) {
+        System.out.println("Cannot handle request, server is stopped.");
     }
 
-    @Override
-    public void dispense(VendingMachine machine) {
-        System.out.println("Item dispensed");
-        machine.setState(new NoCoinState());
+    public void stop(ServerContext server) {
+        System.out.println("Server is already stopped.");
     }
 }
+class ServerContext {
+    private ServerState state;
 
-// Context - Vending Machine that maintains current state
-class VendingMachine {
-    private VendingMachineState state;
-
-    public VendingMachine() {
-        state = new NoCoinState();
+    public ServerContext() {
+        state = new StoppedState();
     }
 
-    public void setState(VendingMachineState state) {
+    public void setState(ServerState state) {
         this.state = state;
     }
 
-    public void insertCoin() {
-        state.insertCoin(this);
+    public void start() {
+        state.start(this);
     }
 
-    public void pressButton() {
-        state.pressButton(this);
+    public void handleRequest() {
+        state.handleRequest(this);
     }
 
-    public void dispense() {
-        state.dispense(this);
-    }
-}
-
-// Client - Demonstrates the State pattern
-public class StatePatternExample {
-    public static void main(String[] args) {
-        VendingMachine machine = new VendingMachine();
-
-        // Try to get item without coin
-        machine.pressButton();  // Output: Please insert a coin first
-
-        // Insert coin and get item
-        machine.insertCoin();   // Output: Coin inserted
-        machine.pressButton();  // Output: Button pressed, dispensing item
-        machine.dispense();     // Output: Item dispensed
-
-        // Try to insert coin while dispensing
-        machine.insertCoin();   // Output: Coin inserted
+    public void stop() {
+        state.stop(this);
     }
 }
 ```
@@ -715,365 +784,137 @@ Drawbacks:
 - Increased number of classes
 - State transitions can become complex
 
+## Template method pattern
 
-## Chain of Responsibility pattern
+Defines the structure of an algorithm and allows the steps of
+the algorithm to be implemented or overridden by subclasses.
 
-Allows a request to be passed along a chain of handlers until it is handled. Each handler decides whether to process the request or pass it to the next handler in the chain.
-
-Used in logging frameworks, event handling systems, and middleware pipelines.
+Used in parsing logic of different kinds of files, web frameworks for request
+handling, plugin system, testing framework with lifecycle hooks.
 
 ```java
-// Handler interface - Defines a method for handling requests
-interface Handler {
-    void setNext(Handler nextHandler);  // Sets the next handler in the chain
-    void handleRequest(String request); // Handles the request or passes it along
-}
-
-// Concrete Handler 1 - Handles low-level requests
-class LowLevelHandler implements Handler {
-    private Handler nextHandler;
-
-    @Override
-    public void setNext(Handler nextHandler) {
-        this.nextHandler = nextHandler;
+abstract class AuditedServiceOperation {
+    public final void execute(String user) {
+        logStart(user);
+        performOperation();
+        logEnd(user);
     }
 
-    @Override
-    public void handleRequest(String request) {
-        if (request.equals("low")) {
-            System.out.println("LowLevelHandler handled the request.");
-        } else if (nextHandler != null) {
-            nextHandler.handleRequest(request);
-        } else {
-            System.out.println("No handler could process the request.");
-        }
+    private void logStart(String user) {
+        System.out.println("[AUDIT] " + user + " started operation");
+    }
+
+    private void logEnd(String user) {
+        System.out.println("[AUDIT] " + user + " finished operation");
+    }
+
+    protected abstract void performOperation();
+}
+class CreateUserOperation extends AuditedServiceOperation {
+    protected void performOperation() {
+        System.out.println("Creating user in database...");
     }
 }
-
-// Concrete Handler 2 - Handles medium-level requests
-class MediumLevelHandler implements Handler {
-    private Handler nextHandler;
-
-    @Override
-    public void setNext(Handler nextHandler) {
-        this.nextHandler = nextHandler;
-    }
-
-    @Override
-    public void handleRequest(String request) {
-        if (request.equals("medium")) {
-            System.out.println("MediumLevelHandler handled the request.");
-        } else if (nextHandler != null) {
-            nextHandler.handleRequest(request);
-        } else {
-            System.out.println("No handler could process the request.");
-        }
+class DeleteUserOperation extends AuditedServiceOperation {
+    protected void performOperation() {
+        System.out.println("Deleting user from database...");
     }
 }
-
-// Concrete Handler 3 - Handles high-level requests
-class HighLevelHandler implements Handler {
-    private Handler nextHandler;
-
-    @Override
-    public void setNext(Handler nextHandler) {
-        this.nextHandler = nextHandler;
-    }
-
-    @Override
-    public void handleRequest(String request) {
-        if (request.equals("high")) {
-            System.out.println("HighLevelHandler handled the request.");
-        } else if (nextHandler != null) {
-            nextHandler.handleRequest(request);
-        } else {
-            System.out.println("No handler could process the request.");
-        }
-    }
-}
-
-// Client - Demonstrates the Chain of Responsibility pattern
-public class ChainOfResponsibilityExample {
+public class Main {
     public static void main(String[] args) {
-        // Create handlers
-        Handler lowHandler = new LowLevelHandler();
-        Handler mediumHandler = new MediumLevelHandler();
-        Handler highHandler = new HighLevelHandler();
+        AuditedServiceOperation op1 = new CreateUserOperation();
+        op1.execute("alice");
 
-        // Set up the chain
-        lowHandler.setNext(mediumHandler);
-        mediumHandler.setNext(highHandler);
+        System.out.println("---");
 
-        // Send requests to the chain
-        lowHandler.handleRequest("low");    // Output: LowLevelHandler handled the request.
-        lowHandler.handleRequest("medium"); // Output: MediumLevelHandler handled the request.
-        lowHandler.handleRequest("high");   // Output: HighLevelHandler handled the request.
-        lowHandler.handleRequest("unknown"); // Output: No handler could process the request.
+        AuditedServiceOperation op2 = new DeleteUserOperation();
+        op2.execute("bob");
     }
 }
 ```
 
-Benefits:
+## Visitor pattern
 
-- Reduces coupling between sender and receiver
-- Adds flexibility in assigning responsibilities
-- Simplifies object interactions
+Allows adding new operations to objects without modifying them. The operation is
+abstracted into a separate class.
 
-Drawbacks:
-
-- May lead to unhandled requests if no handler processes them
-- Debugging can be difficult due to dynamic request flow
-- Can become complex with long chains
-
-## Interpreter pattern
-
-Defines a way to evaluate sentences in a language by representing its grammar as a class hierarchy. Each rule in the grammar is represented by a class, and the interpretation is done by traversing the structure.
-
-Used in SQL query parsing, mathematical expression evaluation, and configuration file parsing.
+Used for AST (Abstract Syntax Tree) traversal, serialization, graphic rendering, document generation,
+etc.
 
 ```java
-// Abstract Expression - Defines the interface for interpreting expressions
-interface Expression {
-    int interpret();
+// Visitor Interface
+interface ExprVisitor {
+    int visit(NumberExpr n);
+    int visit(AddExpr a);
+    int visit(MulExpr m);
 }
 
-// Terminal Expression - Represents numbers in the grammar
-class NumberExpression implements Expression {
-    private final int number;
-
-    public NumberExpression(int number) {
-        this.number = number;
-    }
-
-    @Override
-    public int interpret() {
-        return number;
-    }
+// Base Expression
+interface Expr {
+    int accept(ExprVisitor visitor);
 }
 
-// Non-Terminal Expression - Represents addition in the grammar
-class AddExpression implements Expression {
-    private final Expression leftExpression;
-    private final Expression rightExpression;
+// Leaf Node: Number
+class NumberExpr implements Expr {
+    int value;
 
-    public AddExpression(Expression leftExpression, Expression rightExpression) {
-        this.leftExpression = leftExpression;
-        this.rightExpression = rightExpression;
-    }
+    NumberExpr(int value) { this.value = value; }
 
-    @Override
-    public int interpret() {
-        return leftExpression.interpret() + rightExpression.interpret();
+    public int accept(ExprVisitor visitor) {
+        return visitor.visit(this);
     }
 }
 
-// Non-Terminal Expression - Represents subtraction in the grammar
-class SubtractExpression implements Expression {
-    private final Expression leftExpression;
-    private final Expression rightExpression;
+// Composite Node: Addition
+class AddExpr implements Expr {
+    Expr left, right;
 
-    public SubtractExpression(Expression leftExpression, Expression rightExpression) {
-        this.leftExpression = leftExpression;
-        this.rightExpression = rightExpression;
+    AddExpr(Expr left, Expr right) {
+        this.left = left;
+        this.right = right;
     }
 
-    @Override
-    public int interpret() {
-        return leftExpression.interpret() - rightExpression.interpret();
+    public int accept(ExprVisitor visitor) {
+        return visitor.visit(this);
     }
 }
 
-// Client - Demonstrates the Interpreter pattern
-public class InterpreterPatternExample {
-    public static void main(String[] args) {
-        // Represents the expression: (5 + 3) - 2
-        Expression five = new NumberExpression(5);
-        Expression three = new NumberExpression(3);
-        Expression two = new NumberExpression(2);
+// Composite Node: Multiplication
+class MulExpr implements Expr {
+    Expr left, right;
 
-        Expression addition = new AddExpression(five, three); // (5 + 3)
-        Expression subtraction = new SubtractExpression(addition, two); // (5 + 3) - 2
+    MulExpr(Expr left, Expr right) {
+        this.left = left;
+        this.right = right;
+    }
 
-        System.out.println("Result: " + subtraction.interpret()); // Output: 6
+    public int accept(ExprVisitor visitor) {
+        return visitor.visit(this);
+    }
+}
+
+// Concrete Visitor: Evaluate the expression
+class EvalVisitor implements ExprVisitor {
+    public int visit(NumberExpr n) {
+        return n.value;
+    }
+
+    public int visit(AddExpr a) {
+        return a.left.accept(this) + a.right.accept(this);
+    }
+
+    public int visit(MulExpr m) {
+        return m.left.accept(this) * m.right.accept(this);
     }
 }
 ```
 
-Benefits:
-
-- Simplifies the implementation of complex grammars
-- Easy to extend by adding new rules
-
 Drawbacks:
 
-- Can become complex with large grammars
-- Performance issues with deeply nested expressions
-
-## Iterator pattern
-
-Provides a way to access elements of a collection sequentially without exposing the underlying representation.
-
-Used in collections like lists, sets, and maps, or any data structure that needs sequential traversal.
-
-```java
-// Iterator interface - Defines methods for traversing a collection
-interface Iterator<T> {
-    boolean hasNext(); // Checks if there are more elements
-    T next();          // Retrieves the next element
-}
-
-// Iterable interface - Defines a method to create an iterator
-interface IterableCollection<T> {
-    Iterator<T> createIterator();
-}
-
-// Concrete Collection - A collection of names
-class NameCollection implements IterableCollection<String> {
-    private final String[] names;
-
-    public NameCollection(String[] names) {
-        this.names = names;
-    }
-
-    @Override
-    public Iterator<String> createIterator() {
-        return new NameIterator();
-    }
-
-    // Inner class implementing the Iterator interface
-    private class NameIterator implements Iterator<String> {
-        private int index = 0;
-
-        @Override
-        public boolean hasNext() {
-            return index < names.length;
-        }
-
-        @Override
-        public String next() {
-            if (hasNext()) {
-                return names[index++];
-            }
-            throw new IllegalStateException("No more elements");
-        }
-    }
-}
-
-// Client - Demonstrates the Iterator pattern
-public class IteratorPatternExample {
-    public static void main(String[] args) {
-        String[] names = {"Alice", "Bob", "Charlie", "Diana"};
-        NameCollection nameCollection = new NameCollection(names);
-
-        Iterator<String> iterator = nameCollection.createIterator();
-
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
-    }
-}
-```
-
-Benefits:
-
-- Provides a uniform way to traverse different collections
-- Encapsulates traversal logic, keeping it separate from the collection
-- Supports multiple iterators on the same collection
-
-Drawbacks:
-
-- May not be suitable for very large collections due to memory overhead
-- Can increase complexity for custom collections
-
-## Mediator pattern
-
-The Mediator pattern defines an object that encapsulates how a set of objects interact. This pattern promotes loose coupling by keeping objects from referring to each other explicitly and allows their interaction to be varied independently.
-
-Used in chat applications, traffic control systems, and GUI frameworks.
-
-```java
-// Mediator interface - Defines the communication between colleagues
-interface Mediator {
-    void sendMessage(String message, Colleague sender);
-}
-
-// Concrete Mediator - Manages communication between colleagues
-class ChatMediator implements Mediator {
-    private List<Colleague> colleagues = new ArrayList<>();
-
-    public void addColleague(Colleague colleague) {
-        colleagues.add(colleague);
-    }
-
-    @Override
-    public void sendMessage(String message, Colleague sender) {
-        for (Colleague colleague : colleagues) {
-            if (colleague != sender) {
-                colleague.receive(message);
-            }
-        }
-    }
-}
-
-// Colleague interface - Represents a participant in the communication
-abstract class Colleague {
-    protected Mediator mediator;
-
-    public Colleague(Mediator mediator) {
-        this.mediator = mediator;
-    }
-
-    public abstract void send(String message);
-    public abstract void receive(String message);
-}
-
-// Concrete Colleague 1 - Represents a specific participant
-class User extends Colleague {
-    private String name;
-
-    public User(Mediator mediator, String name) {
-        super(mediator);
-        this.name = name;
-    }
-
-    @Override
-    public void send(String message) {
-        System.out.println(name + " sends: " + message);
-        mediator.sendMessage(message, this);
-    }
-
-    @Override
-    public void receive(String message) {
-        System.out.println(name + " receives: " + message);
-    }
-}
-
-// Client - Demonstrates the Mediator pattern
-public class MediatorPatternExample {
-    public static void main(String[] args) {
-        ChatMediator mediator = new ChatMediator();
-
-        Colleague user1 = new User(mediator, "Alice");
-        Colleague user2 = new User(mediator, "Bob");
-        Colleague user3 = new User(mediator, "Charlie");
-
-        mediator.addColleague(user1);
-        mediator.addColleague(user2);
-        mediator.addColleague(user3);
-
-        user1.send("Hello, everyone!");
-        user2.send("Hi Alice!");
-    }
-}
-```
-
-Benefits:
-
-- Reduces coupling between components
-- Centralizes control of interactions
-- Simplifies maintenance and testing
-
-Drawbacks:
-
-- Can become a bottleneck if the mediator grows too complex
-- May introduce a single point of failure
+- Open/closed principle is broken – Every time a new file type is added (e.g.,
+  VideoFile), the visitor interface must be modified, which affects all concrete
+  visitors.
+- Increased complexity – More interfaces and classes make the system harder to
+  understand for beginners.
+- Not ideal for frequently changing structures – If the object structure (i.e.,
+  file types) changes frequently, modifying all visitors becomes cumbersome.

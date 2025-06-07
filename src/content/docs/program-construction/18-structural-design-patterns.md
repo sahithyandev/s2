@@ -9,612 +9,395 @@ next: true
 
 Deals with how classes are designed.
 
-## Flyweight Pattern
+## Adapter Pattern
 
-Aims to minimize memory usage by sharing as much data as possible with similar
-objects. A way of optimization. Useful when dealing with a large number of
-objects that have some shared state.
-
-- Flyweight Factory: This factory ensures that flyweight objects are shared
-  and reused. It maintains a pool of flyweight objects and returns existing
-  objects from the pool instead of creating new ones.
-- Flyweight Object: This object contains the intrinsic state and methods to
-  operate on it.
-
-Used in applications like text editors, game development, graphics systems, caching systems, and document management systems.
+Allows incompatible interfaces to work together. Acts as a bridge between the two. Useful when working with legacy code or third-party libraries that have different interfaces.
 
 ```java
-// Flyweight interface
-interface Flyweight {
-  void operation(String extrinsicState);
+public interface AppLogger {
+    void log(String message);
 }
-
-// Concrete Flyweight class
-class ConcreteFlyweight implements Flyweight {
-  private final String intrinsicState;
-
-  public ConcreteFlyweight(String intrinsicState) {
-    this.intrinsicState = intrinsicState;
-  }
-
-  @Override
-  public void operation(String extrinsicState) {
-    System.out.println("Intrinsic State: " + intrinsicState + ", Extrinsic State: " + extrinsicState);
-  }
-}
-
-// Flyweight Factory
-class FlyweightFactory {
-  private final Map<String, Flyweight> flyweights = new HashMap<>();
-
-  public Flyweight getFlyweight(String key) {
-    if (!flyweights.containsKey(key)) {
-      flyweights.put(key, new ConcreteFlyweight(key));
+public class ThirdPartyLogger {
+    public void writeLog(String msg) {
+        System.out.println("3rd-Party Log: " + msg);
     }
-    return flyweights.get(key);
-  }
-
-  public int getFlyweightCount() {
-    return flyweights.size();
-  }
 }
+public class LoggerAdapter implements AppLogger {
+    private ThirdPartyLogger thirdPartyLogger;
 
-// Client code
-public class FlyweightPatternExample {
-  public static void main(String[] args) {
-    FlyweightFactory factory = new FlyweightFactory();
+    public LoggerAdapter(ThirdPartyLogger logger) {
+        this.thirdPartyLogger = logger;
+    }
 
-    Flyweight flyweight1 = factory.getFlyweight("A");
-    flyweight1.operation("First Call");
-
-    Flyweight flyweight2 = factory.getFlyweight("A");
-    flyweight2.operation("Second Call");
-
-    Flyweight flyweight3 = factory.getFlyweight("B");
-    flyweight3.operation("Third Call");
-
-    System.out.println("Total flyweights created: " + factory.getFlyweightCount());
-  }
+    public void log(String message) {
+        thirdPartyLogger.writeLog(message);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        AppLogger logger = new LoggerAdapter(new ThirdPartyLogger());
+        logger.log("User logged in.");  // Output: 3rd-Party Log: User logged in.
+    }
 }
 ```
 
 ## Bridge Pattern
 
-Used to split large classes into separate hierarchies which can be developed
+Decouples abstraction and implementation. Used to split large classes into separate hierarchies which can be developed
 independently. There are 2 layer of classes.
 
 - Abstraction layer - high-level control logic
 - Implementation layer - underlying code
 
-Mostly used when the objects vary in more than 2 independent dimensions.
+Provides a _bridge_ between 2 types of classes having multiple variants.
+
+Used in rendering engines where different shapes can be drawn using different rendering contexts.
 
 ```java
-interface Device {
-    void turnOn();
-    void turnOff();
-    void setChannel(int channel);
+interface Renderer {
+    void renderShape(String shapeType, String details);
 }
 
-// Concrete Implementations
-class TV implements Device {
-    private boolean on = false;
-    private int channel = 1;
-
-    @Override
-    public void turnOn() {
-        on = true;
-        System.out.println("TV is ON");
-    }
-
-    @Override
-    public void turnOff() {
-        on = false;
-        System.out.println("TV is OFF");
-    }
-
-    @Override
-    public void setChannel(int channel) {
-        this.channel = channel;
-        System.out.println("TV channel set to " + channel);
+class OpenGLRenderer implements Renderer {
+    public void renderShape(String shapeType, String details) {
+        System.out.println("Using OpenGL to render " + shapeType + ": " + details);
     }
 }
 
-class Radio implements Device {
-    private boolean on = false;
-    private int channel = 1;
-
-    @Override
-    public void turnOn() {
-        on = true;
-        System.out.println("Radio is ON");
-    }
-
-    @Override
-    public void turnOff() {
-        on = false;
-        System.out.println("Radio is OFF");
-    }
-
-    @Override
-    public void setChannel(int channel) {
-        this.channel = channel;
-        System.out.println("Radio frequency set to " + channel);
+class DirectXRenderer implements Renderer {
+    public void renderShape(String shapeType, String details) {
+        System.out.println("Using DirectX to render " + shapeType + ": " + details);
     }
 }
 
-// Abstraction
-abstract class RemoteControl {
-    protected Device device;
+abstract class Shape {
+    protected Renderer renderer;
 
-    public RemoteControl(Device device) {
-        this.device = device;
+    protected Shape(Renderer renderer) {
+        this.renderer = renderer;
     }
 
-    public abstract void turnOn();
-    public abstract void turnOff();
-    public abstract void setChannel(int channel);
+    abstract void draw();
 }
 
-// Refined Abstraction
-class BasicRemoteControl extends RemoteControl {
-    public BasicRemoteControl(Device device) {
-        super(device);
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(Renderer renderer, double radius) {
+        super(renderer);
+        this.radius = radius;
     }
 
-    @Override
-    public void turnOn() {
-        device.turnOn();
-    }
-
-    @Override
-    public void turnOff() {
-        device.turnOff();
-    }
-
-    @Override
-    public void setChannel(int channel) {
-        device.setChannel(channel);
+    public void draw() {
+        renderer.renderShape("Circle", "Radius=" + radius);
     }
 }
 
-// Client Code
-public class BridgePatternDemo {
+class Square extends Shape {
+    private double side;
+
+    public Square(Renderer renderer, double side) {
+        super(renderer);
+        this.side = side;
+    }
+
+    public void draw() {
+        renderer.renderShape("Square", "Side=" + side);
+    }
+}
+
+public class Main {
     public static void main(String[] args) {
-        Device tv = new TV();
-        RemoteControl remote = new BasicRemoteControl(tv);
+        // Create shapes with OpenGL renderer
+        Renderer openGL = new OpenGLRenderer();
+        Shape circle = new Circle(openGL, 5.0);
+        Shape square = new Square(openGL, 4.0);
 
-        remote.turnOn();       // TV is ON
-        remote.setChannel(5);  // TV channel set to 5
-        remote.turnOff();      // TV is OFF
+        circle.draw();
+        square.draw();
 
-        Device radio = new Radio();
-        remote = new BasicRemoteControl(radio);
+        // Switch to DirectX renderer
+        Renderer directX = new DirectXRenderer();
+        circle = new Circle(directX, 5.0);
+        square = new Square(directX, 4.0);
 
-        remote.turnOn();       // Radio is ON
-        remote.setChannel(99); // Radio frequency set to 99
-        remote.turnOff();      // Radio is OFF
-    }
-}
-```
-
-In the above example, the type of device and the type of remote are 2
-independent dimensions and can be paired together without too much complexity.
-
-## Decorator Pattern
-
-Lets you attach new behaviors to objects by placing them inside wrapper objects
-that contain these behaviors. Provides a flexible alternative to subclassing for
-extending functionality.
-
-- Component: Defines the interface for objects that can have
-  responsibilities added to them.
-- Concrete Component: The base object that responsibilities can be added to.
-- Decorator: Maintains a reference to a Component object and implements the
-  Component interface.
-- Concrete Decorator: Adds responsibilities to the component.
-
-```java
-// Component interface
-interface Coffee {
-    double getCost();
-    String getDescription();
-}
-
-// Concrete Component
-class SimpleCoffee implements Coffee {
-    @Override
-    public double getCost() {
-        return 1.0;
-    }
-
-    @Override
-    public String getDescription() {
-        return "Simple Coffee";
-    }
-}
-
-// Decorator base class
-abstract class CoffeeDecorator implements Coffee {
-    protected Coffee decoratedCoffee;
-
-    public CoffeeDecorator(Coffee coffee) {
-        this.decoratedCoffee = coffee;
-    }
-
-    public double getCost() {
-        return decoratedCoffee.getCost();
-    }
-
-    public String getDescription() {
-        return decoratedCoffee.getDescription();
-    }
-}
-
-// Concrete Decorators
-class MilkDecorator extends CoffeeDecorator {
-    public MilkDecorator(Coffee coffee) {
-        super(coffee);
-    }
-
-    @Override
-    public double getCost() {
-        return super.getCost() + 0.5;
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription() + ", with Milk";
-    }
-}
-
-class SugarDecorator extends CoffeeDecorator {
-    public SugarDecorator(Coffee coffee) {
-        super(coffee);
-    }
-
-    @Override
-    public double getCost() {
-        return super.getCost() + 0.2;
-    }
-
-    @Override
-    public String getDescription() {
-        return super.getDescription() + ", with Sugar";
-    }
-}
-
-// Client code
-public class DecoratorPatternExample {
-    public static void main(String[] args) {
-        Coffee coffee = new SimpleCoffee();
-        System.out.println(coffee.getDescription() + " costs $" + coffee.getCost());
-
-        Coffee coffeeWithMilk = new MilkDecorator(coffee);
-        System.out.println(coffeeWithMilk.getDescription() + " costs $" + coffeeWithMilk.getCost());
-
-        Coffee coffeeWithMilkAndSugar = new SugarDecorator(coffeeWithMilk);
-        System.out.println(coffeeWithMilkAndSugar.getDescription() + " costs $" + coffeeWithMilkAndSugar.getCost());
-    }
-}
-```
-
-## Facade Pattern
-
-Provides a simplified interface to a larger body of code, making a subsystem easier to use. It hides the complexities of the system and provides a unified interface to the client.
-
-- Facade: The class that provides a simplified interface to the subsystem.
-- Subsystem Classes: The classes that perform the actual work and contain the complex logic.
-
-```java
-// Subsystem classes
-class CPU {
-    public void start() {
-        System.out.println("CPU started");
-    }
-
-    public void execute() {
-        System.out.println("CPU executing instructions");
-    }
-
-    public void shutdown() {
-        System.out.println("CPU shutting down");
-    }
-}
-
-class Memory {
-    public void load() {
-        System.out.println("Memory loaded");
-    }
-
-    public void clear() {
-        System.out.println("Memory cleared");
-    }
-}
-
-class HardDrive {
-    public void readData() {
-        System.out.println("Hard Drive reading data");
-    }
-
-    public void writeData() {
-        System.out.println("Hard Drive writing data");
-    }
-}
-
-// Facade class
-class ComputerFacade {
-    private final CPU cpu;
-    private final Memory memory;
-    private final HardDrive hardDrive;
-
-    public ComputerFacade() {
-        this.cpu = new CPU();
-        this.memory = new Memory();
-        this.hardDrive = new HardDrive();
-    }
-
-    public void startComputer() {
-        System.out.println("Starting computer...");
-        cpu.start();
-        memory.load();
-        hardDrive.readData();
-        cpu.execute();
-        System.out.println("Computer started successfully");
-    }
-
-    public void shutdownComputer() {
-        System.out.println("Shutting down computer...");
-        cpu.shutdown();
-        memory.clear();
-        hardDrive.writeData();
-        System.out.println("Computer shut down successfully");
-    }
-}
-
-// Client code
-public class FacadePatternExample {
-    public static void main(String[] args) {
-        ComputerFacade computer = new ComputerFacade();
-
-        computer.startComputer();   // Simplified interface to start the computer
-        computer.shutdownComputer(); // Simplified interface to shut down the computer
-    }
-}
-```
-
-## Proxy Pattern
-
-The Proxy Pattern provides a surrogate or placeholder for another object to control access to it. It is used to add an additional layer of control, such as lazy initialization, access control, logging, or caching, without changing the original object's code.
-
-- Proxy: The class that acts as an intermediary between the client and the real object.
-- Real Subject: The actual object that the proxy represents.
-- Client: The object that interacts with the proxy.
-
-### Types of Proxy
-1. Virtual Proxy: Used for lazy initialization and caching.
-2. Protection Proxy: Controls access to the real object based on permissions.
-3. Remote Proxy: Represents an object located in a different address space.
-4. Smart Proxy: Adds additional functionality, such as reference counting or logging.
-
-```java
-// Subject interface
-interface Image {
-    void display();
-}
-
-// Real Subject
-class RealImage implements Image {
-    private final String filename;
-
-    public RealImage(String filename) {
-        this.filename = filename;
-        loadFromDisk();
-    }
-
-    private void loadFromDisk() {
-        System.out.println("Loading " + filename);
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Displaying " + filename);
-    }
-}
-
-// Proxy
-class ProxyImage implements Image {
-    private RealImage realImage;
-    private final String filename;
-
-    public ProxyImage(String filename) {
-        this.filename = filename;
-    }
-
-    @Override
-    public void display() {
-        if (realImage == null) {
-            realImage = new RealImage(filename); // Lazy initialization
-        }
-        realImage.display();
-    }
-}
-
-// Client code
-public class ProxyPatternExample {
-    public static void main(String[] args) {
-        Image image = new ProxyImage("test_image.jpg");
-
-        // Image will be loaded from disk
-        image.display();
-
-        // Image will not be loaded from disk again
-        image.display();
+        circle.draw();
+        square.draw();
     }
 }
 ```
 
 ## Composite Pattern
 
-Allows you to compose objects into tree-like structures to represent part-whole hierarchies. It lets clients treat individual objects and compositions of objects uniformly.
+Treats individual objects and compositions of objects uniformly. Useful when you need to work with tree structures
 
-- Component: Declares the interface for objects in the composition.
-- Leaf: Represents the leaf objects in the composition. A leaf has no children.
-- Composite: Represents a node that can have children. Implements the component interface and stores child components.
-
-This pattern is particularly useful when you need to work with tree structures, such as representing a file system, organization hierarchies, or graphical user interfaces.
+Used in file systems, and graphical user interfaces.
 
 ```java
+import java.util.ArrayList;
+import java.util.List;
+
 // Component interface
-interface Graphic {
-    void draw();
+interface FileSystemItem {
+    void display(String indent);
 }
 
 // Leaf class
-class Circle implements Graphic {
-    @Override
-    public void draw() {
-        System.out.println("Drawing a Circle");
-    }
-}
+class File implements FileSystemItem {
+    private final String name;
 
-class Rectangle implements Graphic {
+    public File(String name) {
+        this.name = name;
+    }
+
     @Override
-    public void draw() {
-        System.out.println("Drawing a Rectangle");
+    public void display(String indent) {
+        System.out.println(indent + "File: " + name);
     }
 }
 
 // Composite class
-class CompositeGraphic implements Graphic {
-    private final List<Graphic> children = new ArrayList<>();
+class Directory implements FileSystemItem {
+    private final String name;
+    private final List<FileSystemItem> children = new ArrayList<>();
 
-    public void add(Graphic graphic) {
-        children.add(graphic);
+    public Directory(String name) {
+        this.name = name;
     }
 
-    public void remove(Graphic graphic) {
-        children.remove(graphic);
+    public void add(FileSystemItem item) {
+        children.add(item);
+    }
+
+    public void remove(FileSystemItem item) {
+        children.remove(item);
     }
 
     @Override
-    public void draw() {
-        for (Graphic graphic : children) {
-            graphic.draw();
+    public void display(String indent) {
+        System.out.println(indent + "Directory: " + name);
+        for (FileSystemItem item : children) {
+            item.display(indent + "  ");
         }
     }
 }
 
 // Client code
-public class CompositePatternExample {
+public class FileSystemExample {
     public static void main(String[] args) {
-        // Create leaf objects
-        Graphic circle = new Circle();
-        Graphic rectangle = new Rectangle();
+        // Create files
+        File file1 = new File("file1.txt");
+        File file2 = new File("file2.txt");
+        File file3 = new File("file3.txt");
 
-        // Create composite objects
-        CompositeGraphic composite1 = new CompositeGraphic();
-        CompositeGraphic composite2 = new CompositeGraphic();
+        // Create directories
+        Directory dir1 = new Directory("dir1");
+        Directory dir2 = new Directory("dir2");
 
-        // Build the tree structure
-        composite1.add(circle);
-        composite1.add(rectangle);
+        // Build the file system structure
+        dir1.add(file1);
+        dir1.add(file2);
+        dir2.add(file3);
+        dir2.add(dir1);
 
-        composite2.add(composite1);
-        composite2.add(new Circle());
-
-        // Draw the entire structure
-        System.out.println("Drawing composite2:");
-        composite2.draw();
+        // Display the file system structure
+        dir2.display("");
     }
 }
 ```
 
-## Adapter Pattern
+## Flyweight Pattern
 
-Allows incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of one class into another that the client expects.
+Aims to minimize memory usage by sharing as much data as possible with similar
+objects. Useful when dealing with a large number of
+objects that have some shared state.
 
-- Target Interface: Defines the domain-specific interface that the client uses.
-- Adapter: Implements the target interface and translates requests from the client to the adaptee.
-- Adaptee: The existing class that needs to be adapted.
-- Client: The object that interacts with the target interface.
+- Flyweight Factory: Ensures that flyweight objects are shared
+  and reused. Maintains a pool of flyweight objects and returns existing
+  objects from the pool instead of creating new ones.
+- Flyweight Object: Contains the intrinsic state and methods to
+  operate on it.
 
-This pattern is particularly useful when integrating legacy code with new systems or when working with third-party libraries that have different interfaces.
+Used in applications like text editors, game development, graphics systems, caching systems, and document management systems.
 
 ```java
-// Target Interface
-interface MediaPlayer {
-    void play(String audioType, String fileName);
+import java.util.HashMap;
+import java.util.Map;
+
+public interface Glyph {
+    void render(int position);
 }
+public class CharacterGlyph implements Glyph {
+    // intrinsic state
+    private final char character;
+    private final String font;
 
-// Adaptee
-class AdvancedMediaPlayer {
-    public void playMp4(String fileName) {
-        System.out.println("Playing mp4 file: " + fileName);
-    }
-
-    public void playVlc(String fileName) {
-        System.out.println("Playing vlc file: " + fileName);
-    }
-}
-
-// Adapter
-class MediaAdapter implements MediaPlayer {
-    private final AdvancedMediaPlayer advancedMediaPlayer;
-
-    public MediaAdapter(String audioType) {
-        if (audioType.equalsIgnoreCase("vlc")) {
-            advancedMediaPlayer = new AdvancedMediaPlayer() {
-                @Override
-                public void playVlc(String fileName) {
-                    super.playVlc(fileName);
-                }
-            };
-        } else if (audioType.equalsIgnoreCase("mp4")) {
-            advancedMediaPlayer = new AdvancedMediaPlayer() {
-                @Override
-                public void playMp4(String fileName) {
-                    super.playMp4(fileName);
-                }
-            };
-        } else {
-            throw new IllegalArgumentException("Unsupported audio type: " + audioType);
-        }
+    public CharacterGlyph(char character, String font) {
+        this.character = character;
+        this.font = font;
     }
 
     @Override
-    public void play(String audioType, String fileName) {
-        if (audioType.equalsIgnoreCase("vlc")) {
-            advancedMediaPlayer.playVlc(fileName);
-        } else if (audioType.equalsIgnoreCase("mp4")) {
-            advancedMediaPlayer.playMp4(fileName);
-        }
+    public void render(int position) {
+        System.out.println("Render '" + character + "' with font '" + font + "' at position " + position);
     }
 }
+public class GlyphFactory {
+    private final Map<String, Glyph> pool = new HashMap<>();
 
-// Client
-class AudioPlayer implements MediaPlayer {
-    @Override
-    public void play(String audioType, String fileName) {
-        if (audioType.equalsIgnoreCase("mp3")) {
-            System.out.println("Playing mp3 file: " + fileName);
-        } else if (audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("mp4")) {
-            MediaPlayer adapter = new MediaAdapter(audioType);
-            adapter.play(audioType, fileName);
-        } else {
-            System.out.println("Invalid media type: " + audioType);
+    public Glyph getGlyph(char character, String font) {
+        String key = character + "-" + font;
+        if (!pool.containsKey(key)) {
+            pool.put(key, new CharacterGlyph(character, font));
         }
+        return pool.get(key);
     }
 }
-
-// Client Code
-public class AdapterPatternExample {
+public class TextEditor {
     public static void main(String[] args) {
-        MediaPlayer player = new AudioPlayer();
+        GlyphFactory factory = new GlyphFactory();
+        String text = "hello world";
 
-        player.play("mp3", "song.mp3"); // Playing mp3 file: song.mp3
-        player.play("mp4", "video.mp4"); // Playing mp4 file: video.mp4
-        player.play("vlc", "movie.vlc"); // Playing vlc file: movie.vlc
-        player.play("avi", "clip.avi"); // Invalid media type: avi
+        for (int i = 0; i < text.length(); i++) {
+            char c = text.charAt(i);
+            Glyph glyph = factory.getGlyph(c, "Arial");
+            glyph.render(i);
+        }
+    }
+}
+```
+
+## Decorator Pattern
+
+Allows attaching new behaviors to objects using wrapper objects
+that contain these behaviors.
+
+Used in web frameworks, .
+
+```java
+class HttpHandler {
+    handle(request, response) {
+        response.send("Hello World");
+    }
+}
+
+class MiddlewareDecorator {
+    constructor(handler) {
+        this.handler = handler;
+    }
+    
+    handle(request, response) {
+        this.handler.handle(request, response);
+    }
+}
+
+class AuthenticationMiddleware extends MiddlewareDecorator {
+    handle(request, response) {
+        console.log("Checking authentication...");
+        if (!request.headers.authorization) {
+            response.status(401).send("Unauthorized");
+            return;
+        }
+        super.handle(request, response);
+    }
+}
+
+class LoggingMiddleware extends MiddlewareDecorator {
+    handle(request, response) {
+        console.log(`${new Date().toISOString()} - ${request.method} ${request.url}`);
+        super.handle(request, response);
+        console.log("Request completed");
+    }
+}
+
+class CompressionMiddleware extends MiddlewareDecorator {
+    handle(request, response) {
+        console.log("Applying gzip compression...");
+        response.setHeader('Content-Encoding', 'gzip');
+        super.handle(request, response);
+    }
+}
+
+
+// Usage - stack decorators in any order
+let handler = new CompressionMiddleware(
+    new LoggingMiddleware(
+        new AuthenticationMiddleware(
+            new HttpHandler()
+        )
+    )
+);
+```
+
+## Facade Pattern
+
+Provides a simplified wrapper for a collection of classes. Hides the complexities of the system and provides a unified interface to the client.
+
+Used in third party API clients.
+
+```java
+class SMTPClient {
+    void connect() { System.out.println("Connected to SMTP"); }
+    void authenticate() { System.out.println("Authenticated"); }
+    void send(String mimeMessage) { System.out.println("Sent: " + mimeMessage); }
+}
+class MimeBuilder {
+    String build(String to, String subject, String body) {
+        return "[MIME] To: " + to + ", Subject: " + subject + ", Body: " + body;
+    }
+}
+class Logger {
+    void log(String message) {
+        System.out.println("Logged: " + message);
+    }
+}
+public class EmailService {
+    private SMTPClient smtp = new SMTPClient();
+    private MimeBuilder builder = new MimeBuilder();
+    private Logger logger = new Logger();
+
+    public void sendEmail(String to, String subject, String body) {
+        smtp.connect();
+        smtp.authenticate();
+        String message = builder.build(to, subject, body);
+        smtp.send(message);
+        logger.log("Email sent to " + to);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        EmailService emailService = new EmailService();
+        emailService.sendEmail("john@example.com", "Invoice", "Your invoice is attached.");
+    }
+}
+```
+
+## Proxy Pattern
+
+Provides a placeholder or a filter for another object to control access to it. Used to add an additional layer of control, such as lazy initialization, access control, logging, or caching, without changing the original object's code.
+
+Used in HTTP server frameworks, preview UIs.
+
+### Types of Proxy
+
+1. Virtual Proxy: Used for lazy initialization and caching.
+2. Protection Proxy: Controls access to the real object based on permissions.
+3. Remote Proxy: Represents an object located in a different address space.
+4. Smart Proxy: Adds additional functionality, such as reference counting or logging.
+
+```java
+class FileProxy implements File {
+    private RealFile real;
+    private String filename;
+    
+    public FileProxy(String filename) {
+        this.filename = filename;
+    }
+    public void open() {
+        if (real == null) {
+            real = new RealFile(filename);
+        }
+        real.open();
     }
 }
 ```

@@ -14,7 +14,7 @@ Deals with how classes are created.
 Separates the construction of a complex object from its representation. Provides
 a step-by-step process. Useful when the attributes are too many and optional.
 
-Used in SQL query builders, HTTP response builders, etc.
+Used in SQL query builders, HTTP request and response builders, etc.
 
 ```java
 // Product class - Represents the HTTP request being built
@@ -44,8 +44,9 @@ class HttpRequest {
 
     // Static Builder class
     public static class HttpRequestBuilder {
-        private String method = "GET";  // Default to GET request
         private String url;
+        // optional values
+        private String method = "GET";
         private String body = "";
         private Map<String, String> headers = new HashMap<>();
 
@@ -92,7 +93,7 @@ public class BuilderPatternExample {
 
 ## Singleton Pattern
 
-Ensures only one instances of a class exists. Provides global access to it.
+Ensures only one instances of a class exists. Provides global access to the single instance.
 
 Used in logging, thread pools, database connections, etc.
 
@@ -101,7 +102,8 @@ public class DatabaseConnection {
   private static DatabaseConnection instance;
 
   private DatabaseConnection() {
-    // private constructor to prevent instantiation
+    // private constructor to prevent instantiation from outside
+    // creates a database
   }
 
   public static DatabaseConnection getInstance() {
@@ -110,64 +112,65 @@ public class DatabaseConnection {
     }
     return instance;
   }
-
-  public void connect() {
-    // connection logic here
-  }
 }
 ```
 
-The above example uses singleton pattern for DatabaseConnection. Only one
-connection instance is required at runtime.
+The above code is not thread-safe. To make it thread-safe, double-checked locking can be used.
 
 ## Factory Pattern
 
-Provides an interface for creating objects of different types. The type of the
+Provides an interface for creating objects of different variants. The type of the
 object is passed to the factory method.
 
-Used in notification systems (e.g., email, SMS, push notifications), payment gateways (e.g., creating objects for different payment methods like credit card, PayPal, etc.), and document converters (e.g., converting files to PDF, Word, or Excel formats).
+Used in loggers, notification systems, testing frameworks.
 
 ```java
-// Step 1: Define an interface for notifications
-interface Notification {
-    void send(String message);
+class Logger {
+    public void log(String message) {}
 }
 
-// Step 2: Concrete implementations of the Notification interface
-class EmailNotification implements Notification {
+class ConsoleLogger extends Logger {
     @Override
-    public void send(String message) {
-        System.out.println("Sending Email: " + message);
+    public void log(String message) {
+        System.out.println("LOG: " + message);
     }
 }
 
-class SMSNotification implements Notification {
-    @Override
-    public void send(String message) {
-        System.out.println("Sending SMS: " + message);
-    }
-}
+class FileLogger extends Logger {
+    private String filePath;
 
-// Step 3: Factory class to create Notification objects
-class NotificationFactory {
-    public static Notification createNotification(String type) {
-        if (type.equalsIgnoreCase("EMAIL")) {
-            return new EmailNotification();
-        } else if (type.equalsIgnoreCase("SMS")) {
-            return new SMSNotification();
+    public FileLogger(String filePath) {
+        this.filePath = filePath;
+    }
+
+    @Override
+    public void log(String message) {
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.write("LOG: " + message + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        throw new IllegalArgumentException("Unknown notification type: " + type);
     }
 }
 
-// Step 4: Client code using the Factory
-public class FactoryMethodPatternExample {
-    public static void main(String[] args) {
-        Notification notification1 = NotificationFactory.createNotification("EMAIL");
-        notification1.send("Welcome to our service!");
+class LoggerFactory {
+    public static Logger createLogger(String type, String filePath) {
+        if (type.equalsIgnoreCase("CONSOLE")) {
+            return new ConsoleLogger();
+        } else if (type.equalsIgnoreCase("FILE")) {
+            return new FileLogger(filePath);
+        }
+        throw new IllegalArgumentException("Unknown logger type: " + type);
+    }
+}
 
-        Notification notification2 = NotificationFactory.createNotification("SMS");
-        notification2.send("Your OTP code is 123456.");
+public class LoggerFactoryExample {
+    public static void main(String[] args) {
+        Logger consoleLogger = LoggerFactory.createLogger("CONSOLE", null);
+        consoleLogger.log("Logging to console");
+
+        Logger fileLogger = LoggerFactory.createLogger("FILE", "log.txt");
+        fileLogger.log("Logging to file");
     }
 }
 ```
@@ -175,12 +178,10 @@ public class FactoryMethodPatternExample {
 ## Abstract Factory Pattern
 
 Provides an interface for creating families of related objects without
-specifying their concrete classes. It's like having a factory of factories. Used
+specifying their concrete classes. Like a factory for factories. Used
 when multiple objects need to be created that work together.
 
-Used in UI toolkits where different themes require different button/window
-styles, or in cross-platform applications where components need different
-implementations based on the operating system.
+Used in UI toolkits with multiple themes, in cross-platform component toolkits, and in media players to handle different codecs with different decoders.
 
 ```java
 // Step 1: Define abstract products
