@@ -46,8 +46,5 @@ Measure of strength and direction of linear relationship between 2 variables. Al
 
 ```math
 r = \frac{\mathrm{cov}(X, Y)}{s_X s_Y}
-```
-
-```math
-r = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}
+= \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \cdot \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}
 ```

@@ -33,12 +33,6 @@ Measure of the spread of the observed values. Denoted by $\sigma^2$. $ $
 
 Square root of the variance. Denoted by $\sigma$. $ $
 
-### Covariance
-
-```math
-\mathrm{Cov}(X, Y) = \frac{1}{N} \sum_{i=1}^N (x_i - \mu_X)(y_i - \mu_Y)
-```
-
 ### Skewness
 
 ```math

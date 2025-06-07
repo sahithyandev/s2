@@ -52,7 +52,6 @@ Denoted by $r \in [-1,1]$. $ $
 r = \frac{\sum (x_i y_i) - n \bar{x} \bar{y}}{\sqrt{\left( \sum x_i^2 - n \bar{x}^2 \right) \left( \sum y_i^2 - n \bar{y}^2 \right)}}
 ```
 
-
 ## Properties
 
 ### Non-negativity
