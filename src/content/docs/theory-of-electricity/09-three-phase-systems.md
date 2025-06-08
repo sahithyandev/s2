@@ -41,6 +41,24 @@ P_\text{ph} = V_\text{ph} \cdot I^*_\text{ph} = P_\text{active} + j P_\text{reac
 
 Here $I^*_\text{ph}$ is the complex conjugate of the current phasor. $ $
 
+## Standard terminology
+
+Examples:
+- A 3-ph, 415 V, 50 Hz, 100 kVA transformer
+- A 3-ph, 33 kV, 50 Hz, 1 MVA, 3-wire transmission line
+- A 3-ph, $\delta$-connected, 415 V, 3.2 kW, 0.85 pf motor
+
+Here:
+- Voltage specified is always line voltage
+- Active power or apparent power is always the total 3-ph quantity
+- If apparent power is given, maximum current capacity of the device can be determined
+- 4-wire system has the neutral wire connected between the star-points of supply and load.
+- For motors, the power specified is the output mechanical power. The operating power factor of the motor is specified at its rated power.
+
+```math
+\text{Efficiency} = \frac{\text{Output Power}}{\text{Input Electrical Power}}
+```
+
 ## Symmetrical Components
 
 A technique used to handle unbalanced voltages or current sources. Any unbalanced system of three-phase circuits can be decomposed into three symmetrical components:
@@ -102,7 +120,7 @@ The above equation can be simplified as below. Here $\alpha = 1.0\; \angle\; 0^\
 ### Symmetrical component matrix
 
 ```math
-[\Delta]=
+[\Lambda]=
 \begin{bmatrix}
   1 & 1 & 1 \\
   1 & \alpha^2 & \alpha \\
@@ -111,14 +129,14 @@ The above equation can be simplified as below. Here $\alpha = 1.0\; \angle\; 0^\
 ```
 
 ```math
-[\Delta]^{-1}=
+[\Lambda]^{-1}=
 \frac{1}{3}
 \begin{bmatrix}
   1 & 1 & 1 \\
   1 & \alpha & \alpha^2 \\
   1 & \alpha^2 & \alpha \\
 \end{bmatrix}
-= \frac{1}{3} \cdot [\Delta]^{*}
+= \frac{1}{3} \cdot [\Lambda]^{*}
 ```
 
 ### Power
@@ -157,5 +175,5 @@ S = 3 [V_\text{Sy}]^{T} [I_\text{Sy}]^*
 ```
 
 ```math
-[Z_s] = [\Delta]^{-1} Z_p [\Delta]
+[Z_s] = [\Lambda]^{-1} Z_p [\Lambda]
 ```

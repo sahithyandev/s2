@@ -17,7 +17,7 @@ A pair of terminals through which current may enter or leave a network.
 
 ### Z parameters
 
-Denoted by $[z]$. Aka. open-circuit impedance parameters. $ $
+Denoted by $[z]$. Aka. open-circuit impedance parameters. Measures impedance of the network. $ $
 
 ```math
 \begin{bmatrix}
@@ -42,12 +42,13 @@ I_2
 I_1 \\
 I_2
 \end{bmatrix}
-
 ```
+
+The parameters are found by setting $I_1$ and $I_2$ to $0$ in turn.
 
 ### Y parameters
 
-Denoted by $[y]$. Aka. short-circuit admittance parameters. $ $
+Denoted by $[y]$. Aka. short-circuit admittance parameters. Measures admittance of the network. $ $
 
 ```math
 \begin{bmatrix}
@@ -74,11 +75,13 @@ V_2
 \end{bmatrix}
 ```
 
+The parameters are found by setting $V_1$ and $V_2$ to $0$ in turn.
+
 ### Transmission parameters
 
-![Transmission parameters](/images/theory-of-electricity/transmission-parameters.jpg)
+Denoted by $T$. Aka. ABCD parameters. Measures gain and transfer impedance and transfer admittance. $ $
 
-Denoted by $T$. Aka. ABCD parameters. $ $
+![Transmission parameters](/images/theory-of-electricity/transmission-parameters.jpg)
 
 ```math
 \begin{bmatrix}
@@ -100,26 +103,12 @@ V_2 \\
 
 Here:
 
-- $A$ - Open circuit transfer function. Dimensionless.
-- $B$ - Short circuit transfer impedance.
-- $C$ - Open circuit transfer admittance.
-- $D$ - Short circuit current ratio. Dimensionless.
+- $A$ - Voltage gain. Open circuit transfer function. Dimensionless.
+- $B$ - Transfer impedance. Short circuit transfer impedance.
+- $C$ - Transfer admittance. Open circuit transfer admittance.
+- $D$ - Current gain. Short circuit current ratio. Dimensionless.
 
-```math
-A = {\frac{V_1}{V_2}\Bigg{\rvert}}_{I_2 = 0}
-\;\;\;\;
-\;\;\;\;
-\;\;\;\;
-C = {\frac{I_1}{V_2}\Bigg{\rvert}}_{I_2 = 0}
-```
-
-```math
-B = {\frac{V_1}{I_2}\Bigg{\rvert}}_{V_2 = 0}
-\;\;\;\;
-\;\;\;\;
-\;\;\;\;
-D = {\frac{I_1}{I_2}\Bigg{\rvert}}_{V_2 = 0}
-```
+The parameters are foudn by setting $I_2$ and $V_2$ to $0$ in turn.
 
 #### Reciprocal network
 

@@ -4,7 +4,7 @@ sidebar:
   order: 14
 slug: theory-of-electricity/fourier-series
 prev: true
-next: false
+next: true
 ---
 
 
