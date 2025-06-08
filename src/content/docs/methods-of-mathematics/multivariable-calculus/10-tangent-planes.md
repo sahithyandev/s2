@@ -10,7 +10,7 @@ next: true
 Let $f: \mathbb{R}^2 \to \mathbb{R}$. Tangent plane at a point $P(a,b)$ is given by: $ $
 
 ```math
-z = f(a,b) + \bigtriangledown f(a,b) \cdot \big(x - a, y - b\big)
+z = f(a,b) + \nabla f(a,b) \cdot \big(x - a, y - b\big)
 ```
 
 ## To a level surface
@@ -24,5 +24,5 @@ Let
 The equation of the tangent plane on $P$ at the surface $S$:
 
 ```math
-\bigtriangledown F \cdot (x-x_0,y-y_0,z-z_0) = 0
+\nabla F \cdot (x-x_0,y-y_0,z-z_0) = 0
 ```

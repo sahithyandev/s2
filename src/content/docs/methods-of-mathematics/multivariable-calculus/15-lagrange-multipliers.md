@@ -13,14 +13,14 @@ to a constraint (or side condition) of the form $g(x, y, z) = k$.
 
 ## Theorem
 
-**Suppose** $f,g \in C^1$ and $\bigtriangledown g \neq 0$. **Then** the extremum(s) of $f(x,y)$ subjected to $g(x,y) = k$ are included in each of:
+**Suppose** $f,g \in C^1$ and $\nabla g \neq 0$. **Then** the extremum(s) of $f(x,y)$ subjected to $g(x,y) = k$ are included in each of:
 
 ```math
 \det \frac{\partial (f,g)}{\partial (x,y)} = 0\;\;\text{and}\;\;g(x,y) = 0
 ```
 
 ```math
-\bigtriangledown f(x,y) = \lambda \bigtriangledown g(x,y)
+\nabla f(x,y) = \lambda \nabla g(x,y)
 \;\;\text{and}\;\;
 g(x,y) = 0
 ```

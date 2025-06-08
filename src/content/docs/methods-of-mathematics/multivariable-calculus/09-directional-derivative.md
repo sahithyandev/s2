@@ -35,21 +35,21 @@ D_{\boldsymbol{u}} f(x_0,y_0) = \Big\langle f_x(x_0,y_0),f_y(x_0,y_0)\Big\rangle
 
 ## Gradient
 
-Denoted by $\bigtriangledown f$. Can be extended for functions with more inputs.
+Denoted by $\nabla f$. Can be extended for functions with more inputs.
 $ $
 
 ```math
-\bigtriangledown f(x_0,y_0) =
+\nabla f(x_0,y_0) =
  \Big\langle f_x(x_0,y_0),f_y(x_0,y_0) \Big\rangle
  =
 \frac{\partial f}{\partial x}\boldsymbol{i}
 +\frac{\partial f}{\partial y}\boldsymbol{j}
 ```
 
-The $\bigtriangledown$ is the "del operator". $ $
+The $\nabla$ is the "del operator". $ $
 
 ```math
-\bigtriangledown
+\nabla
 \equiv
 \frac{\partial }{\partial x}\boldsymbol{i}
 +\frac{\partial }{\partial y}\boldsymbol{j}
@@ -62,5 +62,5 @@ Aka stationary point. A point where the gradient is zero or where one of the par
 ## Maxmimum of Directional Derivative
 
 Maximum value of the directional derivative $D_\boldsymbol{u} f$ is
-$\lvert \bigtriangledown f \rvert$ and occurs when the gradient vector and
+$\lvert \nabla f \rvert$ and occurs when the gradient vector and
 $\boldsymbol{u}$ has the same direction.
