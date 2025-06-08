@@ -30,7 +30,7 @@ Examples:
 - In C, memory is allocated implicitly (automatically) or explicitly (using
   `malloc()` system call)
 - In Java, memory is allocated implicitly (when defining primitive typed
-  variables) explicitly (using `new` operator)
+  variables) or explicitly (using `new` operator)
 - In Python, memory is allocated implicitly
 
 ## Memmory deallocation

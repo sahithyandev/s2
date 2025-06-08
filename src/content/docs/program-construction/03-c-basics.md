@@ -19,11 +19,6 @@ Memory layout in C is similar to the image below.
 
 ![Memory layout in C](/images/program-construction/c-memory-layout.jpg)
 
-<figcaption>Image from
-
-[MarinLwx's blog post](https://martinlwx.github.io/en/what-is-the-heap-and-stack/)
-
-</figcaption>
 </figure>
 
 - text - readonly. stores compiled machine code. fixed size, determined at compile time.
