@@ -116,6 +116,12 @@ A thread can be in either of these 5 states:
 - Blocked
 - Waiting
 
+<figure>
+
+![Java Thread States](/images/program-construction/life-cycle-java-threads.jpg)
+
+</figure>
+
 Once `start` method is called, the thread goes to running state.
 
 A thread can be paused using `sleep` method. It goes to sleeping state once the
@@ -147,6 +153,24 @@ levels of priority: `Thread.NORM_PRIORITY`, (default), `Thread.MIN_PRIORITY`,
 `Thread.MAX_PRIORITY`.
 
 ### Daemon threads
+
+Background threads that run in the JVM and are typically used for tasks like garbage collection or monitoring. Low-priority threads. Do not prevent the JVM from exiting when all user threads have finished execution. Automatically terminated when the JVM shuts down.
+
+A thread can be set to be a daemon, using `setDaemon(true)` before starting the thread:
+
+```java
+Thread daemonThread = new Thread(() -> {
+    while (true) {
+        System.out.println("Daemon thread running");
+    }
+});
+daemonThread.setDaemon(true);
+daemonThread.start();
+```
+
+Key points:
+- Daemon threads are suitable for background tasks.
+- They should not be used for critical operations as they may terminate abruptly.
 
 Low priority threads by default.
 
@@ -304,9 +328,33 @@ ReentrantLock fairLock = new ReentrantLock(true);
 
 ### Livelock
 
-Similar to deadlock, but threads are not blocked—they're just too busy responding to each other to make progress.
+Occurs when 2 or more threads continuously change their state in response to each other without making any progress. Unlike deadlock, where threads are blocked and unable to proceed, livelock threads remain active but are stuck in a loop of reacting to each other’s actions.
 
-This issue can be solved by adding randomized delays between retries or implement priority-based access.
+For example, consider 2 threads trying to avoid a conflict by backing off and retrying, but their retries keep interfering with each other:
+
+```java
+class Resource {
+    private boolean inUse = false;
+
+    public synchronized void use() {
+        while (inUse) {
+            // Back off and retry
+            Thread.yield();
+        }
+        inUse = true;
+    }
+
+    public synchronized void release() {
+        inUse = false;
+    }
+}
+```
+
+If two threads repeatedly attempt to use the resource and back off at the same time, they may never acquire it, resulting in livelock.
+
+To resolve livelock:
+- Randomized delays can be introduced between retries to reduce the likelihood of repeated interference.
+- Priority-based access can be implemented to ensure one thread can proceed while others wait.
 
 ### Producer-Consumer problem
 

@@ -20,14 +20,28 @@ In Java, streams are used to perform input and output (I/O) operations.
 
 #### Byte-oriented
 
-Handles data in raw binary format. Used for input and output of 8-bit bytes. In
-Java, the main classes to work with byte streams are `InputStream` and
-`OutputStream`.
+Handles data in raw binary format. Used for byte by byte input and output.
+
+| Class                         | Description                                                                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `InputStream`, `OutputStream` | Abstract superclass for all byte-oriented input & output streams. Used to read from or write bytes                                              |
+| `FileInputStream`             | Reads raw bytes from a file. Useful for reading binary data like images or audio files.                                                         |
+| `FileOutputStream`            | Writes raw bytes to a file. Useful for writing binary data.                                                                                     |
+| `BufferedInputStream`         | Adds buffering to an `InputStream` for efficient reading of bytes. Reduces the number of I/O operations by reading chunks of data at a time.    |
+| `BufferedOutputStream`        | Adds buffering to an `OutputStream` for efficient writing of bytes. Reduces the number of I/O operations by writing chunks of data at a time.   |
+| `ByteArrayInputStream`        | Reads bytes from a byte array in memory. Useful for testing or manipulating byte data without involving external resources.                     |
+| `ByteArrayOutputStream`       | Writes bytes to a byte array in memory. Useful for temporary storage and manipulation of byte data.                                             |
+| `DataInputStream`             | Reads primitive data types (e.g., `int`, `float`) and strings from an underlying `InputStream`. Useful for reading structured binary data.      |
+| `DataOutputStream`            | Writes primitive data types (e.g., `int`, `float`) and strings to an underlying `OutputStream`. Useful for writing structured binary data.      |
+| `ObjectInputStream`           | Reads serialized objects from an underlying `InputStream`. Useful for deserializing objects in Java.                                            |
+| `ObjectOutputStream`          | Writes serialized objects to an underlying `OutputStream`. Useful for serializing objects in Java.                                              |
+| `FilterInputStream`           | Abstract class for creating input streams that filter data as it is read. Subclasses include `BufferedInputStream` and `DataInputStream`.       |
+| `FilterOutputStream`          | Abstract class for creating output streams that filter data as it is written. Subclasses include `BufferedOutputStream` and `DataOutputStream`. |
 
 #### Character-oriented
 
 Handles data in the form of characters (16-bit Unicode). Used for input and
-output of characters. In Java, the main classes to work with character streams
+output of characters. Built on top of byte oriented streams. Automatically handle character encoding, line endings. In Java, the main classes to work with character streams
 are:
 
 In the below example, output file is written as the input file is being read.
@@ -53,16 +67,23 @@ public class CharacterStreamExample {
 }
 ```
 
+| Class                                | Description                                                                                                                                                                                                |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Reader`, `Writer`                   | Abstract superclass for all character stream inputs and outputs. Used for reading and writing text data.                                                                                                   |
+| `FileReader`, `FileWriter`           | Reads or writes characters from a file, using the system's default character encoding.                                                                                                                     |
+| `BufferedReader`, `BufferedWriter`   | Adds buffering to a `Reader` for efficient character reading or writing.                                                                                                                                   |
+| `InputStreamReader`                  | Bridge from byte streams (`InputStream`) to character streams (`Reader`). Decodes bytes into characters. Specify encoding for international text.                                                          |
+| `OutputStreamWriter`                 | Bridge from character streams (`Writer`) to byte streams (`OutputStream`). Encodes characters into bytes. Specify encoding for international text.                                                         |
+| `PrintWriter`                        | Writes formatted representations of objects to a text-output stream. Offers `print()`, `println()`, `printf()`, and auto-flushing. Preferred over `PrintStream` for text output due to character handling. |
+| `CharArrayReader`, `CharArrayWriter` | Reads characters from or writes characters to a character array. Useful for temporary storage and manipulation of character data in memory.                                                                |
+
 ### Based on direction of data flow
 
 #### Input stream
 
-In Java:
-
 - `InputStream` - an abstract class that represents an input stream of bytes.
   Provides methods to read bytes from a source.
-- `Reader` - an abstract class that represents an input stream of characters.
-  Provides methods to read characters from a source.
+- `Reader`
 
 Common subclasses of `InputStream` include:
 
@@ -72,9 +93,9 @@ Common subclasses of `InputStream` include:
 
 Common subclasses of `Reader` include:
 
-- `FileReader` for reading from files.
-- `CharArrayReader` for reading from character arrays.
-- `BufferedReader` for buffering input to improve performance.
+- `FileReader`
+- `CharArrayReader`
+- `BufferedReader`
 
 #### Output stream
 
@@ -82,8 +103,7 @@ In Java:
 
 - `OutputStream` - an abstract class that represents an output stream of bytes.
   Provides methods to write bytes to a destination.
-- `Writer` - an abstract class that represents an output stream of characters.
-  Provides methods to read characters from a source.
+- `Writer`
 
 Common subclasses of `OutputStream` include:
 
@@ -91,11 +111,11 @@ Common subclasses of `OutputStream` include:
 - `ByteArrayOutputStream` for writing to byte arrays.
 - `BufferedOutputStream` for buffering output to improve performance.
 
-Common subclasses of `Reader` and `Writer` include:
+Common subclasses of `Writer` include:
 
-- `FileWriter` for and writing to files.
-- `CharArrayWriter` for writing to character arrays.
-- `BufferedWriter` for buffering output to improve performance.
+- `FileWriter`
+- `CharArrayWriter`
+- `BufferedWriter`
 
 ### Based on connection
 
@@ -110,9 +130,10 @@ Examples:
 
 #### Chain stream
 
-Aka.filtered stream. A stream that reads from or writes to a connection stream. Works only if chained to other streams.
+Aka. filtered stream, wrapper streams. A stream that reads from or writes to a connection stream. Works only if chained to other streams. Adheres to decorator pattern.
 
 Examples:
+
 - `BufferedReader`
 
 #### Example

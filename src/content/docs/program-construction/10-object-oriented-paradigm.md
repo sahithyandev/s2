@@ -71,28 +71,15 @@ A programming style, in which main components are thought in terms of objects.
 Different kinds of objects interact with each other. Usually bad for performance
 but can be used to solve problems that cannot be solved in procedural approach.
 
-### Class
-
-A template for a object, giving information about state and actions. State of an
-object is represented by variables and actions are represented by methods.
-
-The class definition contains a `constructor` method which is a special static
-method used to instantiate objects.
-
-In Java, inside methods, `this` keyword is used to refer to the current object
-instance. Other languages might have different keywords.
-
 ### Encapsulation
 
-An object should have everything to do everything it should do. Also should do
-everything it should do.
+Internal data should be hidden from outside. Reduces too much coupling between 2 classes.
 
-For example, a `NotificationPushManager` should handle all aspects of pushing
-notifications internally without relying on external classes.
+Achivied through private fields and methods.
 
 ### Inheritance
 
-Inheritance allows a child class to inherit properties and methods from its
+Allows a child class to inherit properties and methods from its
 parent class. Promotes code reusability and extensibility.
 
 For example, `Dog` class can inherit from an `Animal` class, gaining its
@@ -107,12 +94,9 @@ properties and behaviors.
 
 ### Abstraction
 
-Only necessary features must be exposed. Implementation details must be hidden
-from outside. Otherwise changes in method's implementation would affect code
-written outside of the class, which is bad. Reduces code complexity.
+Hides internal implementation details from outside.
 
-For example, `Car` class can expose `changeGear(int)` method but not its
-implementation.
+Achieved through interfaces and abstract classes.
 
 ### Polymorphism
 
@@ -126,10 +110,10 @@ in another.
 
 Refers to how closely related and focused the responsibilities of a single
 module or class are. High cohesion means that a class is focused on a single
-task, which makes the system more understandable and maintainable.
+task, which is preferrable.
 
 ### Coupling
 
-Coupling is the degree of direct knowledge that one class has of another. Low
+Refers to how much 2 classes depend on each other. Low
 coupling is preferred as it reduces the interdependencies between classes,
 making the system more modular and easier to maintain.

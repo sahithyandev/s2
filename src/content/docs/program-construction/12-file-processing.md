@@ -13,6 +13,10 @@ operation can throw an exception.
 A file opened for writing must be closed before it can be opened for reading, or
 vice versa.
 
+### File class
+
+Representation of a file or directory in Java. A safer way of representing file or folders compared to a path string.
+
 ## Writing
 
 ```java
