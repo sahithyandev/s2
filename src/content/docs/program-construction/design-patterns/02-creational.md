@@ -1,8 +1,8 @@
 ---
-title: Creational Design Patterns
+title: Creational
 sidebar:
-  order: 17
-slug: program-construction/creational-design-patterns
+  order: 2
+slug: program-construction/design-patterns/creational
 prev: true
 next: true
 ---

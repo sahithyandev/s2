@@ -2,7 +2,7 @@
 title: File Processing
 sidebar:
   order: 12
-slug: program-construction/file-processing
+slug: program-construction/basics/file-processing
 prev: true
 next: true
 ---

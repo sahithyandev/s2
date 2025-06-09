@@ -2,7 +2,7 @@
 title: Streams
 sidebar:
   order: 11
-slug: program-construction/streams
+slug: program-construction/basics/streams
 prev: true
 next: true
 ---

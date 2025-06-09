@@ -2,7 +2,7 @@
 title: Concurrency
 sidebar:
   order: 15
-slug: program-construction/concurrency
+slug: program-construction/basics/concurrency
 prev: true
 next: true
 ---

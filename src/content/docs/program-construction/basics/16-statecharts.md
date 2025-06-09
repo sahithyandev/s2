@@ -1,8 +1,8 @@
 ---
 title: Statecharts
 sidebar:
-  order: 20
-slug: program-construction/statecharts
+  order: 16
+slug: program-construction/basics/statecharts
 prev: true
 next: false
 ---

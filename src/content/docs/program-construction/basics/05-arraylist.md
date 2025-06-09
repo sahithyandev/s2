@@ -2,7 +2,7 @@
 title: ArrayList
 sidebar:
   order: 5
-slug: program-construction/arraylist
+slug: program-construction/basics/arraylist
 prev: true
 next: true
 ---

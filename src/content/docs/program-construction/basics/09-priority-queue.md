@@ -2,7 +2,7 @@
 title: Priority Queue
 sidebar:
   order: 9
-slug: program-construction/priority-queue
+slug: program-construction/basics/priority-queue
 prev: true
 next: true
 ---

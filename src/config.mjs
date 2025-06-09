@@ -138,10 +138,22 @@ export const STARLIGHT_SIDEBAR_CONFIG = [
   },
   {
     label: "Program Construction",
-    collapsed: true,
-    autogenerate: {
-      directory: "program-construction",
-    },
+    items: [
+      {
+        label: "Basics",
+        collapsed: true,
+        autogenerate: {
+          directory: "program-construction/basics",
+        },
+      },
+      {
+        label: "Design Patterns",
+        collapsed: true,
+        autogenerate: {
+          directory: "program-construction/design-patterns",
+        },
+      },
+    ],
   },
   {
     label: "Theory of Electricity",

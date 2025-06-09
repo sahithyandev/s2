@@ -2,7 +2,7 @@
 title: Serialization
 sidebar:
   order: 13
-slug: program-construction/serialization
+slug: program-construction/basics/serialization
 prev: true
 next: true
 ---
