@@ -51,7 +51,7 @@ As $\mathcal{R}=0$: $ $
 I_{2_\text{rms}} = \frac{N_1}{N_2} I_{1_\text{rms}}
 ```
 
-## Impedance
+## Impedance Transformation
 
 ```math
 \frac{Z_2}{Z_1} = \left(\frac{N_2}{N_1}\right)^2
@@ -61,6 +61,7 @@ Here:
 - $Z_1$ - impedance of the primary coil
 - $Z_2$ - impedance of the load in the secondary coil
 
+The above transformation is used to convert a transformer into a single circuit for analysis.
 
 ## Power
 

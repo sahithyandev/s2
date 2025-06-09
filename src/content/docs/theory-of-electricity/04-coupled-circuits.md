@@ -11,7 +11,13 @@ For all the definitions below, $N$ means the number of turns. $ $
 
 ### Self inductance
 
-When the magnetic field produced by a coil causes an emf on itself. Denoted by $L$. When the length and area are constants, $L \propto N^2$.
+When the magnetic field produced by a coil causes an emf on itself. Denoted by $L$. Measured in henry ($H$).
+
+For a coil having $L_p$ self inductance, $N$ turns, carrying current $i_p$, the generated $\phi_p$ is given by:
+
+```math
+L_p = \frac{N_p \phi_p}{i_p} = \frac{N_p^2 \mu A}{l}
+```
 
 ### Mutual coupling
 
@@ -30,21 +36,16 @@ Measured in tesla ($T$) or $kgs^{-2}A^{-1}$ or $Nm^{-1}A^{-1}$.
 
 ### Magnetic flux
 
-Denoted by $\phi$. Measured in weber ($Wb$).
+Denoted by $\phi$. Measured in weber ($\text{Wb}$).
 
 ```math
 \phi = \int B\,\text{d}A = BA
 ```
 
-For a coil having $L_p$ self inductance, $N$ turns, carrying current $i_p$, the generated $\phi_p$ is given by:
-
-```math
-L_p = \frac{N_p \phi_p}{i_p} = \frac{N_p^2 \mu A}{l}
-```
 
 ### Magnetic field strength
 
-Aka. magnetic field intensity. Denoted by $H$. Measured in $H$ (henry) or ampere per meter ($Am^{-1}$).
+Aka. magnetic field intensity. Denoted by $H$. Measured in ampere per meter ($Am^{-1}$).
 
 ### Magnetic permeability
 
@@ -63,7 +64,7 @@ B = \mu H
 
 ### Flux linkage
 
-Denoted by $\lambda$. $ $
+Denoted by $\lambda$. Defines the interaction of a multi-turn inductor with a magnetic flux. $ $
 
 ```math
 \lambda = N\phi
@@ -104,7 +105,7 @@ $f=\mathcal{R}\phi$ is similar to $V=IR$ in electrical context.
 
 :::note
 
-For a toroidal core having $R$ radius and $r$ thickess:
+For a toroidal core having $R$ radius and $2r$ thickess:
 
 ```math
 \mathcal{R} = \frac{2R}{\mu r^2}
