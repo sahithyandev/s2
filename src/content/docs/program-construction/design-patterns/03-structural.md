@@ -1,7 +1,8 @@
 ---
-title: Structural
+title: Structural Design Patterns
 sidebar:
   order: 3
+  label: Structural
 slug: program-construction/design-patterns/structural
 prev: true
 next: true
