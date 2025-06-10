@@ -96,22 +96,24 @@ The width of the rejected band can be narrow (as in notch filters targeting a sp
 
 ### First-order
 
-Contains resistors and one type of reactive component. Output is taken across the reactive component.
+Contains resistors and one type of reactive component.
 
-| Output taken across | Type      |
-| ------------------- | --------- |
-| Capacitor           | Low pass  |
-| Inductor            | High pass |
-
-First-order low-pass filter:
-
-![First-order low-pass filter](/images/theory-of-electricity/first-order-low-pass.jpg)
+| Combination         | Output taken across | Type      |
+| ------------------- | ------------------- | --------- |
+| Resistor, Capacitor | Capacitor           | Low pass  |
+| Resistor, Capacitor | Resistor            | High pass |
+| Resistor, Inductor  | Inductor            | High pass |
+| Resistor, Inductor  | Resistor            | Low pass  |
 
 $f_B$ is the frequency at which the power of the signal is reduced by half, and called "half power frequency". $ $
 
 ```math
-f_B = \frac{1}{2\pi R C}
+f_B = \frac{1}{2\pi R C}\;\; \text{or}\;\; f_B = \frac{R}{2\pi L}
 ```
+
+#### First-order low-pass filter
+
+![First-order low-pass filter](/images/theory-of-electricity/first-order-low-pass.jpg)
 
 ```math
 H(f) = \frac{1}{1 + j(f/f_B)}
@@ -119,12 +121,20 @@ H(f) = \frac{1}{1 + j(f/f_B)}
 
 When $f=f_B$, the magnitude response is $-3\,\text{dB}$ or $0.707$ of the maximum amplitude. And the phase response is $-45^\circ$.
 
-### Second-order
-
-Contains resistors and both types of reactive components. Provides a roll-off rate of $40\,\text{dB}$ per decade (or $12\,\text{dB}$ per octave) beyond the cutoff frequency, making them more effective at signal rejection than first-order filters.
+#### First-order high-pass filter
 
 ```math
-Q = \frac{2\pi f_B L}{R} = \frac{1}{2\pi f_B C R}
+H(f) = \frac{1}{1 - j(f_B/f)}
+```
+
+### Second-order
+
+![Second-order high-pass filter](/images/theory-of-electricity/second-order-high-pass.jpg)
+
+Contains resistors, capacitors, and inductors. Provides a roll-off rate of $40\,\text{dB}$ per decade (or $12\,\text{dB}$ per octave) beyond the cutoff frequency, making them more effective at signal rejection than first-order filters.
+
+```math
+Q = \frac{2\pi f_0 L}{R} = \frac{1}{2\pi f_0 C R}
 ```
 
 Here $f_0$ is the resonance frequency. Higher $Q$ means higher selectivity, and narrower bandwidth.
