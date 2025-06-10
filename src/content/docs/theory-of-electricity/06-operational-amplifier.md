@@ -20,18 +20,6 @@ source. Aka. op-amp.
   - Negative
 - Reference/ground
 
-### Uses
-
-Can be used to perform a variety of operations on signals, such as:
-
-- Amplification
-- Addition
-- Subtraction
-- Multiplication
-- Division
-- Integration
-- Differentiation
-
 ### Gain
 
 The ratio between the output and the difference between the input voltages.
@@ -61,7 +49,7 @@ Here:
 
 ### Summing-point constraint
 
-The voltage at the inverting input terminal is equal to the voltage at the
+When the op-amp is negative feedback, the voltage at the inverting input terminal is equal to the voltage at the
 non-inverting input terminal.
 
 ## Feedback types
@@ -79,6 +67,18 @@ resistor. Gain decreases.
 The output signal is fed back to the non-inverting input terminal through a
 resistor.
 
+## Uses
+
+Can be used to perform a variety of operations on signals, such as:
+
+- Amplification
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Integration
+- Differentiation
+
 ## Types
 
 ### Inverting amplifier
@@ -87,12 +87,8 @@ Inverts the input signal. Input signal is fed to inverting input through $R_1$.
 Non-inverting input is grounded. Negative feedback is used with $R_2$ resistor.
 
 ```math
-A_v = \frac{v_0}{v_\text{in}} = -\frac{R_2}{R_1}
+A_v = \text{Closed-loop voltage gain} = \frac{v_0}{v_\text{in}} = -\frac{R_2}{R_1}
 ```
-
-Here:
-
-- $A_v$ - Closed-loop voltage gain
 
 ### Non-inverting amplifier
 
@@ -127,15 +123,13 @@ v_0 = -\left(\frac{R_f}{R_1}v_1 + \frac{R_f}{R_2}v_2 + \ldots + \frac{R_f}{R_n}v
 
 Used to amplify the difference between two input signals.
 
+When $\frac{R_4}{R_3} = \frac{R_2}{R_1}$: $ $
+
 ```math
 v_0 = \frac{R_2}{R_1}(v_1 - v_2)
 ```
 
-Only valid when:
-
-```math
-\frac{R_4}{R_3} = \frac{R_2}{R_1}
-```
+Otherwise, the output must be derived. 
 
 ### Integrator
 

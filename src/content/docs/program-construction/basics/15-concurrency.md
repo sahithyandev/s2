@@ -138,6 +138,8 @@ A thread can be interrupted using `interrupt` method. It sets the interrupted fl
 | `BLOCKED`                    | No immediate effect. Stays blocked.                              |
 | `NEW` or `TERMINATED`        | No effect. Hasn’t started or has already finished.               |
 
+When using `.sleep()` or `.wait()` or `.join()`, they must be called within a try-catch block to handle the `InterruptedException`.
+
 ### Joining
 
 The `join` method allows one thread to wait for the completition of another.

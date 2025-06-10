@@ -103,6 +103,10 @@ Contains resistors and one type of reactive component. Output is taken across th
 | Capacitor           | Low pass  |
 | Inductor            | High pass |
 
+First-order low-pass filter:
+
+![First-order low-pass filter](/images/theory-of-electricity/first-order-low-pass.jpg)
+
 $f_B$ is the frequency at which the power of the signal is reduced by half, and called "half power frequency". $ $
 
 ```math
