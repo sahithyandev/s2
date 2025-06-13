@@ -29,8 +29,8 @@ before returning to the original state.
 
 2 types:
 
-- Positive-going pulse: Sudden change from LOW to HIGH.
-- Negative-going pulse: Sudden change from HIGH to LOW.
+- Positive-going pulse: Sudden change from LOW to HIGH to LOW.
+- Negative-going pulse: Sudden change from HIGH to LOW to HIGH.
 
 ### Non-ideal pulse
 
@@ -48,7 +48,7 @@ transitions.
 
 ### Pulse width
 
-Pulse width is the time a pulse takes. In non-ideal case, the pulse width is
+The time a pulse takes. In non-ideal case, the pulse width is
 said to be the time between 50% marks of the transition.
 
 ## Waveforms

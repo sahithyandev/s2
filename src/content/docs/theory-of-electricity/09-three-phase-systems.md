@@ -96,7 +96,7 @@ A technique used to handle unbalanced voltages or current sources. Any unbalance
 \end{bmatrix}
 ```
 
-The above equation can be simplified as below. Here $\alpha = 1.0\; \angle\; 0^\circ$. $ $
+The above equation can be simplified as below. Here $\alpha = 1.0\; \angle\; 120^\circ$. $ $
 
 ```math
 \begin{bmatrix}

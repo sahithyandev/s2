@@ -93,7 +93,7 @@ Aka. conjucative normal form or maxterm expansion.
 
 #### Shorthand of POS
 
-If the order of the variables in the truth table is agreed upon, the SOP
+If the order of the variables in the truth table is agreed upon, the POS
 notation can be shorten.
 
 - Order of the variables is fixed

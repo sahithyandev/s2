@@ -11,15 +11,6 @@ next: true
 Recording of my CODD module kuppy session, covering from basics to combinational
 logic, is available on [YouTube](https://www.youtube.com/watch?v=KfCgnu0eYzs).
 
-### Recommended books
-
-- Digital Design: Principles & Practices by John F. Wakerly (Prentice-Hall Inc.)
-  3rd Ed.
-- Computer Architecture: A Quantitative Approach by John L. Hennessy & David A
-  Patterson (ISBN: 978-0123838728)
-- Computer Organization and Design:The Hardware/Software Interface: RISC-V
-  Edition by John L. Hennessy & David A Patterson
-
 :::note
 
 Programmability is the differentiator between computers and circuits.
