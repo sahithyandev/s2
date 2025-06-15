@@ -134,7 +134,7 @@ Goes through $(b+a,0)$ and $(b-a,0)$.
 | ------------------ | ---------------- |
 | Cardioid           | $a=b$            |
 | One-loop Limacon   | $b \lt a \lt 2b$ |
-| Inner-loop Limacon | $a \lt b         |
+| Inner-loop Limacon | $a \lt b$         |
 
 #### Lemniscate
 
@@ -157,6 +157,7 @@ r = a \cos (n\theta)
 | odd  | $n$              |
 | even | $2n$             |
 
+All the above-mentioned functions are visualized on [Common Polar Functions - Geogebra](https://www.geogebra.org/graphing/x4ykj7hk).
 
 ### Definition in Polar Coordinates
 

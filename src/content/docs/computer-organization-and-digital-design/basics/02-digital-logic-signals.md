@@ -93,7 +93,7 @@ aren't, special steps must be taken to interconnect those chips/building blocks.
 - DC noise margins
 - Highest LOW voltage of output must be lower than highest LOW voltage of input
 - Fanout  
-  Number and type of inputs that are connected to a given output
+  Maximum number of inputs that a single output pin can be connected to.
 - Power consumption
 - Speed
 - Noise/interference

@@ -9,6 +9,8 @@ next: true
 
 Approximate numerical formulae can be derived using [Taylor series](https://s1.sahithyan.dev/mathematics/real-analysis/taylor-series/).
 
+For all the definitions below, $h$ is a small positive number, and is called the step size. $ $
+
 ## First Order Derivative
 
 Taylor series expansion of $f(x_0+h)$ around $x_0$, truncated after $1^{\text{st}}$ derivative.
@@ -17,9 +19,7 @@ Taylor series expansion of $f(x_0+h)$ around $x_0$, truncated after $1^{\text{st
 f'(x_0) = \frac{f(x_0+h) - f(x_0)}{h} + \frac{h}{2!} f^{(2)}(\epsilon)
 ```
 
-Here $h$ is a small positive number, and is called the step size. $ $
-
-Error is bounded by: $ $
+Error is bounded by:
 
 ```math
 \frac{M \lvert h \rvert}{2}
@@ -61,18 +61,15 @@ Error is in order of $O(h^2)$ which is better than $O(h)$.
 
 :::
 
-## Higher Order Derivatives
-
-Taylor series is truncated after $2^{\text{nd}}$ derivative. $ $
+## Second Order Derivatives
 
 ### Second forward difference formula 
 
 ```math
 f^{(2)}(x_0) \approx
 \frac{1}{h^2} \Big[ f(x_0 + 2h) - 2f(x_0 + h) + f(x_0) \Big]
++ O(h)
 ```
-
-Error is in the order of $O(h)$. $ $
 
 ### Second backward difference formula 
 
@@ -82,13 +79,44 @@ f^{(2)}(x_0) =
 +O(h)
 ```
 
-Error is in the order of $O(h)$. $ $
-
 ### Second centered difference formula
 
 ```math
 f^{(2)}(x_0) =
 \frac{1}{h^2} \Big[ f(x_0 + h) - 2f(x_0) + f(x_0 - h) \Big]
++ O(h^2)
+```
+
+## Higher Order Derivatives
+
+For $n$-th derivative, Taylor series is truncated after $n^{\text{th}}$ derivative. $ $
+
+
+### n-th forward difference formula
+
+```math
+f^{(n)}(x)
+=
+\frac{1}{h^n}
+\sum_{i=0}^{n} (-1)^{n-i} \binom{n}{i} f(x + ih)
++ O(h)
+```
+
+### n-th backward difference formula
+
+```math
+f^{(n)}(x) =
+\frac{1}{h^n}
+\sum_{i=0}^{n} (-1)^i \binom{n}{i} f(x - ih)
++ O(h)
+```
+
+### n-th centered difference formula
+
+```math
+f^{(n)}(x)=
+\frac{1}{h^n}
+\sum_{i=0}^{n} (-1)^i \binom{n}{i} f\left(x + \left(\frac{n}{2} - i\right)h\right)
 + O(h^2)
 ```
 

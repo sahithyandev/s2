@@ -24,13 +24,19 @@ Aka. precision. The largest positive integer $n$ such that the quadrature formul
 
 ## Trapezoidal Rule
 
-Equivalent to approximating the trapezoidal area under the straight line connecting $f(a)$ and $f(b)$.
+Equivalent to approximating the trapezoidal area under the straight line connecting $f(a)$ and $f(b)$. Degree of accuracy is $1$.
 
 ```math
 \int_{x_0}^{x_1} f(x)\,\text{d}x = \frac{h}{2} \left( f(x_0) + f(x_1) \right) - \frac{h^3}{12} f^{(2)}(\xi)
 ```
 
-Degree of accuracy is $1$. $ $
+Here $h = x_1 - x_0$. $ $
+
+:::note[Proof Hint]
+
+Trapezoidal Rule can be proven by using 1st degree Lagrange interpolating polynomial of $f$. $ $
+
+:::
 
 ## Simpson's Rules
 
@@ -43,7 +49,7 @@ Degree of accuracy is $3$. $ $
 Resulted when a second-order interpolating polynomial with 3 equally-spaced points is used to approximate the integral.
 
 ```math
-\int_{x_0}^{x_2} f(x)\,\text{d}x = \frac{h}{3} \left( f(x_0) + 4f(x_1) + f(x_2) \right) - \frac{h^5}{90} f^{(4)}(\xi)
+\int_{x_0}^{x_2} f(x)\,\text{d}x = \frac{h}{3} \big( f(x_0) + 4f(x_1) + f(x_2) \big) - \frac{h^5}{90} f^{(4)}(\xi)
 ```
 
 Here $\xi$ is between $x_0$ and $x_2$ and $h={(x_2-x_0)}/{2}$. Preferred method because, third-order accuracy is attained with 3 points.
@@ -53,34 +59,34 @@ Here $\xi$ is between $x_0$ and $x_2$ and $h={(x_2-x_0)}/{2}$. Preferred method 
 Resulted when a third-order interpolating polynomial with 4 equally-spaced points is used to approximate the integral.
 
 ```math
-\int_{x_0}^{x_3} f(x)\,\text{d}x = \frac{3h}{8} \left( f(x_0) + 3f(x_1) + 3f(x_2) + f(x_3) \right) - \frac{3h^5}{80} f^{(4)}(\xi)
+\int_{x_0}^{x_3} f(x)\,\text{d}x = \frac{3h}{8} \big( f(x_0) + 3f(x_1) + 3f(x_2) + f(x_3) \big) - \frac{3h^5}{80} f^{(4)}(\xi)
 ```
 
 Here $\xi$ is between $x_0$ and $x_3$ and $h={(x_3-x_0)}/{3}$.
 
-## Composite Numerical Integration
+## Composite Rules
 
 ### Composite Trapezoidal Rule
 
 An improved version of the trapezoidal rule. Uses multiple intervals (say $n$) to approximate the integral. $ $
 
 ```math
-\int_{x_0}^{x_n} f(x)\,\text{d}x = \frac{h}{2} \left( f(x_0) + f(x_n) + 2\sum_{i=1}^{n-1} {f(x_i)} \right) - \frac{b-a}{12}h^2 f^{(2)}(\mu)
+\int_{x_0}^{x_n} f(x)\,\text{d}x = \frac{h}{2} \left( f(x_0) + f(x_n) + 2\sum_{i=1}^{n-1} {f(x_i)} \right) - \frac{b-a}{12} h^2 f^{(2)}(\xi_i)
 ```
 
-Here $h = (b-a)/n$ and $\mu$ is between $x_0$ and $x_n$.
+Here $h = (b-a)/n$ and $\xi_i$ is between $x_{i-1}$ and $x_i$ for $i=1,2,3,\dots,n$.
 
 ### Composite Simpson's Rule
 
-An improved version of Simpson's 1/3 rule. Uses even number of multiple intervals to approximate the integral.
+An improved version of Simpson's 1/3 rule. Uses even number ($n=2k$) of multiple intervals to approximate the integral. $ $
 
 ```math
 \int_a^b f(x)\,\text{d}x =
 \frac{h}{3}
 \left[
 f(x_0)+f(x_n)+
-2\sum_{j=1}^{n/2 - 1}{f(x_{2j})}+
-4\sum_{j=1}^{n/2}{f(x_{2j - 1})}
+2\sum_{j=1}^{k - 1}{f(x_{2j})}+
+4\sum_{j=1}^{k}{f(x_{2j - 1})}
 \right]
 -\frac{b-a}{180}h^4 f^{(4)}(\mu)
 ```

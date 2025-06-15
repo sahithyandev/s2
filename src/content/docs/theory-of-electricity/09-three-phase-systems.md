@@ -19,6 +19,20 @@ Suppose $V = V_m \sin{(\omega t + \alpha)}$ is a phasor. $ $
 \int V = \frac{1}{j\omega} \cdot V
 ```
 
+### Star & Delta
+
+In star connection:
+
+```math
+V_\text{line} = \sqrt{3} V_\text{phase} \angle 30^\circ \;\; \text{and} \;\; I_\text{line} = I_\text{phase}
+```
+
+In delta connection:
+
+```math
+V_\text{line} = V_\text{phase} \;\; \text{and} \;\; I_\text{line} = \sqrt{3} V_\text{phase} \angle 30^\circ
+```
+
 ## Definitions
 
 ### Attenuation & Phase Shift
@@ -165,6 +179,8 @@ S = 3 [V_\text{Sy}]^{T} [I_\text{Sy}]^*
 
 ### Impedances
 
+Phase impedance matrix $[Z_p]$ is defined as: $ $
+
 ```math
 [Z_p] = 
 \begin{bmatrix}
@@ -173,6 +189,12 @@ S = 3 [V_\text{Sy}]^{T} [I_\text{Sy}]^*
   Z_m & Z_m & Z_s \\
 \end{bmatrix}
 ```
+
+Here:
+- $Z_m$ is the impedance caused by mutual coupling between phases.
+- $Z_s$ is the impedance in a single phase.
+
+Sequence impedance matrix $[Z_s]$ is defined as: $ $
 
 ```math
 [Z_s] = [\Lambda]^{-1} Z_p [\Lambda]
