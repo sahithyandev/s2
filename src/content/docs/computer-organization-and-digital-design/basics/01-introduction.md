@@ -26,17 +26,14 @@ finitely many discrete states. 2 states are commonly used: HIGH (1) and LOW (0).
 
 ### Comparison
 
-- Digital is more immune to noise and interference
-- Errors can be detected and corrected in digital systems
-- Because of the above reasons, results can be reproduced more accurately in
-  digital systems
-- Digital hardware is simpler, cheaper, and more reliable
-- A particular digital hardware can perform different functions with
-  programming. Analog hardware would require a re-design
-- Storing analog signals is harder than digital signals
-- Digital hardware support modular design
-- Digital systems are faster for most computation while analog systems are
-  better for specific tasks (eg. continuous signal processing)
+Digital offers more advantages over analog:
+
+- Reproducibility of results
+- Ease of Design
+- Flexibility
+- Programmability
+- Speed
+- More immune to noise and interference
 
 ## Milestones in Computer Development
 

@@ -35,3 +35,9 @@ applications where toggling or controlled state changes are required.
 | 0                 | 1               | 1   | X   |
 | 1                 | 0               | X   | 1   |
 | 1                 | 1               | X   | 0   |
+
+## Implementation
+
+### Using D Flip Flop
+
+![JK Flip Flop using D Flip Flop](/images/codd/jk-using-d.jpg)

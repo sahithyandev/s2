@@ -18,3 +18,18 @@ tick.
 ### Excitation table
 
 Not required as there are no inputs.
+
+## Implementation
+
+### Using D Flip Flop
+
+![T Flip Flop with D Flip Flop](/images/codd/t-flip-flop/with-d.jpg)
+
+### Using JK Flip Flop
+![T Flip Flop with JK Flip Flop](/images/codd/t-flip-flop/with-jk.jpg)
+
+### Using D Flip Flop with Enable
+![T Flip Flop with D Flip Flop and Enable](/images/codd/t-flip-flop/with-d-enable.jpg)
+
+### Using JK Flip Flop with Enable
+![T Flip Flop with JK Flip Flop and Enable](/images/codd/t-flip-flop/with-jk-enable.jpg)

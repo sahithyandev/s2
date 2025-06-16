@@ -16,8 +16,13 @@ more complex functions. Aka. LUT.
 A 4-input LUT can implement any logic function with 4 inputs by storing 16
 outputs.
 
+Faster than gate-based logic.
+
+Multiplexers can be used as LUTs. 
+
 ## Usage
 
 - Core building blocks of FGPAs
 - Used to store precomputed values of complex mathematical functions
 - Used in control units of CPUs to define micro-operations
+- Used to reduce number of gates in complex logic

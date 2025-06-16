@@ -10,7 +10,7 @@ next: false
 Aka. finite state machines (FSMs). Used to model systems that move through a
 predetermined sequence of states based on inputs and current state.
 
-## Components
+### Components
 
 - A finite set of states
 - A set of inputs
@@ -27,7 +27,7 @@ A basic state machine implementation requires:
   - Output logic
 - Clock signal for synchronization
 
-## State Diagram Representation
+## State Diagram
 
 State machines are commonly represented using state diagrams.
 
@@ -44,8 +44,6 @@ State machines are commonly represented using state diagrams.
 4. Design combinational logic
 5. Implement using flip-flops and gates
 
-## Implementation Considerations
-
 When implementing state machines:
 
 - Choose appropriate state encoding (binary, one-hot, etc.)
@@ -53,7 +51,3 @@ When implementing state machines:
 - Handle unknown states
 - Consider timing requirements
 - Plan for testability
-
-State machines are essential in sequential logic design, providing a structured
-approach to implementing complex digital systems with memory and control
-capabilities.

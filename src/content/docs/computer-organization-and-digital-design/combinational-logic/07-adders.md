@@ -277,4 +277,8 @@ S_i = P_i \oplus C_i
 C_{i+1} = G_i + P_i C_i
 ```
 
-The CLA can be used to create n-bit adders which only have 3 level delay.
+The CLA can be used to create n-bit adders which only have 3 level delay. Faster than RCA.
+
+3 levels of delay:
+  - Generate & propagate signals
+  - Carry lookahead (sum-of-products)

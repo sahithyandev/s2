@@ -62,7 +62,7 @@ Defined for a periodic waveform. Ratio between pulse width ($t_w$) and the
 period ($T$).
 
 ```math
-\text{Duty cycle} = \frac{t_w}{T} \times 100%
+\text{Duty cycle} = \frac{t_w}{T} \times 100\%
 ```
 
 ## Gate delay
@@ -90,10 +90,12 @@ aren't, special steps must be taken to interconnect those chips/building blocks.
 ### Electrical behavior
 
 - Logic voltage level
-- DC noise margins
-- Highest LOW voltage of output must be lower than highest LOW voltage of input
-- Fanout  
+- DC noise margins   
+  Highest `LOW` voltage of an output must be always lower than the highest voltage that an output can reliably interpret as `LOW`
+- Fan-out  
   Maximum number of inputs that a single output pin can be connected to.
+- Fan-in  
+  Number of inputs that a single component can support.
 - Power consumption
 - Speed
 - Noise/interference

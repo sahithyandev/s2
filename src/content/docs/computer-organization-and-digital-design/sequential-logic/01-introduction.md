@@ -57,11 +57,11 @@ A memory element that can store a bit.
 
 ### Latch
 
-Level triggered. Independent of a clock.
+Level triggered. Independent of a clock. Asynchronous. Can change state while enabled.
 
 ### Flip-flop
 
-Edge triggered. Dependent on a clock.
+Edge triggered. Dependent on a clock. Synchronous. Can change state only at rising edge of clock.
 
 ## Types of sequential circuits
 
