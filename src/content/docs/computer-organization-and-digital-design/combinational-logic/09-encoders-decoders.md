@@ -16,6 +16,8 @@ Converts $n$ input lines into $m$ output lines where $n = 2^m$.
 
 In simple encoders, in the input lines, maximum one will be active at a time.
 
+![4-to-2 Encoder](/images/codd/4-to-2-encoder.jpg)
+
 ### Priority Encoder
 
 Input lines are given a priority. When 2 or more input lines are activated, the
@@ -40,6 +42,8 @@ becomes $1010_2$.
 
 ## Decoder
 
+![2-to-4 Decoder](/images/codd/2-to-4-decoder.jpg)
+
 Opposite of encoder. Have $m$ inputs and $n$ outputs where $m = \log_2{n}$.
 
 Decoders are by-default active HIGH. If made using NAND gates, then it will
@@ -49,6 +53,6 @@ By default, the decoder require a $n$-input AND gates, which is bad as $n$
 increases. The solution is to build higher order decoders using smaller
 decoders.
 
-Decoder and a set of OR gates can be used to build a
-[Full Adder](/computer-organization-and-digital-design/combinational-logic/adders/#full-adder)
-and other devices.
+![3-to-8 Decoder using two 2-to-4 decoders](/images/codd/3-to-8-decoder-using-2-to-4-decoders.jpg)
+
+Each output in the decoder is a minterm. Using a set of OR gates, The minterms can be combined to implement any function.
