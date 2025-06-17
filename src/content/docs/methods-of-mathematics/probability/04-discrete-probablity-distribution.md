@@ -126,11 +126,7 @@ Here:
 fixed time interval
 
 ```math
-\text{E}(X) = \lambda
-\;\;
-\land
-\;\;
-\text{Var}(X) = \lambda
+\text{E}(X) = \lambda = \text{Var}(X)
 ```
 
 **If** $X_i \sim \text{Poisson}(\lambda_i)$ where $i = 1, 2, \ldots, n$, and $X_i$ is independent **then**:
@@ -141,13 +137,4 @@ fixed time interval
 \text{Poisson}\bigg(
 \sum_{i=1}^n \lambda_i
 \bigg)
-`k``
-
-:::note[Relation between Poisson and Binomial]
-
-- If $n$ is large and $p$ is small, then finding a defective item in the sample is called a rare event
-- In practice $n>50$ and $np<5$ means the event is considered rare.
-- In above case, the Poisson distribution gives a very close approximation to the binomial distribution.
-- Generally the approximation between Poisson and Binomial distribution is _good_ when $p< 0.1$ and $np < 5$
-
-:::
+```

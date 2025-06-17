@@ -1,8 +1,8 @@
 ---
-title: Joint Distributions
+title: Joint Distribution
 sidebar:
-  order: 5
-slug: methods-of-mathematics/statistics/joint-distributions
+  order: 6
+slug: methods-of-mathematics/probability/joint-distribution
 prev: true
 next: true
 ---
@@ -20,11 +20,18 @@ For a joint probability distribution $P(A \cap B)$, $P(A)$ and $P(B)$ are the ma
 
 ### Covariance
 
-Denoted by $\text{Cov}(X,Y)$ or $\sigma_{XY}$. Measures the linear relationship between two random variables. High value
+Denoted by $\text{Cov}(X,Y)$ or $\sigma_{XY}$. Measures the linear relationship between two random variables.
 
 ```math
 \mathrm{Cov}(X, Y) = \sum_{x} \sum_{y} (x - \mu_X)(y - \mu_Y) \, P(X = x, Y = y)
 ```
+
+- Positive covariance: Indicates that higher than mean values of one variable tend to be
+paired with higher than mean values of other variable.
+- Negative covariance: Indicates that higher than mean values of one variable tend to be
+paired with lower than mean values of other variable.
+- If the two random variables are independent then the covariance will
+be zero.
 
 Properties:
 - $\text{Cov}(X,Y) = E\Big[\big(X-E(X)\big)\big(Y-E(Y)\big)\Big]$

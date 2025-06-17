@@ -25,3 +25,11 @@ Image by
 
 </figcaption>
 </figure>
+
+## Chebyshev's Theorem
+
+For any $k\gt 1$, at least $1-\frac{1}{k^2}$ of the values lie within $k\sigma$ of the mean.
+
+```math
+P(-k\sigma < X < k\sigma) \le 1-\frac{1}{k^2}
+```

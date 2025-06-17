@@ -39,6 +39,12 @@ Square root of the variance. Denoted by $\sigma$. $ $
 \gamma_1 = \frac{\mathbb{E}[(X - \mu)^3]}{\sigma^3}
 ```
 
+### Kurtosis
+
+```math
+K=\frac{\mathbb{E}\left[ (X-\mu)^4 \right]}{\sigma^4}
+```
+
 ## Sample Parameters
 
 ### Sample mean

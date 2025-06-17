@@ -7,7 +7,18 @@ prev: true
 next: false
 ---
 
+Due to obvious reasons, it is not possible to find parameters of a population. In that case, a "good enough" value/range must be guessed/computed for the true values of the parameter to make conclusions (inferences) on the population based on
+sample.
+
 An estimator is a guess of a population parameter based on a sample data.
+
+### Point estimator
+
+A statistics which can be used to get a single number as the result. The estimated value can be considered as the most plausible value of a parameter.
+
+### Interval estimator
+
+A statistics which can give an upper limit and a lower limit calculation based on the point estimator. A pair of values calculated as the upper and the lower limits for a population parameter. A confidence is also mentioned.
 
 ### Process of Estimation
 
@@ -16,16 +27,6 @@ Estimating a population parameter from a sample data.
 ### Unbiasedness
 
 If a statistic $e$ is used as an estimator for population parameter $\theta$ and $E(e) = θ$, then it is said to be an unbiased estimator of $\theta$.
-
-
-## Types
-### Point estimator
-
-A statistics which can be used to get a single number as the result. The estimated value can be considered as the most plausible value of a parameter.
-
-### Interval estimator
-
-A statistics which can give an upper limit and a lower limit calculation based on the point estimator. A pair of values calculated as the upper and the lower limits for a population parameter.
 
 ## Accuracy
 

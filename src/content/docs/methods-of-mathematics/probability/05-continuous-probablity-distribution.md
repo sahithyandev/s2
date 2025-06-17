@@ -126,6 +126,12 @@ Follows [the empirical rule](/methods-of-mathematics/probability-and-statistics/
 
 It’s often used to model real-world phenomena like heights, test scores, or measurement errors, where most values are near the mean, and fewer occur as you move away from it.
 
+:::note
+
+**If** $Y \sim N(\mu, \sigma^2)$ **then** $Y^2 \sim N(\mu^2 + \sigma^2, \sigma^2)$
+
+:::
+
 ### Standard normal distribution
 
 A special case of the normal distribution where $\mu=0$ and $\sigma= 1$. Denoted by $N(0, 1)$. Has PDF:
