@@ -36,14 +36,18 @@ f(x, y) = \sum_{n=0}^{\infty} \left\{ \frac{1}{n!} \sum_{k=0}^{n} \binom{n}{k} \
 
 ## Linear & quadratic approximations
 
-Linear approximation for a function $f$ can be made using the first-order Taylor series expansion:
+Linear approximation for a function $f$ can be made using the first-order Taylor series expansion: $ $
 
 ```math
-f(x_0 + h, y_0 + k) \approx f(x_0, y_0) + \frac{\partial f}{\partial x} \bigg|_{(x_0, y_0)} h + \frac{\partial f}{\partial y} \bigg|_{(x_0, y_0)} k
+f(x_0 + h, y_0 + k) \approx f(x_0, y_0) + h\frac{\partial f}{\partial x} \bigg|_{(x_0, y_0)} + k\frac{\partial f}{\partial y} \bigg|_{(x_0, y_0)}
 ```
 
-Quadratic approximation for a function $f$ can be made using the second-order Taylor series expansion:
+Quadratic approximation for a function $f$ can be made using the second-order Taylor series expansion: $ $
 
 ```math
-f(x_0 + h, y_0 + k) \approx f(x_0, y_0) + \frac{\partial f}{\partial x} \bigg|_{(x_0, y_0)} h + \frac{\partial f}{\partial y} \bigg|_{(x_0, y_0)} k + \frac{1}{2} \left( \frac{\partial^2 f}{\partial x^2} \bigg|_{(x_0, y_0)} h^2 + 2 \frac{\partial^2 f}{\partial x \partial y} \bigg|_{(x_0, y_0)} hk + \frac{\partial^2 f}{\partial y^2} \bigg|_{(x_0, y_0)} k^2 \right)
+f(x_0 + h, y_0 + k)
+\approx f(x_0, y_0) +
+h\frac{\partial f}{\partial x} \bigg|_{(x_0, y_0)} +
+k \frac{\partial f}{\partial y} \bigg|_{(x_0, y_0)} +
+\frac{1}{2} \left(h^2 \frac{\partial^2 f}{\partial x^2} \bigg|_{(x_0, y_0)} + 2hk \frac{\partial^2 f}{\partial x \partial y} \bigg|_{(x_0, y_0)} + k^2 \frac{\partial^2 f}{\partial y^2} \bigg|_{(x_0, y_0)} \right)
 ```

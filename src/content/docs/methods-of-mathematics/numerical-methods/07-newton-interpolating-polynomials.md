@@ -11,7 +11,7 @@ Suppose that $P_n (x)$ is the $n$-th interpolating polynomial that agrees with t
 the distinct numbers $x_0, x_1,\dots,x_n$. $P_n$ has the form:
 
 ```math
-P_n (x) = a_0 + a_1(x − x_0) + a_2(x − x_0)(x − x_1) + \dots + a_n(x − x_0)\dots(x-x_n)
+P_n (x) = a_0 + a_1(x − x_0) + a_2(x − x_0)(x − x_1) + \dots + a_n(x − x_0)\dots(x-x_{n-1})
 ```
 
 for appropriate constants $a_0, a_1,\dots,a_n$. The constants can be found by setting $x$ to the known data points $x_0,x_1,\dots,x_n$.

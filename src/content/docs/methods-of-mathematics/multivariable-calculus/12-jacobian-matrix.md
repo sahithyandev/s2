@@ -23,7 +23,7 @@ Jacobian matrix for $f: \mathbb{R}^n \to \mathbb{R}^m$ is defined as: $ $
 
 ## Jacobian of a transformation
 
-Jacobian of the transformation $T: x=x(u,v),\;y=(u,v)$ is
+Jacobian of the transformation $T: x=x(u,v),\;y=(u,v)$ is: $ $
 
 ```math
 \frac{\partial(x, y)}{\partial(u, v)} =

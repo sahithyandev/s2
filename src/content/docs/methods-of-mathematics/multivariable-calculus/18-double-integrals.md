@@ -55,6 +55,16 @@ $S$ in the $uv$− plane onto a region $R$ in the $xy$−plane. and that $f$ is 
 \iint_S f\big(x(u,v), y(u,v)\big) \left|\frac{\partial(x, y)}{\partial(u, v)}\right|\,\text{d}A
 ```
 
+### Derivative under double integral
+
+Suppose $f$ be a function with continuous second partial derivatives on a rectangular
+domain $R$ with vertices $(x_1, y_1),(x_1, y_2),(x_2, y_2)$ and $(x_2, y_1)$, where $x_1 < x_2$ and
+$y_1 < y_2$.
+
+```math
+\iint_R f_{xy} \,\text{d}A = f(x_1, y_1) - f(x_2, y_1) + f(x_2, y_2) - f(x_1, y_2)
+```
+
 ## Fubini's Theorem
 
 **If** $f$ is continuous on $R = [a,b] \times [c,d]$, then:
