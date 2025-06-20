@@ -4,7 +4,7 @@ sidebar:
   order: 8
 slug: methods-of-mathematics/statistics/estimators
 prev: true
-next: false
+next: true
 ---
 
 Due to obvious reasons, it is not possible to find parameters of a population. In that case, a "good enough" value/range must be guessed/computed for the true values of the parameter to make conclusions (inferences) on the population based on
@@ -19,6 +19,18 @@ A statistics which can be used to get a single number as the result. The estimat
 ### Interval estimator
 
 A statistics which can give an upper limit and a lower limit calculation based on the point estimator. A pair of values calculated as the upper and the lower limits for a population parameter. A confidence is also mentioned.
+
+### Confidence Interval
+
+A statistics which gives a range of values for a given population parameter, within which the parameter falls in $(1-\alpha)%$ of the time. An interval estimator.  $ $
+
+To achieve a confidence level of $100(1-\alpha)\%$: $ $
+
+```math
+\bar{x} \pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}}
+```
+
+If $\sigma$ is unknown, then $s$ is used instead.
 
 ### Process of Estimation
 

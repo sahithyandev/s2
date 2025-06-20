@@ -166,9 +166,27 @@ Used in tests like the Chi-square goodness-of-fit test and tests for independenc
 
 ### Student's t-distribution
 
-Probability distribution of the ratio $\frac{Z}{\sqrt{V/\nu}}$ with $\nu$ degress of freedom.
+A more conservative form of the standard normal distribution. Has heavier tails than the standard normal distribution.
+Denoted by $X \sim t(v)$. Here the parameter $v$ is the degrees of freedom, and is often $v=n-1$. Gets close to standard normal distribution as $v \to \infty$. Centered at zero.
 
-Here:
-- $Z \sim N(0,1)$
-- $V \sim \text{Chi}(\nu)$
-- $Z$ and $V$ are independent
+For a Student's t-distribution, with $v \gt 2$: $ $
+
+```math
+\text{Var}(X) = \frac{v}{v-2}
+```
+
+Used when:
+- Sample size is small: $n < 30$
+- Population standard deviation is unknown
+
+:::note
+
+```math
+t= \frac{\bar x - \mu}{s / \sqrt{n}} \sim t(n-1)
+```
+
+:::
+
+### Noncentral t-distribution
+
+A generalization of the Student's t-distribution. Denoted as $X \sim t(v,\delta)$. Centered at $\delta$.

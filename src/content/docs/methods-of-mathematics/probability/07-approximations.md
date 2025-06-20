@@ -4,7 +4,7 @@ sidebar:
   order: 7
 slug: methods-of-mathematics/probability/approximations
 prev: true
-next: true
+next: false
 ---
 
 ### Continuity Correction
@@ -47,4 +47,14 @@ When $p > 10$: $ $
 \text{Poisson}(p)
 \approx
 \text{N}(p, p)
+```
+
+## Normal approximation for Student's t-distribution
+
+When $v$ is large (typically $v \gt 30$), or when the sample is large:
+
+```math
+t \sim t(v)
+\approx
+\text{N}(0,1)
 ```
