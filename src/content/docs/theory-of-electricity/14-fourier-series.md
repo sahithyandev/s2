@@ -11,16 +11,13 @@ next: true
 Used for periodic non-sinusoidal waveforms. Suppose the periodic time is $T$. The waveform can be represented as a sum of sine wave. The sine waves have integer multiple of the original frequency $f_0 = 2\pi / T$. $ $
 
 ```math
-f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left[ a_n \cos\left(f_0 nt\right) + b_n \sin\left(f_0 nt\right) \right]
+f(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \big[ a_n \cos\left(f_0 nt\right) + b_n \sin\left(f_0 nt\right) \big]
 ```
 
 ## Useful trigonometric integrals
 
 ```math
-\int_{\tau}^{\tau + T} \cos(f_0 nt)\, \text{d}t = 0
-```
-
-```math
+\int_{\tau}^{\tau + T} \cos(f_0 nt)\, \text{d}t =
 \int_{\tau}^{\tau + T} \sin(f_0 nt)\, \text{d}t = 0
 ```
 
@@ -82,7 +79,7 @@ When a wave is symmetric about the origin.
 f(t) = -f(-t)
 ```
 
-The fourier series of an even waveform contains only sine terms.
+The fourier series of an odd waveform contains only sine terms.
 
 ```math
 a_n = 0
@@ -97,6 +94,8 @@ When a wave repeats itself with a reversal of sign after half a period.
 f(t) = -f(t + \frac{T}{2})
 = -f(t - \frac{T}{2})
 ```
+
+Can co-exist with odd symmetry or even symmetry.
 
 The coefficients can be found by:
 
@@ -116,16 +115,22 @@ b_n =
 \end{cases}
 ```
 
+:::note
+
+For odd and half-wave symmetry, the Fourier series does not contain a DC offset. Thus, $a_0=0$. $ $ 
+
+:::
+
 ## Frequency spectrum
 
 Plot of harmonic number vs frequency.
 
 ### Harmonic number
 
-$n$th harmonic number denotes the amplitude or strength of the $n$th harmonic.
+$n$th harmonic number denotes the amplitude or strength of the $n$th harmonic. Denoted as $h_n$.
 
 ```math
-\text{magnitude} = \sqrt{a_n^2 + b_n^2}
+|h_n| = \sqrt{a_n^2 + b_n^2}
 \;\;\text{and}\;\;
 \text{phase angle} = \tan^{-1}\left(\frac{b_n}{a_n}\right)
 ```
@@ -133,7 +138,7 @@ $n$th harmonic number denotes the amplitude or strength of the $n$th harmonic.
 ## RMS
 
 ```math
-y_{\text{rms}} = \sqrt{\sum_{i=0}^\infty a_{i,\text{rms}}^2 }
+y_{\text{rms}}^2 = a_0^2 + \sum_{i=0}^\infty \Big[ a_{i,\text{rms}}^2 + b_{i,\text{rms}}^2 \Big]
 ```
 
 ## Total Harmonic Distortion
@@ -155,5 +160,5 @@ f(t) =\sum_{n=-\infty}^{\infty} C_n e^{jnf_0t}
 Here $C_n$ can be found by: $ $
 
 ```math
-C_n =\frac{1}{T} \int_{\tau}^{\tau + T} f(t)e^{-jnf_0 t}\,\text{d}t
+C_n = \frac{A_n - jB_n}{2} =\frac{1}{T} \int_{\tau}^{\tau + T} f(t)e^{-jnf_0 t}\,\text{d}t
 ```

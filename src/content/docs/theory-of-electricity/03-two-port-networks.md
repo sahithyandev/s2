@@ -75,7 +75,7 @@ V_2
 \end{bmatrix}
 ```
 
-The parameters are found by setting $V_1$ and $V_2$ to $0$ in turn.
+The parameters are found by setting $V_1$ and $V_2$ to $0$ in turn. Same as the inverse of the $[z]$ parameters.
 
 ### Transmission parameters
 
