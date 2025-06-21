@@ -55,6 +55,7 @@ Here $c$ is a root of $f$.
 
 - Always convergent
 - Linear convergence rate
+- Order of convergence is 1.
 - Error can be controlled
 - Error is bounded
 - Error decreases with each iteration

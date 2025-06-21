@@ -135,7 +135,7 @@ Center point is $(a/2,0)$. Radius is $a$.
 $a\neq 0$. $ $
 
 ```math
-r=a+bcos\theta
+r=a+b\cos\theta
 ```
 
 Goes through $(b+a,0)$ and $(b-a,0)$.

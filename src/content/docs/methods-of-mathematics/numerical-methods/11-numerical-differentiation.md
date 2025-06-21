@@ -66,7 +66,7 @@ Error is in order of $O(h^2)$ which is better than $O(h)$.
 ### Second forward difference formula 
 
 ```math
-f^{(2)}(x_0) \approx
+f^{(2)}(x_0) =
 \frac{1}{h^2} \Big[ f(x_0 + 2h) - 2f(x_0 + h) + f(x_0) \Big]
 + O(h)
 ```
