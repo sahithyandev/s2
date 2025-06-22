@@ -1,3 +1,6 @@
+echo "Is running in CI?"
+echo $CI
+
 git clone https://$NOTES_SHELL_GITHUB_TOKEN:x-oauth-basic@github.com/sahithyandev/notes-shell.git .shell
 
 rm .shell/README.md
