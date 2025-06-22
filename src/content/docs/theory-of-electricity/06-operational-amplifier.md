@@ -86,6 +86,17 @@ Can be used to perform a variety of operations on signals, such as:
 Inverts the input signal. Input signal is fed to inverting input through $R_1$.
 Non-inverting input is grounded. Negative feedback is used with $R_2$ resistor.
 
+<figure>
+
+![Inverting amplifier](../../../images/theory-of-electricity/inverting-amplifier.jpg)
+
+<figcaption>
+
+Image from [Spiceman](https://spiceman.net/inverting-amplifier-circuit/)
+
+</figcaption>
+</figure>
+
 ```math
 A_v = \text{Closed-loop voltage gain} = \frac{v_0}{v_\text{in}} = -\frac{R_2}{R_1}
 ```

@@ -99,6 +99,14 @@ Laplace transform of the unit ramp function is:
 \mathcal{L}\{r(t)\} = \frac{1}{s^2}
 ```
 
+## Circuit transformation
+
+Both AC and DC voltage sources are transformed according to the Laplace transform table. Resistors are included as is.
+
+An inductor $L$ is converted to $Ls$. To cater for initial current, a voltage source $L i(0^+)$ is added aiding the voltage.
+
+A capacitor $C$ is converted to $\frac{1}{Cs}$. To cater for initial voltage, a voltage source $\frac{v(0^+)}{s}$ is added opposing the voltage.
+
 ## Properties
 
 Suppose $f(t)$ has a Laplace transform $F(s)$ for the below definitions.

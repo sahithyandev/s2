@@ -108,7 +108,7 @@ Here:
 - $C$ - Transfer admittance. Open circuit transfer admittance.
 - $D$ - Current gain. Short circuit current ratio. Dimensionless.
 
-The parameters are foudn by setting $I_2$ and $V_2$ to $0$ in turn.
+The parameters are found by setting $I_2$ and $V_2$ to $0$ in turn.
 
 #### Reciprocal network
 

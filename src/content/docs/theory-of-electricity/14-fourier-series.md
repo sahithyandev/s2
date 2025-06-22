@@ -95,8 +95,6 @@ f(t) = -f(t + \frac{T}{2})
 = -f(t - \frac{T}{2})
 ```
 
-Can co-exist with odd symmetry or even symmetry.
-
 The coefficients can be found by:
 
 ```math
@@ -120,6 +118,25 @@ b_n =
 For odd and half-wave symmetry, the Fourier series does not contain a DC offset. Thus, $a_0=0$. $ $ 
 
 :::
+
+Half-wave symmetry can co-exist with odd symmetry or even symmetry. In that case:
+
+```math
+a_n =
+\begin{cases}
+\frac{8}{T} \int_{\tau}^{\tau + T/4} f(t)\cos(nf_0t) \, \text{d}t & \text{if } n \text{ is odd} \\
+0 & \text{if } n \text{ is even}
+\end{cases}
+```
+
+```math
+b_n =
+\begin{cases}
+\frac{8}{T} \int_{\tau}^{\tau + T/4} f(t)\sin(nf_0t) \, \text{d}t & \text{if } n \text{ is odd} \\
+0 & \text{if } n \text{ is even}
+\end{cases}
+```
+
 
 ## Frequency spectrum
 
