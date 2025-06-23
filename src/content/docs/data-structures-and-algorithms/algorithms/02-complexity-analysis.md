@@ -135,11 +135,11 @@ f(n) \in \omega(g(n)) \implies f(n) \not\in \Theta(g(n))
 
 | Name         | Definition                                                       |
 | ------------ | ---------------------------------------------------------------- |
-| Little-o     | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}=0$                |
-| Big-O        | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}} \in (0,\infty)$   |
-| Big-Theta    | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}\in\mathbb{R}^{+}$ |
-| Little-omega | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}\gt 0$             |
-| Big-Omega    | $\lim_\limits{n \to \infty}{\frac{f(n)}{g(n)}}=\infty$           |
+| Little-o     | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}=0$                |
+| Big-O        | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}} \in (0,\infty)$   |
+| Big-Theta    | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}\in\mathbb{R}^{+}$ |
+| Little-omega | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}\gt 0$             |
+| Big-Omega    | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}=\infty$           |
 
 ## Properties of asymptotic functions
 

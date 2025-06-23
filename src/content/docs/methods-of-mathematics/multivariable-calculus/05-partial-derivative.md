@@ -15,7 +15,7 @@ for functions with more than 2 variables.
 Partial derivative of $f(x,y)$ with respect to $x$ at the point $(a,b)$ is:
 
 ```math
-f_x(a,b) = \lim_\limits{h \to 0} \frac{f(a+h,b) - f(a,b)}{h}
+f_x(a,b) = \lim_{h \to 0} \frac{f(a+h,b) - f(a,b)}{h}
 ```
 
 Provided that the above limit exists. $f(x,b)$ must be continous at $x=a$ in

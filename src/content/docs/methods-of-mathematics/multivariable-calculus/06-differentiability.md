@@ -52,7 +52,7 @@ $f$ is differentiable at every point of $D$.
 The differentiability can also be proven by proving:
 
 ```math
-\lim_\limits{\Delta \rho \to 0} \frac{\Delta z - \text{d}z}{\Delta \rho} = 0
+\lim_{\Delta \rho \to 0} \frac{\Delta z - \text{d}z}{\Delta \rho} = 0
 \;\;\;
 \text{where}
 \;\;\;

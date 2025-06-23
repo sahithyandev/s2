@@ -148,7 +148,7 @@ of) convergence $O(\beta_n)$. It is written as $\alpha_n = \alpha + O(\beta_n)$.
 
 ### For limits
 
-Suppose $\lim_\limits{h \to 0} G(h) = 0$ and $\lim_\limits{h \to 0} F(h) = L$.
+Suppose $\lim_{h \to 0} G(h) = 0$ and $\lim_{h \to 0} F(h) = L$.
 
 **If** $\exists K \gt 0$ such that, $ $
 

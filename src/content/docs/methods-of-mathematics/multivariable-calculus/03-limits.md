@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-$\lim_\limits{(x,y)\to{(a,b)}} {f(x)}=L$ **iff**: $ $
+$\lim_{(x,y)\to{(a,b)}} {f(x)}=L$ **iff**: $ $
 
 ```math
 \forall{\epsilon>0}\;
@@ -30,7 +30,7 @@ Multivariable limit properties are analogous to the
 Let $f$ be a real-valued function defined on $D\subseteq \mathbb{R}^2$. Let
 $(a,b)\in \overline{D}$.
 
-**If** $\lim_\limits{(x,y)\to {(a,b)}} f$ exists, **then** it is unique. $ $
+**If** $\lim_{(x,y)\to {(a,b)}} f$ exists, **then** it is unique. $ $
 
 :::note[Proof Hint]
 
@@ -46,28 +46,28 @@ $(a,b)\in \overline{D}$.
 Suppose as $(x,y) \to (a,b)$, $f \to L_1$ along a path $C_1$ and $f\to L_2$
 along a different path $C_2$.
 
-**If** $L_1 \neq L_2$ **then** the $\lim_\limits{(x,y)\to (a,b)} f$ doesn't
+**If** $L_1 \neq L_2$ **then** the $\lim_{(x,y)\to (a,b)} f$ doesn't
 exist.
 
 ## Iterated limits
 
 Aka. repeated limits. **If** $f$ is defined in a neighborhood of a point $(a,b)$
-in $\mathbb{R}^2$ and $\lim_\limits{x\to a} f(x,y)$ exists, which is a function
+in $\mathbb{R}^2$ and $\lim_{x\to a} f(x,y)$ exists, which is a function
 of $y$ only, **then** the limit of this function as $y\to b$ can be written as:
 
 ```math
-\lim_\limits{y\to{b}}
+\lim_{y\to{b}}
 \;
-\lim_\limits{x\to{a}}
+\lim_{x\to{a}}
  {f(x,y)}
 ```
 
 Similarily, another limit exists.
 
 ```math
-\lim_\limits{x\to{a}}
+\lim_{x\to{a}}
 \;
-\lim_\limits{y\to{b}}
+\lim_{y\to{b}}
  {f(x,y)}
 ```
 

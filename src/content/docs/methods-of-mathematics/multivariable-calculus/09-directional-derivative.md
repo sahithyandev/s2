@@ -14,9 +14,9 @@ Directional derivative of $f$ in the direction $\boldsymbol{u}$ is:
 
 ```math
 D_{\boldsymbol{u}} f(x_0,y_0) =
-\lim_\limits{h\to 0}
+\lim_{h\to 0}
 \frac{\Delta z}{h} =
-\lim_\limits{h\to 0}
+\lim_{h\to 0}
 \frac{f(x_0+ha, y_0+hb) - f(x_0,y_0)}{h}
 ```
 
