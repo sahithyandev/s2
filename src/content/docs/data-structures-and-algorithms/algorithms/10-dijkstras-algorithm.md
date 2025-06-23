@@ -162,3 +162,17 @@ Vertex  Distance from Source
 3       4
 4       1
 ```
+
+## Comparison from Bellman Ford's algorithm
+
+| Aspect                   | Bellman-Ford                    | Dijkstra's                 |
+| ------------------------ | ------------------------------- | -------------------------- |
+| Negative Weights         | ✅ Supported                    | ❌ Not supported           |
+| Negative Cycle Detection | ✅ Yes                          | ❌ No                      |
+| Time Complexity          | O(VE)                           | O((V + E) log V)           |
+| Space Complexity         | O(V)                            | O(V)                       |
+| Approach                 | Dynamic Programming             | Greedy                     |
+| Data Structure           | Arrays                          | Priority Queue             |
+| Best Use Case            | Graphs with negative weights    | Non-negative weight graphs |
+| Early Termination        | ❌ Must complete all iterations | ✅ Can stop at target      |
+| Implementation           | Simpler                         | More complex               |

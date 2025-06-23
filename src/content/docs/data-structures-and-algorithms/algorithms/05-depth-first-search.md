@@ -42,7 +42,21 @@ void postOrderTraversal(Node* root) {
 
 ## In [Graphs](/data-structures-and-algorithms/data-structures/graph)
 
-Uses a stack to track the path.
+Explores as far as possible along each branch before backtracking. Uses a stack to track the path. Results in a forest of all vertices.
+
+Steps:
+
+1. Start from the given vertex (source)
+2. Use an array to store visited nodes
+3. Use a stack to store discovered nodes
+3. Add source to stack
+4. Pop top node
+5. Visit all unvisited neighbors
+6. Mark neighbors as visited and push them to stack (in reverse order for consistent traversal)
+
+Complexitiy:
+- Time: $O(V + E)$
+- Space: $O(V)$
 
 ```cpp
 #include <iostream>
@@ -69,7 +83,6 @@ void dfs(int node, vector<bool>& visited, const vector<vector<int>>& graph) {
         }
     }
 }
-
 
 int main() {
     vector<vector<int>> graph = {

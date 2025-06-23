@@ -138,8 +138,6 @@ Consider the following graph:
   </g>
 </svg>
 
-
-
 - Initialize: $d[0] = 0$, $d[1] = d[2] = d[3] = d[4] = \infty$, predecessors = null.
 - Relax Edges (4 iterations):
    - Iteration 1: 
@@ -159,3 +157,17 @@ Final Results:
   - 0→4: $0\to4$ (1)
 
 Bellman-Ford works by relaxing all edges $|V|-1$ times, handling negative weights if present (none here). $ $
+
+## Comparison from Dijkstra's algorithm
+
+| Aspect                   | Bellman-Ford                    | Dijkstra's                 |
+| ------------------------ | ------------------------------- | -------------------------- |
+| Negative Weights         | ✅ Supported                    | ❌ Not supported           |
+| Negative Cycle Detection | ✅ Yes                          | ❌ No                      |
+| Time Complexity          | O(VE)                           | O((V + E) log V)           |
+| Space Complexity         | O(V)                            | O(V)                       |
+| Approach                 | Dynamic Programming             | Greedy                     |
+| Data Structure           | Arrays                          | Priority Queue             |
+| Best Use Case            | Graphs with negative weights    | Non-negative weight graphs |
+| Early Termination        | ❌ Must complete all iterations | ✅ Can stop at target      |
+| Implementation           | Simpler                         | More complex               |

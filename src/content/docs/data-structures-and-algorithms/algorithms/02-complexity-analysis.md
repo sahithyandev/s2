@@ -133,10 +133,10 @@ f(n) \in \omega(g(n)) \implies f(n) \not\in \Theta(g(n))
 
 ## Limit definitions
 
-| Name         | Definition                                                       |
-| ------------ | ---------------------------------------------------------------- |
+| Name         | Definition                                                |
+| ------------ | --------------------------------------------------------- |
 | Little-o     | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}=0$                |
-| Big-O        | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}} \in (0,\infty)$   |
+| Big-O        | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}} \in [0,\infty)$   |
 | Big-Theta    | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}\in\mathbb{R}^{+}$ |
 | Little-omega | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}\gt 0$             |
 | Big-Omega    | $\lim_{n \to \infty}{\frac{f(n)}{g(n)}}=\infty$           |

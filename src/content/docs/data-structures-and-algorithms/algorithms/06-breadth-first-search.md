@@ -45,9 +45,62 @@ void bfsInTree(Node* root) {
 
 ## In [Graphs](/data-structures-and-algorithms/data-structures/graph)
 
+All neighbours to the current nodes are processed before moving on to nodes at the next depth level. A queue is used for storing the discovered nodes. Visits nodes level by level. Results in a single root tree.
+
+The steps:
+
 1. Select a node to start traversal.
 2. Use a queue to store the _discovered_ nodes.
-3. Push the node to the queue.
-4. Dequeue from queue. Mark it visited.
-5. Push all unvisited adjacent nodes to the queue.
-6. Repeat steps 3-4 until queue is empty.
+3. Use an array to store the _visited_ nodes.
+4. Push the node to the queue.
+5. Dequeue from queue. Mark it visited.
+6. Push all unvisited adjacent nodes to the queue.
+7. Repeat steps 4-6 until queue is empty.
+
+Can be used to find the shortest path in an unweighted graph. Uses slightly more memory than DFS. Used in cycle detection.
+
+Complexities:
+- Time: $O(V + E)$
+- Space: $O(V)$
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
+void bfs(int startNode, const vector<vector<int>>& graph) {
+    vector<bool> visited(graph.size(), false);
+    queue<int> q;
+
+    q.push(startNode);
+    visited[startNode] = true;
+
+    while (!q.empty()) {
+        int current = q.front();
+        q.pop();
+        cout << current << " ";
+
+        for (int neighbor : graph[current]) {
+            if (!visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push(neighbor);
+            }
+        }
+    }
+}
+
+int main() {
+    vector<vector<int>> graph = {
+        {1, 2},    // Node 0
+        {0, 3, 4}, // Node 1
+        {0, 4},    // Node 2
+        {1},       // Node 3
+        {1, 2}     // Node 4
+    };
+
+    cout << "BFS Traversal: ";
+    bfs(0, graph);
+    return 0;
+}
+```

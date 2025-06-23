@@ -48,7 +48,7 @@ Number of edges that point away from a vertex.
 
 ### Path
 
-A sequence of vertices where each adjacent pair is connected by an edge.
+A sequence of vertices where each adjacent pair is connected by an edge. Number of edges in a path is the length of the graph.
 
 #### Simple path
 
@@ -84,6 +84,10 @@ E = \binom{V}{2} = \frac{V(V-1)}{2}
 
 A subset of the vertices and edges of a graph.
 
+### Connected component
+
+A maximal set of vertices such that every pair is connected.
+
 ## Implementation
 
 ### Adjacency Matrix
@@ -110,14 +114,15 @@ Slow to add or remove vertices and edges, because matrix must be resized/copied.
 
 ### Comparison
 
-|                 | Adjacency list | Adjacency matrix | Incidence matrix |
-| --------------- | -------------- | ---------------- | ---------------- |
-| Store graph     | $O(V+E)$       | $O(V^2)$         | $O(V \cdot E)$   |
-| Add vertex      | $O(1)$         | $O(V^2)$         | $O(V \cdot E)$   |
-| Add edge        | $O(1)$         | $O(1)$           | $O(V \cdot E)$   |
-| Remove vertex   | $O(E)$         | $O(V^2)$         | $O(V \cdot E)$   |
-| Remove edge     | $O(V)$         | $O(1)$           | $O(V \cdot E)$   |
-| Check adjacency | $O(V)$         | $O(1)$           | $O(E)$           |
+|                 | Adjacency list | Adjacency matrix | Incidence matrix                      |
+| --------------- | -------------- | ---------------- | ------------------------------------- |
+| Store graph     | $O(V+E)$       | $O(V^2)$         | $O(V \cdot E)$                        |
+| Add vertex      | $O(1)$         | $O(V^2)$         | $O(V \cdot E)$                        |
+| Add edge        | $O(1)$         | $O(1)$           | $O(V \cdot E)$                        |
+| Remove vertex   | $O(E)$         | $O(V^2)$         | $O(V \cdot E)$                        |
+| Remove edge     | $O(V)$         | $O(1)$           | $O(V \cdot E)$                        |
+| Check adjacency | $O(V)$         | $O(1)$           | $O(E)$                                |
+| Best for        | Sparse graphs  | Dense graphs     | Dense graphs, edge-centric algorithms |
 
 ## Operations
 
@@ -186,3 +191,17 @@ A graph with atleast 1 cycle.
 ### Acyclic Graph
 
 A graph with no cycles.
+
+### Tree
+
+A connected, acyclic graph where $E = V - 1$. $ $
+
+### Forest
+
+A collection of Trees.
+
+### Bipartite Graph
+
+When a graph's vertices can be divided into two disjoint sets such that every edge connects a vertex in one set to a vertex in the other set. No edge exists between vertices within the same set.
+
+Does not contain odd-length cycles.
