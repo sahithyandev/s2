@@ -1,4 +1,4 @@
-if [ "$CI" = "true" ]; then
+if [ "$CI" == '1' ]; then
   echo "Running in CI environment"
   git clone https://$NOTES_SHELL_GITHUB_TOKEN:x-oauth-basic@github.com/sahithyandev/notes-shell.git .shell
 else
