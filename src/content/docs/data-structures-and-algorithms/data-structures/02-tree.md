@@ -74,6 +74,12 @@ A binary tree where the left child contains only nodes with values less than the
 parent node, and the right child contains only nodes with values greater than
 the parent node.
 
+$n$-th Catalan number gives the total number of unique binary search trees formed from $n$ distinct elements. Denoted by $C_n$.
+
+```math
+C_{n} = \frac{1}{n+1} \binom{2n}{n} = \frac{1}{n+1} \cdot \frac{(2n)!}{n!n!}
+```
+
 ### Insertion Logic
 
 After adding the new node, the tree must remain valid.

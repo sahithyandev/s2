@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-A connected, acyclic subgraph that includes all the vertices of the original graph.
+A connected, acyclic subgraph that includes all the vertices of the original graph. Undefined for disconnected graphs.
 
 ### Minimum Spanning Tree
 
@@ -16,12 +16,6 @@ A spanning tree with the smallest total edge weight. Defined for weighted graphs
 - If all weights are different, the MST is unique.
 - If 2 or more edges have the same weight, there are more than 1 MSTs
 - If all edges have the same weight, there are $n^{n-2}$ MSTs
-
-:::note[Cayley's formula]
-
-The number of distinct spanning trees in a complete unweighted graph is $V^{V-2}$. $ $
-
-:::
 
 ### Steiner spanning tree
 
@@ -71,3 +65,9 @@ The general idea is to:
 Commonly used algorithms to find MST are:
 - [Kruskal's algorithm](/data-structures-and-algorithms/algorithms/kruskals-algorithm)
 - [Prim's algorithm](/data-structures-and-algorithms/algorithms/prims-algorithm)
+
+## Uniqueness
+
+A graph has a unique MST **iff** all edge weights are distinct.
+
+In an unweighted graph, the number of distinct spanning trees in a complete unweighted graph is $V^{V-2}$. $ $

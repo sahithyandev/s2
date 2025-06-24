@@ -37,36 +37,32 @@ of its children.
 The relation between the parent node
 and its child node(s) is important. Better than linked based implementation in terms of performance. Array based implementation is used in the below operations section.
 
-```cpp
-/**
- * Parent index of a child node
- * @param child_index index of the child node
- * @returns  index of the parent node
- */
-int parentIndex(int child_index)
-{
-   return child_index >> 1; // floor division of 2
-}
+#### 0-based index
 
-/**
- * Index of the left chlid for the given node
- * @param parent_index index of the node
- * @return index of the left child
- */
-int leftChildIndex(int parent_index)
-{
-   return (parent_index << 1) + 1;
-}
+```math
+\text{ParentIndex}(\text{child}) = \bigg\lfloor \frac{\text{child} - 1}{2} \bigg\rfloor
+```
 
-/**
- * Index of the right chlid for the given node
- * @param parent_index index of the node
- * @return index of the right child
- */
-int rightChildIndex(int parent_index)
-{
-   return (parent_index + 1) << 1;
-}
+```math
+\text{LeftChildIndex}(\text{parent}) = 2 * \text{parent} + 1
+```
+
+```math
+\text{RightChildIndex}(\text{parent}) = 2 * \text{parent} + 2
+```
+
+#### 1-based index
+
+```math
+\text{ParentIndex}(\text{child}) = \bigg\lfloor \frac{\text{child}}{2} \bigg\rfloor
+```
+
+```math
+\text{LeftChildIndex}(\text{parent}) = 2 * \text{parent}
+```
+
+```math
+\text{RightChildIndex}(\text{parent}) = 2 * \text{parent} + 1
 ```
 
 ### Linked List based
