@@ -12,7 +12,7 @@ value.
 
 ## Map in Java
 
-![Map Hierarchy](/images/program-construction/map-hierarchy.png)
+![Map Hierarchy](../../../../images/program-construction/map-hierarchy.png)
 
 `Map` interface defines the basic operations for a map data structure.
 `SortedMap` interface extends `Map` interface and provides additional methods

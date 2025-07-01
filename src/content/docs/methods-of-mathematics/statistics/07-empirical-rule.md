@@ -16,7 +16,7 @@ Applies to normal distributions.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Graphical illustration of the Empirical Rule](/images/maths/empirical-rule.jpg)
+![Graphical illustration of the Empirical Rule](../../../../images/maths/empirical-rule.jpg)
 
 <figcaption>
 

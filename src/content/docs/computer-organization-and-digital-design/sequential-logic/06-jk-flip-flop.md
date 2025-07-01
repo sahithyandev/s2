@@ -40,4 +40,4 @@ applications where toggling or controlled state changes are required.
 
 ### Using D Flip Flop
 
-![JK Flip Flop using D Flip Flop](/images/codd/jk-using-d.jpg)
+![JK Flip Flop using D Flip Flop](../../../../images/codd/jk-using-d.jpg)

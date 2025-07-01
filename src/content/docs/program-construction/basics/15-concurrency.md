@@ -109,7 +109,7 @@ The state transitions are illustrated below.
 
 <figure>
 
-![Java Thread States](/images/program-construction/life-cycle-java-threads.jpg)
+![Java Thread States](../../../../images/program-construction/life-cycle-java-threads.jpg)
 
 </figure>
 

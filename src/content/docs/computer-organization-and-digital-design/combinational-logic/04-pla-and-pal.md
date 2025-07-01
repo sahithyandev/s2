@@ -18,7 +18,7 @@ High flexibility. Slower. Expensive.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Programmable Logic Array](/images/codd/programmable-logic-array.jpg)
+![Programmable Logic Array](../../../../images/codd/programmable-logic-array.jpg)
 
 <figcaption>
 
@@ -47,7 +47,7 @@ gate array. Moderate flexibility. Cheaper. Faster.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Programmable Array Logic](/images/codd/programmable-array-logic.jpg)
+![Programmable Array Logic](../../../../images/codd/programmable-array-logic.jpg)
 
 <figcaption>
 

@@ -247,7 +247,7 @@ If 2 coils are given in a T-junction, the circuit has to be changed to include a
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![T-junction mutual inductance](/images/theory-of-electricity/t-junction-mutual-inductance.jpg)
+![T-junction mutual inductance](../../../images/theory-of-electricity/t-junction-mutual-inductance.jpg)
 
 </figure>
 

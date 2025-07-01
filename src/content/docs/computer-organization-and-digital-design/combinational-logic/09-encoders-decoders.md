@@ -16,7 +16,7 @@ Converts $n$ input lines into $m$ output lines where $n = 2^m$.
 
 In simple encoders, in the input lines, maximum one will be active at a time.
 
-![4-to-2 Encoder](/images/codd/4-to-2-encoder.jpg)
+![4-to-2 Encoder](../../../../images/codd/4-to-2-encoder.jpg)
 
 ### Priority Encoder
 
@@ -42,7 +42,7 @@ becomes $1010_2$.
 
 ## Decoder
 
-![2-to-4 Decoder](/images/codd/2-to-4-decoder.jpg)
+![2-to-4 Decoder](../../../../images/codd/2-to-4-decoder.jpg)
 
 Opposite of encoder. Have $m$ inputs and $n$ outputs where $m = \log_2{n}$.
 
@@ -53,6 +53,6 @@ By default, the decoder require a $n$-input AND gates, which is bad as $n$
 increases. The solution is to build higher order decoders using smaller
 decoders.
 
-![3-to-8 Decoder using two 2-to-4 decoders](/images/codd/3-to-8-decoder-using-2-to-4-decoders.jpg)
+![3-to-8 Decoder using two 2-to-4 decoders](../../../../images/codd/3-to-8-decoder-using-2-to-4-decoders.jpg)
 
 Each output in the decoder is a minterm. Using a set of OR gates, The minterms can be combined to implement any function.

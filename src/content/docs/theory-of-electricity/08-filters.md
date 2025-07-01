@@ -113,7 +113,7 @@ f_B = \frac{1}{2\pi R C}\;\; \text{or}\;\; f_B = \frac{R}{2\pi L}
 
 #### First-order low-pass filter
 
-![First-order low-pass filter](/images/theory-of-electricity/first-order-low-pass.jpg)
+![First-order low-pass filter](../../../images/theory-of-electricity/first-order-low-pass.jpg)
 
 ```math
 H(f) = \frac{1}{1 + j(f/f_B)}
@@ -129,7 +129,7 @@ H(f) = \frac{1}{1 - j(f_B/f)}
 
 ### Second-order
 
-![Second-order high-pass filter](/images/theory-of-electricity/second-order-high-pass.jpg)
+![Second-order high-pass filter](../../../images/theory-of-electricity/second-order-high-pass.jpg)
 
 Contains resistors, capacitors, and inductors. Provides a roll-off rate of $40\,\text{dB}$ per decade (or $12\,\text{dB}$ per octave) beyond the cutoff frequency, making them more effective at signal rejection than first-order filters.
 

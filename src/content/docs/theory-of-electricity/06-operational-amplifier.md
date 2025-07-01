@@ -30,7 +30,7 @@ A = \frac{V_0}{V_d}
 
 ## Equivalent circuit
 
-![Op-amp equivalent circuit](/images/theory-of-electricity/op-amp-equivalent.jpg)
+![Op-amp equivalent circuit](../../../images/theory-of-electricity/op-amp-equivalent.jpg)
 
 Here:
 
@@ -103,7 +103,7 @@ A_v = \text{Closed-loop voltage gain} = \frac{v_0}{v_\text{in}} = -\frac{R_2}{R_
 
 ### Non-inverting amplifier
 
-![Non-inverting amplifier](/images/theory-of-electricity/non-inverting-amp.jpg)
+![Non-inverting amplifier](../../../images/theory-of-electricity/non-inverting-amp.jpg)
 
 Input signal is fed to non-inverting input terminal. Inverting input terminal is
 grounded through $R_1$ resistor. Negative feedback is used with $R_2$ resistor.
@@ -119,7 +119,7 @@ Here:
 
 ### Summing amplifier
 
-![Summing amplifier](/images/theory-of-electricity/summing-amp.jpg)
+![Summing amplifier](../../../images/theory-of-electricity/summing-amp.jpg)
 
 An extension of the inverting amplifier. Multiple input signals are added
 together.
@@ -130,7 +130,7 @@ v_0 = -\left(\frac{R_f}{R_1}v_1 + \frac{R_f}{R_2}v_2 + \ldots + \frac{R_f}{R_n}v
 
 ### Differential amplifier
 
-![Differential amplifier](/images/theory-of-electricity/differential-amp.jpg)
+![Differential amplifier](../../../images/theory-of-electricity/differential-amp.jpg)
 
 Used to amplify the difference between two input signals.
 
@@ -144,7 +144,7 @@ Otherwise, the output must be derived.
 
 ### Integrator
 
-![Integrator](/images/theory-of-electricity/integrator.jpg)
+![Integrator](../../../images/theory-of-electricity/integrator.jpg)
 
 Input is fed to inverting input terminal through a resistor $R$. Non-inverting
 input terminal is grounded. Negative feedback through a capacitor. Includes a
@@ -156,7 +156,7 @@ v_0 = -\frac{1}{RC}\int_0^t v_\text{in}\text{d}t
 
 ### Differentiator
 
-![Differentiator](/images/theory-of-electricity/differentiator.jpg)
+![Differentiator](../../../images/theory-of-electricity/differentiator.jpg)
 
 Input is fed to inverting input terminal through a capacitor $C$. Non-inverting
 input terminal is grounded. Negative feedback through a resistor $R$. Output is

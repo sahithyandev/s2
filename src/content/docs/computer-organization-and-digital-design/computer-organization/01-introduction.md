@@ -52,7 +52,7 @@ All bits of data can be loaded/read simultaneously through parallel lines. Commo
 
 <figure style="max-width: 800px; margin: 10px auto;">
 
-![4-bit Parallel-in Parallel-out Register](/images/codd/pipo-register.png)
+![4-bit Parallel-in Parallel-out Register](../../../../images/codd/pipo-register.png)
 
 <figcaption>
 
@@ -69,7 +69,7 @@ Data bits are loaded and read one bit at a time in a sequential manner. Data is 
 
 <figure style="max-width: 800px; margin: 10px auto;">
 
-![4-bit Serial-in Serial-out Register](/images/codd/siso-register.png)
+![4-bit Serial-in Serial-out Register](../../../../images/codd/siso-register.png)
 
 <figcaption>
 
@@ -97,7 +97,7 @@ Individual bits indicate status of ALU operations.
 
 <figure style="max-width: 800px; margin: 10px auto;">
 
-![](/images/codd/flagregister.png)
+![Flag register](../../../../images/codd/flagregister.png)
 
 <figcaption>
 

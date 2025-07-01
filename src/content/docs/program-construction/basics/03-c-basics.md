@@ -17,7 +17,7 @@ Memory layout in C is similar to the image below.
 
 <figure>
 
-![Memory layout in C](/images/program-construction/c-memory-layout.jpg)
+![Memory layout in C](../../../../images/program-construction/c-memory-layout.jpg)
 
 </figure>
 
