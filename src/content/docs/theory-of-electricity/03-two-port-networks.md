@@ -81,7 +81,7 @@ The parameters are found by setting $V_1$ and $V_2$ to $0$ in turn. Same as the 
 
 Denoted by $T$. Aka. ABCD parameters. Measures gain and transfer impedance and transfer admittance. $ $
 
-![Transmission parameters](../../../images/theory-of-electricity/transmission-parameters.jpg)
+![Transmission parameters](./images/transmission-parameters.jpg)
 
 ```math
 \begin{bmatrix}

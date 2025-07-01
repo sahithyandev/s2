@@ -29,7 +29,7 @@ Collection of memory chips.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Memory module organization](../../../../images/codd/memory-module-organization.jpg)
+![Memory module organization](./images/memory-module-organization.jpg)
 
 </figure>
 

@@ -263,7 +263,7 @@ a CLA:
 - Carry generate - means `C_out` will be created
 - Carry propogate - means `C_in` will be sent out as `C_out`
 
-![Carry Lookahead Adder](../../../../images/codd/carry-lookahead-adder.jpg)
+![Carry Lookahead Adder](./images/carry-lookahead-adder.jpg)
 
 ```math
 P_i = A_i \oplus B_i

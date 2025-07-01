@@ -9,7 +9,7 @@ next: true
 
 A digital logic component that compares two binary numbers.
 
-![Comparator](../../../../images/codd/comparator.jpg)
+![Comparator](./images/comparator.jpg)
 
 ## Equality Comparator
 

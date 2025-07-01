@@ -7,7 +7,7 @@ prev: true
 next: true
 ---
 
-![Transformer](../../../images/theory-of-electricity/transformer.jpg)
+![Transformer](./images/transformer.jpg)
 
 Always the dots in the primary and secondary coils will be opposing.
 

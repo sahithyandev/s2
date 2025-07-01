@@ -111,7 +111,7 @@ R_L = |Z_S| \quad \text{and}\quad P_\text{max} = \frac{E^2 |Z_S|}{2 |Z_S|(R_S+|Z
 
 ## Millmann's theorem
 
-![Millmann's theorem](../../../images/theory-of-electricity/millmanns-theorem.jpg)
+![Millmann's theorem](./images/millmanns-theorem.jpg)
 
 Suppose there are $n$ number of admittances which share a point $S$ and the
 other ends are open.
@@ -125,7 +125,7 @@ V_{\text{SN}} =
 
 ## Equivalent Generator theorem
 
-![Equivalent Generator theorem](../../../images/theory-of-electricity/equivalent-generator-theorem.jpg)
+![Equivalent Generator theorem](./images/equivalent-generator-theorem.jpg)
 
 An extension of Millmann's theorem. A system of voltage sources operating in
 parallel may be replaced by a single voltage source in series with an equivalent
@@ -147,7 +147,7 @@ Y_\text{eq}=
 
 ## Rosen's theorem
 
-![Rosen's theorem](../../../images/theory-of-electricity/rosens-theorem.jpg)
+![Rosen's theorem](./images/rosens-theorem.jpg)
 
 Used to convert star connected network to mesh equivalent. External conditions
 will not be affected.

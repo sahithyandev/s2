@@ -19,7 +19,7 @@ used to switch between the operations.
 
 <!-- No figcaption: source not available anymore -->
 
-![4-bit Adder-Subtractor](../../../../images/codd/adder-subtractor.jpg)
+![4-bit Adder-Subtractor](./images/adder-subtractor.jpg)
 
 In the above example, $M$ is the control. When $M=0$, it works as an adder.
 Otherwise it works as a subtractor.

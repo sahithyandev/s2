@@ -29,7 +29,7 @@ to the same AND gate, either directly or via other gates.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Example for Static-0 Hazard](../../../../images/codd/static-hazard-example.jpg)
+![Example for Static-0 Hazard](./images/static-hazard-example.jpg)
 
 <figcaption>
 
@@ -69,7 +69,7 @@ circuit has the potential for a dynamic hazard.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Example for Dynamic Hazard](../../../../images/codd/dynamic-hazard-example.jpg)
+![Example for Dynamic Hazard](./images/dynamic-hazard-example.jpg)
 
 <figcaption>
 

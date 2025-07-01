@@ -38,7 +38,7 @@ Even though analog signal is abstracted into digital, the analog characteristic
 can be observed when switching states. A non-ideal pulse will take a very short
 time to switch the states.
 
-![Non-ideal pulse](../../../../images/codd/non-ideal-pulse.jpg)
+![Non-ideal pulse](./images/non-ideal-pulse.jpg)
 
 ### Raise and fall time
 
@@ -107,7 +107,7 @@ aren't, special steps must be taken to interconnect those chips/building blocks.
 
 <figure style="max-width: 700px; margin: 10px auto;">
 
-![Examples for Logic Families](../../../../images/codd/logic_voltage_stds.jpg)
+![Examples for Logic Families](./images/logic_voltage_stds.jpg)
 
 <figcaption>
 

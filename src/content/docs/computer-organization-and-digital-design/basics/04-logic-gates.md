@@ -22,9 +22,9 @@ _functionally complete_.
 
 NAND and NOR gates are universal.
 
-![Universal NAND](../../../../images/codd/universal-nand.jpg)
+![Universal NAND](./images/universal-nand.jpg)
 
-![Universal NOR](../../../../images/codd/universal-nor.jpg)
+![Universal NOR](./images/universal-nor.jpg)
 
 ## Logical circuit representation
 
