@@ -1,5 +1,5 @@
 ---
-title: Theory of Electricity
+title: Introduction to Theory of Electricity
 sidebar:
   label: Introduction
   order: 1
