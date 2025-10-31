@@ -26,21 +26,6 @@ export const BOOK_CONFIG = {
 };
 
 /**
- * @type {Parameters<typeof starlight>[0]["head"]}
- */
-export const STARLIGHT_CONFIG_HEAD = [];
-if (process.env.NODE_ENV === "production") {
-  STARLIGHT_CONFIG_HEAD.push({
-    tag: "script",
-    attrs: {
-      defer: true,
-      "data-domain": "s2.sahithyan.dev",
-      src: "https://analytics.sahithyan.dev/js/script.js",
-    },
-  });
-}
-
-/**
  * @type {Parameters<typeof starlight>[0]["sidebar"]}
  */
 export const STARLIGHT_SIDEBAR_CONFIG = [
